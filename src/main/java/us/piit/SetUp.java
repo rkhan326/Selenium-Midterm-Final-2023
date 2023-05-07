@@ -3,6 +3,7 @@ package us.piit;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -21,8 +22,9 @@ import java.net.URL;
 import java.time.Duration;
 
     public class SetUp {
-        protected Logger log = LogManager.getLogger(us.piit.SetUp.class.getName());
+        Logger log = LogManager.getLogger(us.piit.SetUp.class.getName());
         WebDriver driver;
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
 
         public void getCloudDriver(String envName, String os, String osVersion, String browserName, String browserVersion, String username, String password) throws MalformedURLException {
             DesiredCapabilities cap = new DesiredCapabilities();
@@ -134,6 +136,21 @@ import java.time.Duration;
             }catch (Exception e){
                 return driver.findElement(By.xpath(locator)).isSelected();
             }
+        }
+//         public void scrollToElement(String locator){
+//              Actions actions = new Actions(driver);
+//               actions.scrollToElement(driver.findElement(By.xpath(locator))).build().perform();
+//               actions.scrollToElement(driver.findElement(By.cssSelector(locator))).build().perform();
+////             try {
+////                 actions.scrollToElement(driver.findElement(By.cssSelector(locator))).build().perform();
+////             }catch (Exception e){
+////                 actions.scrollToElement(driver.findElement(By.xpath(locator))).build().perform();
+////             }
+//         }
+        public void scrollToCoordinates(int x, int y){
+            Actions actions = new Actions(driver);
+                actions.scrollByAmount(0,300).build().perform();
+
         }
     }
 
