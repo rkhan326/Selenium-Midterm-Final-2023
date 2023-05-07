@@ -1,9 +1,12 @@
 package razia;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import us.piit.SetUp;
 
 public class LoginTest extends SetUp {
+    Logger log = LogManager.getLogger(LoginTest.class.getName());
     public void validCredential() {
         String expectedTitle = "My Account - Welcome to Worldwide Electronics Store";
         String actualTitle = getCurrentTitle();

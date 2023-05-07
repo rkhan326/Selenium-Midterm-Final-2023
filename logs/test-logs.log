@@ -1,0 +1,7 @@
+18:17:48.256 [main] INFO  us.piit.SetUp - chrome browser open success
+18:17:49.174 [main] INFO  razia.RegisterTest - Successfully entered Oussama's website
+18:17:50.724 [main] INFO  razia.RegisterTest - Click on My Account success
+18:17:54.158 [main] INFO  razia.RegisterTest - typing email success
+18:17:57.272 [main] INFO  razia.RegisterTest - typing password success
+18:18:00.355 [main] INFO  razia.RegisterTest - click on customer radio button success
+18:18:03.483 [main] INFO  us.piit.SetUp - browser close success
