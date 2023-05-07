@@ -1,16 +1,11 @@
 package razia;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import us.piit.SetUp;
 
-
-import static org.openqa.selenium.Platform.getCurrent;
-
-public class Login extends SetUp {
+public class LoginTest extends SetUp {
     public void validCredential() {
-        String expectedTitle = "Swag Labs";
+        String expectedTitle = "My Account - Welcome to Worldwide Electronics Store";
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         //enter  username, password, and click on login button
