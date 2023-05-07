@@ -14,13 +14,14 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
     public class SetUp {
-        Logger log = LogManager.getLogger(us.piit.SetUp.class.getName());
+        protected Logger log = LogManager.getLogger(us.piit.SetUp.class.getName());
         WebDriver driver;
 
         public void getCloudDriver(String envName, String os, String osVersion, String browserName, String browserVersion, String username, String password) throws MalformedURLException {
