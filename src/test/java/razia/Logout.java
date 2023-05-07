@@ -1,4 +1,4 @@
-package us.piit.razia;
+package razia;
 
 public class Logout {
 
