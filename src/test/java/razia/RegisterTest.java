@@ -63,6 +63,11 @@ public class RegisterTest extends SetUp {
         log.info("login page validation text match success");
 
     }
+//    String myAccountExpectedHeaderText = "My Account";
+//    String myAccountActualHeaderText = getElementText("//h1[@class = 'entry-title']");
+//        Assert.assertEquals(myAccountActualHeaderText,myAccountExpectedHeaderText);
+//        log.info("login page validation text match success");
+
 
 //    @Test
 //    public void registerNewVendor() {
