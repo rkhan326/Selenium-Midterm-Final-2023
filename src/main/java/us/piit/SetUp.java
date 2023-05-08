@@ -24,7 +24,6 @@ import java.time.Duration;
     public class SetUp {
         Logger log = LogManager.getLogger(us.piit.SetUp.class.getName());
         WebDriver driver;
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
 
         public void getCloudDriver(String envName, String os, String osVersion, String browserName, String browserVersion, String username, String password) throws MalformedURLException {
             DesiredCapabilities cap = new DesiredCapabilities();
@@ -149,7 +148,7 @@ import java.time.Duration;
 //         }
         public void scrollToCoordinates(int x, int y){
             Actions actions = new Actions(driver);
-                actions.scrollByAmount(0,300).build().perform();
+                actions.scrollByAmount(x,y).build().perform();
 
         }
     }
