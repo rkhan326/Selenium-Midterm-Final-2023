@@ -10,14 +10,14 @@
     <parameter name="browserName" value="chrome"></parameter>
     <parameter name="url" value="https://www.oussama-achour.com/#"></parameter>
 
-    <test name=" register test">
-        <classes>
-            <class name="razia.RegisterTest"></class>
-        </classes>
-   </test>
-<!--    <test name="logout test">-->
+<!--    <test name= "register test">-->
 <!--        <classes>-->
-<!--            <class name="us.piit.razia.LogoutTest"></class>-->
+<!--            <class name="razia.RegisterTest"></class>-->
 <!--        </classes>-->
-<!--    </test>-->
+<!--   </test>-->
+    <test name="login test">
+        <classes>
+            <class name="razia.LoginTest"></class>
+        </classes>
+    </test>
 </suite>
