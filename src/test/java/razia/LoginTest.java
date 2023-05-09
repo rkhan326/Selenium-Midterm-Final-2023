@@ -22,26 +22,34 @@ public class LoginTest extends SetUp {
         log.info("Click on My Account success");
         waitFor(2);
 
+        //Assert user lands on the login/register page
+        String loginRegisterPageExpectedHeaderText = "My Account";
+        String loginRegisterPageActualHeaderText = getElementText("//div[@class = 'u-column1 col-1']/h2/text()");
+        Assert.assertEquals(loginRegisterPageExpectedHeaderText, loginRegisterPageActualHeaderText);
+        log.info("user login/register page validation text match success");
+
         //enter  username
         typeText("#username", "rkhan326@gmail.com");
         log.info("enter username success");
         waitFor(2);
 
+        //enter  password
         typeText("#password", "HelloWorld123!");
         log.info("enter password success");
         waitFor(2);
 
+        //click on login button
         clickOn("//button[text() = 'Log in']");
         log.info("click on login button Success");
         waitFor(2);
 
-        //make sure user lands on login page successfully
-        boolean myAccountPageHeadedisDisplayed = isVisible("//h1[@class='entry-title']");
-        Assert.assertTrue(myAccountPageHeadedisDisplayed);
+        //make sure user lands on Homepage page successfully
+        boolean superDealsHeadedisDisplayed = isVisible("//a[@title = 'Super Deals']");
+        Assert.assertTrue(superDealsHeadedisDisplayed);
         log.info("My Account page header is displayed");
-        String myAccountExpectedHeaderText = "My Account";
-        String myAccountActualHeaderText = getElementText("//h1[@class='entry-title']");
-        Assert.assertEquals(myAccountActualHeaderText, myAccountExpectedHeaderText);
+        String homepageExpectedHeaderText = "My Account";
+        String homepageActualHeaderText = getElementText("//a[@title = 'Super Deals']");
+        Assert.assertEquals(homepageExpectedHeaderText, homepageActualHeaderText);
         log.info("user login page validation text match success");
     }
 
@@ -58,15 +66,23 @@ public class LoginTest extends SetUp {
         log.info("Click on My Account success");
         waitFor(2);
 
+        //Assert user lands on the login/register page
+        String loginRegisterPageExpectedHeaderText = "My Account";
+        String loginRegisterPageActualHeaderText = getElementText("//div[@class = 'u-column1 col-1']/h2/text()");
+        Assert.assertEquals(loginRegisterPageExpectedHeaderText, loginRegisterPageActualHeaderText);
+        log.info("user login/register page validation text match success");
+
         //enter  username
         typeText("#username", "rkhan326@gmail.com");
         log.info("enter username success");
         waitFor(2);
 
+        //enter  password
         typeText("#password", "HelloWorld122");
         log.info("enter password success");
         waitFor(2);
 
+        //click on login button
         clickOn("//button[text() = 'Log in']");
         log.info("click on login button Success");
         waitFor(2);

@@ -15,9 +15,14 @@
 <!--            <class name="razia.RegisterTest"></class>-->
 <!--        </classes>-->
 <!--   </test>-->
-    <test name="login test">
+<!--    <test name="login test">-->
+<!--        <classes>-->
+<!--            <class name="razia.LoginTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="logout test ">
         <classes>
-            <class name="razia.LoginTest"></class>
+            <class name="razia.LogoutTest"></class>
         </classes>
     </test>
 </suite>
