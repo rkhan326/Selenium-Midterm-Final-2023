@@ -32,8 +32,8 @@ public class LoginTest  extends SetUp {
         //check box on rememmber me
         clickOn("#rememberme");
         waitFor(3);
-        boolean isRememberMe = isChecked("#rememberme");;
-        Assert.assertTrue(isRememberMe);
+        boolean isRememberMeButton = isChecked("#rememberme");;
+        Assert.assertTrue(isRememberMeButton);
         log.info(" remember me check box  success");
 
         // click on login
@@ -71,8 +71,8 @@ public class LoginTest  extends SetUp {
         //check box on rememmber me
         clickOn("#rememberme");
         waitFor(3);
-        boolean isRememberMe = isChecked("#rememberme");;
-        Assert.assertTrue(isRememberMe);
+        boolean isRememberMeButton = isChecked("#rememberme");;
+        Assert.assertTrue(isRememberMeButton);
         log.info("remember me check box  success");
 
         // click on login
