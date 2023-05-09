@@ -8,16 +8,28 @@
     <parameter name="browserVersion" value="110"></parameter>
 
     <parameter name="browserName" value="chrome"></parameter>
-    <parameter name="url" value=""></parameter>
+    <parameter name="url" value="https://demo.nopcommerce.com/"></parameter>
 
-    <!--    <test name=" login test">-->
-    <!--        <classes>-->
-    <!--            <class name="us.piit.razia.LoginTest"></class>-->
-    <!--        </classes>-->]
-    <!--    </test>-->
-    <!--    <test name="logout test">-->
-    <!--        <classes>-->
-    <!--            <class name="us.piit.razia.LogoutTest"></class>-->
-    <!--        </classes>-->
-    <!--    </test>-->
+    <test name="Register Test">
+        <classes>
+            <class name="danish.RegisterTest"></class>
+        </classes>
+    </test>
+    <test name="login test">
+        <classes>
+            <class name="danish.LoginTest"></class>
+        </classes>
+    </test>
+
+<!--    <test name="Search Test">-->
+<!--        <classes>-->
+<!--            <class name="danish.SearchTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Shopping Card Test">-->
+<!--        <classes>-->
+<!--            <class name="danish.ShoppingCartTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
 </suite>
