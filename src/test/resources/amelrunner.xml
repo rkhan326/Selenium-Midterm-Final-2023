@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="saucedemo test">
+<suite name="scalledupit test">
     <parameter name="useCloudEnv" value="false"></parameter>
     <parameter name="envName" value="browserstack"></parameter>
     <parameter name="os" value="windows"></parameter>
@@ -8,16 +8,36 @@
     <parameter name="browserVersion" value="110"></parameter>
 
     <parameter name="browserName" value="chrome"></parameter>
-    <parameter name="url" value=""></parameter>
+    <parameter name="url" value="https://automation.scaledupit.com//"></parameter>
+<!--        <test name="login test">-->
+<!--            <classes>-->
+<!--                <class name="amel.LoginTest"></class>-->
+<!--            </classes>-->
+<!--        </test>-->
+<!--        <test name="purchase">-->
+<!--            <classes>-->
+<!--                <class name="amel.MakeAPurchase"></class>-->
+<!--            </classes>-->
+<!--        </test>-->
+<!--        <test name="logout">-->
+<!--            <classes>-->
+<!--                <class name="amel.LogoutTest"></class>-->
+<!--            </classes>-->
+<!--        </test>-->
+<!--    <test name="logout">-->
+<!--        <classes>-->
+<!--            <class name="piit.Coupons"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+        <test name="blog">
+            <classes>
+                <class name="amel.Blog"></class>
+            </classes>
+        </test>
+<!--    <test name="Register">-->
+<!--        <classes>-->
+<!--            <class name="amel.RegisterTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <!--    <test name=" login test">-->
-    <!--        <classes>-->
-    <!--            <class name="us.piit.razia.LoginTest"></class>-->
-    <!--        </classes>-->]
-    <!--    </test>-->
-    <!--    <test name="logout test">-->
-    <!--        <classes>-->
-    <!--            <class name="us.piit.razia.LogoutTest"></class>-->
-    <!--        </classes>-->
-    <!--    </test>-->
 </suite>

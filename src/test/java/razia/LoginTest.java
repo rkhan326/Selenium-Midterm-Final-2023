@@ -26,7 +26,6 @@ public class LoginTest extends SetUp {
         typeText("#username", "rkhan326@gmail.com");
         log.info("enter username success");
         waitFor(2);
-
         typeText("#password", "HelloWorld123!");
         log.info("enter password success");
         waitFor(2);
