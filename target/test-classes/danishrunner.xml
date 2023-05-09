@@ -10,16 +10,17 @@
     <parameter name="browserName" value="chrome"></parameter>
     <parameter name="url" value="https://demo.nopcommerce.com/"></parameter>
 
- <test name="login test">
-        <classes>
-            <class name="danish.login"></class>
-        </classes>
-    </test>
     <test name="Register Test">
         <classes>
             <class name="danish.RegisterTest"></class>
         </classes>
     </test>
+    <test name="login test">
+        <classes>
+            <class name="danish.LoginTest"></class>
+        </classes>
+    </test>
+
 <!--    <test name="Search Test">-->
 <!--        <classes>-->
 <!--            <class name="danish.SearchTest"></class>-->
@@ -27,7 +28,7 @@
 <!--    </test>-->
 <!--    <test name="Shopping Card Test">-->
 <!--        <classes>-->
-<!--            <class name="danish.ShoppingCardTest"></class>-->
+<!--            <class name="danish.ShoppingCartTest"></class>-->
 <!--        </classes>-->
 <!--    </test>-->
 
