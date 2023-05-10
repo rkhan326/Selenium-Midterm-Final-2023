@@ -69,8 +69,8 @@ public class Blog extends SetUp {
         clickOn("//p[@class='comment-form-cookies-consent']/input");
         log.info("check box on Save my name, email, and website in this browser for the next time I comment success ");
         waitFor(3);
-        boolean Save = isChecked("//p[@class='comment-form-cookies-consent']/input");;
-        Assert.assertTrue(Save);
+        boolean SaveButton = isChecked("//p[@class='comment-form-cookies-consent']/input");;
+        Assert.assertTrue(SaveButton);
         log.info(" Save my name, email, and website in this browser for the next time I comment , check box   success");
 
         // click on submit button
