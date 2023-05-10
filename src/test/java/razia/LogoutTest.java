@@ -66,9 +66,19 @@ public class LogoutTest extends SetUp {
         String loginRegisterPageActualHeaderTextAfterLogout = getElementText("//div[@class = 'u-column1 col-1']/h2");
         Assert.assertEquals(loginRegisterPageExpectedHeaderTextAfterLogout, loginRegisterPageActualHeaderTextAfterLogout);
         log.info("user login/register page validation text match success");
-
-
-
     }
-    ////div[@class='woocommerce-MyAccount-content']/p[1]/a[1]     ->logout Button2
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+////div[@class='woocommerce-MyAccount-content']/p[1]/a[1]     ->logout Button2
