@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -14,14 +15,25 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+import us.piit.utility.Utility;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.Properties;
 
-    public class CommonAPI {
+public class CommonAPI {
         Logger log = LogManager.getLogger(CommonAPI.class.getName());
+
+        Properties prop = Utility.loadProperties();
+        String browserstackUsername = prop.getProperty("browserstack.username");
+        String browserstackPassword = prop.getProperty("browserstack.password");
+
+        String implicitWait = prop.getProperty("implicit.wait","5");
+        String windowMaximize = prop.getProperty("browser.maximize","true");
+        String takeScreenshots = prop.getProperty("take.screenshots","false");
         WebDriver driver;
+
 
         public void getCloudDriver(String envName, String os, String osVersion, String browserName, String browserVersion, String username, String password) throws MalformedURLException {
             DesiredCapabilities cap = new DesiredCapabilities();
@@ -29,43 +41,46 @@ import java.time.Duration;
             cap.setCapability("os_version", osVersion);
             cap.setCapability("browser", browserName);
             cap.setCapability("browser_version", browserVersion);
-            if (envName.equalsIgnoreCase("browserstack")){
+            if (envName.equalsIgnoreCase("browserstack")) {
                 cap.setCapability("resolution", "1024x768");
-                driver = new RemoteWebDriver(new URL("http://"+username+":"+password+"@hub-cloud.browserstack.com:80/wd/hub"),cap);
+                driver = new RemoteWebDriver(new URL("http://" + username + ":" + password + "@hub-cloud.browserstack.com:80/wd/hub"), cap);
             } else if (envName.equalsIgnoreCase("saucelabs")) {
-                driver = new RemoteWebDriver(new URL("http://"+username+":"+password+"@ondemand.saucelabs.com:80/wd.hub"),cap);
+                driver = new RemoteWebDriver(new URL("http://" + username + ":" + password + "@ondemand.saucelabs.com:80/wd.hub"), cap);
             }
         }
 
-        public void getLocalDriver(String browserName){
-            if (browserName.equalsIgnoreCase("chrome")){
+        public void getLocalDriver(String browserName) {
+            if (browserName.equalsIgnoreCase("chrome")) {
                 driver = new ChromeDriver();
                 log.info("chrome browser open success");
-            }else if (browserName.equalsIgnoreCase("firefox")){
+            } else if (browserName.equalsIgnoreCase("firefox")) {
                 driver = new FirefoxDriver();
                 log.info("firefox browser open success");
-            }else if (browserName.equalsIgnoreCase("edge")){
+            } else if (browserName.equalsIgnoreCase("edge")) {
                 driver = new EdgeDriver();
                 log.info("edge browser open success");
             }
         }
 
-        @Parameters({"useCloudEnv","envName","os","osVersion","browserName","browserVersion","url"})
+        @Parameters({"useCloudEnv", "envName", "os", "osVersion", "browserName", "browserVersion", "url"})
         @BeforeMethod
         public void setUp(@Optional("false") String useCloudEnv, @Optional("browserstack") String envName, @Optional("windows") String os,
                           @Optional("10") String osVersion, @Optional("chrome") String browserName, @Optional("110") String browserVersion,
                           @Optional("https://www.google.com") String url) throws MalformedURLException {
-            if (useCloudEnv.equalsIgnoreCase("true")){
-                getCloudDriver(envName,os,osVersion,browserName,browserVersion,"mohammadtaseen_JXBGzu","Kfir1hMhAFD2zyjCiMzm");
-            }else if(useCloudEnv.equalsIgnoreCase("false")){
+            if (useCloudEnv.equalsIgnoreCase("true")) {
+                getCloudDriver(envName, os, osVersion, browserName, browserVersion, browserstackUsername, browserstackPassword);
+            } else if (useCloudEnv.equalsIgnoreCase("false")) {
                 getLocalDriver(browserName);
             }
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(implicitWait)));
+            if (windowMaximize.equalsIgnoreCase("true")){
+                driver.manage().window().maximize();
+            }
             driver.get(url);
         }
+
         @AfterMethod
-        public void tearDown(){
+        public void tearDown() {
             //close browser
             driver.quit();
             log.info("browser close success");
@@ -74,67 +89,26 @@ import java.time.Duration;
         //------------------------------------------------------------------------------------------------------------------
         //                                              selenium methods
         //------------------------------------------------------------------------------------------------------------------.
-        public String getCurrentTitle(){
-            return driver.getTitle();
-        }
-        public String getElementText(String locator){
-            try {
-                return driver.findElement(By.cssSelector(locator)).getText();
-            }catch (Exception e){
-                return driver.findElement(By.xpath(locator)).getText();
-            }
-        }
-        public void clickOn(String locator){
-            try {
-                driver.findElement(By.cssSelector(locator)).click();
-            }catch (Exception e){
-                driver.findElement(By.xpath(locator)).click();
-            }
-        }
-        public void typeText(String locator, String text){
-            try {
-                driver.findElement(By.cssSelector(locator)).sendKeys(text);
-            }catch (Exception e){
-                driver.findElement(By.xpath(locator)).sendKeys(text);
-            }
-        }
-        public void hoverOver(String locator){
+        public WebDriver getDriver() {return driver;}
+        public String getCurrentTitle() {return driver.getTitle();}
+        public String getElementText(WebElement element) {return element.getText();}
+        public void clickOn(WebElement element) {element.click();}
+        public void typeText(WebElement element, String text) {element.sendKeys(text);}
+        public void hoverOver(WebElement element) {
             Actions actions = new Actions(driver);
-            try {
-                actions.moveToElement(driver.findElement(By.cssSelector(locator))).build().perform();
-            }catch (Exception e){
-                actions.moveToElement(driver.findElement(By.xpath(locator))).build().perform();
-            }
+            actions.moveToElement(element).build().perform();
         }
-        public void waitFor(int seconds){
-            try {
-                Thread.sleep(seconds * 1000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+        public void hoverOverAndClick(WebElement element) {
+            Actions actions = new Actions(driver);
+            actions.moveToElement(element).click().build().perform();
         }
-        public boolean isVisible(String locator){
-            try {
-                return driver.findElement(By.cssSelector(locator)).isDisplayed();
-            }catch (Exception e){
-                return driver.findElement(By.xpath(locator)).isDisplayed();
-            }
-        }
-        public boolean isInteractible(String locator){
-            try {
-                return driver.findElement(By.cssSelector(locator)).isEnabled();
-            }catch (Exception e){
-                return driver.findElement(By.xpath(locator)).isEnabled();
-            }
-        }
-        public boolean isChecked(String locator){
-            try {
-                return driver.findElement(By.cssSelector(locator)).isSelected();
-            }catch (Exception e){
-                return driver.findElement(By.xpath(locator)).isSelected();
-            }
-        }
-//         public void scrollToElement(String locator){
+        public boolean isVisible(WebElement element) {return element.isDisplayed();}
+
+        public boolean isInteractible(WebElement element) {return element.isEnabled();}
+
+        public boolean isChecked(WebElement element) {return element.isSelected();}
+
+        //         public void scrollToElement(String locator){
 //              Actions actions = new Actions(driver);
 //               actions.scrollToElement(driver.findElement(By.xpath(locator))).build().perform();
 //               actions.scrollToElement(driver.findElement(By.cssSelector(locator))).build().perform();
@@ -144,10 +118,21 @@ import java.time.Duration;
 ////                 actions.scrollToElement(driver.findElement(By.xpath(locator))).build().perform();
 ////             }
 //         }
-        public void scrollToCoordinates(int x, int y){
+        public void scrollToCoordinates(int x, int y) {
             Actions actions = new Actions(driver);
-                actions.scrollByAmount(x,y).build().perform();
+            actions.scrollByAmount(x, y).build().perform();
+        }
+        public void scrollToView(WebElement element){
+            Actions actions = new Actions(driver);
+            actions.moveToElement(element).build().perform();
+        }
 
+        public void waitFor(int seconds) {
+            try {
+                Thread.sleep(seconds * 1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
