@@ -6,12 +6,14 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
+import us.piit.pages.oussamaachourpages.HomePage;
 
 public class RegisterTest extends CommonAPI {
    Logger log = LogManager.getLogger(oussamaachourtest.RegisterTest.class.getName());
 
     @Test
     public void registerNewCustomer() {
+        HomePage homePage = new HomePage(getDriver()):
         //ensure we are on the correct website
         String actualTitle = getCurrentTitle();
         String expectedTitle = "Welcome to Worldwide Electronics Store";
@@ -19,9 +21,7 @@ public class RegisterTest extends CommonAPI {
         log.info("Successfully entered Oussama's website");
 
         //click on my account
-        clickOn("//a[@title = 'My Account']");
-        log.info("Click on My Account success");
-        waitFor(2);
+        homePage.clickOnMyAccountBtn();
 
         //enter username
         typeText("//input[@id ='reg_email' ]", "marziahaque02@gmail.com");

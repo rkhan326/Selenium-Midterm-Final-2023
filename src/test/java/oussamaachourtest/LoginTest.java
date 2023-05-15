@@ -5,37 +5,37 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
+import us.piit.pages.oussamaachourpages.HomePage;
+import us.piit.pages.oussamaachourpages.LoginPage;
+import us.piit.pages.oussamaachourpages.MyAccountPage;
 
 public class LoginTest extends CommonAPI {
     Logger log = LogManager.getLogger(LoginTest.class.getName());
 
+
+
     @Test
     public void validCredential() {
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        MyAccountPage myAccountPage = new MyAccountPage(getDriver());
 
-        //ensure we are on the correct website
+        //Assert we are on the correct website
         String expectedTitle = "Welcome to Worldwide Electronics Store";
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
 
-        //click on my account
-        clickOn("//a[@title = 'My Account']");
-        log.info("Click on My Account success");
-        waitFor(2);
+        //click on my account btn on homepage
+        homePage.clickOnMyAccountLink();
 
-        //enter  username
-        typeText("#username", "rkhan326@gmail.com");
-        log.info("enter username success");
-        waitFor(2);
+        // enter username, password and click on login btn on login page
+        loginPage.enterUsername("rkhan326@gmail.com");
+        loginPage.enterPassword("HelloWorld123!");
+        loginPage.clickOnLoginBtn();
 
-        typeText("#password", "HelloWorld123!");
-        log.info("enter password success");
-        waitFor(2);
-
-        clickOn("//button[text() = 'Log in']");
-        log.info("click on login button Success");
-        waitFor(2);
 
         //make sure user lands on login page successfully
+
         boolean myAccountPageHeadedisDisplayed = isVisible("//h1[@class='entry-title']");
         Assert.assertTrue(myAccountPageHeadedisDisplayed);
         log.info("My Account page header is displayed");
@@ -47,29 +47,19 @@ public class LoginTest extends CommonAPI {
 
     @Test
     public void invalidPassword() {
-
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         //ensure we are on the correct website
         String expectedTitle = "Welcome to Worldwide Electronics Store";
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
 
         //click on my account
-        clickOn("//a[@title = 'My Account']");
-        log.info("Click on My Account success");
-        waitFor(2);
-
-        //enter  username
-        typeText("#username", "rkhan326@gmail.com");
-        log.info("enter username success");
-        waitFor(2);
-
-        typeText("#password", "HelloWorld122");
-        log.info("enter password success");
-        waitFor(2);
-
-        clickOn("//button[text() = 'Log in']");
-        log.info("click on login button Success");
-        waitFor(2);
+        MyAccountPage.clickOnMyAccountLink();
+        loginPage.enterUsername("rkhan326@gmail.com");
+        loginPage.enterPassword("HelloWorld123");
+        loginPage.clickOnLoginBtn();
 
         //validate error message
         boolean errorMessageIsDisplayed = isVisible("//li[text()=\" The password you entered for the email address \"]");
