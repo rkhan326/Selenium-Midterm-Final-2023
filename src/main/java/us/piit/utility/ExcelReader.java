@@ -2,6 +2,7 @@ package us.piit.utility;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.util.JsonUtils;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -13,6 +14,9 @@ import java.util.List;
 
 public class ExcelReader {
     private final Logger LOG = LogManager.getLogger(ExcelReader.class.getName());
+
+    public static String currentDir = System.getProperty("user-dir");
+
 
     XSSFWorkbook excelWBook;
     XSSFSheet excelWSheet;
@@ -91,7 +95,9 @@ public class ExcelReader {
     }
 
     public static void main(String[] args)  {
-        String path = "C:\\Users\\PNT\\eclipse-workspace\\Feb2023-web-automation-framework\\data\\data.xlsx";
+
+
+        String path = "//Users/danish/IdeaProjects/Selenium-Midterm-Final-2023/Selenium-Midterm-Final-2023/data/data.xlsx";
         ExcelReader excelReader = new ExcelReader(path);
         System.out.println(excelReader.getValueForGivenHeaderAndKey("data","ID","101"));
 //        List<String> items = excelReader.getEntireColumnForGivenHeader("Sheet1", "id");
