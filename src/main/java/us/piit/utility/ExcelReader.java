@@ -97,7 +97,7 @@ public class ExcelReader {
     public static void main(String[] args)  {
 
 
-        String path = "//Users/danish/IdeaProjects/Selenium-Midterm-Final-2023/Selenium-Midterm-Final-2023/data/data.xlsx";
+        String path = "C:\\Users\\Amel Boucetta Gacem\\eclipse-workspace\\Selenium-Midterm-Final-2023\\data\\data.xlsx";
         ExcelReader excelReader = new ExcelReader(path);
         System.out.println(excelReader.getValueForGivenHeaderAndKey("data","ID","101"));
 //        List<String> items = excelReader.getEntireColumnForGivenHeader("Sheet1", "id");

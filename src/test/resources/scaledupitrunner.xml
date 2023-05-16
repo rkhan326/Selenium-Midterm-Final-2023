@@ -9,35 +9,35 @@
 
     <parameter name="browserName" value="chrome"></parameter>
     <parameter name="url" value="https://automation.scaledupit.com//"></parameter>
-<!--            <test name="login test">-->
+<!--                <test name="login test">-->
+<!--                    <classes>-->
+<!--                        <class name="scaledupittest.LoginTest"></class>-->
+<!--                    </classes>-->
+<!--                </test>-->
+                <test name="search test">
+                    <classes>
+                        <class name="scaledupittest.SearchTest"></class>
+                    </classes>
+                </test>
+<!--                <test name="logout test">-->
+<!--                    <classes>-->
+<!--                        <class name="scaledupittest.LogoutTest"></class>-->
+<!--                    </classes>-->
+<!--                </test>-->
+<!--            <test name="search ">-->
 <!--                <classes>-->
-<!--                    <class name="scaledupittest.LoginTest"></class>-->
+<!--                    <class name="scaledupittest.AddToCartTest"></class>-->
 <!--                </classes>-->
 <!--            </test>-->
-<!--            <test name="purchase test">-->
-<!--                <classes>-->
-<!--                    <class name="scaledupittest.MakeAPurchaseTest"></class>-->
-<!--                </classes>-->
-<!--            </test>-->
-<!--            <test name="logout test">-->
-<!--                <classes>-->
-<!--                    <class name="scaledupittest.LogoutTest"></class>-->
-<!--                </classes>-->
-<!--            </test>-->
-<!--        <test name="coupons">-->
+<!--        <test name="blog test">-->
 <!--            <classes>-->
-<!--                <class name="scaledupittest.Coupons"></class>-->
+<!--                <class name="scaledupittest.BlogTest"></class>-->
 <!--            </classes>-->
 <!--        </test>-->
-<!--    <test name="blog test">-->
+<!--    <test name="Register test">-->
 <!--        <classes>-->
-<!--            <class name="scaledupittest.BlogTest"></class>-->
+<!--            <class name="scaledupittest.RegistrationTest"></class>-->
 <!--        </classes>-->
 <!--    </test>-->
-        <test name="Register test">
-            <classes>
-                <class name="scaledupittest.RegisterTest"></class>
-            </classes>
-        </test>
 
 </suite>
