@@ -5,89 +5,121 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
+import us.piit.pages.scaledupitpages.HomePage;
+import us.piit.pages.scaledupitpages.LoginPage;
+import us.piit.utility.Utility;
+
+import java.util.Properties;
 
 public class LoginTest  extends CommonAPI {
     Logger log = LogManager.getLogger(LoginTest.class.getName());
 
+    Properties prop = Utility.loadProperties();
+
+    String validUsername = Utility.decode(prop.getProperty("scalledupit.username"));
+    String validPassword = Utility.decode(prop.getProperty("scalledupit.password"));
+
+
     @Test
     public void validCred() {
 
-        // user landed successfully to the website
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
         String expectedTitle = "Automation – Automate eCommerce";
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
-
-        // click on Register/Login
-        clickOn("//a[text()='Login/Register']");
-        log.info("click on login/Register button success");
-
-        // enter username
-        typeText("//input[@id='username']", "boucettaamel811@gmail.com");
-        log.info("enter username success");
-
-        // enter a password
-        typeText("//input[@id='password']", "scaledupittest");
-        log.info("enter password success");
-
-        //check box on rememmber me
-        clickOn("#rememberme");
+        log.info("user landed successfully to the website ");
         waitFor(3);
-        boolean isRememberMeButton = isChecked("#rememberme");;
-        Assert.assertTrue(isRememberMeButton);
-        log.info(" remember me check box  success");
 
-        // click on login
-        clickOn("// button[@name='login']");
-        log.info("click on login button success");
+        // click on register/login
+        homePage.clickOnSignInButton();
         waitFor(3);
+
+        // enter username , password and click login
+        loginPage.enterUsername(validUsername);
+        waitFor(3);
+        loginPage.enterPassword(validPassword);
+        waitFor(3);
+        loginPage.clickOnLoginBtn();
+        waitFor(3);
+
+
 
         // check user is logged in
-        String expectedText = "My account";
-        String actualText = getElementText("//h1[text()='My account']");
-        Assert.assertEquals(expectedText, actualText);
-        log.info("user logged in success");
+        String expectedLoginPageHeader = "Hello boucettaamel811 (not boucettaamel811? Log out)";
+        String actualLoginPageHeader = loginPage.getMainLoginPageHeadertext();
+        Assert.assertEquals(expectedLoginPageHeader,actualLoginPageHeader);
+        log.info("user  logged in success");
+        waitFor(3);
 
     }
-
     @Test
-    public void missingpassword() {
-        // user landed to the website
+    public void missingusername() {
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
         String expectedTitle = "Automation – Automate eCommerce";
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
-
-        // click on Rgister/Login
-        clickOn("//a[text()='Login/Register']");
-        log.info("click on login/Register button success");
-
-        // enter username
-        typeText("//input[@id='username']", "boucettaamel811@gmail.com"); // accept xpath and ccs
-        log.info("enter username success");
-
-        // missing password
-        typeText("//input[@id='password']", "");
-        log.info(" password not entered success");
-
-        //check box on rememmber me
-        clickOn("#rememberme");
-        waitFor(3);
-        boolean isRememberMeButton = isChecked("#rememberme");;
-        Assert.assertTrue(isRememberMeButton);
-        log.info("remember me check box  success");
-
-        // click on login
-        clickOn("// button[@name='login']");
-        log.info("click on login button success");
+        log.info("user landed successfully to the website ");
         waitFor(3);
 
-        // validate error message
-        String expectedError = "Error: The password field is empty.";
-        String actualError = getElementText("//div[@class='woocommerce-notices-wrapper']/ul[1]/li[1]");
-        log.info("validate error message");
+        homePage.clickOnSignInButton();
+        loginPage.enterPassword(validPassword);
+        loginPage.clickOnLoginBtn();
+
+
+        // check error message
+        String expectedError = "Error: Username is required.";
+        String actualError = loginPage.getErrorMessage();
+        Assert.assertEquals(expectedError, actualError);
+        log.info("error message validate  success");
 
     }
+    @Test
+    public void missingpassword() {
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        String expectedTitle = "Automation – Automate eCommerce";
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+        log.info("user landed successfully to the website ");
+        waitFor(3);
+
+        homePage.clickOnSignInButton();
+        loginPage.enterUsername(validUsername);
+        loginPage.clickOnLoginBtn();
+
+
+        // check error message
+        String expectedError2 = "Error: The password field is empty.";
+        String actualError2 = loginPage.getErrorMessage();
+        Assert.assertEquals(expectedError2, actualError2);
+        log.info("error message validate  success");
+
+    }
+    @Test
+    public void invalidCred() {
+
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        String expectedTitle = "Automation – Automate eCommerce";
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+        log.info("user landed successfully to the website ");
+        waitFor(3);
+
+        homePage.clickOnSignInButton();
+        loginPage.enterUsername("invalidUsername");
+        loginPage.enterPassword(validPassword);
+        loginPage.clickOnLoginBtn();
+
+
+        // check user is logged in
+        String expectedError3 = "Error: The username invalidUsername is not registered on this site. If you are unsure of your username, try your email address instead.";
+        String actualError3 = loginPage.getErrorMessage();
+        Assert.assertEquals(expectedError3, actualError3);
+        log.info("error message validate  success");
+
+    }
+
 }
-
-
-
-

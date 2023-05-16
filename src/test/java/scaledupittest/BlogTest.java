@@ -2,84 +2,92 @@ package scaledupittest;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
+import us.piit.pages.scaledupitpages.AddToCartPage;
+import us.piit.pages.scaledupitpages.BlogPage;
+import us.piit.pages.scaledupitpages.HomePage;
+import us.piit.utility.Utility;
+
+import java.util.Properties;
 
 public class BlogTest extends CommonAPI {
     Logger log = LogManager.getLogger(BlogTest.class.getName());
 
+    Properties prop = Utility.loadProperties();
 
     @Test
-    public void addComment(){
-
-        // user is landed on the website
+    public void AddComment() {
+        HomePage homePage = new HomePage(getDriver());
+        BlogPage blogPage = new BlogPage(getDriver());
         String expectedTitle = "Automation – Automate eCommerce";
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
-
-        //  click on Blog
-        clickOn("//li[@id='menu-item-292']/a[1]");
-        log.info("click on blog success");
+        log.info("user landed successfully to the website ");
         waitFor(3);
 
-        //scroll to read more  button
-        scrollToCoordinates(0,3000);
+        // click on blog button
+        homePage.clickOnBlogButton();
         waitFor(3);
-        boolean readMoreButtonVisibile = isVisible("//a[@href='https://automation.scaledupit.com/2017/12/03/fun-in-shop/ ']\t");
-        Assert.assertTrue(readMoreButtonVisibile);
-        log.info("scroll to read more success");
+
+        // check user is land to the blog page
+        String expectedBlogPageHeader = "Blog";
+        String actualBlogPageHeader = blogPage.getBlogPageHeadertext();
+        Assert.assertEquals(expectedBlogPageHeader,actualBlogPageHeader);
+        log.info("user landed to the blog page success");
+        waitFor(3);
+
+        // scroll to read more button
+        scrollToElement(0,3000);
         waitFor(3);
 
         // click on read more button
-        clickOn("//a[@href='https://automation.scaledupit.com/2017/12/03/fun-in-shop/ ']\t\t");
-        log.info("click on read more success");
+        blogPage.clickOnReadMoreButton();
         waitFor(3);
 
-        // scroll to leave comment
-        scrollToCoordinates(0,2500);
-        waitFor(3);
-        boolean leaveCommentVisibile = isVisible(".comment-reply-title");
-        Assert.assertTrue(leaveCommentVisibile);
-        log.info("scroll to leave comment success");
-        waitFor(3);
-
-        // enter  comment
-        typeText("#comment","I like this page too much ");
-        log.info("enter comment success");
+        // check user is landed to the fun in shop page
+        String expectedtitle = "Fun in Shop – Automation";
+        String actualtitle = getCurrentTitle();
+        Assert.assertEquals(expectedtitle,actualtitle);
+        log.info("user landed to the fun in shop page success");
         waitFor(3);
 
-        // enter Name
-        typeText("input[name='author']","Amel  ");
-        log.info("enter Name success");
+        // scroll to add comment
+        scrollToElement(0,2500);
         waitFor(3);
 
-        // enter email
-        typeText("//input[contains(@name,'email')]","boucettaamel8@gmail.com ");
-        log.info("enter email success");
+        // enter comment , name,email,url
+        blogPage.enterComment("i like this page very well , I need more details  ");
         waitFor(3);
 
-        // enter url website
-        typeText("#url","https://automation.scaledupit.com//");
-        log.info("enter Url website success");
+        blogPage.entername("boucetta amoula gacem");
+        waitFor(3);
+
+        blogPage.enteremail("mamiboumoulagacouma4@gmail.com");
+        waitFor(3);
+
+        blogPage.enterUrl("https://automation.scaledupit.com/");
         waitFor(3);
 
         //check box on Save my name, email, and website in this browser for the next time I comment.
-        clickOn("//p[@class='comment-form-cookies-consent']/input");
-        log.info("check box on Save my name, email, and website in this browser for the next time I comment success ");
+        blogPage.clickOnSaveButton();
         waitFor(3);
-        boolean SaveButton = isChecked("//p[@class='comment-form-cookies-consent']/input");;
-        Assert.assertTrue(SaveButton);
+
+
+        // chech save check box
+        Assert.assertTrue(blogPage.isSaveButtonChecked());
         log.info(" Save my name, email, and website in this browser for the next time I comment , check box   success");
 
         // click on submit button
-        clickOn("input[id='submit']");
+        blogPage.clickOnSubmitButton();
         log.info("click on submit button success");
         waitFor(3);
 
-        // check user has add comment
+        // check user has added comment
         String expectedText = "Your comment is awaiting moderation.";
-        String actualText = getElementText(".comment-awaiting-moderation");
+        String actualText = blogPage.getcommentHeadertext();
         Assert.assertEquals(expectedText, actualText);
         log.info("comment added success");
 
@@ -88,6 +96,5 @@ public class BlogTest extends CommonAPI {
 
 
 }
-
 
 
