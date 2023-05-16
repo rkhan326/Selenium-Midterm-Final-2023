@@ -13,7 +13,7 @@ public class RegisterTest extends CommonAPI {
 
     @Test
     public void registerNewCustomer() {
-        HomePage homePage = new HomePage(getDriver()):
+        HomePage homePage = new HomePage(getDriver());
         //ensure we are on the correct website
         String actualTitle = getCurrentTitle();
         String expectedTitle = "Welcome to Worldwide Electronics Store";

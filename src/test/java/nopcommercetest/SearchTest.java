@@ -5,22 +5,24 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
+import us.piit.pages.nopcommercepages.SearchPage;
 
 public class SearchTest extends CommonAPI {
 
     Logger log= LogManager.getLogger(SearchTest.class.getName());
+    String typeMacbook= "macbook";
 
     @Test
     public void searchBoxIsWork () {
+
+        SearchPage searchPage = new SearchPage(getDriver());
+
         //type "macbook" on search box
-        typeText("//input[@id='small-searchterms']","macbook" );
-        log.info("type macbook in search box success");
+        searchPage.typeInSearchBox(typeMacbook);
         waitFor(1);
 
         // click search button
-
-        clickOn("//button[@class='button-1 search-box-button']");
-        log.info("search button click success");
+        searchPage.clickOnSearchBtn();
         waitFor(1);
 
         //ensure we are successfully search page
