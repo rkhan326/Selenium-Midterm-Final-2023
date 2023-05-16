@@ -18,9 +18,9 @@ public class MyAccountPage extends CommonAPI {
     WebElement myAccountHeader;
 
     public boolean checkPresenceOfMyAccountHeader(){
-        boolean myAccountPageHeadedisDisplayed = isVisible(myAccountHeader);
+        boolean myAccountPageHeaderisDisplayed = isVisible(myAccountHeader);
         log.info("My Account page header is displayed");
-        return myAccountPageHeadedisDisplayed;
+        return myAccountPageHeaderisDisplayed;
     }
 
     public String getMyAccountHeaderText(){

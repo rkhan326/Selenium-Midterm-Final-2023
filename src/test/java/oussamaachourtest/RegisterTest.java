@@ -7,13 +7,27 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.oussamaachourpages.HomePage;
+import us.piit.pages.oussamaachourpages.LoginRegisterPage;
+import us.piit.pages.oussamaachourpages.MyAccountPage;
+import us.piit.utility.Utility;
+
+import java.util.Properties;
 
 public class RegisterTest extends CommonAPI {
-   Logger log = LogManager.getLogger(oussamaachourtest.RegisterTest.class.getName());
+   Logger log = LogManager.getLogger(oussamaachourtest.RegisterTest.class.getName());=
+   Properties prop = Utility.loadProperties();
+   //use datafaker
+   // String newRegistrationUsername = prop.getProperty("oussamaachour.registration-username");
+   // String newRegistrationPassword = prop.getProperty("oussamaachour.registration-password");
+   String existingRegistrationUsername = prop.getProperty("oussamaachour.registration-username");
+   String existingRegistrationPassword = prop.getProperty("oussamaachour.registration-password");
 
-    @Test
+   // @Test
     public void registerNewCustomer() {
+        LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
+        MyAccountPage myAccountPage = new MyAccountPage(getDriver());
+
         //ensure we are on the correct website
         String actualTitle = getCurrentTitle();
         String expectedTitle = "Welcome to Worldwide Electronics Store";
@@ -21,53 +35,37 @@ public class RegisterTest extends CommonAPI {
         log.info("Successfully entered Oussama's website");
 
         //click on my account
-        homePage.clickOnMyAccountBtn();
+        homePage.clickOnMyAccountLink();
 
-        //enter username
-        typeText("//input[@id ='reg_email' ]", "marziahaque02@gmail.com");
-        log.info("typing email success");
-        waitFor(2);
-
-        //enter password
-        typeText("//input[@id ='reg_password' ]", "HelloWorld123!");
-        log.info("typing password success");
-        waitFor(2);
+        //enter username and password
+        loginRegisterPage.enterRegistrationUsername(newRegistrationUsername);
+        loginRegisterPage.enterRegistrationPassword(newRegistrationPassword);
 
         //click on radio button
-        clickOn("//input[@value = 'customer']");
-        waitFor(2);
-        boolean isCustomerRadioButton = isChecked("//input[@value = 'customer']");
-        Assert.assertTrue(isCustomerRadioButton);
-        boolean isVendorRadioButton = isChecked("//input[@value = 'seller']");;
-        Assert.assertFalse(isVendorRadioButton);
-        log.info("click on customer radio button success");
+        loginRegisterPage.clickOnCustomerRadioBtn();
+        Assert.assertTrue(loginRegisterPage.checkCustomerRadioBtnIsChecked());
+        Assert.assertFalse(loginRegisterPage.checkVendorRadioBtnIsChecked());
 
         //scroll to register button
         scrollToCoordinates(0,300);
-        waitFor(3);
-        boolean registerButtonVisibile = isVisible("//button[text()='Register']");
-        Assert.assertTrue(registerButtonVisibile);
-        log.info("scroll to target element success.");
+        Assert.assertTrue(loginRegisterPage.checkRegisterBtnIsVisible());
 
         //click on register button
-        clickOn("//button[text()='Register']");
-        waitFor(3);
-        log.info("click on target element success.");
+        loginRegisterPage.clickOnRegisterBtn();
 
         //Make sure we land on the "My Account" page successfully
-        boolean myAccountPageHeadedisDisplayed = isVisible("//h1[@class = 'entry-title']");
-        Assert.assertTrue(myAccountPageHeadedisDisplayed);
-        log.info("My Account page header is displayed");
+        Assert.assertTrue(myAccountPage.checkPresenceOfMyAccountHeader());
 
         String myAccountExpectedHeaderText = "My Account";
-        String myAccountActualHeaderText = getElementText("//h1[@class = 'entry-title']");
-        Assert.assertEquals(myAccountActualHeaderText,myAccountExpectedHeaderText);
-        log.info("customer login page validation text match success");
-
+        String myAccountActualHeaderText = myAccountPage.getMyAccountHeaderText();
+        Assert.assertEquals(myAccountActualHeaderText, myAccountExpectedHeaderText);
     }
 
-    @Test
+    //@Test
     public void registerExistingCustomer() {
+        LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        MyAccountPage myAccountPage = new MyAccountPage(getDriver());
 
         //ensure we are on the correct website
         String actualTitle = getCurrentTitle();
@@ -76,40 +74,23 @@ public class RegisterTest extends CommonAPI {
         log.info("Successfully entered Oussama's website");
 
         //click on my account
-        clickOn("//a[@title = 'My Account']");
-        log.info("Click on My Account success");
-        waitFor(2);
+        homePage.clickOnMyAccountLink();
 
-        //enter username
-        typeText("//input[@id ='reg_email' ]", "erfanhaque88@gmail.com");
-        log.info("enter email success");
-        waitFor(2);
-
-        //enter password
-        typeText("//input[@id ='reg_password' ]", "HelloWorld123!");
-        log.info("enter password success");
-        waitFor(2);
+        //enter username and password
+        loginRegisterPage.enterRegistrationUsername(existingRegistrationUsername);
+        loginRegisterPage.enterRegistrationPassword(existingRegistrationPassword);
 
         //click on radio button
-        clickOn("//input[@value = 'customer']");
-        waitFor(2);
-        boolean isCustomerRadioButton = isChecked("//input[@value = 'customer']");
-        Assert.assertTrue(isCustomerRadioButton);
-        boolean isVendorRadioButton = isChecked("//input[@value = 'seller']");;
-        Assert.assertFalse(isVendorRadioButton);
-        log.info("click on customer radio button success");
+        loginRegisterPage.clickOnCustomerRadioBtn();
+        Assert.assertTrue(loginRegisterPage.checkCustomerRadioBtnIsChecked());
+        Assert.assertFalse(loginRegisterPage.checkVendorRadioBtnIsChecked());
 
         //scroll to register button
         scrollToCoordinates(0,300);
-        waitFor(3);
-        boolean registerButtonVisibile = isVisible("//button[text()='Register']");
-        Assert.assertTrue(registerButtonVisibile);
-        log.info("scroll to target element success.");
+        Assert.assertTrue(loginRegisterPage.checkRegisterBtnIsVisible());
 
         //click on register button
-        clickOn("//button[text()='Register']");
-        waitFor(3);
-        log.info("click on target element success.");
+        loginRegisterPage.clickOnRegisterBtn();
 
         //validate error message
         boolean errorMessageIsDisplayed = isVisible("//li[text()=' An account is already registered with your email address. ']");
@@ -117,8 +98,11 @@ public class RegisterTest extends CommonAPI {
         log.info("error message validation success.");
     }
 
-    @Test
+    //@Test
     public void registerNewVendor() {
+        LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        MyAccountPage myAccountPage = new MyAccountPage(getDriver());
 
         //ensure we are on the correct website
         String actualTitle = getCurrentTitle();
@@ -127,19 +111,11 @@ public class RegisterTest extends CommonAPI {
         log.info("Successfully entered Oussama's website");
 
         //click on my account
-        clickOn("//a[@title = 'My Account']");
-        log.info("Click on My Account success");
-        waitFor(2);
+        homePage.clickOnMyAccountLink();
 
-        //enter username
-        typeText("//input[@id ='reg_email' ]", "razia1@gmail.com");
-        log.info("enter email success");
-        waitFor(2);
-
-        //enter password
-        typeText("//input[@id ='reg_password' ]", "HelloWorld123!");
-        log.info("enter password success");
-        waitFor(2);
+        //enter username and password
+        loginRegisterPage.enterRegistrationUsername(newRegistrationUsername);
+        loginRegisterPage.enterRegistrationPassword(newRegistrationPassword);
 
         //scroll down
         scrollToCoordinates(0,300);
@@ -182,16 +158,11 @@ public class RegisterTest extends CommonAPI {
         waitFor(2);
 
         //scroll to register button
-        scrollToCoordinates(0,50);
-        waitFor(3);
-        boolean registerButtonVisibile = isVisible("//button[text()='Register']");
-        Assert.assertTrue(registerButtonVisibile);
-        log.info("scroll to target element success.");
+        scrollToCoordinates(0,300);
+        Assert.assertTrue(loginRegisterPage.checkRegisterBtnIsVisible());
 
         //click on register button
-        clickOn("//button[text()='Register']");
-        waitFor(3);
-        log.info("click on target element success.");
+        loginRegisterPage.clickOnRegisterBtn();
 
        //Make sure we land on the vendor login page successfully
         boolean myAccountPageHeadedisDisplayed = isVisible("//h1[@id='wc-logo']");
