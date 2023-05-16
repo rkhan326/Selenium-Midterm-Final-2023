@@ -19,8 +19,8 @@ public class RegisterTest extends CommonAPI {
    Properties prop = Utility.loadProperties();
 
    //use data faker
-   String newRegistrationUsername = prop.getProperty("oussamaachour.registration-username");
-   String newRegistrationPassword = prop.getProperty("oussamaachour.registration-password");
+  // String newRegistrationUsername = prop.getProperty("oussamaachour.registration-username");
+  // String newRegistrationPassword = prop.getProperty("oussamaachour.registration-password");
    String existingRegistrationUsername = prop.getProperty("oussamaachour.registration-username");
    String existingRegistrationPassword = prop.getProperty("oussamaachour.registration-password");
    String newVendorRegistrationFirstName = prop.getProperty("oussamaachour.registration-vendor.firstname");
@@ -30,6 +30,10 @@ public class RegisterTest extends CommonAPI {
    String newVendorRegistrationShopContact = prop.getProperty("oussamaachour.registration-vendor.shopcontact");
 
     Faker faker = new Faker();
+
+    String newRegistrationLoginUsername = faker.internet().emailAddress();
+
+    String newRegistrationLoginPassword = faker.internet().password();
     String vendorFirstName = faker.name().firstName();
     String vendorLastName = faker.name().lastName();
     String vendorShopName = faker.company().name();
@@ -52,8 +56,8 @@ public class RegisterTest extends CommonAPI {
         homePage.clickOnMyAccountLink();
 
         //enter username and password
-        loginRegisterPage.enterRegistrationUsername(newRegistrationUsername);
-        loginRegisterPage.enterRegistrationPassword(newRegistrationPassword);
+        loginRegisterPage.enterRegistrationUsername(newRegistrationLoginUsername);
+        loginRegisterPage.enterRegistrationPassword(newRegistrationLoginPassword);
 
         //click on radio button
         loginRegisterPage.clickOnCustomerRadioBtn();
@@ -130,8 +134,8 @@ public class RegisterTest extends CommonAPI {
         homePage.clickOnMyAccountLink();
 
         //enter username and password
-        loginRegisterPage.enterRegistrationUsername(newRegistrationUsername);
-        loginRegisterPage.enterRegistrationPassword(newRegistrationPassword);
+        loginRegisterPage.enterRegistrationUsername(newRegistrationLoginUsername);
+        loginRegisterPage.enterRegistrationPassword(newRegistrationLoginPassword);
 
         //scroll down
         scrollToCoordinates(0,300);
