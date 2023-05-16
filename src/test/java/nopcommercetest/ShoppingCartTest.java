@@ -5,25 +5,25 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
+import us.piit.pages.nopcommercepages.ShoppingCartPage;
 
 public class ShoppingCartTest extends CommonAPI {
 
     Logger log = LogManager.getLogger(ShoppingCartTest.class.getName());
     @Test
     public void checkShoppingCart(){
+        ShoppingCartPage shoppingCartPage= new ShoppingCartPage(getDriver());
+
 
         //click on books
-        clickOn("(//a[normalize-space()='Books'])[1]");
-        log.info("click on books success");
+        shoppingCartPage.clickOnBookText();
         waitFor(1);
         //click on Fahrenheit 451 by Ray Bradbury link
-        clickOn("//h2[@class='product-title']//a[contains(text(),'Fahrenheit 451 by Ray Bradbury')]");
-        log.info("click on Fahrenheit 451 by Ray Bradbury link success");
+        shoppingCartPage.clickOnBookLink();
         waitFor(1);
 
         // click on add to cart
-        clickOn("//button[@id='add-to-cart-button-37']");
-        log.info("click on add to cart success");
+        shoppingCartPage.clickOnAddToCart();
         waitFor(3);
 
         //ensure we are successfully add to cart search page

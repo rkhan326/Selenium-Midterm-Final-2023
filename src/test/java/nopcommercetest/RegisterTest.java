@@ -5,58 +5,64 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
+import us.piit.pages.nopcommercepages.HomePage;
+import us.piit.pages.nopcommercepages.LoginPage;
+import us.piit.pages.nopcommercepages.RegisterPage;
+import us.piit.utility.Utility;
+
+import java.util.Properties;
 
 public class RegisterTest extends CommonAPI {
     Logger log = LogManager.getLogger(RegisterTest.class.getName());
 
+    String firstName= "Danish";
+    String lastName= "Mahmud";
+    String email= "mahmud.mahmud786@gmail.com";
+    String companyName= "PNT";
+    String password= "mahmud123";
+    String confirmPassword= "mahmud123";
+
+    String emptyFirstName = "";
+
+
     @Test
     public void registerNewCustomer() {
 
-
+        RegisterPage registerPage = new RegisterPage(getDriver());
         //click on register
-        clickOn("//a[@class='ico-register']");
-        log.info("Click on register success");
+        registerPage.clickOnRegisterMenu();
         waitFor(1);
 
         // click radio button
-        clickOn("#gender-male");
-        log.info("radio button click success");
+        registerPage.clickOnRadioButton();
         waitFor( 1);
 
         //enter FirstName
-        typeText("#FirstName", "Danish");
-        log.info("typing FirstName success");
+        registerPage.typeFirstName(firstName);
         waitFor(1);
 
         //enter LastName
-        typeText("#LastName", "Mahmud");
-        log.info("typing LastName success");
+        registerPage.typeLastName(lastName);
         waitFor(1);
 
         //enter Email
-        typeText("#Email", "mahmud.mahmud786@gmail.com");
-        log.info("typing email success");
+        registerPage.typeEmail(email);
         waitFor(1);
 
         //enter Company
-        typeText("#Company", "PNT");
-        log.info("typing Company success");
+        registerPage.typeCompanyName(companyName);
         waitFor(1);
 
         //enter password
-        typeText("#Password", "mahmud123");
-        log.info("typing password success");
+        registerPage.typePassword(password);
         waitFor(1);
 
         //enter confirm password
-        typeText("#ConfirmPassword", "mahmud123");
-        log.info("typing ConfirmPassword success");
+        registerPage.typeConfirmPassword(confirmPassword);
         waitFor(1);
 
         //click on register-button button
-        clickOn("#register-button");
-        log.info("registered successfully");
-
+        registerPage.clickOnRegisterButton();
 
         //ensure we are successfully registered
         String actualTitle = getCurrentTitle();
@@ -66,52 +72,41 @@ public class RegisterTest extends CommonAPI {
     }
     @Test
     public void registerWithoutFillMandatoryField() {
-
-
+        RegisterPage registerPage = new RegisterPage(getDriver());
         //click on register
-        clickOn("//a[@class='ico-register']");
-        log.info("Click on register success");
+        registerPage.clickOnRegisterMenu();
         waitFor(1);
 
         // click radio button
-        clickOn("#gender-male");
-        log.info("radio button click success");
+        registerPage.clickOnRadioButton();
         waitFor( 1);
 
         //enter FirstName
-        typeText("#FirstName", "");
-        log.info("typing FirstName success");
+        registerPage.typeFirstName(emptyFirstName);
         waitFor(1);
 
         //enter LastName
-        typeText("#LastName", "Mahmud");
-        log.info("typing LastName success");
+        registerPage.typeLastName(lastName);
         waitFor(1);
 
         //enter Email
-        typeText("#Email", "mahmud.mahmud786@gmail.com");
-        log.info("typing email success");
+        registerPage.typeEmail(email);
         waitFor(1);
 
         //enter Company
-        typeText("#Company", "PNT");
-        log.info("typing Company success");
+        registerPage.typeCompanyName(companyName);
         waitFor(1);
 
         //enter password
-        typeText("#Password", "mahmud123");
-        log.info("typing password success");
+        registerPage.typePassword(password);
         waitFor(1);
 
         //enter confirm password
-        typeText("#ConfirmPassword", "mahmud123");
-        log.info("typing ConfirmPassword success");
+        registerPage.typeConfirmPassword(confirmPassword);
         waitFor(1);
 
         //click on register-button button
-        clickOn("#register-button");
-        log.info("registered successfully");
-
+        registerPage.clickOnRegisterButton();
 
         //ensure we are successfully registered
         String actualTitle = getCurrentTitle();
