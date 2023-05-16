@@ -28,7 +28,7 @@ public class LoginRegisterPage extends CommonAPI {
     WebElement myAccountBtn;
 
     @FindBy(xpath = "//li[text()=\" The password you entered for the email address \"]" )
-    WebElement errorMessage;
+    WebElement loginErrorMessage;
 
     @FindBy(xpath = "//input[@id ='reg_email' ]")
     WebElement registrationUsernameField;
@@ -45,6 +45,26 @@ public class LoginRegisterPage extends CommonAPI {
     @FindBy(xpath = "//button[text()='Register']")
     WebElement registerBtn;
 
+    @FindBy (xpath = "//li[text()=' An account is already registered with your email address. ']")
+    WebElement registrationErrorMessage;
+
+    @FindBy(xpath= "//input[@id ='first-name' ]")
+    WebElement registrationVendorFirstNameField;
+
+    @FindBy(xpath= "//input[@id ='last-name' ]")
+    WebElement registrationVendorLastNameField;
+
+    @FindBy(xpath= "//input[@id ='company-name' ]")
+    WebElement registrationVendorShopNameField;
+
+    @FindBy(xpath= "//input[@id ='seller-url' ]")
+    WebElement registrationVendorShopUrlField;
+
+    @FindBy(xpath= "//input[@id ='shop-phone' ]")
+    WebElement registrationVendorShopContactField;
+
+
+
 
     //Login Methods
     public void enterLoginUsername(String username){
@@ -60,13 +80,13 @@ public class LoginRegisterPage extends CommonAPI {
         log.info("click on login button Success");
     }
     public String getErrorMessage(){
-        String text = getElementText(errorMessage);
+        String text = getElementText(loginErrorMessage);
         log.info("get error message text success");
         return text;
     }
-    public boolean checkPresenceOfErrorMessage(){
-        boolean errorMessageIsDisplayed = isVisible(errorMessage);
-        log.info("error message validation success.");
+    public boolean checkPresenceOfLoginErrorMessage(){
+        boolean errorMessageIsDisplayed = isVisible(loginErrorMessage);
+        log.info("login error message validation success.");
         return errorMessageIsDisplayed;
     }
 
@@ -115,6 +135,41 @@ public class LoginRegisterPage extends CommonAPI {
         clickOn(registerBtn);
         log.info("click on register button success");
     }
+
+    public boolean checkPresenceOfRegistrationErrorMessage(){
+        boolean errorMessageIsDisplayed = isVisible(registrationErrorMessage);
+        log.info("registration error message validation success.");
+        return errorMessageIsDisplayed;
+    }
+
+    public void enterRegistrationVendorFirstName(String vendorFirstName){
+        typeText(registrationVendorFirstNameField,vendorFirstName);
+        log.info("enter registration vendor firstname success");
+    }
+
+    public void enterRegistrationVendorLastName(String vendorLastName){
+        typeText(registrationVendorLastNameField,vendorLastName);
+        log.info("enter registration vendor lastname success");
+    }
+
+    public void enterRegistrationVendorShopName(String vendorShopName){
+        typeText(registrationVendorShopNameField,vendorShopName);
+        log.info("enter registration vendor shop name success");
+    }
+
+    public void enterRegistrationVendorShopUrl(String vendorShopUrl){
+        typeText(registrationVendorShopUrlField,vendorShopUrl);
+        log.info("enter registration vendor shop url success");
+    }
+
+    public void enterRegistrationVendorShopContact(String vendorShopContact){
+        typeText(registrationVendorShopContactField,vendorShopContact);
+        log.info("enter registration vendor shop contact info success");
+    }
+
+
+
+
 
 
 }

@@ -1,5 +1,6 @@
 package oussamaachourtest;
 
+import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -65,9 +66,21 @@ public class LoginTest extends CommonAPI {
         loginRegisterPage.clickOnLoginBtn();
 
         //validate error message
-        Assert.assertTrue(loginRegisterPage.checkPresenceOfErrorMessage());
+        Assert.assertTrue(loginRegisterPage.checkPresenceOfLoginErrorMessage());
     }
 
+
+@Test
+public void fakeData(){
+    Faker faker = new Faker();
+    String vendorFirstName = faker.name().firstName();
+    String vendorLastName = faker.name().lastName();
+    String vendorShopName = faker.company().name();
+    String vendorShopUrl = faker.company().url();
+    String vendorShopContact = faker.phoneNumber().phoneNumber();
+
+
+}
     public void resetPassword(){
 
     }
