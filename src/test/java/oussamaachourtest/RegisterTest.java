@@ -21,24 +21,15 @@ public class RegisterTest extends CommonAPI {
    //use data faker
   // String newRegistrationUsername = prop.getProperty("oussamaachour.registration-username");
   // String newRegistrationPassword = prop.getProperty("oussamaachour.registration-password");
-   String existingRegistrationUsername = prop.getProperty("oussamaachour.registration-username");
-   String existingRegistrationPassword = prop.getProperty("oussamaachour.registration-password");
+   String existingRegistrationUsername =  Utility.decode(prop.getProperty("oussamaachour.registration-username"));
+   String existingRegistrationPassword = Utility.decode(prop.getProperty("oussamaachour.registration-password"));
    String newVendorRegistrationFirstName = prop.getProperty("oussamaachour.registration-vendor.firstname");
    String newVendorRegistrationLastName = prop.getProperty("oussamaachour.registration-vendor.lastname");
    String newVendorRegistrationShopName = prop.getProperty("oussamaachour.registration-vendor.shopname");
    String newVendorRegistrationShopUrl = prop.getProperty("oussamaachour.registration-vendor.shopurl");
    String newVendorRegistrationShopContact = prop.getProperty("oussamaachour.registration-vendor.shopcontact");
 
-    Faker faker = new Faker();
 
-    String newRegistrationLoginUsername = faker.internet().emailAddress();
-
-    String newRegistrationLoginPassword = faker.internet().password();
-    String vendorFirstName = faker.name().firstName();
-    String vendorLastName = faker.name().lastName();
-    String vendorShopName = faker.company().name();
-    String vendorShopUrl = faker.company().url();
-    String vendorShopContact = faker.phoneNumber().phoneNumber();
 
     // @Test
     public void registerNewCustomer() {
