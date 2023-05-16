@@ -17,6 +17,8 @@ public class MyAccountPage extends CommonAPI {
     @FindBy(xpath = "//h1[@class='entry-title']")
     WebElement myAccountHeader;
 
+
+
     public boolean checkPresenceOfMyAccountHeader(){
         boolean myAccountPageHeaderisDisplayed = isVisible(myAccountHeader);
         log.info("My Account page header is displayed");
