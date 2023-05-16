@@ -6,17 +6,23 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.oussamaachourpages.HomePage;
-import us.piit.pages.oussamaachourpages.LoginPage;
+import us.piit.pages.oussamaachourpages.LoginRegisterPage;
 import us.piit.pages.oussamaachourpages.MyAccountPage;
+import us.piit.utility.Utility;
+
+import java.util.Properties;
 
 public class LoginTest extends CommonAPI {
     Logger log = LogManager.getLogger(LoginTest.class.getName());
 
+    Properties prop = Utility.loadProperties();
 
+    String validLoginUsername = prop.getProperty("oussamaachour.login-username");
+    String validLoginPassword = prop.getProperty("oussamaachour.login-password");
 
     @Test
     public void validCredential() {
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
 
@@ -29,42 +35,37 @@ public class LoginTest extends CommonAPI {
         homePage.clickOnMyAccountLink();
 
         // enter username, password and click on login btn on login page
-        loginPage.enterUsername("rkhan326@gmail.com");
-        loginPage.enterPassword("HelloWorld123!");
-        loginPage.clickOnLoginBtn();
+        loginRegisterPage.enterLoginUsername(validLoginUsername);
+        loginRegisterPage.enterLoginPassword(validLoginPassword);
+        loginRegisterPage.clickOnLoginBtn();
 
 
         //make sure user lands on login page successfully
+        Assert.assertTrue(myAccountPage.checkPresenceOfMyAccountHeader());
 
-        boolean myAccountPageHeadedisDisplayed = isVisible("//h1[@class='entry-title']");
-        Assert.assertTrue(myAccountPageHeadedisDisplayed);
-        log.info("My Account page header is displayed");
         String myAccountExpectedHeaderText = "My Account";
-        String myAccountActualHeaderText = getElementText("//h1[@class='entry-title']");
+        String myAccountActualHeaderText = myAccountPage.getMyAccountHeaderText();
         Assert.assertEquals(myAccountActualHeaderText, myAccountExpectedHeaderText);
-        log.info("user login page validation text match success");
     }
 
     @Test
     public void invalidPassword() {
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
-        MyAccountPage myAccountPage = new MyAccountPage(getDriver());
+
         //ensure we are on the correct website
         String expectedTitle = "Welcome to Worldwide Electronics Store";
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
 
         //click on my account
-        MyAccountPage.clickOnMyAccountLink();
-        loginPage.enterUsername("rkhan326@gmail.com");
-        loginPage.enterPassword("HelloWorld123");
-        loginPage.clickOnLoginBtn();
+        homePage.clickOnMyAccountLink();
+        loginRegisterPage.enterLoginUsername(validLoginUsername);
+        loginRegisterPage.enterLoginPassword("InvalidPassword");
+        loginRegisterPage.clickOnLoginBtn();
 
         //validate error message
-        boolean errorMessageIsDisplayed = isVisible("//li[text()=\" The password you entered for the email address \"]");
-        Assert.assertTrue(errorMessageIsDisplayed);
-        log.info("error message validation success.");
+        Assert.assertTrue(loginRegisterPage.checkPresenceOfErrorMessage());
     }
 
     public void resetPassword(){
