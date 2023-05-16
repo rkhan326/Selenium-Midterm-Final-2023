@@ -126,6 +126,11 @@ public class CommonAPI {
             Actions actions = new Actions(driver);
             actions.moveToElement(element).build().perform();
         }
+    public void scrollToElement(int x, int y){
+        Actions actions = new Actions(driver);
+        actions.scrollByAmount(x,y).build().perform();
+
+    }
 
         public void waitFor(int seconds) {
             try {
