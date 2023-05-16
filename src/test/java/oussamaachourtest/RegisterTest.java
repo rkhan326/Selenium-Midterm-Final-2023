@@ -15,12 +15,12 @@ import us.piit.utility.Utility;
 import java.util.Properties;
 
 public class RegisterTest extends CommonAPI {
-   Logger log = LogManager.getLogger(oussamaachourtest.RegisterTest.class.getName());=
+   Logger log = LogManager.getLogger(oussamaachourtest.RegisterTest.class.getName());
    Properties prop = Utility.loadProperties();
 
    //use data faker
-   // String newRegistrationUsername = prop.getProperty("oussamaachour.registration-username");
-   // String newRegistrationPassword = prop.getProperty("oussamaachour.registration-password");
+   String newRegistrationUsername = prop.getProperty("oussamaachour.registration-username");
+   String newRegistrationPassword = prop.getProperty("oussamaachour.registration-password");
    String existingRegistrationUsername = prop.getProperty("oussamaachour.registration-username");
    String existingRegistrationPassword = prop.getProperty("oussamaachour.registration-password");
    String newVendorRegistrationFirstName = prop.getProperty("oussamaachour.registration-vendor.firstname");
