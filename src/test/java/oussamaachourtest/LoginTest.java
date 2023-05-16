@@ -70,17 +70,11 @@ public class LoginTest extends CommonAPI {
     }
 
 
-@Test
-public void fakeData(){
-    Faker faker = new Faker();
-    String vendorFirstName = faker.name().firstName();
-    String vendorLastName = faker.name().lastName();
-    String vendorShopName = faker.company().name();
-    String vendorShopUrl = faker.company().url();
-    String vendorShopContact = faker.phoneNumber().phoneNumber();
 
 
-}
+
+
+
     public void resetPassword(){
 
     }

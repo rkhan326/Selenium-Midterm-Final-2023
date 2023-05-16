@@ -69,7 +69,7 @@ public class CommonAPI {
                           @Optional("https://www.google.com") String url) throws MalformedURLException {
             if (useCloudEnv.equalsIgnoreCase("true")) {
                 getCloudDriver(envName, os, osVersion, browserName, browserVersion, browserstackUsername, browserstackPassword);
-            } else if (useCloudEnv.equalsIgnoreCase("false")) {
+            }else if (useCloudEnv.equalsIgnoreCase("false")) {
                 getLocalDriver(browserName);
             }
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(implicitWait)));

@@ -18,8 +18,6 @@ public class LoginRegisterPage extends CommonAPI {
 
     Faker faker = new Faker();
 
-
-
     @FindBy(css = "#username")
     WebElement loginUsernameField;
 
@@ -151,7 +149,6 @@ public class LoginRegisterPage extends CommonAPI {
         typeText(registrationVendorFirstNameField,vendorFirstName);
         log.info("enter registration vendor firstname success");
     }
-
     public void enterRegistrationVendorLastName(String vendorLastName){
         typeText(registrationVendorLastNameField,vendorLastName);
         log.info("enter registration vendor lastname success");
@@ -173,13 +170,12 @@ public class LoginRegisterPage extends CommonAPI {
     }
 
     public String newRegistrationLoginUsername(){ return faker.internet().emailAddress();}
-
-    String newRegistrationLoginPassword = faker.internet().password();
-    String vendorFirstName = faker.name().firstName();
-    String vendorLastName = faker.name().lastName();
-    String vendorShopName = faker.company().name();
-    String vendorShopUrl = faker.company().url();
-    String vendorShopContact = faker.phoneNumber().phoneNumber();
+    public String newRegistrationLoginPassword() { return faker.internet().password();}
+    public String vendorFirstName(){ return faker.name().firstName();}
+    public String vendorLastName(){ return faker.name().lastName();}
+    public String vendorShopName(){return faker.company().name();}
+    public String vendorShopUrl(){ return faker.company().url();}
+    public String vendorShopContact(){ return faker.phoneNumber().phoneNumber();}
 
 
 

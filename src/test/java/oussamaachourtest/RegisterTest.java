@@ -1,7 +1,6 @@
 package oussamaachourtest;
 
 
-import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -17,21 +16,20 @@ import java.util.Properties;
 public class RegisterTest extends CommonAPI {
    Logger log = LogManager.getLogger(oussamaachourtest.RegisterTest.class.getName());
    Properties prop = Utility.loadProperties();
-
-   //use data faker
-  // String newRegistrationUsername = prop.getProperty("oussamaachour.registration-username");
-  // String newRegistrationPassword = prop.getProperty("oussamaachour.registration-password");
    String existingRegistrationUsername =  Utility.decode(prop.getProperty("oussamaachour.registration-username"));
    String existingRegistrationPassword = Utility.decode(prop.getProperty("oussamaachour.registration-password"));
-   String newVendorRegistrationFirstName = prop.getProperty("oussamaachour.registration-vendor.firstname");
-   String newVendorRegistrationLastName = prop.getProperty("oussamaachour.registration-vendor.lastname");
-   String newVendorRegistrationShopName = prop.getProperty("oussamaachour.registration-vendor.shopname");
-   String newVendorRegistrationShopUrl = prop.getProperty("oussamaachour.registration-vendor.shopurl");
-   String newVendorRegistrationShopContact = prop.getProperty("oussamaachour.registration-vendor.shopcontact");
+
+//   String newRegistrationUsername = prop.getProperty("oussamaachour.registration-username");
+//   String newRegistrationPassword = prop.getProperty("oussamaachour.registration-password");
+//   String newVendorRegistrationFirstName = prop.getProperty("oussamaachour.registration-vendor.firstname");
+//   String newVendorRegistrationLastName = prop.getProperty("oussamaachour.registration-vendor.lastname");
+//   String newVendorRegistrationShopName = prop.getProperty("oussamaachour.registration-vendor.shopname");
+//   String newVendorRegistrationShopUrl = prop.getProperty("oussamaachour.registration-vendor.shopurl");
+//   String newVendorRegistrationShopContact = prop.getProperty("oussamaachour.registration-vendor.shopcontact");
 
 
 
-    // @Test
+    @Test
     public void registerNewCustomer() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -47,8 +45,8 @@ public class RegisterTest extends CommonAPI {
         homePage.clickOnMyAccountLink();
 
         //enter username and password
-        loginRegisterPage.enterRegistrationUsername(newRegistrationLoginUsername);
-        loginRegisterPage.enterRegistrationPassword(newRegistrationLoginPassword);
+        loginRegisterPage.enterRegistrationUsername(loginRegisterPage.newRegistrationLoginUsername());
+        loginRegisterPage.enterRegistrationPassword(loginRegisterPage.newRegistrationLoginPassword());
 
         //click on radio button
         loginRegisterPage.clickOnCustomerRadioBtn();
@@ -70,7 +68,7 @@ public class RegisterTest extends CommonAPI {
         Assert.assertEquals(myAccountActualHeaderText, myAccountExpectedHeaderText);
     }
 
-    //@Test
+    @Test
     public void registerExistingCustomer() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -89,6 +87,7 @@ public class RegisterTest extends CommonAPI {
         loginRegisterPage.enterRegistrationUsername(existingRegistrationUsername);
         loginRegisterPage.enterRegistrationPassword(existingRegistrationPassword);
 
+
         //click on radio button
         loginRegisterPage.clickOnCustomerRadioBtn();
         Assert.assertTrue(loginRegisterPage.checkCustomerRadioBtnIsChecked());
@@ -106,14 +105,12 @@ public class RegisterTest extends CommonAPI {
 
     }
 
-    //@Test
+    @Test
     public void registerNewVendor() {
 
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
-
-
 
         //ensure we are on the correct website
         String actualTitle = getCurrentTitle();
@@ -125,8 +122,8 @@ public class RegisterTest extends CommonAPI {
         homePage.clickOnMyAccountLink();
 
         //enter username and password
-        loginRegisterPage.enterRegistrationUsername(newRegistrationLoginUsername);
-        loginRegisterPage.enterRegistrationPassword(newRegistrationLoginPassword);
+        loginRegisterPage.enterRegistrationUsername(loginRegisterPage.newRegistrationLoginUsername());
+        loginRegisterPage.enterRegistrationPassword(loginRegisterPage.newRegistrationLoginPassword());
 
         //scroll down
         scrollToCoordinates(0,300);
@@ -137,22 +134,19 @@ public class RegisterTest extends CommonAPI {
         Assert.assertFalse(loginRegisterPage.checkCustomerRadioBtnIsChecked());
         Assert.assertTrue(loginRegisterPage.checkVendorRadioBtnIsChecked());
 
-
         //new fields appear after hitting vendor radio button
         //enter first name, last name, shop name, shop url, shop contact
-
-
 //        loginRegisterPage.enterRegistrationVendorFirstName(newVendorRegistrationFirstName);
 //        loginRegisterPage.enterRegistrationVendorLastName(newVendorRegistrationLastName);
 //        loginRegisterPage.enterRegistrationVendorShopName(newVendorRegistrationShopName);
 //        loginRegisterPage.enterRegistrationVendorShopUrl(newVendorRegistrationShopUrl);
 //        loginRegisterPage.enterRegistrationVendorShopContact(newVendorRegistrationShopContact);
 
-        loginRegisterPage.enterRegistrationVendorFirstName(vendorFirstName);
-        loginRegisterPage.enterRegistrationVendorLastName(vendorLastName);
-        loginRegisterPage.enterRegistrationVendorShopName(vendorShopName);
-        loginRegisterPage.enterRegistrationVendorShopUrl(vendorShopUrl);
-        loginRegisterPage.enterRegistrationVendorShopContact(vendorShopContact);
+        loginRegisterPage.enterRegistrationVendorFirstName(loginRegisterPage.vendorFirstName());
+        loginRegisterPage.enterRegistrationVendorLastName(loginRegisterPage.vendorLastName());
+        loginRegisterPage.enterRegistrationVendorShopName(loginRegisterPage.vendorShopName());
+        loginRegisterPage.enterRegistrationVendorShopUrl(loginRegisterPage.vendorShopUrl());
+        loginRegisterPage.enterRegistrationVendorShopContact(loginRegisterPage.vendorShopContact());
 
         //scroll to register button
         scrollToCoordinates(0,300);

@@ -10,11 +10,11 @@
     <parameter name="browserName" value="chrome"></parameter>
     <parameter name="url" value="https://www.oussama-achour.com/#"></parameter>
 
-<!--    <test name= "register test">-->
-<!--        <classes>-->
-<!--            <class name="oussamaachourtest.RegistrationTest"></class>-->
-<!--        </classes>-->
-<!--   </test>-->
+    <test name= "register test">
+        <classes>
+            <class name="oussamaachourtest.RegisterTest"></class>
+        </classes>
+   </test>
     <test name="login test">
         <classes>
             <class name="oussamaachourtest.LoginTest"></class>
