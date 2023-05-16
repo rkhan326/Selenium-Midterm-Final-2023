@@ -1,5 +1,6 @@
 package us.piit.pages.oussamaachourpages;
 
+import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,10 @@ public class LoginRegisterPage extends CommonAPI {
     public LoginRegisterPage(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
+
+    Faker faker = new Faker();
+
+
 
     @FindBy(css = "#username")
     WebElement loginUsernameField;
@@ -166,6 +171,15 @@ public class LoginRegisterPage extends CommonAPI {
         typeText(registrationVendorShopContactField,vendorShopContact);
         log.info("enter registration vendor shop contact info success");
     }
+
+    public String newRegistrationLoginUsername(){ return faker.internet().emailAddress();}
+
+    String newRegistrationLoginPassword = faker.internet().password();
+    String vendorFirstName = faker.name().firstName();
+    String vendorLastName = faker.name().lastName();
+    String vendorShopName = faker.company().name();
+    String vendorShopUrl = faker.company().url();
+    String vendorShopContact = faker.phoneNumber().phoneNumber();
 
 
 
