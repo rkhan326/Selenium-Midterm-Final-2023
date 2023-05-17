@@ -93,7 +93,9 @@ public class ExcelReader {
     }
 
     public static void main(String[] args)  {
-        String path = currentDir + File.separator + "data/data/xlsx";
+       // String path = currentDir + File.separator + "data/data/xlsx";
+        String path = "/Users/Work/IDEA/Selenium-Midterm-Final-2023/data/data.xlsx";
+
 
         //String path = "C:\\Users\\PNT\\eclipse-workspace\\Feb2023-web-automation-framework\\data\\data.xlsx";
 
