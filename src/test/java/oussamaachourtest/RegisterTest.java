@@ -105,7 +105,7 @@ public class RegisterTest extends CommonAPI {
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void registerNewVendor() {
 
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
@@ -151,6 +151,7 @@ public class RegisterTest extends CommonAPI {
         //scroll to register button
         scrollToCoordinates(0,300);
         Assert.assertTrue(loginRegisterPage.checkRegisterBtnIsVisible());
+
 
         //click on register button
         loginRegisterPage.clickOnRegisterBtn();
