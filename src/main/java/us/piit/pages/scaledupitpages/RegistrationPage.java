@@ -1,5 +1,6 @@
 package us.piit.pages.scaledupitpages;
 
+import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -12,23 +13,24 @@ public class RegistrationPage extends CommonAPI {
     Logger log = LogManager.getLogger(RegistrationPage.class.getName());
 
     public RegistrationPage(WebDriver driver) {
+
         PageFactory.initElements(driver, this);
     }
 
 
     @FindBy(css = "#reg_email")
     WebElement emailField;
-
     @FindBy(css = "#reg_password")
     WebElement passwordField;
-
     @FindBy(xpath = "//button[text()='Register']")
     WebElement registerBtn;
-
-
     @FindBy(xpath = "//div[@class='woocommerce-MyAccount-content']/p[1]")
-    WebElement LoginPageHeader;
+    WebElement validUsPassRegisterPageHeader;
+    @FindBy(xpath = "//ul[@class='woocommerce-error']/li[1]")
+    WebElement validEmailErrorMessage;
 
+    @FindBy(xpath="//div[@class='woocommerce-MyAccount-content']/p[1]")
+    WebElement weekPassRegisterPageHeader;
 
 
 
@@ -52,15 +54,38 @@ public class RegistrationPage extends CommonAPI {
 
 
 
-    public boolean checkPresenceOfLoginPageHeader() {
-        boolean loginPageHeaderIsDisplayed = isVisible(LoginPageHeader);
+    public boolean checkPresenceOfValidUsPassRegisterPageHeader() {
+        boolean loginPageHeaderIsDisplayed = isVisible(validUsPassRegisterPageHeader);
         log.info("login page header presence " + loginPageHeaderIsDisplayed);
         return loginPageHeaderIsDisplayed;
     }
 
 
-    public String getLoginPageHeadertext() {
-        String loginPageHeaderText = getElementText(LoginPageHeader);
+    public String getValidUsPassRegisterPageHeadertext() {
+        String loginPageHeaderText = getElementText(validUsPassRegisterPageHeader);
+        log.info("login page header text is " + loginPageHeaderText);
+        return loginPageHeaderText;
+
+    }
+    public boolean checkPresenceOfValidUsernameErrorMessage() {
+        boolean loginPageHeaderIsDisplayed = isVisible(validEmailErrorMessage);
+        log.info("login page header presence " + loginPageHeaderIsDisplayed);
+        return loginPageHeaderIsDisplayed;
+    }
+    public String getValidUsernameErrorMessage() {
+        String text = getElementText(validEmailErrorMessage);
+        log.info("get error message text success");
+        return text;
+    }
+    public boolean checkPresenceOfWeekPassRegisterPageHeader() {
+        boolean loginPageHeaderIsDisplayed = isVisible(weekPassRegisterPageHeader);
+        log.info("login page header presence " + loginPageHeaderIsDisplayed);
+        return loginPageHeaderIsDisplayed;
+    }
+
+
+    public String getValidWeekPassRegisterPageHeadertext() {
+        String loginPageHeaderText = getElementText(weekPassRegisterPageHeader);
         log.info("login page header text is " + loginPageHeaderText);
         return loginPageHeaderText;
 

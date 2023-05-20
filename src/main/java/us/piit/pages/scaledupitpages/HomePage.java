@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import us.piit.base.CommonAPI;
@@ -35,6 +36,12 @@ public class HomePage extends CommonAPI {
     WebElement shopButton;
     @FindBy(xpath = "//a[@href='https://automation.scaledupit.com/blog/']")
     WebElement blogButton;
+
+    @FindBy(css= ".fa.fa-angle-down.angle-down")
+    WebElement categoriesButton;
+
+    @FindBy(xpath = "//li[@id='menu-item-295']/a[1]")
+    WebElement foodAndBeveragebutton;
 
 
     public String getHeaderText(){
@@ -69,6 +76,15 @@ public class HomePage extends CommonAPI {
         log.info("click on blog button  success");
     }
 
+    public void hoverOverOnCategoriesButton(  WebDriver driver) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(categoriesButton).build().perform();
+        log.info("hover over on categories success");
+    }
+    public void clickOnFoodAndBeverageButton(){
+        clickOn(foodAndBeveragebutton);
+        log.info("click on food and beverage  success");
+    }
 }
 
 
