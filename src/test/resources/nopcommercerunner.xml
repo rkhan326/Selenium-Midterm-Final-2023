@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="saucedemo test">
+<suite name="nopcommerce test">
     <parameter name="useCloudEnv" value="false"></parameter>
     <parameter name="envName" value="browserstack"></parameter>
     <parameter name="os" value="windows"></parameter>
@@ -20,7 +20,6 @@
     </classes>
 </test>
 
-
 <!--    <test name="Search Test">-->
 <!--        <classes>-->
 <!--            <class name="nopcommercetest.SearchTest"></class>-->
@@ -31,5 +30,10 @@
 <!--            <class name="nopcommercetest.ShoppingCartTest"></class>-->
 <!--        </classes>-->
 <!--    </test>-->
+    <test name="Computer Menu test">
+        <classes>
+            <class name="nopcommercetest.ComputerMenuTest"></class>
+        </classes>
+    </test>
 
 </suite>

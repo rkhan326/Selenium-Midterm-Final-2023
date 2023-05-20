@@ -28,7 +28,7 @@ public class ShoppingCartTest extends CommonAPI {
 
         //ensure we are successfully add to cart search page
         String actualTitle = getCurrentTitle();
-        String expectedTitle = "nopCommerce demo store. Fahrenheit 451 by Ray Bradbury";
+        String expectedTitle = "nopCommerce demo store. Apple MacBook Pro 13-inch";
         Assert.assertEquals(actualTitle, expectedTitle);
         log.info("Successfully entered nopCommerce add to cart page");
 
