@@ -169,6 +169,15 @@ public class LoginRegisterPage extends CommonAPI {
         log.info("enter registration vendor shop contact info success");
     }
 
+    public void scrollToRegisterBtnwJS(){
+        scrollToElementwJS(registerBtn);
+    }
+    public void clickRegisterBtnwJS(){
+        clickWithJavascript(registerBtn);
+    }
+
+
+
     public String newRegistrationLoginUsername(){ return faker.internet().emailAddress();}
     public String newRegistrationLoginPassword() { return faker.internet().password();}
     public String vendorFirstName(){ return faker.name().firstName();}

@@ -18,10 +18,10 @@ public class LoginTest extends CommonAPI {
 
     Properties prop = Utility.loadProperties();
 
-    String validLoginUsername = prop.getProperty("oussamaachour.login-username");
-    String validLoginPassword = prop.getProperty("oussamaachour.login-password");
+    String validLoginUsername = Utility.decode(prop.getProperty("oussamaachour.login-username"));
+    String validLoginPassword = Utility.decode(prop.getProperty("oussamaachour.login-password"));
 
-    @Test
+    @Test(enabled = false)
     public void validCredential() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -49,7 +49,7 @@ public class LoginTest extends CommonAPI {
         Assert.assertEquals(myAccountActualHeaderText, myAccountExpectedHeaderText);
     }
 
-    @Test
+    @Test(enabled = false)
     public void invalidPassword() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());

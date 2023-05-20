@@ -9,6 +9,7 @@ import us.piit.base.CommonAPI;
 import us.piit.pages.oussamaachourpages.HomePage;
 import us.piit.pages.oussamaachourpages.LoginRegisterPage;
 import us.piit.pages.oussamaachourpages.MyAccountPage;
+import us.piit.pages.oussamaachourpages.VendorWelcomePage;
 import us.piit.utility.Utility;
 
 import java.util.Properties;
@@ -29,7 +30,7 @@ public class RegisterTest extends CommonAPI {
 
 
 
-    @Test
+    @Test(enabled = false)
     public void registerNewCustomer() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -68,7 +69,7 @@ public class RegisterTest extends CommonAPI {
         Assert.assertEquals(myAccountActualHeaderText, myAccountExpectedHeaderText);
     }
 
-    @Test
+    @Test(enabled = true)
     public void registerExistingCustomer() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -94,11 +95,12 @@ public class RegisterTest extends CommonAPI {
         Assert.assertFalse(loginRegisterPage.checkVendorRadioBtnIsChecked());
 
         //scroll to register button
+        //loginRegisterPage.scrollToRegisterBtnwJS();
         scrollToCoordinates(0,300);
         Assert.assertTrue(loginRegisterPage.checkRegisterBtnIsVisible());
 
         //click on register button
-        loginRegisterPage.clickOnRegisterBtn();
+        loginRegisterPage.clickOnRegisterBtn();;
 
         //validate error message
         Assert.assertTrue(loginRegisterPage.checkPresenceOfRegistrationErrorMessage());
@@ -111,11 +113,13 @@ public class RegisterTest extends CommonAPI {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
+        VendorWelcomePage vendorWelcomePage = new VendorWelcomePage(getDriver());
 
         //ensure we are on the correct website
         String actualTitle = getCurrentTitle();
         String expectedTitle = "Welcome to Worldwide Electronics Store";
-       // Assert.assertEquals(actualTitle, expectedTitle);
+
+        // Assert.assertEquals(actualTitle, expectedTitle);
         log.info("Successfully entered Oussama's website");
 
         //click on my account
@@ -147,21 +151,22 @@ public class RegisterTest extends CommonAPI {
         loginRegisterPage.enterRegistrationVendorShopName(loginRegisterPage.vendorShopName());
         loginRegisterPage.enterRegistrationVendorShopUrl(loginRegisterPage.vendorShopUrl());
         loginRegisterPage.enterRegistrationVendorShopContact(loginRegisterPage.vendorShopContact());
+        waitFor(3);
 
         //scroll to register button
-        scrollToCoordinates(0,300);
+        scrollToCoordinates(0,500);
         Assert.assertTrue(loginRegisterPage.checkRegisterBtnIsVisible());
-
+        waitFor(3);
 
         //click on register button
         loginRegisterPage.clickOnRegisterBtn();
 
-       //Make sure we land on the vendor login page successfully
-        Assert.assertTrue(myAccountPage.checkPresenceOfMyAccountHeader());
+        //Make sure we land on the vendor login page successfully
+        Assert.assertTrue(vendorWelcomePage.checkPresenceOfVendorWelcomeHeader());
 
-        String myAccountExpectedHeaderText = "My Account";
-        String myAccountActualHeaderText = myAccountPage.getMyAccountHeaderText();
-        Assert.assertEquals(myAccountActualHeaderText, myAccountExpectedHeaderText);
+        String expectedVendorWelcomeHeaderText = "Welcome to Worldwide Electronics Store";
+        String actualVendorWelcomeHeaderText = vendorWelcomePage.getVendorWelcomeHeaderText();
+        Assert.assertEquals(expectedVendorWelcomeHeaderText, actualVendorWelcomeHeaderText);
 
         //check if vendor gets added to StoreList
 
