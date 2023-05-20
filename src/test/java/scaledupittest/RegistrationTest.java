@@ -53,4 +53,73 @@ public class RegistrationTest extends CommonAPI {
         waitFor(3);
 
     }
+    @Test
+    public void registerWithValidUsername() {
+
+        RegistrationPage registrationPage = new RegistrationPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        String expectedTitle = "Automation – Automate eCommerce";
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+        log.info("user landed successfully to the website ");
+        waitFor(3);
+
+        // click on register
+        homePage.clickOnSignInButton();
+        waitFor(3);
+
+        // enter email adress , password, and click on register button
+        registrationPage.enterEmail("nana85@gmail.com");
+        waitFor(3);
+
+        registrationPage.clickOnRegisterBtn();
+        waitFor(3);
+
+//
+        // check user is sign up successfully
+//        String expectedErrorMessage = "Error: Please enter an account password.";
+//        String actualErrorMessage = registrationPage.getErrorMessage();
+//        Assert.assertEquals(expectedErrorMessage,actualErrorMessage);
+//        log.info("user get error message success");
+//        waitFor(3);
+//
+//    }
+    }
+    @Test(enabled = false)
+    public void registerWithValidUsernameAndweekPassword() {
+
+        RegistrationPage registrationPage = new RegistrationPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        String expectedTitle = "Automation – Automate eCommerce";
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+        log.info("user landed successfully to the website ");
+        waitFor(3);
+
+        // click on register
+        homePage.clickOnSignInButton();
+        waitFor(3);
+
+        // enter email adress , password, and click on register button
+        registrationPage.enterEmail("nassmerboutibou@gmail.com");
+        waitFor(3);
+
+        registrationPage.enterPassword("");
+        waitFor(3);
+
+        registrationPage.clickOnRegisterBtn();
+        waitFor(3);
+
+
+        // check user is sign up successfully
+        String expectedLoginPageHeader = "Error: Please enter an account password.";
+        String actualLoginPageHeader = registrationPage.getLoginPageHeadertext();
+        Assert.assertEquals(expectedLoginPageHeader,actualLoginPageHeader);
+        log.info("user is registred success");
+        waitFor(3);
+
+    }
+
 }
+
+
