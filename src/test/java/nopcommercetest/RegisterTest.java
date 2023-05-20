@@ -17,7 +17,7 @@ public class RegisterTest extends CommonAPI {
 
     String firstName= "Danish";
     String lastName= "Mahmud";
-    String email= "mahmud.mahmud786@gmail.com";
+    String email= "mahmud786@gmail.com";
     String companyName= "PNT";
     String password= "mahmud123";
     String confirmPassword= "mahmud123";

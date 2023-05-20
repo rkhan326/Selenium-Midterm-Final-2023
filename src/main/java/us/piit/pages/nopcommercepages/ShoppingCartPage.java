@@ -19,9 +19,9 @@ public class ShoppingCartPage extends CommonAPI {
     @FindBy(xpath = "//input[@id='small-searchterms']")
     WebElement bookTextocator;
 
-    @FindBy( xpath = "//h2[@class='product-title']//a[contains(text(),'Fahrenheit 451 by Ray Bradbury')]")
+    @FindBy( xpath = "//a[text()='Apple MacBook Pro 13-inch']")
     WebElement bookLinkLocator;
-    @FindBy(xpath = "//button[@id='add-to-cart-button-37']")
+    @FindBy(css = "#add-to-cart-button-4")
     WebElement addToCartLocator;
 
     //******reusable methods*****

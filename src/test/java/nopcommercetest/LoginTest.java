@@ -65,7 +65,8 @@ public class LoginTest extends CommonAPI {
         loginPage.clickOnLoginBtn();
 
 
-        String expectedText = "Login was unsuccessful. Please correct the errors and try again";
+        String expectedText = "Login was unsuccessful. Please correct the errors and try again.\n" +
+                "No customer account found";
         String actualText = loginPage.getErrorMessage();
         Assert.assertEquals(expectedText,actualText);
         log.info("login page not success");

@@ -33,8 +33,7 @@ public class LoginPage  extends CommonAPI{
         @FindBy(xpath = "//div[@class='message-error validation-summary-errors']")
         WebElement errorMessage;
 
-        @FindBy(xpath = "//div[contains(text(),'Swag Labs')]")
-        WebElement loginPageHeader;
+
         @FindBy(xpath = "//button[@class='button-1 search-box-button']")
         WebElement isLoginPageSuccessLocator;
 
@@ -63,20 +62,12 @@ public class LoginPage  extends CommonAPI{
             log.info("get error message text success");
             return text;
         }
-        public boolean checkPresenceOfLoginPageHeader(){
-            boolean loginPageHeaderIsDisplayed = isVisible(loginPageHeader);
-            log.info("login page header presence "+loginPageHeaderIsDisplayed);
-            return loginPageHeaderIsDisplayed;
-        }
+
     public boolean checkLoginPageSuccess(){
         boolean checkLoginPageSuccessIsDisplayed = isVisible(isLoginPageSuccessLocator);
         return checkLoginPageSuccessIsDisplayed;
     }
-        public String getLoginPageHeaderText(){
-            String loginPageHeaderText = getElementText(loginPageHeader);
-            log.info("login page header text is "+loginPageHeaderText);
-            return loginPageHeaderText;
-        }
+
     public String getLoginPageSuccessText(){
         String text = getElementText(loginPageSuccessLocator);
         log.info("user logged in success");
