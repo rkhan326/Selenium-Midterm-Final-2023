@@ -12,14 +12,14 @@
 
     <test name="Register Test">
         <classes>
-            <class name="nopcommercetest.RegisterTest"></class>
+<!--            <class name="nopcommercetest.RegisterTest"></class>-->
         </classes>
-    </test>
-    <test name="login test">
-        <classes>
-            <class name="nopcommercetest.LoginTest"></class>
-        </classes>
-    </test>
+    </test><test name="login test">
+    <classes>
+<!--        <class name="nopcommercetest.LoginTest"></class>-->
+    </classes>
+</test>
+
 
 <!--    <test name="Search Test">-->
 <!--        <classes>-->

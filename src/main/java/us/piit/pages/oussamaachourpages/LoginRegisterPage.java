@@ -30,8 +30,13 @@ public class LoginRegisterPage extends CommonAPI {
     @FindBy(xpath = "//a[@title = 'My Account']" )
     WebElement myAccountBtn;
 
-    @FindBy(xpath = "//li[text()=\" The password you entered for the email address \"]" )
-    WebElement loginErrorMessage;
+    @FindBy(xpath = "//li[text()= ' The password you entered for the email address ']" )
+    WebElement loginInvalidPasswordMessage;
+
+    @FindBy(xpath = "//ul[@class= 'woocommerce-error']//li[1]" )
+    WebElement loginInvalidUsernameMessage;
+    @FindBy(xpath = "//ul[@class ='woocommerce-error']//li[1]" )
+    WebElement loginUnrecognizedEmailMessage;
 
     @FindBy(xpath = "//input[@id ='reg_email' ]")
     WebElement registrationUsernameField;
@@ -66,6 +71,17 @@ public class LoginRegisterPage extends CommonAPI {
     @FindBy(xpath= "//input[@id ='shop-phone' ]")
     WebElement registrationVendorShopContactField;
 
+    @FindBy(xpath = "//a[text()='Lost your password?']")
+    WebElement lostYourPasswordLink;
+
+    @FindBy(xpath = "//div[@class= 'woocommerce-password-strength bad']")
+    WebElement weakPassword;
+
+    @FindBy(xpath = "//div[@class= 'woocommerce-password-strength good']")
+    WebElement mediumPassword;
+
+    @FindBy(xpath = "//div[@class= 'woocommerce-password-strength strong']")
+    WebElement strongPassword;
 
 
 
@@ -82,14 +98,36 @@ public class LoginRegisterPage extends CommonAPI {
         clickOn(loginBtn);
         log.info("click on login button Success");
     }
-    public String getErrorMessage(){
-        String text = getElementText(loginErrorMessage);
-        log.info("get error message text success");
+    public String getLoginInvalidPasswordMessageText(){
+        String text = getElementText(loginInvalidPasswordMessage);
+        log.info("get invalid password login message text success");
         return text;
     }
-    public boolean checkPresenceOfLoginErrorMessage(){
-        boolean errorMessageIsDisplayed = isVisible(loginErrorMessage);
-        log.info("login error message validation success.");
+    public String getLoginInvalidUsernameMessageText(){
+        String text = getElementText(loginInvalidUsernameMessage);
+        log.info("get invalid username login message text success");
+        return text;
+    }
+    public String getLoginUnrecognizedEmailMessageText(){
+        String text = getElementText(loginUnrecognizedEmailMessage);
+        log.info("get Unrecognized Email login Message text success");
+        return text;
+    }
+    public boolean checkPresenceOfLoginInvalidPasswordMessage(){
+        boolean errorMessageIsDisplayed = isVisible(loginInvalidPasswordMessage);
+        log.info("login invalid password error message validation success.");
+        return errorMessageIsDisplayed;
+    }
+
+    public boolean checkPresenceOfLoginInvalidUsernameMessage(){
+        boolean errorMessageIsDisplayed = isVisible(loginInvalidUsernameMessage);
+        log.info("login invalid Username error message validation success.");
+        return errorMessageIsDisplayed;
+    }
+
+    public boolean checkPresenceOfLoginUnrecognizedEmailMessage(){
+        boolean errorMessageIsDisplayed = isVisible(loginUnrecognizedEmailMessage);
+        log.info("login invalid Username error message validation success.");
         return errorMessageIsDisplayed;
     }
 
@@ -169,26 +207,48 @@ public class LoginRegisterPage extends CommonAPI {
         log.info("enter registration vendor shop contact info success");
     }
 
+    public void scrollToRegisterBtnWCoordinates(WebDriver driver){
+        scrollToCoordinates(0,300);
+    }
     public void scrollToRegisterBtnwJS(){
         scrollToElementwJS(registerBtn);
     }
     public void clickRegisterBtnwJS(){
         clickWithJavascript(registerBtn);
     }
+    public void moveToRegisterBtn(WebDriver driver){
+        scrollToView(driver, registerBtn);
+    }
+    public void clickOnLostYourPasswordLink(){
+        clickOn(lostYourPasswordLink);
+        log.info("click on lost your password link");
+    }
+    public String getStrongPasswordStrengthText(){
+        String text = getElementText(strongPassword);
+        log.info("get strong password strength  text success");
+        return text;
+    }
+    public String getWeakPasswordStrengthText(){
+        String text = getElementText(weakPassword);
+        log.info("get weak password strength  text success");
+        return text;
+    }
+    public String getMediumPasswordStrengthText(){
+        String text = getElementText(mediumPassword);
+        log.info("get medium password strength  text success");
+        return text;
+    }
 
 
-
-    public String newRegistrationLoginUsername(){ return faker.internet().emailAddress();}
-    public String newRegistrationLoginPassword() { return faker.internet().password();}
-    public String vendorFirstName(){ return faker.name().firstName();}
-    public String vendorLastName(){ return faker.name().lastName();}
-    public String vendorShopName(){return faker.company().name();}
-    public String vendorShopUrl(){ return faker.company().url();}
-    public String vendorShopContact(){ return faker.phoneNumber().phoneNumber();}
-
-
-
-
-
-
+    public String newFakeRegistrationLoginUsername(){ return faker.internet().emailAddress();}
+    public String newFakeRegistrationLoginPassword() { return faker.internet().password();}
+    public String fakeVendorFirstName(){ return faker.name().firstName();}
+    public String fakeVendorLastName(){ return faker.name().lastName();}
+    public String fakeVendorShopName(){return faker.company().name();}
+    public String fakeVendorShopUrl(){ return faker.company().url();}
+    public String fakeVendorShopContact(){ return faker.phoneNumber().phoneNumber();}
+    public String fakeWeakPassword(){ return faker.internet().password(1,12,false,false,true);}
+    public String fakeMediumPassword(){ return faker.internet().password(9,10,true,true,true);}
+    public String fakeStrongPassword(){ return faker.internet().password(11,20,true,true,true);}
 }
+

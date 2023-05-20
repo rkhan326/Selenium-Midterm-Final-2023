@@ -163,7 +163,7 @@ public class CommonAPI {
     public String getElementText(WebElement element) {return element.getText();}
     public void clickOn(WebElement element) {element.click();}
     public void typeText(WebElement element, String text) {element.sendKeys(text);}
-    public void hoverOver(WebElement element) {
+    public void hoverOver(WebDriver driver, WebElement element) {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }
@@ -191,7 +191,7 @@ public class CommonAPI {
         Actions actions = new Actions(driver);
         actions.scrollByAmount(x, y).build().perform();
     }
-    public void scrollToView(WebElement element){
+    public void scrollToView(WebDriver driver, WebElement element){
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }

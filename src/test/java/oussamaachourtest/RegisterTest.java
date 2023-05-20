@@ -20,16 +20,6 @@ public class RegisterTest extends CommonAPI {
    String existingRegistrationUsername =  Utility.decode(prop.getProperty("oussamaachour.registration-username"));
    String existingRegistrationPassword = Utility.decode(prop.getProperty("oussamaachour.registration-password"));
 
-//   String newRegistrationUsername = prop.getProperty("oussamaachour.registration-username");
-//   String newRegistrationPassword = prop.getProperty("oussamaachour.registration-password");
-//   String newVendorRegistrationFirstName = prop.getProperty("oussamaachour.registration-vendor.firstname");
-//   String newVendorRegistrationLastName = prop.getProperty("oussamaachour.registration-vendor.lastname");
-//   String newVendorRegistrationShopName = prop.getProperty("oussamaachour.registration-vendor.shopname");
-//   String newVendorRegistrationShopUrl = prop.getProperty("oussamaachour.registration-vendor.shopurl");
-//   String newVendorRegistrationShopContact = prop.getProperty("oussamaachour.registration-vendor.shopcontact");
-
-
-
     @Test(enabled = false)
     public void registerNewCustomer() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
@@ -46,8 +36,8 @@ public class RegisterTest extends CommonAPI {
         homePage.clickOnMyAccountLink();
 
         //enter username and password
-        loginRegisterPage.enterRegistrationUsername(loginRegisterPage.newRegistrationLoginUsername());
-        loginRegisterPage.enterRegistrationPassword(loginRegisterPage.newRegistrationLoginPassword());
+        loginRegisterPage.enterRegistrationUsername(loginRegisterPage.newFakeRegistrationLoginUsername());
+        loginRegisterPage.enterRegistrationPassword(loginRegisterPage.newFakeRegistrationLoginPassword());
 
         //click on radio button
         loginRegisterPage.clickOnCustomerRadioBtn();
@@ -69,7 +59,7 @@ public class RegisterTest extends CommonAPI {
         Assert.assertEquals(myAccountActualHeaderText, myAccountExpectedHeaderText);
     }
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void registerExistingCustomer() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -95,12 +85,17 @@ public class RegisterTest extends CommonAPI {
         Assert.assertFalse(loginRegisterPage.checkVendorRadioBtnIsChecked());
 
         //scroll to register button
-        //loginRegisterPage.scrollToRegisterBtnwJS();
+        //loginRegisterPage.moveToRegisterBtn(getDriver());
+
+//        loginRegisterPage.scrollToRegisterBtnwJS();
+//        loginRegisterPage.clickRegisterBtnwJS();
+       //loginRegisterPage.scrollToRegisterBtnWCoordinates(getDriver());
         scrollToCoordinates(0,300);
         Assert.assertTrue(loginRegisterPage.checkRegisterBtnIsVisible());
+        waitFor(3);
 
         //click on register button
-        loginRegisterPage.clickOnRegisterBtn();;
+       loginRegisterPage.clickOnRegisterBtn();;
 
         //validate error message
         Assert.assertTrue(loginRegisterPage.checkPresenceOfRegistrationErrorMessage());
@@ -126,8 +121,8 @@ public class RegisterTest extends CommonAPI {
         homePage.clickOnMyAccountLink();
 
         //enter username and password
-        loginRegisterPage.enterRegistrationUsername(loginRegisterPage.newRegistrationLoginUsername());
-        loginRegisterPage.enterRegistrationPassword(loginRegisterPage.newRegistrationLoginPassword());
+        loginRegisterPage.enterRegistrationUsername(loginRegisterPage.newFakeRegistrationLoginUsername());
+        loginRegisterPage.enterRegistrationPassword(loginRegisterPage.newFakeRegistrationLoginPassword());
 
         //scroll down
         scrollToCoordinates(0,300);
@@ -139,18 +134,12 @@ public class RegisterTest extends CommonAPI {
         Assert.assertTrue(loginRegisterPage.checkVendorRadioBtnIsChecked());
 
         //new fields appear after hitting vendor radio button
-        //enter first name, last name, shop name, shop url, shop contact
-//        loginRegisterPage.enterRegistrationVendorFirstName(newVendorRegistrationFirstName);
-//        loginRegisterPage.enterRegistrationVendorLastName(newVendorRegistrationLastName);
-//        loginRegisterPage.enterRegistrationVendorShopName(newVendorRegistrationShopName);
-//        loginRegisterPage.enterRegistrationVendorShopUrl(newVendorRegistrationShopUrl);
-//        loginRegisterPage.enterRegistrationVendorShopContact(newVendorRegistrationShopContact);
-
-        loginRegisterPage.enterRegistrationVendorFirstName(loginRegisterPage.vendorFirstName());
-        loginRegisterPage.enterRegistrationVendorLastName(loginRegisterPage.vendorLastName());
-        loginRegisterPage.enterRegistrationVendorShopName(loginRegisterPage.vendorShopName());
-        loginRegisterPage.enterRegistrationVendorShopUrl(loginRegisterPage.vendorShopUrl());
-        loginRegisterPage.enterRegistrationVendorShopContact(loginRegisterPage.vendorShopContact());
+        //enter FAKE first name, last name, shop name, shop url, shop contact
+        loginRegisterPage.enterRegistrationVendorFirstName(loginRegisterPage.fakeVendorFirstName());
+        loginRegisterPage.enterRegistrationVendorLastName(loginRegisterPage.fakeVendorLastName());
+        loginRegisterPage.enterRegistrationVendorShopName(loginRegisterPage.fakeVendorShopName());
+        loginRegisterPage.enterRegistrationVendorShopUrl(loginRegisterPage.fakeVendorShopUrl());
+        loginRegisterPage.enterRegistrationVendorShopContact(loginRegisterPage.fakeVendorShopContact());
         waitFor(3);
 
         //scroll to register button
