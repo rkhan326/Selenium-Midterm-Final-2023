@@ -13,12 +13,12 @@
 <!--erfan please modify url value and class names for your tests. I left it for example purpose for you-->
     <test name="login test">
         <classes>
-            <class name="lumatest.LoginTest"></class>
+<!--            <class name="lumatest.LoginTest"></class>-->
         </classes>
     </test>
     <test name="logout test">
         <classes>
-            <class name="nopcommercetest.LogoutTest"></class>
+<!--            <class name="nopcommercetest.LogoutTest"></class>-->
         </classes>
     </test>
 </suite>
