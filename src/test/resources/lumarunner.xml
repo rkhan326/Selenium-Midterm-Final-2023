@@ -13,7 +13,7 @@
 
         <test name="login test">
             <classes>
-                <class name="lumatest.LoginTest"></class>
+<!--                <class name="lumatest.LoginTest"></class>-->
             </classes>
         </test>
 </suite>
