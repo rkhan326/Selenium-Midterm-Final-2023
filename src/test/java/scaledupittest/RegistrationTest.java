@@ -125,4 +125,3 @@ public class RegistrationTest extends CommonAPI {
     }
 
 }
-    }}

@@ -19,11 +19,17 @@ public class HomePage extends CommonAPI {
 
     @FindBy(xpath = "//a[@title = 'My Account']" )
     WebElement myAccountLink;
-
+    @FindBy(xpath = "//a[@title='Stores']" )
+    WebElement storesListLink;
 
     public void clickOnMyAccountLink(){
         clickOn(myAccountLink);
-        log.info("Click on My Account success");
+        log.info("Click on My Account link success");
+    }
+
+    public void clickOnStoresListLink(){
+        clickOn(storesListLink);
+        log.info("Click on Stores List link success");
     }
 
 }
