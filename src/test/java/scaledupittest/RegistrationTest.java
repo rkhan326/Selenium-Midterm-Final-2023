@@ -20,8 +20,8 @@ public class RegistrationTest extends CommonAPI {
 
 
 
-   // @Test(enabled = true,priority = 0)
-    public void registerWithValidUsernameAndValidPassword() {
+    @Test(enabled = true,priority = 0)
+    public void registerNewUser() {
 
         RegistrationPage registrationPage = new RegistrationPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -36,13 +36,13 @@ public class RegistrationTest extends CommonAPI {
         waitFor(3);
 
         // enter email adress , password, and click on register button
-        registrationPage.enterEmail("admin.piit@gmail.com");
+
+        registrationPage.enterEmail(registrationPage.enterNewFakeRegistrationEmail());
         waitFor(3);
 
-
-
-        registrationPage.enterPassword("amelboucetta96");
+        registrationPage.enterPassword(registrationPage.enterNewFakeRegistrationPassword());
         waitFor(3);
+
 
         registrationPage.clickOnRegisterBtn();
         waitFor(3);
@@ -59,7 +59,7 @@ public class RegistrationTest extends CommonAPI {
 
     }
   //  @Test(enabled = true,priority = 1)
-    public void registerWithValidUsername() {
+    public void registerWithValidEmail() {
 
         RegistrationPage registrationPage = new RegistrationPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -91,8 +91,7 @@ public class RegistrationTest extends CommonAPI {
 
     }
     @Test(enabled = true,priority = 2)
-    public void registerWithValidUsernameAndWeekPassword() {
-
+    public void registerWithValidEmailAndWeekPassword() {
         RegistrationPage registrationPage = new RegistrationPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         String expectedTitle = "Automation – Automate eCommerce";
@@ -126,3 +125,4 @@ public class RegistrationTest extends CommonAPI {
     }
 
 }
+    }}

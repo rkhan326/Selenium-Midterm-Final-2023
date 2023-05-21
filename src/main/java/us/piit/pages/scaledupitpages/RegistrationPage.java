@@ -16,6 +16,7 @@ public class RegistrationPage extends CommonAPI {
 
         PageFactory.initElements(driver, this);
     }
+    Faker faker =new Faker();
 
 
     @FindBy(css = "#reg_email")
@@ -90,6 +91,9 @@ public class RegistrationPage extends CommonAPI {
         return loginPageHeaderText;
 
     }
+    public String enterNewFakeRegistrationEmail(){ return faker.internet().emailAddress(); }
+
+    public String enterNewFakeRegistrationPassword(){ return faker.internet().password(); }
 }
 
 

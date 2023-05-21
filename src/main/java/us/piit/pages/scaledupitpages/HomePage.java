@@ -15,10 +15,8 @@ public class HomePage extends CommonAPI {
     public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
-    @FindBy(css = ".custom-logo")
-    WebElement mainHeader;
-
-
+//    @FindBy(css = ".custom-logo")
+//    WebElement mainHeader;
 
     @FindBy(xpath = "//a[text()='Logout']")
     WebElement logoutLink;
@@ -43,12 +41,15 @@ public class HomePage extends CommonAPI {
     @FindBy(xpath = "//li[@id='menu-item-295']/a[1]")
     WebElement foodAndBeveragebutton;
 
+    @FindBy(xpath="//a[text()='Clothing']")
+    WebElement clothingButton;
 
-    public String getHeaderText(){
-        String text = getElementText(mainHeader);
-        log.info("user logged in success");
-        return text;
-    }
+    @FindBy(xpath="//li[@id='menu-item-309']/a[1]")
+    WebElement hoddiesButton;
+
+
+
+
     public void clickOnSignInButton() {
         clickOn(SignInButton);
         log.info("click on Register/Login button success");
@@ -85,6 +86,16 @@ public class HomePage extends CommonAPI {
         clickOn(foodAndBeveragebutton);
         log.info("click on food and beverage  success");
     }
+    public void hoverOverOnClothingButton(  WebDriver driver) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(clothingButton).build().perform();
+        log.info("hover over on clothing button success");
+    }
+    public void clickOnHoddiesButton() {
+        clickOn(hoddiesButton);
+        log.info("click on hoddies button success");
+    }
+
 }
 
 

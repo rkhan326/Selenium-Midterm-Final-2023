@@ -16,7 +16,7 @@
 <!--                </test>-->
 <!--                <test name="search test">-->
 <!--                    <classes>-->
-<!--                        <class name="scaledupittest.SearchTest"></class>-->
+<!--                        <class name="scaledupittest.CouponsTest"></class>-->
 <!--                    </classes>-->
 <!--                </test>-->
 <!--                <test name="logout test">-->

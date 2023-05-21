@@ -27,6 +27,11 @@ public class AddToCartPage extends CommonAPI {
     @FindBy(xpath = "//span[@class='cart-value cart-customlocation' and text()=1]")
     WebElement cartCount;
 
+
+
+    @FindBy(xpath="//h2[text()='Patient Ninja']")
+    WebElement PatientNinjaButton;
+
     public void clickOnBagCollection() {
         clickOn(bagCollectionButon);
         log.info("click on bag collection success");
@@ -51,6 +56,11 @@ public class AddToCartPage extends CommonAPI {
     public void clickOnCart() {
         clickOn(cartCount);
         log.info("click on  cart and 1 item added  success");
+
+    }
+    public void clickOnPatientNinjaButton() {
+        clickOn(PatientNinjaButton);
+        log.info("click on patient Ninja button  success");
 
     }
 
