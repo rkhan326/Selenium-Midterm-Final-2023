@@ -19,8 +19,9 @@ public class RegistrationTest extends CommonAPI {
 
 
 
-    @Test
-    public void validCred() {
+
+    @Test(enabled = true,priority = 0)
+    public void registerNewUser() {
 
         RegistrationPage registrationPage = new RegistrationPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -35,26 +36,30 @@ public class RegistrationTest extends CommonAPI {
         waitFor(3);
 
         // enter email adress , password, and click on register button
-        registrationPage.enterEmail("nassmerboutibouc03021973@gmail.com");
+
+        registrationPage.enterEmail(registrationPage.enterNewFakeRegistrationEmail());
         waitFor(3);
 
-        registrationPage.enterPassword("6101993&!amelboucetta");
+        registrationPage.enterPassword(registrationPage.enterNewFakeRegistrationPassword());
         waitFor(3);
+
 
         registrationPage.clickOnRegisterBtn();
         waitFor(3);
 
 
         // check user is sign up successfully
-        String expectedLoginPageHeader = "Hello nassmerboutibouc03021973 (not nassmerboutibouc03021973? Log out)";
-        String actualLoginPageHeader = registrationPage.getLoginPageHeadertext();
+        Assert.assertTrue(registrationPage.checkPresenceOfValidUsPassRegisterPageHeader());
+
+        String expectedLoginPageHeader = "Hello admin.piit (not admin.piit? Log out)";
+        String actualLoginPageHeader = registrationPage.getValidUsPassRegisterPageHeadertext();
         Assert.assertEquals(expectedLoginPageHeader,actualLoginPageHeader);
         log.info("user is registred success");
         waitFor(3);
 
     }
-    @Test
-    public void registerWithValidUsername() {
+  //  @Test(enabled = true,priority = 1)
+    public void registerWithValidEmail() {
 
         RegistrationPage registrationPage = new RegistrationPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -75,19 +80,18 @@ public class RegistrationTest extends CommonAPI {
         registrationPage.clickOnRegisterBtn();
         waitFor(3);
 
-//
-        // check user is sign up successfully
-//        String expectedErrorMessage = "Error: Please enter an account password.";
-//        String actualErrorMessage = registrationPage.getErrorMessage();
-//        Assert.assertEquals(expectedErrorMessage,actualErrorMessage);
-//        log.info("user get error message success");
-//        waitFor(3);
-//
-//    }
-    }
-    @Test(enabled = false)
-    public void registerWithValidUsernameAndweekPassword() {
 
+        // check user is sign up successfully
+        Assert.assertTrue(registrationPage.checkPresenceOfValidUsernameErrorMessage());
+        String expectedErrorMessage1 = "Error: Please enter an account password.";
+        String actualErrorMessage1 = registrationPage.getValidUsernameErrorMessage();
+        Assert.assertEquals(expectedErrorMessage1,actualErrorMessage1);
+        waitFor(3);
+
+
+    }
+    @Test(enabled = true,priority = 2)
+    public void registerWithValidEmailAndWeekPassword() {
         RegistrationPage registrationPage = new RegistrationPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         String expectedTitle = "Automation – Automate eCommerce";
@@ -101,10 +105,10 @@ public class RegistrationTest extends CommonAPI {
         waitFor(3);
 
         // enter email adress , password, and click on register button
-        registrationPage.enterEmail("nassmerboutibou@gmail.com");
+        registrationPage.enterEmail("nana216@gmail.com");
         waitFor(3);
 
-        registrationPage.enterPassword("");
+        registrationPage.enterPassword("mami");
         waitFor(3);
 
         registrationPage.clickOnRegisterBtn();
@@ -112,14 +116,13 @@ public class RegistrationTest extends CommonAPI {
 
 
         // check user is sign up successfully
-        String expectedLoginPageHeader = "Error: Please enter an account password.";
-        String actualLoginPageHeader = registrationPage.getLoginPageHeadertext();
-        Assert.assertEquals(expectedLoginPageHeader,actualLoginPageHeader);
-        log.info("user is registred success");
+        Assert.assertTrue(registrationPage.checkPresenceOfWeekPassRegisterPageHeader());
+        String expectedLoginPageHeader2 = "Hello nana216 (not nana216? Log out)";
+        String actualLoginPageHeader2 = registrationPage.getValidWeekPassRegisterPageHeadertext();
+        Assert.assertEquals(expectedLoginPageHeader2,actualLoginPageHeader2);
         waitFor(3);
 
     }
 
 }
-
-
+    }}

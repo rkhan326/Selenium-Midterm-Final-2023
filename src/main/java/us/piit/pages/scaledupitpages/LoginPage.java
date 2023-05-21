@@ -50,8 +50,13 @@ public class LoginPage extends CommonAPI {
         log.info("click on login button success");
 
     }
+    public boolean checkPresenceOfErrorMessageText() {
+        boolean loginPageHeaderIsDisplayed = isVisible(errorMessage);
+        log.info("login page header presence " + loginPageHeaderIsDisplayed);
+        return loginPageHeaderIsDisplayed;
+    }
 
-    public String getErrorMessage() {
+    public String getErrorMessageText() {
         String text = getElementText(errorMessage);
         log.info("get error message text success");
         return text;

@@ -14,11 +14,11 @@
 <!--                        <class name="scaledupittest.LoginTest"></class>-->
 <!--                    </classes>-->
 <!--                </test>-->
-                <test name="search test">
-                    <classes>
-                        <class name="scaledupittest.SearchTest"></class>
-                    </classes>
-                </test>
+<!--                <test name="search test">-->
+<!--                    <classes>-->
+<!--                        <class name="scaledupittest.CouponsTest"></class>-->
+<!--                    </classes>-->
+<!--                </test>-->
 <!--                <test name="logout test">-->
 <!--                    <classes>-->
 <!--                        <class name="scaledupittest.LogoutTest"></class>-->
@@ -34,10 +34,10 @@
 <!--                <class name="scaledupittest.BlogTest"></class>-->
 <!--            </classes>-->
 <!--        </test>-->
-<!--    <test name="Register test">-->
-<!--        <classes>-->
-<!--            <class name="scaledupittest.RegistrationTest"></class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Register test">
+        <classes>
+            <class name="scaledupittest.RegistrationTest"></class>
+        </classes>
+    </test>
 
 </suite>
