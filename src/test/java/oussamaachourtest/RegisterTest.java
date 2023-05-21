@@ -6,10 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
-import us.piit.pages.oussamaachourpages.HomePage;
-import us.piit.pages.oussamaachourpages.LoginRegisterPage;
-import us.piit.pages.oussamaachourpages.MyAccountPage;
-import us.piit.pages.oussamaachourpages.VendorWelcomePage;
+import us.piit.pages.oussamaachourpages.*;
 import us.piit.utility.Utility;
 
 import java.util.Properties;
@@ -109,12 +106,12 @@ public class RegisterTest extends CommonAPI {
         HomePage homePage = new HomePage(getDriver());
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         VendorWelcomePage vendorWelcomePage = new VendorWelcomePage(getDriver());
+        StoreListPage storeListPage = new StoreListPage(getDriver());
 
         //ensure we are on the correct website
         String actualTitle = getCurrentTitle();
         String expectedTitle = "Welcome to Worldwide Electronics Store";
-
-        // Assert.assertEquals(actualTitle, expectedTitle);
+        Assert.assertEquals(actualTitle, expectedTitle);
         log.info("Successfully entered Oussama's website");
 
         //click on my account
@@ -123,6 +120,7 @@ public class RegisterTest extends CommonAPI {
         //enter username and password
         loginRegisterPage.enterRegistrationUsername(loginRegisterPage.newFakeRegistrationLoginUsername());
         loginRegisterPage.enterRegistrationPassword(loginRegisterPage.newFakeRegistrationLoginPassword());
+
 
         //scroll down
         scrollToCoordinates(0,300);
@@ -135,9 +133,10 @@ public class RegisterTest extends CommonAPI {
 
         //new fields appear after hitting vendor radio button
         //enter FAKE first name, last name, shop name, shop url, shop contact
+        String fakeShopName = loginRegisterPage.fakeVendorShopName();
         loginRegisterPage.enterRegistrationVendorFirstName(loginRegisterPage.fakeVendorFirstName());
         loginRegisterPage.enterRegistrationVendorLastName(loginRegisterPage.fakeVendorLastName());
-        loginRegisterPage.enterRegistrationVendorShopName(loginRegisterPage.fakeVendorShopName());
+        loginRegisterPage.enterRegistrationVendorShopName(fakeShopName);
         loginRegisterPage.enterRegistrationVendorShopUrl(loginRegisterPage.fakeVendorShopUrl());
         loginRegisterPage.enterRegistrationVendorShopContact(loginRegisterPage.fakeVendorShopContact());
         waitFor(3);
@@ -145,10 +144,11 @@ public class RegisterTest extends CommonAPI {
         //scroll to register button
         scrollToCoordinates(0,500);
         Assert.assertTrue(loginRegisterPage.checkRegisterBtnIsVisible());
-        waitFor(3);
+        waitFor(10);
 
         //click on register button
         loginRegisterPage.clickOnRegisterBtn();
+
 
         //Make sure we land on the vendor login page successfully
         Assert.assertTrue(vendorWelcomePage.checkPresenceOfVendorWelcomeHeader());
@@ -158,6 +158,16 @@ public class RegisterTest extends CommonAPI {
         Assert.assertEquals(expectedVendorWelcomeHeaderText, actualVendorWelcomeHeaderText);
 
         //check if vendor gets added to StoreList
+        vendorWelcomePage.clickOnVendorNotRightNowBtn();
+
+        homePage.clickOnStoresListLink();
+
+        String expectedStoreListNewRegisteredShopNameText = fakeShopName;
+        String actualStoreListNewRegisteredShopNameText = storeListPage.getStoreListNewRegisteredShopNameText();
+        Assert.assertEquals(expectedStoreListNewRegisteredShopNameText, actualStoreListNewRegisteredShopNameText);
 
     }
+
+
 }
+

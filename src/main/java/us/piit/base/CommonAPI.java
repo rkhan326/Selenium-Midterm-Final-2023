@@ -11,6 +11,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -43,6 +46,8 @@ public class CommonAPI {
         String windowMaximize = prop.getProperty("browser.maximize","true");
         String takeScreenshots = prop.getProperty("take.screenshots","false");
         WebDriver driver;
+
+
 
     //report setup from line 48 to 105
     public static com.relevantcodes.extentreports.ExtentReports extent;
@@ -162,6 +167,8 @@ public class CommonAPI {
     public String getCurrentTitle() {return driver.getTitle();}
     public String getElementText(WebElement element) {return element.getText();}
     public void clickOn(WebElement element) {element.click();}
+    public void clear(WebElement element){element.clear();}
+    public void typeTextAndEnter(WebElement element, String text){element.sendKeys(text, Keys.ENTER);}
     public void typeText(WebElement element, String text) {element.sendKeys(text);}
     public void hoverOver(WebDriver driver, WebElement element) {
         Actions actions = new Actions(driver);
@@ -170,6 +177,18 @@ public class CommonAPI {
     public void hoverOverAndClick(WebDriver driver,WebElement element) {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).click().build().perform();
+    }
+    public void selectOptionFromDropdown(WebElement dropdown, String option){
+        Select select = new Select(dropdown);
+        try {
+            select.selectByVisibleText(option);
+        }catch (Exception e){
+            select.selectByValue(option);
+        }
+    }
+    public void waitForElementToBeVisible(WebDriver driver, int duration, WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(duration));
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
     public boolean isVisible(WebElement element) {return element.isDisplayed();}
 

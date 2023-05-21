@@ -247,7 +247,7 @@ public class LoginRegisterPage extends CommonAPI {
     public String fakeVendorShopName(){return faker.company().name();}
     public String fakeVendorShopUrl(){ return faker.company().url();}
     public String fakeVendorShopContact(){ return faker.phoneNumber().phoneNumber();}
-    public String fakeWeakPassword(){ return faker.internet().password(1,12,false,false,true);}
+    public String fakeWeakPassword(){ return faker.internet().password(1,8,false,false,true);}
     public String fakeMediumPassword(){ return faker.internet().password(9,10,true,true,true);}
     public String fakeStrongPassword(){ return faker.internet().password(11,20,true,true,true);}
 }
