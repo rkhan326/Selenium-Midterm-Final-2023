@@ -30,8 +30,8 @@ public class RegistrationPage extends CommonAPI {
     @FindBy(xpath = "//ul[@class='woocommerce-error']/li[1]")
     WebElement validEmailErrorMessage;
 
-    @FindBy(xpath="//div[@class='woocommerce-MyAccount-content']/p[1]")
-    WebElement weekPassRegisterPageHeader;
+    @FindBy(xpath = "//h1[text()='My account']")
+    WebElement loginPageHeader;
 
 
 
@@ -55,15 +55,14 @@ public class RegistrationPage extends CommonAPI {
 
 
 
-    public boolean checkPresenceOfValidUsPassRegisterPageHeader() {
-        boolean loginPageHeaderIsDisplayed = isVisible(validUsPassRegisterPageHeader);
+    public boolean checkPresenceOfLoginPageHeader() {
+        boolean loginPageHeaderIsDisplayed = isVisible(loginPageHeader);
         log.info("login page header presence " + loginPageHeaderIsDisplayed);
         return loginPageHeaderIsDisplayed;
     }
 
-
-    public String getValidUsPassRegisterPageHeadertext() {
-        String loginPageHeaderText = getElementText(validUsPassRegisterPageHeader);
+    public String getLoginPageHeadertext() {
+        String loginPageHeaderText = getElementText(loginPageHeader);
         log.info("login page header text is " + loginPageHeaderText);
         return loginPageHeaderText;
 
@@ -78,22 +77,13 @@ public class RegistrationPage extends CommonAPI {
         log.info("get error message text success");
         return text;
     }
-    public boolean checkPresenceOfWeekPassRegisterPageHeader() {
-        boolean loginPageHeaderIsDisplayed = isVisible(weekPassRegisterPageHeader);
-        log.info("login page header presence " + loginPageHeaderIsDisplayed);
-        return loginPageHeaderIsDisplayed;
-    }
-
-
-    public String getValidWeekPassRegisterPageHeadertext() {
-        String loginPageHeaderText = getElementText(weekPassRegisterPageHeader);
-        log.info("login page header text is " + loginPageHeaderText);
-        return loginPageHeaderText;
-
-    }
     public String enterNewFakeRegistrationEmail(){ return faker.internet().emailAddress(); }
 
     public String enterNewFakeRegistrationPassword(){ return faker.internet().password(); }
+    public String entreNewFakeWeakPassword(){ return faker.internet().password(1,12,false,false,true);}
+    public String entreNewFakeShortPassword(){ return faker.internet().password(9,10,true,true,true);}
+
+
 }
 
 

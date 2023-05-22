@@ -93,14 +93,14 @@ public class ExcelReader {
     }
 
     public static void main(String[] args)  {
-       // String path = currentDir + File.separator + "data/data/xlsx";
-        String path = "/Users/Work/IDEA/Selenium-Midterm-Final-2023/data/data.xlsx";
-
+        // String path = currentDir + File.separator + "data/data/xlsx";
+      //  String path = "C:\\Users\\Amel Boucetta Gacem\\eclipse-workspace\\Selenium-Midterm-Final-2023\\Datas\\data.xlsx";
+        String path = currentDir + File.separator + "data"+ File.separator + "data.xlsx";
 
         //String path = "C:\\Users\\PNT\\eclipse-workspace\\Feb2023-web-automation-framework\\data\\data.xlsx";
 
         ExcelReader excelReader = new ExcelReader(path);
-        System.out.println(excelReader.getValueForGivenHeaderAndKey("data","ID","101"));
+        System.out.println(excelReader.getDataFromCell("Sheet1",1,1));
 //        List<String> items = excelReader.getEntireColumnForGivenHeader("Sheet1", "id");
 //        //String items = excelReader.getValueForGivenHeaderAndKey("Sheet1", "id", "id004");
 //        System.out.println(items);
