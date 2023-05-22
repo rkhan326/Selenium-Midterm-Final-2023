@@ -31,6 +31,7 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
@@ -168,8 +169,14 @@ public class CommonAPI {
     public String getElementText(WebElement element) {return element.getText();}
     public void clickOn(WebElement element) {element.click();}
     public void clear(WebElement element){element.clear();}
-    public void typeTextAndEnter(WebElement element, String text){element.sendKeys(text, Keys.ENTER);}
-    public void typeText(WebElement element, String text) {element.sendKeys(text);}
+    public void typeText(WebElement element, String text) {
+        element.clear();
+        element.sendKeys(text);
+    }
+    public void typeTextEnter(WebElement element, String text){
+        element.clear();
+        element.sendKeys(text, Keys.ENTER);
+    }
     public void hoverOver(WebDriver driver, WebElement element) {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
@@ -184,6 +191,28 @@ public class CommonAPI {
             select.selectByVisibleText(option);
         }catch (Exception e){
             select.selectByValue(option);
+        }
+    }
+    public void selectOptionFromDropDown(WebElement element, String value){
+        WebElement dropdown = element;
+        Select select = new Select(dropdown);
+        select.selectByValue(value);
+    }
+    public void switchToTab(int index) {
+        // Get a list of all the open window handles
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        // Switch to the specified tab by index
+        driver.switchTo().window(tabs.get(index));
+    }
+    public void switchToCurrentlyActiveWindow() {
+        // Get the handle of the currently active window
+        String currentHandle = driver.getWindowHandle();
+        // Loop through all the open windows and switch to the next one
+        for (String handle : driver.getWindowHandles()) {
+            if (!handle.equals(currentHandle)) {
+                driver.switchTo().window(handle);
+                return;
+            }
         }
     }
     public void waitForElementToBeVisible(WebDriver driver, int duration, WebElement element){
@@ -217,7 +246,13 @@ public class CommonAPI {
     public void scrollToElement(int x, int y){
         Actions actions = new Actions(driver);
         actions.scrollByAmount(x,y).build().perform();
-
+    }
+    public void moveSlider(WebElement element, int xOffset, int yOffset, WebDriver driver) {
+        WebElement slider = element;
+        Actions builder = new Actions(driver);
+        builder.clickAndHold(slider);
+        builder.moveByOffset(xOffset, yOffset).build().perform();
+        builder.release().build().perform();
     }
     public void waitFor(int seconds) {
         try {
@@ -226,14 +261,15 @@ public class CommonAPI {
             throw new RuntimeException(e);
         }
     }
-    public void clickWithJavascript(WebElement element){
+    public void clickWithJavascript(WebElement element, WebDriver driver){
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].click();", element);
     }
-    public void scrollToElementwJS(WebElement element) {
+    public void scrollToElementwJS(WebElement element, WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].scrollIntoView();",element);
     }
+
     public void captureScreenshot() {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {

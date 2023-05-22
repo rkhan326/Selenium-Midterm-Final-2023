@@ -131,7 +131,6 @@ public class LoginRegisterPage extends CommonAPI {
         return errorMessageIsDisplayed;
     }
 
-
     //Registration Methods
     public void enterRegistrationUsername(String username){
         typeText(registrationUsernameField,username);
@@ -207,18 +206,17 @@ public class LoginRegisterPage extends CommonAPI {
         log.info("enter registration vendor shop contact info success");
     }
 
-    public void scrollToRegisterBtnWCoordinates(WebDriver driver){
-        scrollToCoordinates(0,300);
+//    public void scrollToRegisterBtnWCoordinates(WebDriver driver){
+//        scrollToCoordinates(0,300);
+//    }
+    public void scrollToRegisterBtnwJS(WebDriver driver){
+        scrollToElementwJS(registerBtn, driver);
     }
-    public void scrollToRegisterBtnwJS(){
-        scrollToElementwJS(registerBtn);
-    }
-    public void clickRegisterBtnwJS(){
-        clickWithJavascript(registerBtn);
-    }
+
     public void moveToRegisterBtn(WebDriver driver){
         scrollToView(driver, registerBtn);
     }
+
     public void clickOnLostYourPasswordLink(){
         clickOn(lostYourPasswordLink);
         log.info("click on lost your password link");
@@ -239,9 +237,8 @@ public class LoginRegisterPage extends CommonAPI {
         return text;
     }
 
-
     public String newFakeRegistrationLoginUsername(){ return faker.internet().emailAddress();}
-    public String newFakeRegistrationLoginPassword() { return faker.internet().password();}
+    public String newFakeRegistrationLoginPassword() { return faker.internet().password(10,12,true,true,true);}
     public String fakeVendorFirstName(){ return faker.name().firstName();}
     public String fakeVendorLastName(){ return faker.name().lastName();}
     public String fakeVendorShopName(){return faker.company().name();}
