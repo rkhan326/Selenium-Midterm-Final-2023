@@ -39,7 +39,7 @@ public class HomePage extends CommonAPI {
     WebElement categoriesButton;
 
     @FindBy(xpath = "//li[@id='menu-item-295']/a[1]")
-    WebElement foodAndBeveragebutton;
+    WebElement foodAndBeverageButton;
 
     @FindBy(xpath="//a[text()='Clothing']")
     WebElement clothingButton;
@@ -47,7 +47,21 @@ public class HomePage extends CommonAPI {
     @FindBy(xpath="//li[@id='menu-item-309']/a[1]")
     WebElement hoddiesButton;
 
+    @FindBy(xpath = "//li[@id='menu-item-297']/a[1]")
+    WebElement menCollectionButton;
+    @FindBy(xpath = "//a[@class='my-account']")
+    WebElement myAccountbutton;
 
+    @FindBy(css = ".fa.fa-instagram")
+    WebElement instagramPagebutton;
+
+    @FindBy(css = ".fa.fa-shopping-cart")
+    WebElement cartButton;
+    @FindBy(css = ".woocommerce-loop-product__title")
+    WebElement kidsCollectionBtn;
+
+    @FindBy(xpath= "//li[@class='product type-product post-211 status-publish instock product_cat-featured-beside has-post-thumbnail shipping-taxable purchasable product-type-simple']/a[2]")
+    WebElement addKidsToCartButton;
 
 
     public void clickOnSignInButton() {
@@ -83,7 +97,7 @@ public class HomePage extends CommonAPI {
         log.info("hover over on categories success");
     }
     public void clickOnFoodAndBeverageButton(){
-        clickOn(foodAndBeveragebutton);
+        clickOn(foodAndBeverageButton);
         log.info("click on food and beverage  success");
     }
     public void hoverOverOnClothingButton(  WebDriver driver) {
@@ -95,8 +109,48 @@ public class HomePage extends CommonAPI {
         clickOn(hoddiesButton);
         log.info("click on hoddies button success");
     }
+    public void clickOnMenCollection() {
+        clickOn(menCollectionButton);
+        log.info("click on  Men Collection button success");
+
+    }
+    public void clickOnMyAccountButton(){
+        clickOn(myAccountbutton);
+        log.info("click on my account  success");
+    }
+    public void clickOnInstagramButton(){
+        clickOn(instagramPagebutton);
+        log.info("click on instagram  success");
+    }
+    public void clickOnCartButton() {
+        clickOn(cartButton);
+        log.info("click on cart button success");
+    }
+    public boolean checkKidsCollectionButtonIsVisible (){
+        boolean iskidsCollectionBtnVisible = isVisible(kidsCollectionBtn);
+        log.info("kids Collection button is visible");
+        return iskidsCollectionBtnVisible;
+    }
+    public void scrollToKidsBtnWCoordinates(WebDriver driver){
+
+        scrollToCoordinates(0,1500);
+    }
+    public void scrollToKidsCollectionBtnwJS(){
+
+        scrollToElementwJS(kidsCollectionBtn);
+    }
+    public void clickOnKidsCollectionJS(){
+        clickWithJavascript(kidsCollectionBtn);
+    }
+    public void clickOnaddKidsToCartButton() {
+        clickOn(addKidsToCartButton);
+        log.info("click on add kids Collection to cart success");
+    }
+
+
 
 }
+
 
 
 

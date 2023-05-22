@@ -15,7 +15,8 @@ public class LoginPage extends CommonAPI {
         PageFactory.initElements(driver, this);
     }
 
-
+    @FindBy(css = ".fa.fa-instagram")
+    WebElement instagramPagebutton;
     @FindBy(xpath = "//input[@id='username']")
     WebElement usernameField;
 
@@ -33,6 +34,11 @@ public class LoginPage extends CommonAPI {
     @FindBy(xpath = "//div[@class='woocommerce-MyAccount-content']/p[1]")
     WebElement mainLoginPageHeader;
 
+    @FindBy(xpath = "//a[contains(text(),'Lost your password?')]")
+    WebElement forgetPassword;
+
+    @FindBy(xpath = "//h1[text()='Lost password']")
+    WebElement lostPasswordHeader;
 
     public void enterUsername(String username) {
         typeText(usernameField, username);
@@ -78,6 +84,23 @@ public class LoginPage extends CommonAPI {
 
     public String getMainLoginPageHeadertext() {
         String loginPageHeaderText = getElementText(mainLoginPageHeader);
+        log.info("login page header text is " + loginPageHeaderText);
+        return loginPageHeaderText;
+
+    }
+    public void clickOnForgetPasswordBtn() {
+        clickOn(forgetPassword);
+        log.info("click on forget password success");
+
+    }
+    public boolean checkPresenceOfLostPasswordHeader() {
+        boolean loginPageHeaderIsDisplayed = isVisible(lostPasswordHeader);
+        log.info("login page header presence " + loginPageHeaderIsDisplayed);
+        return loginPageHeaderIsDisplayed;
+    }
+
+    public String getForgetPasswordHeadertext() {
+        String loginPageHeaderText = getElementText(lostPasswordHeader);
         log.info("login page header text is " + loginPageHeaderText);
         return loginPageHeaderText;
 

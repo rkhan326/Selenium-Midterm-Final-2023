@@ -20,7 +20,7 @@ public class LoginTest  extends CommonAPI {
     String validPassword = Utility.decode(prop.getProperty("scalledupit.password"));
 
 
-    @Test(enabled = true,priority = 0)
+   // @Test(enabled = true,priority = 0)
     public void validCred() {
 
         LoginPage loginPage = new LoginPage(getDriver());
@@ -53,7 +53,7 @@ public class LoginTest  extends CommonAPI {
         waitFor(3);
 
     }
-    @Test(enabled = true,priority = 2)
+   // @Test(enabled = true,priority = 2)
     public void missingusername() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -76,7 +76,7 @@ public class LoginTest  extends CommonAPI {
         log.info("error message validate  success");
 
     }
-    @Test(enabled = true,priority = 3)
+    //@Test(enabled = true,priority = 3)
     public void missingpassword() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -99,7 +99,7 @@ public class LoginTest  extends CommonAPI {
         log.info("error message validate  success");
 
     }
-    @Test(enabled = true,priority = 1)
+   // @Test(enabled = true,priority = 1)
     public void invalidCred() {
 
         LoginPage loginPage = new LoginPage(getDriver());
@@ -124,7 +124,7 @@ public class LoginTest  extends CommonAPI {
         log.info("error message validate  success");
 
     }
-    @Test(enabled = true,priority = 0)
+   // @Test(enabled = true,priority = 4)
     public void existingEmailDifferentPass() {
 
         LoginPage loginPage = new LoginPage(getDriver());
@@ -150,12 +150,40 @@ public class LoginTest  extends CommonAPI {
 
 
 //        // check user is logged in
-//        Assert.assertTrue(loginPage.checkPresenceOfLoginPageHeader());
-//        String expectedLoginPageHeader = "Hello boucettaamel811 (not boucettaamel811? Log out)";
-//        String actualLoginPageHeader = loginPage.getMainLoginPageHeadertext();
-//        Assert.assertEquals(expectedLoginPageHeader,actualLoginPageHeader);
-//        waitFor(3);
+        Assert.assertTrue(loginPage.checkPresenceOfErrorMessageText());
+        String expectedError4 = "Error: The password you entered for the email address boucettaamel811@gmail.com is incorrect. Lost your password?";
+        String actualError4 = loginPage.getErrorMessageText();
+        Assert.assertEquals(expectedError4, actualError4);
+        log.info("error message validate  success");
+    }
+    @Test(enabled = true,priority = 5)
+    public void ForgettPass() {
 
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        String expectedTitle = "Automation – Automate eCommerce";
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+        log.info("user landed successfully to the website ");
+        waitFor(3);
+
+        // click on register/login
+        homePage.clickOnSignInButton();
+        waitFor(3);
+
+        // enter username , password and click login
+        loginPage.enterUsername(validUsername);
+        waitFor(3);
+
+        loginPage.clickOnForgetPasswordBtn();
+        waitFor(3);
+
+        // check user is logged in
+        Assert.assertTrue(loginPage.checkPresenceOfLostPasswordHeader());
+        String expectedError4 = "Lost password";
+        String actualError4 = loginPage.getForgetPasswordHeadertext();
+        Assert.assertEquals(expectedError4, actualError4);
+        log.info("error message validate  success");
     }
 
 }
