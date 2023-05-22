@@ -15,6 +15,12 @@ public class VendorWelcomePage extends CommonAPI {
     @FindBy(xpath = "//h1[@id='wc-logo']")
     WebElement vendorWelcomeHeader;
 
+    @FindBy(xpath = "//a[text()=\"Let's Go!\"]")
+    WebElement vendorLetsGoBtn;
+
+    @FindBy(xpath = "//a[text()='Not right now']")
+    WebElement vendorNotRightNowBtn;
+
     public boolean checkPresenceOfVendorWelcomeHeader(){
         boolean vendorWelcomeHeaderIsDisplayed = isVisible(vendorWelcomeHeader);
         log.info("registration error message validation success.");
@@ -26,4 +32,16 @@ public class VendorWelcomePage extends CommonAPI {
         log.info("user login page validation text match success");
         return actualVendorWelcomeHeaderText;
     }
+
+    public void clickOnVendorLetsGoBtn(){
+        clickOn(vendorLetsGoBtn);
+        log.info("click on vendor lets go button success.");
+    }
+
+    public void clickOnVendorNotRightNowBtn(){
+        clickOn(vendorNotRightNowBtn);
+        log.info("click on vendor Not Right Now button success.");
+    }
+
+
 }

@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="saucedemo test">
+<suite name="Automatic Exercise Website Tests">
     <parameter name="useCloudEnv" value="false"></parameter>
     <parameter name="envName" value="browserstack"></parameter>
     <parameter name="os" value="windows"></parameter>
     <parameter name="osVersion" value="10"></parameter>
     <parameter name="browserVersion" value="110"></parameter>
-
     <parameter name="browserName" value="chrome"></parameter>
-    <parameter name="url" value="https://magento.softwaretestingboard.com/"></parameter>
+    <parameter name="url" value="https://automationexercise.com/test_cases"></parameter>
 
-<!--erfan please modify url value and class names for your tests. I left it for example purpose for you-->
     <test name="login test">
         <classes>
 <!--            <class name="lumatest.LoginTest"></class>-->
