@@ -8,9 +8,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import us.piit.base.CommonAPI;
 
-public class StoreListPage extends CommonAPI {
-    Logger log = LogManager.getLogger(StoreListPage.class.getName()) ;
-    public StoreListPage(WebDriver driver){
+public class VendorStoreListPage extends CommonAPI {
+    Logger log = LogManager.getLogger(VendorStoreListPage.class.getName()) ;
+    public VendorStoreListPage(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
 
