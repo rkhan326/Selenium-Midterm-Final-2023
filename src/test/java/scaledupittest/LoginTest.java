@@ -9,6 +9,7 @@ import us.piit.pages.scaledupitpages.HomePage;
 import us.piit.pages.scaledupitpages.LoginPage;
 import us.piit.utility.Utility;
 
+import java.util.List;
 import java.util.Properties;
 
 public class LoginTest  extends CommonAPI {
@@ -44,15 +45,14 @@ public class LoginTest  extends CommonAPI {
         waitFor(3);
 
 
-
         // check user is logged in
         Assert.assertTrue(loginPage.checkPresenceOfLoginPageHeader());
         String expectedLoginPageHeader = "Hello boucettaamel811 (not boucettaamel811? Log out)";
         String actualLoginPageHeader = loginPage.getMainLoginPageHeadertext();
-        Assert.assertEquals(expectedLoginPageHeader,actualLoginPageHeader);
+        Assert.assertEquals(expectedLoginPageHeader, actualLoginPageHeader);
         waitFor(3);
-
     }
+
    // @Test(enabled = true,priority = 2)
     public void missingusername() {
         LoginPage loginPage = new LoginPage(getDriver());

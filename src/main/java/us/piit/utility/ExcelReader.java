@@ -111,9 +111,9 @@ public class ExcelReader {
 
     public static void main(String[] args)  {
 
-        String path = currentDir + File.separator + "data"+ File.separator + "data.xlsx";
+     //   String path = currentDir + File.separator + "data"+ File.separator + "data.xlsx";
     
-        //String path = "C:\\Users\\PNT\\eclipse-workspace\\Feb2023-web-automation-framework\\data\\data.xlsx";
+        String path = "C:\\Users\\PNT\\eclipse-workspace\\Feb2023-web-automation-framework\\Datas\\data.xlsx";
 
         ExcelReader excelReader = new ExcelReader(path);
         System.out.println(excelReader.getStringDataFromCell("Sheet1",1,1));

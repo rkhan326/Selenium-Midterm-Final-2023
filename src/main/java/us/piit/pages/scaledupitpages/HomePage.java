@@ -57,8 +57,8 @@ public class HomePage extends CommonAPI {
 
     @FindBy(css = ".fa.fa-shopping-cart")
     WebElement cartButton;
-    @FindBy(css = ".woocommerce-loop-product__title")
-    WebElement kidsCollectionBtn;
+//    @FindBy(css = ".woocommerce-loop-product__title")
+//    WebElement kidsCollectionBtn;
 
     @FindBy(xpath= "//li[@class='product type-product post-211 status-publish instock product_cat-featured-beside has-post-thumbnail shipping-taxable purchasable product-type-simple']/a[2]")
     WebElement addKidsToCartButton;
@@ -126,8 +126,8 @@ public class HomePage extends CommonAPI {
         clickOn(cartButton);
         log.info("click on cart button success");
     }
-    public boolean checkKidsCollectionButtonIsVisible (){
-        boolean iskidsCollectionBtnVisible = isVisible(kidsCollectionBtn);
+    public boolean checkAddKidsCollectionToCartIsVisible (){
+        boolean iskidsCollectionBtnVisible = isVisible(addKidsToCartButton);
         log.info("kids Collection button is visible");
         return iskidsCollectionBtnVisible;
     }
@@ -135,18 +135,21 @@ public class HomePage extends CommonAPI {
 
         scrollToCoordinates(0,1500);
     }
-    public void scrollToKidsCollectionBtnwJS(){
-
-        scrollToElementwJS(kidsCollectionBtn);
-    }
-    public void clickOnKidsCollectionJS(){
-        clickWithJavascript(kidsCollectionBtn);
-    }
+//    public void scrollToKidsCollectionBtnwJS(){
+//
+//        scrollToElementwJS(kidsCollectionBtn);
+//    }
+//    public void clickOnKidsCollectionJS(){
+//        clickWithJavascript(kidsCollectionBtn);
+//    }
     public void clickOnaddKidsToCartButton() {
         clickOn(addKidsToCartButton);
         log.info("click on add kids Collection to cart success");
     }
-
+    public void clearSearchField(){
+        clear(searchField);
+        log.info("clear search field success");
+    }
 
 
 }

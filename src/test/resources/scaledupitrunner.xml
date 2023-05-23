@@ -11,7 +11,7 @@
     <parameter name="url" value="https://automation.scaledupit.com//"></parameter>
                 <test name="login test">
                     <classes>
-                        <class name="scaledupittest.UpdateTest"></class>
+                        <class name="scaledupittest.LoginExcelReader"></class>
                     </classes>
                 </test>
 <!--                <test name="search test">-->
