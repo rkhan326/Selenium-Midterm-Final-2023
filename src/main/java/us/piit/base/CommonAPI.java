@@ -1,5 +1,6 @@
 package us.piit.base;
 
+import com.github.javafaker.Faker;
 import com.relevantcodes.extentreports.LogStatus;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -11,9 +12,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -178,6 +181,7 @@ public class CommonAPI {
         element.sendKeys(text, Keys.ENTER);
     }
     public void hoverOver(WebDriver driver, WebElement element) {
+
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }
@@ -253,7 +257,9 @@ public class CommonAPI {
         builder.clickAndHold(slider);
         builder.moveByOffset(xOffset, yOffset).build().perform();
         builder.release().build().perform();
+
     }
+
     public void waitFor(int seconds) {
         try {
             Thread.sleep(seconds * 1000);
@@ -261,6 +267,7 @@ public class CommonAPI {
             throw new RuntimeException(e);
         }
     }
+
     public void clickWithJavascript(WebElement element, WebDriver driver){
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].click();", element);
