@@ -1,5 +1,6 @@
 package us.piit.pages.nopcommercepages;
 
+import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,7 @@ import us.piit.base.CommonAPI;
 public class LoginPage  extends CommonAPI{
 
         Logger log = LogManager.getLogger(LoginPage.class.getName());
+        Faker faker = new Faker();
         public LoginPage(WebDriver driver){
 
             PageFactory.initElements(driver, this);
@@ -37,8 +39,8 @@ public class LoginPage  extends CommonAPI{
         @FindBy(xpath = "//button[@class='button-1 search-box-button']")
         WebElement isLoginPageSuccessLocator;
 
-        @FindBy (xpath = "//h2[text()='Welcome to our store']")
-        WebElement loginPageSuccessLocator;
+        @FindBy(xpath = "//a[@class='ico-logout']")
+        WebElement loginValidation;
 
         //*******reusable methods*********
         public void enterUsername(String username){
@@ -68,12 +70,13 @@ public class LoginPage  extends CommonAPI{
         return checkLoginPageSuccessIsDisplayed;
     }
 
-    public String getLoginPageSuccessText(){
-        String text = getElementText(loginPageSuccessLocator);
-        log.info("user logged in success");
+    public String loginValidationText() {
+        String text = getElementText(loginValidation);
+        log.info("  login Validation successfully");
         return text;
     }
 
-    }
+
+}
 
 

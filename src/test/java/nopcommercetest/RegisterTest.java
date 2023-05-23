@@ -1,5 +1,6 @@
 package nopcommercetest;
 
+import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -14,18 +15,19 @@ import java.util.Properties;
 
 public class RegisterTest extends CommonAPI {
     Logger log = LogManager.getLogger(RegisterTest.class.getName());
+    Faker faker= new Faker();
 
     String firstName= "Danish";
     String lastName= "Mahmud";
-    String email= "mahmud786@gmail.com";
+    String email= faker.internet().emailAddress();
     String companyName= "PNT";
-    String password= "mahmud123";
-    String confirmPassword= "mahmud123";
+    String password= "admin123";
+    String confirmPassword= "admin123";
 
     String emptyFirstName = "";
 
 
-    @Test
+    @Test(priority = 1)
     public void registerNewCustomer() {
 
         RegisterPage registerPage = new RegisterPage(getDriver());
@@ -35,31 +37,26 @@ public class RegisterTest extends CommonAPI {
 
         // click radio button
         registerPage.clickOnRadioButton();
-        waitFor( 1);
-
         //enter FirstName
         registerPage.typeFirstName(firstName);
-        waitFor(1);
-
         //enter LastName
         registerPage.typeLastName(lastName);
-        waitFor(1);
-
+        //enter BirthDay
+        registerPage.selectDateOfBirthDay();
+        //enter BirthMonth
+        registerPage.selectDateOfBirthMonth();
+        //enter BirthYear
+        registerPage.selectDateOfBirthYear();
         //enter Email
         registerPage.typeEmail(email);
-        waitFor(1);
-
+//        String fakeRegistrationEmail = registerPage.getEmailOfNopCommerce();
+//        registerPage.typeEmail(fakeRegistrationEmail);
         //enter Company
         registerPage.typeCompanyName(companyName);
-        waitFor(1);
-
         //enter password
         registerPage.typePassword(password);
-        waitFor(1);
-
         //enter confirm password
         registerPage.typeConfirmPassword(confirmPassword);
-        waitFor(1);
 
         //click on register-button button
         registerPage.clickOnRegisterButton();
@@ -70,41 +67,32 @@ public class RegisterTest extends CommonAPI {
         Assert.assertEquals(actualTitle, expectedTitle);
         log.info("Successfully entered nopCommerce website");
     }
-    @Test
+    @Test(priority = 2)
     public void registerWithoutFillMandatoryField() {
         RegisterPage registerPage = new RegisterPage(getDriver());
         //click on register
         registerPage.clickOnRegisterMenu();
         waitFor(1);
-
         // click radio button
         registerPage.clickOnRadioButton();
-        waitFor( 1);
-
         //enter FirstName
         registerPage.typeFirstName(emptyFirstName);
-        waitFor(1);
-
         //enter LastName
         registerPage.typeLastName(lastName);
-        waitFor(1);
-
+        //enter BirthDay
+        registerPage.selectDateOfBirthDay();
+        //enter BirthMonth
+        registerPage.selectDateOfBirthMonth();
+        //enter BirthYear
+        registerPage.selectDateOfBirthYear();
         //enter Email
         registerPage.typeEmail(email);
-        waitFor(1);
-
         //enter Company
         registerPage.typeCompanyName(companyName);
-        waitFor(1);
-
         //enter password
         registerPage.typePassword(password);
-        waitFor(1);
-
         //enter confirm password
         registerPage.typeConfirmPassword(confirmPassword);
-        waitFor(1);
-
         //click on register-button button
         registerPage.clickOnRegisterButton();
 
@@ -114,4 +102,29 @@ public class RegisterTest extends CommonAPI {
         Assert.assertEquals(actualTitle, expectedTitle);
         log.info("Successfully entered nopCommerce website");
     }
+//    @Test(priority = 3)
+//    public void validCredential() {
+//        LoginPage loginPage=new LoginPage(getDriver());
+//
+//        //click on login
+//        loginPage.clickOnLoginText();
+//        waitFor(1);
+//
+//        // check login page success
+//        Assert.assertTrue(loginPage.checkLoginPageSuccess());
+//        log.info("login page success");
+//
+//        //enter  username,Password and click
+//        loginPage.enterUsername(email);
+//        loginPage.enterPassword(password);
+//        waitFor(1);
+//        loginPage.clickOnLoginBtn();
+//
+//
+////        String expectedText = "Welcome to our store";
+////        String actualText = loginPage.getLoginPageSuccessText();
+////        Assert.assertEquals(expectedText,actualText);
+//
+//    }
+
 }

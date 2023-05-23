@@ -1,5 +1,6 @@
 package us.piit.base;
 
+import com.github.javafaker.Faker;
 import com.relevantcodes.extentreports.LogStatus;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -11,6 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -43,6 +45,7 @@ public class CommonAPI {
         String windowMaximize = prop.getProperty("browser.maximize","true");
         String takeScreenshots = prop.getProperty("take.screenshots","false");
         WebDriver driver;
+
 
     //report setup from line 48 to 105
     public static com.relevantcodes.extentreports.ExtentReports extent;
@@ -163,7 +166,7 @@ public class CommonAPI {
     public String getElementText(WebElement element) {return element.getText();}
     public void clickOn(WebElement element) {element.click();}
     public void typeText(WebElement element, String text) {element.sendKeys(text);}
-    public void hoverOver(WebDriver driver, WebElement element) {
+    public void hoverOver(WebDriver driver,WebElement element) {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }
@@ -198,14 +201,22 @@ public class CommonAPI {
     public void scrollToElement(int x, int y){
         Actions actions = new Actions(driver);
         actions.scrollByAmount(x,y).build().perform();
+        log.info("Successfully scrolled down the page");
 
     }
+
     public void waitFor(int seconds) {
         try {
             Thread.sleep(seconds * 1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void selectOptionFromDropDown(WebElement element, String value){
+        WebElement dropdown = element;
+        Select select = new Select(dropdown);
+        select.selectByValue(value);
     }
     public void clickWithJavascript(WebElement element){
         JavascriptExecutor js = (JavascriptExecutor)driver;
