@@ -171,10 +171,5 @@ public class HomePage extends CommonAPI {
         log.info("click Watches success");
     }
 
-
-
-
-
-
 }
 

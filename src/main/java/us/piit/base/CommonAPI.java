@@ -219,7 +219,7 @@ public class CommonAPI {
         actions.scrollByAmount(x,y).build().perform();
 
     }
-    public void waitFor(int seconds) {
+    public void waitFor(long seconds) {
         try {
             Thread.sleep(seconds * 1000);
         } catch (InterruptedException e) {
