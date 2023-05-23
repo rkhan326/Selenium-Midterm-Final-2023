@@ -29,8 +29,13 @@ public class UpdatePage extends CommonAPI {
     @FindBy(css=".input-text.qty.text")
     WebElement itemNumberField;
 
-   @FindBy(xpath="//div[@class='quantity']/input[1]")
+   @FindBy(css=".input-text.qty.text")
    WebElement changeItemNumber;
+
+    @FindBy(xpath="//button[text()='Update cart']")
+    WebElement updateCartBtn;
+    @FindBy(xpath = "//span[@class='cart-value cart-customlocation' and text()=2]")
+    WebElement cartCountUpdate;
 
     public boolean checkPresenceOfKidsCollectionPageHeader() {
         boolean kidsCollectionPageHeaderIsDisplayed = isVisible(KidsCollectionHeader);
@@ -71,13 +76,29 @@ public class UpdatePage extends CommonAPI {
     }
     public void clickOnChangeItemButton() {
         clickOn(changeItemNumber);
-        log.info("click on add cart  success");
+        log.info("click on up button success");
 
     }
     public void hoverOverOnQuantitField(  WebDriver driver) {
         Actions actions = new Actions(driver);
         actions.moveToElement(itemNumberField).build().perform();
         log.info("hover over on categories success");
+    }
+    public void clickOnUpdateCartButton() {
+        clickOn(updateCartBtn);
+        log.info("click on update cart  success");
+
+    }
+    public boolean checkcartCountUpdate() {
+        boolean cartCountIsDisplayed = isVisible(cartCountUpdate);
+        log.info("cart count is  " + cartCountIsDisplayed);
+        return cartCountIsDisplayed;
+    }
+    public String getCartCountUpadteText() {
+        String cartCountUpdateText = getElementText(cartCountUpdate);
+        log.info("cart count text is " + cartCountUpdateText);
+        return cartCountUpdateText;
+
     }
 
 }

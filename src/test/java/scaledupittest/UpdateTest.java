@@ -34,16 +34,14 @@ public class UpdateTest extends CommonAPI {
 
         scrollToCoordinates(0, 1500);
         waitFor(3);
-//        Assert.assertTrue(homePage.checkKidsCollectionButtonIsVisible());
-//        waitFor(3);
+        Assert.assertTrue(homePage.checkAddKidsCollectionToCartIsVisible());
+        waitFor(3);
 
         homePage.clickOnaddKidsToCartButton();
         waitFor(3);
 
-        // click on add cart
-//        update.clickOnAddToCartButton();
-//        waitFor(3);
-   // check 1 item is added to the cart
+
+//   // check 1 item is added to the cart
         String expectedCartCount = "1";
         String actualCartCount= update.getCartCountText();
         Assert.assertEquals(expectedCartCount,actualCartCount);
@@ -52,52 +50,27 @@ public class UpdateTest extends CommonAPI {
         log.info("1 item added to cart success");
 
 
-       // update.entreItemNumberBtn("4");
+//        update.entreItemNumberBtn("4");
         update.hoverOverOnQuantitField(getDriver());
         waitFor(3);
-        update.clickOnChangeItemButton();
-      //  update.entreItemNumberBtn("5");
-        waitFor(3);
-//// click on apply coupons
-//        update.clickOnApplyCoupons();
-//        waitFor(3);
-//// user get error message
-//        String expectedErrorMessage = "Coupon \"12456\" does not exist!";
-//        String actualErrorMessage = coupons.getErrorMessage();
-//        Assert.assertEquals(expectedErrorMessage, actualErrorMessage);
-//        log.info("error message  text validate ");
-//        waitFor(3);
 
+        update.entreItemNumberBtn("2");
+        waitFor(5);
+
+        update.clickOnUpdateCartButton();
+        waitFor(3);
+
+        String expectedCartCountUpdate = "2";
+        String actualCartCountUpdate= update.getCartCountUpadteText();
+        Assert.assertEquals(expectedCartCountUpdate,actualCartCountUpdate);
+       // update.clickOnCart();
+        waitFor(3);
+        log.info("2 item added to cart success");
     }
+
 
 }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //click on kids collection
-//      homePage.clickOnKidsCollectionJS();
-//      waitFor(3);
-//
-//        //Make sure we land on the kids Collectoion page successfully
-//        Assert.assertTrue(update.checkPresenceOfKidsCollectionPageHeader());
-//
-//        String expectedKidsCollectionHeaderText = "Kids Collection";
-//        String actualKidsCollectionHeaderText = update.getKidsCollectionPageHeadertext();
-//        Assert.assertEquals(expectedKidsCollectionHeaderText, actualKidsCollectionHeaderText);
-//
-//
-//    }}

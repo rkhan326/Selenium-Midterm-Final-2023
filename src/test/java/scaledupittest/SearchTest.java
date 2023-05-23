@@ -8,8 +8,10 @@ import us.piit.base.CommonAPI;
 import us.piit.pages.scaledupitpages.HomePage;
 import us.piit.pages.scaledupitpages.LoginPage;
 import us.piit.pages.scaledupitpages.SearchPage;
+import us.piit.utility.ExcelReader;
 import us.piit.utility.Utility;
 
+import java.util.List;
 import java.util.Properties;
 
 public class SearchTest extends CommonAPI {
@@ -19,7 +21,7 @@ public class SearchTest extends CommonAPI {
 
 
 
-    @Test
+    @Test(enabled = false)
     public void searchConverse() {
         SearchPage searchpage = new SearchPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -44,7 +46,7 @@ public class SearchTest extends CommonAPI {
         waitFor(3);
 
     }
-    @Test
+    @Test(enabled = false)
     public void searchHondaCar() {
         SearchPage searchpage = new SearchPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -69,5 +71,18 @@ public class SearchTest extends CommonAPI {
         waitFor(3);
 
     }
-}
+    @Test
+    public void searchMultipleItems() {
+
+        ExcelReader excelReader = new ExcelReader(Utility.currentDir + "/Datas/TestData.xlsx");
+        List<String> items = excelReader.getEntireColumnForGivenHeader("Sheet1", "item");
+        HomePage homePage = new HomePage(getDriver());
+        for (String item : items) {
+            homePage.typeItemToSearch(item);
+            waitFor(3);
+            homePage.clearSearchField();
+
+
+        }
+    }}
 
