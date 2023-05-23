@@ -7,16 +7,26 @@
     <parameter name="osVersion" value="10"></parameter>
     <parameter name="browserVersion" value="110"></parameter>
     <parameter name="browserName" value="chrome"></parameter>
-    <parameter name="url" value="https://automationexercise.com/test_cases"></parameter>
+    <parameter name="url" value="https://automationexercise.com/"></parameter>
 
-    <test name="login test">
+    <test name="Login tests">
         <classes>
-<!--            <class name="lumatest.LoginTest"></class>-->
+<!--            <class name="automationexercisetest.LoginTest"></class>-->
         </classes>
     </test>
-    <test name="logout test">
+    <test name="Logout test">
         <classes>
-<!--            <class name="nopcommercetest.LogoutTest"></class>-->
+<!--            <class name="automationexercisetest.LogoutTest"></class>-->
+        </classes>
+    </test>
+    <test name="Signup test">
+        <classes>
+            <class name="automationexercisetest.SignupTest"></class>
+        </classes>
+    </test>
+    <test name="Signup tests">
+        <classes>
+<!--            <class name="automationexercisetest.DeleteAccountTest"></class>-->
         </classes>
     </test>
 </suite>
