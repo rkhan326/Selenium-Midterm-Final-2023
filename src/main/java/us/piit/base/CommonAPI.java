@@ -12,7 +12,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -30,6 +34,7 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
@@ -45,6 +50,7 @@ public class CommonAPI {
         String windowMaximize = prop.getProperty("browser.maximize","true");
         String takeScreenshots = prop.getProperty("take.screenshots","false");
         WebDriver driver;
+
 
 
     //report setup from line 48 to 105
@@ -165,14 +171,57 @@ public class CommonAPI {
     public String getCurrentTitle() {return driver.getTitle();}
     public String getElementText(WebElement element) {return element.getText();}
     public void clickOn(WebElement element) {element.click();}
-    public void typeText(WebElement element, String text) {element.sendKeys(text);}
-    public void hoverOver(WebDriver driver,WebElement element) {
+    public void clear(WebElement element){element.clear();}
+    public void typeText(WebElement element, String text) {
+        element.clear();
+        element.sendKeys(text);
+    }
+    public void typeTextEnter(WebElement element, String text){
+        element.clear();
+        element.sendKeys(text, Keys.ENTER);
+    }
+    public void hoverOver(WebDriver driver, WebElement element) {
+
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }
     public void hoverOverAndClick(WebDriver driver,WebElement element) {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).click().build().perform();
+    }
+    public void selectOptionFromDropdown(WebElement dropdown, String option){
+        Select select = new Select(dropdown);
+        try {
+            select.selectByVisibleText(option);
+        }catch (Exception e){
+            select.selectByValue(option);
+        }
+    }
+    public void selectOptionFromDropDown(WebElement element, String value){
+        WebElement dropdown = element;
+        Select select = new Select(dropdown);
+        select.selectByValue(value);
+    }
+    public void switchToTab(int index) {
+        // Get a list of all the open window handles
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        // Switch to the specified tab by index
+        driver.switchTo().window(tabs.get(index));
+    }
+    public void switchToCurrentlyActiveWindow() {
+        // Get the handle of the currently active window
+        String currentHandle = driver.getWindowHandle();
+        // Loop through all the open windows and switch to the next one
+        for (String handle : driver.getWindowHandles()) {
+            if (!handle.equals(currentHandle)) {
+                driver.switchTo().window(handle);
+                return;
+            }
+        }
+    }
+    public void waitForElementToBeVisible(WebDriver driver, int duration, WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(duration));
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
     public boolean isVisible(WebElement element) {return element.isDisplayed();}
 
@@ -201,7 +250,13 @@ public class CommonAPI {
     public void scrollToElement(int x, int y){
         Actions actions = new Actions(driver);
         actions.scrollByAmount(x,y).build().perform();
-        log.info("Successfully scrolled down the page");
+    }
+    public void moveSlider(WebElement element, int xOffset, int yOffset, WebDriver driver) {
+        WebElement slider = element;
+        Actions builder = new Actions(driver);
+        builder.clickAndHold(slider);
+        builder.moveByOffset(xOffset, yOffset).build().perform();
+        builder.release().build().perform();
 
     }
 
@@ -213,19 +268,15 @@ public class CommonAPI {
         }
     }
 
-    public void selectOptionFromDropDown(WebElement element, String value){
-        WebElement dropdown = element;
-        Select select = new Select(dropdown);
-        select.selectByValue(value);
-    }
-    public void clickWithJavascript(WebElement element){
+    public void clickWithJavascript(WebElement element, WebDriver driver){
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].click();", element);
     }
-    public void scrollToElementwJS(WebElement element) {
+    public void scrollToElementwJS(WebElement element, WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].scrollIntoView();",element);
     }
+
     public void captureScreenshot() {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {

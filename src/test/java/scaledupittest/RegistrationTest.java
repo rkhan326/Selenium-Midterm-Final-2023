@@ -18,9 +18,8 @@ public class RegistrationTest extends CommonAPI {
     Properties prop = Utility.loadProperties();
 
 
-
-    @Test
-    public void validCred() {
+    @Test(enabled = true, priority = 0)
+    public void registerNewUser() {
 
         RegistrationPage registrationPage = new RegistrationPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -35,20 +34,137 @@ public class RegistrationTest extends CommonAPI {
         waitFor(3);
 
         // enter email adress , password, and click on register button
-        registrationPage.enterEmail("nassmerboutibouc03021973@gmail.com");
+
+        registrationPage.enterEmail(registrationPage.enterNewFakeRegistrationEmail());
         waitFor(3);
 
-        registrationPage.enterPassword("6101993&!amelboucetta");
+        registrationPage.enterPassword(registrationPage.enterNewFakeRegistrationPassword());
         waitFor(3);
+
 
         registrationPage.clickOnRegisterBtn();
         waitFor(3);
 
 
         // check user is sign up successfully
-        String expectedLoginPageHeader = "Hello nassmerboutibouc03021973 (not nassmerboutibouc03021973? Log out)";
+        Assert.assertTrue(registrationPage.checkPresenceOfLoginPageHeader());
+
+        String expectedLoginPageHeader = "My account";
         String actualLoginPageHeader = registrationPage.getLoginPageHeadertext();
-        Assert.assertEquals(expectedLoginPageHeader,actualLoginPageHeader);
+        Assert.assertEquals(expectedLoginPageHeader, actualLoginPageHeader);
+        log.info("user is registred success");
+        waitFor(3);
+
+    }
+
+    @Test(enabled = true, priority = 1)
+    public void registerWithValidEmail() {
+
+        RegistrationPage registrationPage = new RegistrationPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        String expectedTitle = "Automation – Automate eCommerce";
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+        log.info("user landed successfully to the website ");
+        waitFor(3);
+
+        // click on register
+        homePage.clickOnSignInButton();
+        waitFor(3);
+
+        registrationPage.enterEmail(registrationPage.enterNewFakeRegistrationEmail());
+        waitFor(3);
+
+
+        registrationPage.clickOnRegisterBtn();
+        waitFor(3);
+
+
+        // check user is sign up successfully
+        Assert.assertTrue(registrationPage.checkPresenceOfValidUsernameErrorMessage());
+        String expectedErrorMessage1 = "Error: Please enter an account password.";
+        String actualErrorMessage1 = registrationPage.getValidUsernameErrorMessage();
+        Assert.assertEquals(expectedErrorMessage1, actualErrorMessage1);
+        waitFor(3);
+
+
+    }
+
+    @Test(enabled = true, priority = 2)
+    public void registerWithValidEmailAndWeekPassword() {
+        RegistrationPage registrationPage = new RegistrationPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        String expectedTitle = "Automation – Automate eCommerce";
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+        log.info("user landed successfully to the website ");
+        waitFor(3);
+
+        // click on register
+        homePage.clickOnSignInButton();
+        waitFor(3);
+
+        // enter email adress , password, and click on register button
+        registrationPage.enterEmail(registrationPage.enterNewFakeRegistrationEmail());
+        waitFor(3);
+
+        registrationPage.enterPassword(registrationPage.entreNewFakeWeakPassword());
+        waitFor(3);
+
+
+        registrationPage.clickOnRegisterBtn();
+        waitFor(3);
+
+
+        // check user is sign up successfully
+        waitFor(3);
+
+
+        // check user is sign up successfully
+        Assert.assertTrue(registrationPage.checkPresenceOfLoginPageHeader());
+        String expectedLoginPageHeader = "My account";
+        String actualLoginPageHeader = registrationPage.getLoginPageHeadertext();
+        Assert.assertEquals(expectedLoginPageHeader, actualLoginPageHeader);
+        log.info("user is registred success");
+        waitFor(3);
+
+    }
+
+    @Test(enabled = true, priority = 2)
+    public void registerWithValidEmailAndShortPassword() {
+        RegistrationPage registrationPage = new RegistrationPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        String expectedTitle = "Automation – Automate eCommerce";
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+        log.info("user landed successfully to the website ");
+        waitFor(3);
+
+        // click on register
+        homePage.clickOnSignInButton();
+        waitFor(3);
+
+        // enter email adress , password, and click on register button
+        registrationPage.enterEmail(registrationPage.enterNewFakeRegistrationEmail());
+        waitFor(3);
+
+        registrationPage.enterPassword(registrationPage.entreNewFakeShortPassword());
+        waitFor(3);
+
+
+        registrationPage.clickOnRegisterBtn();
+        waitFor(3);
+
+
+        // check user is sign up successfully
+        waitFor(3);
+
+
+        // check user is sign up successfully
+        Assert.assertTrue(registrationPage.checkPresenceOfLoginPageHeader());
+        String expectedLoginPageHeader = "My account";
+        String actualLoginPageHeader = registrationPage.getLoginPageHeadertext();
+        Assert.assertEquals(expectedLoginPageHeader, actualLoginPageHeader);
         log.info("user is registred success");
         waitFor(3);
 

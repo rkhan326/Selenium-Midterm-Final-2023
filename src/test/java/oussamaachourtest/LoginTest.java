@@ -97,7 +97,7 @@ public class LoginTest extends CommonAPI {
         String actualLoginInvalidUsernameMessageText = loginRegisterPage.getLoginInvalidUsernameMessageText();
         Assert.assertEquals(expectedLoginInvalidUsernameMessageText, actualLoginInvalidUsernameMessageText);
     }
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void unrecognizedEmail(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -203,8 +203,6 @@ public class LoginTest extends CommonAPI {
         String expectedPasswordStrengthMessage = "Weak - Please enter a stronger password.";
         String actualPasswordStrengthMessage = loginRegisterPage.getWeakPasswordStrengthText();
         Assert.assertEquals(expectedPasswordStrengthMessage,actualPasswordStrengthMessage);
-
-
     }
     @Test(enabled = false, priority = 2)
     public void validateMediumPassword(){

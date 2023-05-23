@@ -9,16 +9,16 @@
 
     <parameter name="browserName" value="chrome"></parameter>
     <parameter name="url" value="https://automation.scaledupit.com//"></parameter>
-<!--                <test name="login test">-->
-<!--                    <classes>-->
-<!--                        <class name="scaledupittest.LoginTest"></class>-->
-<!--                    </classes>-->
-<!--                </test>-->
-                <test name="search test">
+                <test name="login test">
                     <classes>
-                        <class name="scaledupittest.SearchTest"></class>
+                        <class name="scaledupittest.LoginExcelReader"></class>
                     </classes>
                 </test>
+<!--                <test name="search test">-->
+<!--                    <classes>-->
+<!--                        <class name="scaledupittest.CouponsTest"></class>-->
+<!--                    </classes>-->
+<!--                </test>-->
 <!--                <test name="logout test">-->
 <!--                    <classes>-->
 <!--                        <class name="scaledupittest.LogoutTest"></class>-->

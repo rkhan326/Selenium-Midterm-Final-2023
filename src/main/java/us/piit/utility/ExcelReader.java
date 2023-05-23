@@ -8,6 +8,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class ExcelReader {
         this.path = path;
     }
 
-    public String getDataFromCell(String sheet, int rowNum, int colNum){
+    public String getStringDataFromCell(String sheet, int rowNum, int colNum){
         try {
             FileInputStream excelFile = new FileInputStream(path);
             excelWBook = new XSSFWorkbook(excelFile);
@@ -40,6 +41,21 @@ public class ExcelReader {
         }
     }
 
+    public void getNumericDataFromCell(String sheet, int rowNum, int colNum){
+        try {
+            FileInputStream excelFile = new FileInputStream(path);
+            excelWBook = new XSSFWorkbook(excelFile);
+            excelWSheet = excelWBook.getSheet(sheet);
+            cell = excelWSheet.getRow(rowNum).getCell(colNum);
+            double cellValue = cell.getNumericCellValue();
+            excelFile.close();
+          //  return cellValue;
+        }catch (Exception e){
+            LOG.info("no file found");
+           // return null;
+        }
+    }
+
     public List<String> getEntireColumnData(String sheet, int rowStart, int colNum){
         List<String> columnData = new ArrayList<>();
         try {
@@ -47,6 +63,7 @@ public class ExcelReader {
             FileInputStream excelFile = new FileInputStream(file);
             excelWBook = new XSSFWorkbook(excelFile);
             excelWSheet = excelWBook.getSheet(sheet);
+
             for (int i = rowStart; i <= excelWSheet.getLastRowNum(); i++){
                 columnData.add(excelWSheet.getRow(i).getCell(colNum).getStringCellValue());
             }
@@ -65,8 +82,8 @@ public class ExcelReader {
 
     public List<String> getEntireColumnForGivenHeader(String sheet, String headerName){
         int i = 0;
-        while (getDataFromCell(sheet, 0, i) != null){
-            if(getDataFromCell(sheet, 0, i).equalsIgnoreCase(headerName)){
+        while (getStringDataFromCell(sheet, 0, i) != null){
+            if(getStringDataFromCell(sheet, 0, i).equalsIgnoreCase(headerName)){
                 getEntireColumnData(sheet, 1, i);
                 break;
             }
@@ -78,8 +95,8 @@ public class ExcelReader {
     public String getValueForGivenHeaderAndKey(String sheet, String headerName, String key){
         String value = null;
         int i = 0;
-        while (getDataFromCell(sheet, 0, i) != null){
-            if(getDataFromCell(sheet, 0, i).equalsIgnoreCase(headerName)){
+        while (getStringDataFromCell(sheet, 0, i) != null){
+            if(getStringDataFromCell(sheet, 0, i).equalsIgnoreCase(headerName)){
                 for (int j = 0; j < getEntireColumnData(sheet, 1, i).size(); j++){
                     if(getEntireColumnData(sheet, 1, i).get(j).equalsIgnoreCase(key)){
                         value = getEntireColumnData(sheet, 1, i+1).get(j);
@@ -93,14 +110,14 @@ public class ExcelReader {
     }
 
     public static void main(String[] args)  {
-       // String path = currentDir + File.separator + "data/data/xlsx";
-        String path = "/Users/Work/IDEA/Selenium-Midterm-Final-2023/data/data.xlsx";
 
-
-        //String path = "C:\\Users\\PNT\\eclipse-workspace\\Feb2023-web-automation-framework\\data\\data.xlsx";
+     //   String path = currentDir + File.separator + "data"+ File.separator + "data.xlsx";
+    
+        String path = "C:\\Users\\PNT\\eclipse-workspace\\Feb2023-web-automation-framework\\Datas\\data.xlsx";
 
         ExcelReader excelReader = new ExcelReader(path);
-        System.out.println(excelReader.getValueForGivenHeaderAndKey("data","ID","101"));
+        System.out.println(excelReader.getStringDataFromCell("Sheet1",1,1));
+
 //        List<String> items = excelReader.getEntireColumnForGivenHeader("Sheet1", "id");
 //        //String items = excelReader.getValueForGivenHeaderAndKey("Sheet1", "id", "id004");
 //        System.out.println(items);
