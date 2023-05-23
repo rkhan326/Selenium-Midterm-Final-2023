@@ -135,13 +135,13 @@ public class HomePage extends CommonAPI {
 
         scrollToCoordinates(0,1500);
     }
-    public void scrollToKidsCollectionBtnwJS(){
-
-        scrollToElementwJS(kidsCollectionBtn);
-    }
-    public void clickOnKidsCollectionJS(){
-        clickWithJavascript(kidsCollectionBtn);
-    }
+//    public void scrollToKidsCollectionBtnwJS(){
+//
+//        scrollToElementwJS(kidsCollectionBtn);
+//    }
+//    public void clickOnKidsCollectionJS(){
+//        clickWithJavascript(kidsCollectionBtn);
+//    }
     public void clickOnaddKidsToCartButton() {
         clickOn(addKidsToCartButton);
         log.info("click on add kids Collection to cart success");
