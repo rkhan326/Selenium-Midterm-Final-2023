@@ -1,6 +1,5 @@
 package us.piit.pages.oussamaachourpages;
 
-import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;

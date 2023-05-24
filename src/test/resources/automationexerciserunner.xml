@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Automatic Exercise Website Tests">
+    <parameter name="useCloudEnv" value="false"></parameter>
+    <parameter name="envName" value="browserstack"></parameter>
+    <parameter name="os" value="windows"></parameter>
+    <parameter name="osVersion" value="10"></parameter>
+    <parameter name="browserVersion" value="110"></parameter>
+    <parameter name="browserName" value="chrome"></parameter>
+    <parameter name="url" value="https://automationexercise.com/"></parameter>
+
+    <test name="Login test #1,2)">
+        <classes>
+<!--            <class name="automationexercisetest.LoginTest"></class>-->
+        </classes>
+    </test>
+    <test name="Logout test #3">
+        <classes>
+<!--            <class name="automationexercisetest.LogoutTest"></class>-->
+        </classes>
+    </test>
+    <test name="Signup test #4">
+        <classes>
+<!--            <class name="automationexercisetest.SignupTest"></class>-->
+        </classes>
+    </test>
+    <test name="Delete Account test #5">
+        <classes>
+<!--            <class name="automationexercisetest.DeleteAccountTest"></class>-->
+        </classes>
+    </test>
+    <test name="Products test #6,7,8,9,10">
+        <classes>
+<!--                        <class name="automationexercisetest.ProductsTest"></class>-->
+        </classes>
+    </test>
+    <test name="Cart test #11,12">
+        <classes>
+<!--            <class name="automationexercisetest.CartTest"></class>-->
+        </classes>
+    </test>
+</suite>

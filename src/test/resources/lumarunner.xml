@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="saucedemo test">
+<suite name="magento test">
     <parameter name="useCloudEnv" value="false"></parameter>
     <parameter name="envName" value="browserstack"></parameter>
     <parameter name="os" value="windows"></parameter>
@@ -11,9 +11,37 @@
     <parameter name="url" value="https://magento.softwaretestingboard.com/"></parameter>
 
 
-        <test name="login test">
+<!--        <test name="new account test">-->
+<!--            <classes>-->
+<!--                <class name="lumatest.CreateNewAccountTest"></class>&ndash;&gt;-->
+<!--            </classes>-->
+<!--        </test>-->
+
+<!--    <test name="search test">-->
+<!--        <classes>-->
+<!--            <class name="lumatest.SearchfieldTest"></class>&ndash;&gt;-->
+<!--        </classes>-->
+<!--    </test>-->
+
+
+<!--    <test name="signin test">-->
+
+<!--    <classes>-->
+<!--        <class name="lumatest.SignInTest"></class>&ndash;&gt;-->
+<!--    </classes>-->
+<!--</test>-->
+
+<!--    <test name="checkout test">-->
+<!--        <classes>-->
+<!--            <class name="lumatest.CheckoutTest"></class>&ndash;&gt;-->
+<!--        </classes>-->
+<!--    </test>-->
+        <test name="checkout test">
             <classes>
-<!--                <class name="lumatest.LoginTest"></class>-->
+                <class name="lumatest.CheckOutShoppingCartTest"></class>-->
             </classes>
         </test>
+
+
+
 </suite>

@@ -9,11 +9,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import us.piit.base.CommonAPI;
 
-import static org.openqa.selenium.remote.http.DumpHttpExchangeFilter.LOG;
 
-public class HomePage extends CommonAPI {
-    Logger log = LogManager.getLogger(HomePage.class.getName());
-    public HomePage(WebDriver driver) {PageFactory.initElements(driver,this);}
+
+public class HomePageMagento extends CommonAPI {
+    Logger log = LogManager.getLogger(HomePageMagento.class.getName());
+    public HomePageMagento(WebDriver driver) {PageFactory.initElements(driver,this);}
 
     WebDriver driver;
 
@@ -21,8 +21,8 @@ public class HomePage extends CommonAPI {
     WebElement searchField;
     @FindBy(xpath = "//button[@class='action search']")
     WebElement searchButton;
-    @FindBy(xpath = "//li[@class='authorization-link'])[1]")
-    WebElement signinButton;
+    @FindBy(xpath = "/html/body/div[1]/header/div[1]/div/ul/li[2]/a")
+    WebElement signinButton1;
     @FindBy(xpath = "(//span[text()='Welcome, samia iddir!'])[1]")
     WebElement headerText;
     @FindBy(xpath = "(//li[@class='authorization-link']//following::li/a)[1]")
@@ -92,22 +92,22 @@ public class HomePage extends CommonAPI {
         log.info("item name type and enter success");
     }
 
-    public void clickOnSigninButton(WebDriver driver){
-        clickOn(signinButton);
-        LOG.info("click on signin button success");
+    public void clickOnSigninButton1(){
+        clickOn(signinButton1);
+        log.info("click on signin button success");
     }
     public void clickOnCartButton(){
         clickOn(cartButton);
-        LOG.info("click on cart button success");
+        log.info("click on cart button success");
     }
 
     public void clickOnAddToCartButton(WebDriver driver){
         clickOn( cartButton);
-        LOG.info("click cart button success");
+        log.info("click cart button success");
     }
     public void clickOnCreateanAccountButton(){
         clickOn(createAccountButton);
-        LOG.info("click create an account button success");
+        log.info("click create an account button success");
     }
     public void hoverOver(WebElement gearFloatingMenu) {
         Actions actions = new Actions(driver);
@@ -115,12 +115,12 @@ public class HomePage extends CommonAPI {
     }
     public void clickOnFitnessEquipment(){
         clickOn(fitnessEquipment);
-        LOG.info("click fitness Equipment success");
+        log.info("click fitness Equipment success");
     }
 
     public void ClickOnSaleButton(){
         clickOn(saleButton);
-        LOG.info("click Sale button success");
+        log.info("click Sale button success");
     }
 
 
@@ -169,6 +169,10 @@ public class HomePage extends CommonAPI {
     public void clickOnWatches(){
         clickOn(Watches);
         log.info("click Watches success");
+    }
+    public void hoverOverFloatingMenu(WebDriver driver){
+        hoverOver(driver, gearFloatingMenu);
+        log.info("Gear hover over menu success");
     }
 
 
