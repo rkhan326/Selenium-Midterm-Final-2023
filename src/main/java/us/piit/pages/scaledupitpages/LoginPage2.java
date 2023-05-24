@@ -8,10 +8,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import us.piit.base.CommonAPI;
 
-public class LoginPage extends CommonAPI {
+public class LoginPage2 extends CommonAPI {
     Logger log = LogManager.getLogger(LoginPage.class.getName());
 
-    public LoginPage(WebDriver driver) {
+    public LoginPage2(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
@@ -104,10 +104,9 @@ public class LoginPage extends CommonAPI {
         return loginPageHeaderText;
 
     }
-    public void login(){
 
-    }
 }
+
 
 
 

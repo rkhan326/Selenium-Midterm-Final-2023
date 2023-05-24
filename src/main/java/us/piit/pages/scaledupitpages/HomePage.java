@@ -15,8 +15,6 @@ public class HomePage extends CommonAPI {
     public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
-//    @FindBy(css = ".custom-logo")
-//    WebElement mainHeader;
 
     @FindBy(xpath = "//a[text()='Logout']")
     WebElement logoutLink;
@@ -57,8 +55,7 @@ public class HomePage extends CommonAPI {
 
     @FindBy(css = ".fa.fa-shopping-cart")
     WebElement cartButton;
-//    @FindBy(css = ".woocommerce-loop-product__title")
-//    WebElement kidsCollectionBtn;
+
 
     @FindBy(xpath= "//li[@class='product type-product post-211 status-publish instock product_cat-featured-beside has-post-thumbnail shipping-taxable purchasable product-type-simple']/a[2]")
     WebElement addKidsToCartButton;
@@ -94,11 +91,11 @@ public class HomePage extends CommonAPI {
     public void hoverOverOnCategoriesButton(  WebDriver driver) {
         Actions actions = new Actions(driver);
         actions.moveToElement(categoriesButton).build().perform();
-        log.info("hover over on categories success");
+        log.info("hover over on categories button success");
     }
     public void clickOnFoodAndBeverageButton(){
         clickOn(foodAndBeverageButton);
-        log.info("click on food and beverage  success");
+        log.info("click on food and beverage button success");
     }
     public void hoverOverOnClothingButton(  WebDriver driver) {
         Actions actions = new Actions(driver);
@@ -116,11 +113,11 @@ public class HomePage extends CommonAPI {
     }
     public void clickOnMyAccountButton(){
         clickOn(myAccountbutton);
-        log.info("click on my account  success");
+        log.info("click on my account  buttonn success");
     }
     public void clickOnInstagramButton(){
         clickOn(instagramPagebutton);
-        log.info("click on instagram  success");
+        log.info("click on instagram button  success");
     }
     public void clickOnCartButton() {
         clickOn(cartButton);
@@ -131,17 +128,7 @@ public class HomePage extends CommonAPI {
         log.info("kids Collection button is visible");
         return iskidsCollectionBtnVisible;
     }
-    public void scrollToKidsBtnWCoordinates(WebDriver driver){
 
-        scrollToCoordinates(0,1500);
-    }
-//    public void scrollToKidsCollectionBtnwJS(){
-//
-//        scrollToElementwJS(kidsCollectionBtn);
-//    }
-//    public void clickOnKidsCollectionJS(){
-//        clickWithJavascript(kidsCollectionBtn);
-//    }
     public void clickOnaddKidsToCartButton() {
         clickOn(addKidsToCartButton);
         log.info("click on add kids Collection to cart success");
