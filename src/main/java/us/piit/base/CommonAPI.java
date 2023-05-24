@@ -273,7 +273,7 @@ public class CommonAPI {
 
     public void clickWithActions(WebDriver driver, WebElement element){
         Actions actions = new Actions(driver);
-        actions.moveToElement(element).build().perform();
+        actions.moveToElement(element).click().build().perform();
     }
     public void scrollToElementwJS(WebElement element, WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor)driver;
