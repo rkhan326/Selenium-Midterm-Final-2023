@@ -84,17 +84,17 @@ public class AddToCartPage extends CommonAPI {
         log.info("click on  cart and 1 item added  success");
 
     }
-    public boolean checkHoddiesPageHeader() {
-        boolean HoddiesPageHeaderIsDisplayed = isVisible(shopPageHeader);
-        log.info(" Hoddies Page Header is  " +  HoddiesPageHeaderIsDisplayed);
-        return  HoddiesPageHeaderIsDisplayed;
-    }
-    public String getHoddiesPageHeaderText() {
-        String ShopPageHeaderText= getElementText(shopPageHeader);
-        log.info("Shop Page Header Text  is " + ShopPageHeaderText);
-        return ShopPageHeaderText;
-
-    }
+//    public boolean checkHoddiesPageHeader() {
+//        boolean HoddiesPageHeaderIsDisplayed = isVisible(hoddiesPageHeader);
+//        log.info(" Hoddies Page Header is  " +  HoddiesPageHeaderIsDisplayed);
+//        return  HoddiesPageHeaderIsDisplayed;
+//    }
+//    public String getHoddiesPageHeaderText() {
+//        String ShopPageHeaderText= getElementText(hoddiesPageHeader);
+//        log.info("Shop Page Header Text  is " + ShopPageHeaderText);
+//        return ShopPageHeaderText;
+//
+//    }
     public boolean checkPatientNinjaPageHeader() {
         boolean BagCollectionHeaderIsDisplayed = isVisible(bagCollectionPageHeader);
         log.info("Bag Collection Header is  " + BagCollectionHeaderIsDisplayed );
