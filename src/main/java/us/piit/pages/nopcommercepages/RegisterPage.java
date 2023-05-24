@@ -1,5 +1,6 @@
 package us.piit.pages.nopcommercepages;
 
+import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,9 @@ import us.piit.base.CommonAPI;
 public class RegisterPage extends CommonAPI {
 
     Logger log = LogManager.getLogger(RegisterPage.class.getName());
+    Faker faker= new Faker();
+
+
     public RegisterPage(WebDriver driver){
 
         PageFactory.initElements(driver, this);
@@ -25,6 +29,17 @@ public class RegisterPage extends CommonAPI {
     WebElement firstNameLocator;
     @FindBy(css = "#LastName")
     WebElement lastNameLocator;
+    @FindBy(css = "select[name='DateOfBirthDay']")
+    WebElement dateOfBirthDay;
+
+    //Select Month
+    @FindBy(css = "select[name='DateOfBirthMonth']")
+    WebElement dateOfBirthMonth;
+
+    //Select year
+    @FindBy(css = "select[name='DateOfBirthYear']")
+    WebElement dateOfBirthYear;
+
     @FindBy(css = "#Email")
     WebElement emailLocator;
     @FindBy(css = "#Company")
@@ -36,6 +51,10 @@ public class RegisterPage extends CommonAPI {
     WebElement confirmPasswordLocator;
     @FindBy(css = "#register-button")
     WebElement registerButtonLocator;
+    @FindBy(xpath = "//span[@id='ConfirmPassword-error']")
+    WebElement errorMassageLocator;
+
+    //span[@id='ConfirmPassword-error']
 
     //*****Reusable Methods*****
 
@@ -55,10 +74,21 @@ public class RegisterPage extends CommonAPI {
         typeText(lastNameLocator,lastName);
         log.info("type lastName success");
     }
-    public void typeEmail (String email){
-        typeText(emailLocator,email);
-        log.info("type email success");
+    public void selectDateOfBirthDay() {
+        selectOptionFromDropDown(dateOfBirthDay, "8");
+        log.info("Selected  DateOfBirthDay successfully");
     }
+
+    public void selectDateOfBirthMonth() {
+        selectOptionFromDropDown(dateOfBirthMonth, "3");
+        log.info(" Selected  DateOfBirthMonth successfully");
+    }
+
+    public void selectDateOfBirthYear() {
+        selectOptionFromDropDown(dateOfBirthYear, "1996");
+        log.info(" Selected DateOfBirthYear successfully");
+    }
+
     public void typeCompanyName (String companyName){
         typeText(companyNameLocator,companyName);
         log.info("type company Name success");
@@ -75,6 +105,13 @@ public class RegisterPage extends CommonAPI {
         clickOn(registerMenuLocator);
         log.info("click on click On Register Button menu Success");
     }
+    public void typeEmail(String email) {
+        typeText(emailLocator, email);
+        log.info(" Type email successfully");
+    }
 
 
+    public String getEmailOfNopCommerce(){
+        return faker.internet().emailAddress();
+    }
 }

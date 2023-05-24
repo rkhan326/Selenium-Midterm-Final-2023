@@ -11,8 +11,11 @@ import us.piit.pages.scaledupitpages.LoginPage;
 import us.piit.utility.ExcelReader;
 import us.piit.utility.Utility;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
+=======
+>>>>>>> 6ddc485e497e88e90f4d32231cbeba0a13403098
 import java.util.Properties;
 
 public class LoginTest  extends CommonAPI {

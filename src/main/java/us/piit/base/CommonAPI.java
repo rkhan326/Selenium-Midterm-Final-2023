@@ -40,11 +40,18 @@ import java.util.Date;
 import java.util.Properties;
 
 public class CommonAPI {
+<<<<<<< HEAD
     Logger log = LogManager.getLogger(CommonAPI.class.getName());
 
     Properties prop = Utility.loadProperties();
     String browserstackUsername = prop.getProperty("browserstack.username");
     String browserstackPassword = prop.getProperty("browserstack.password");
+=======
+        Logger log = LogManager.getLogger(CommonAPI.class.getName());
+        Properties prop = Utility.loadProperties();
+        String browserstackUsername = prop.getProperty("browserstack.username");
+        String browserstackPassword = prop.getProperty("browserstack.password");
+>>>>>>> 6ddc485e497e88e90f4d32231cbeba0a13403098
 
     String implicitWait = prop.getProperty("implicit.wait","5");
     String windowMaximize = prop.getProperty("browser.maximize","true");
@@ -272,6 +279,11 @@ public class CommonAPI {
     public void clickWithJavascript(WebElement element, WebDriver driver){
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].click();", element);
+    }
+
+    public void clickWithActions(WebDriver driver, WebElement element){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
     }
     public void scrollToElementwJS(WebElement element, WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor)driver;

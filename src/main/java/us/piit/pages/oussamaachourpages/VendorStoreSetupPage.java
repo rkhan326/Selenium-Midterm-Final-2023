@@ -9,8 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import us.piit.base.CommonAPI;
 
-import java.util.List;
-
 public class VendorStoreSetupPage extends CommonAPI {
     Logger log = LogManager.getLogger(VendorStoreSetupPage.class.getName()) ;
     public VendorStoreSetupPage(WebDriver driver){
@@ -31,11 +29,11 @@ public class VendorStoreSetupPage extends CommonAPI {
     @FindBy(css = "input[id='address[zip]']")
     WebElement storeSetupZipCodeField;
 
-    @FindBy(css = "#select2-addresscountry-container")
+    @FindBy(xpath = "//select[@id= 'address[country]']")
     WebElement storeSetupCountryDropDown;
 
-    @FindBy(css = "input[id='calc_shipping_state']")
-    WebElement storeSetupStateField;
+    @FindBy(xpath = "//select[@id='calc_shipping_state']")
+    WebElement storeSetupStateDropdown;
 
     @FindBy(xpath = "//td[@class='checkbox']/label[1]")
     WebElement storeSetupEmailShowInStoreCheckBox;
@@ -67,10 +65,10 @@ public class VendorStoreSetupPage extends CommonAPI {
         log.info("enter store setup zip code success");
     }
 
-    public void enterStoreSetupStateInfo(String state){
-        typeText(storeSetupStateField,state);
-        log.info("enter store setup state success");
-    }
+//    public void enterStoreSetupStateInfo(String state){
+//        typeText(storeSetupStateField,state);
+//        log.info("enter store setup state success");
+//    }
 
 
     public void clickOnStoreSetupContinueBtn(){
@@ -96,17 +94,22 @@ public class VendorStoreSetupPage extends CommonAPI {
         String countryDropdownText = getElementText(storeSetupCountryDropdownUSOption);
         return countryDropdownText;
     }
-//    public void setStoreSetupCountryDropDown(String country){
-//        selectOptionFromDropdown(storeSetupCountryDropDown,country);
-//        log.info("select the country from the store setup country dropdown success");
-//    }
 
-//    public void selectStoreSetupCountryFromDropdown(String CountryCode,WebDriver driver) {
-//        scrollToElementwJS(storeSetupCountryDropDown,driver);
-//        waitFor(5);
-//        selectOptionFromDropdown(storeSetupCountryDropDown,CountryCode);
-//        log.info("Successfully selected Country/Region");
-//    }
+
+    public void selectStoreSetupCountryFromDropdown(String CountryCode,WebDriver driver) {
+        scrollToElementwJS(storeSetupCountryDropDown,driver);
+        waitFor(5);
+        selectOptionFromDropdown(storeSetupCountryDropDown,CountryCode);
+        log.info("Successfully selected Country/Region");
+    }
+
+
+    public void selectStoreSetupStateFromDropdown(String StateCode,WebDriver driver) {
+        scrollToElementwJS(storeSetupStateDropdown,driver);
+        waitFor(5);
+        selectOptionFromDropdown(storeSetupStateDropdown,StateCode);
+        log.info("Successfully selected Country/Region");
+    }
 
 //    public void selectOptionFromMenuDropdownWithSelectOptions(String option){
 //        List<WebElement> elements = getDropDownOptions(storeSetupCountryDropDown);

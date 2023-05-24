@@ -24,7 +24,7 @@ public class ShoppingCartTest extends CommonAPI {
 
         // click on add to cart
         shoppingCartPage.clickOnAddToCart();
-        waitFor(3);
+        waitFor(1);
 
         //ensure we are successfully add to cart search page
         String actualTitle = getCurrentTitle();

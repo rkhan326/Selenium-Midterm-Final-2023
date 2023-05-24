@@ -1,9 +1,6 @@
 package scaledupittest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.utility.ExcelReader;
-import us.piit.utility.Utility;
 
 public class DataProviderExample {
     //create data provider

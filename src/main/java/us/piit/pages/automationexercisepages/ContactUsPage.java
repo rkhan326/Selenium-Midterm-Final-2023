@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import us.piit.base.CommonAPI;
 
 public class ContactUsPage extends CommonAPI {
+
     Logger log = LogManager.getLogger(ContactUsPage.class.getName());
     public ContactUsPage(WebDriver driver){PageFactory.initElements(driver, this);}
 

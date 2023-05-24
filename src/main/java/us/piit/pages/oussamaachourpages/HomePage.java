@@ -22,6 +22,13 @@ public class HomePage extends CommonAPI {
     @FindBy(xpath = "//a[@title='Stores']" )
     WebElement storesListLink;
 
+    @FindBy(css = "a[title ='Track Your Order']" )
+    WebElement trackYorOrderLink;
+
+    @FindBy(xpath = "//h2[text()='Camera C430W 4k with  Waterproof cover']" )
+    WebElement cameraC430W;
+
+
     public void clickOnMyAccountLink(){
         clickOn(myAccountLink);
         log.info("Click on My Account link success");
@@ -31,5 +38,14 @@ public class HomePage extends CommonAPI {
         clickOn(storesListLink);
         log.info("Click on Stores List link success");
     }
-
+    public void clickOnTrackYourOrderLink(){
+        clickOn(trackYorOrderLink);
+        log.info("Click on Track Your Order link success");
+    }
+    public void clickOnCameraC430WLink(WebDriver driver){
+        scrollToElementwJS(cameraC430W, driver);
+        waitFor(2);
+        clickOn(cameraC430W);
+        log.info("Click on Camera c430W link success");
+    }
 }
