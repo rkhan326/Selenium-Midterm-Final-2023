@@ -1,6 +1,5 @@
 package us.piit.pages.automationexercisepages;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import us.piit.base.CommonAPI;
-
 
 public class LoginPage extends CommonAPI {
 
@@ -42,12 +40,7 @@ public class LoginPage extends CommonAPI {
     //logged in icon
     @FindBy(css=".fa.fa-user") WebElement loggedInIcon;
 
-    //Methods
-    public String getLoginToYourAccountHeaderText(){
-        String text = getElementText(loginToYourAccountHeader);
-        log.info("Well Done ma Gee! 'login to your account header text' validation success!!");
-        return text;
-    }
+
     public void enterValidLoginEmailInLoginEmailField() {
         typeText(loginEmailField, username);
     }
@@ -58,42 +51,52 @@ public class LoginPage extends CommonAPI {
     public void enterInvalidLoginPasswordInLoginPasswordField() {
         typeText(loginPasswordField, invalidPassword);
     }
+
     public void enterNameInSignupNameField() {
         typeText(signupNameField, signupName);
     }
     public void enterEmailInSignupEmailField() {
         typeText(signupEmailField, signupEmailAddress);
     }
+    public void enterSignupEmailInLoginEmailField() {
+        typeText(loginEmailField, signupEmailAddress);
+    }
 
 
+    //Methods
+    public String getLoginToYourAccountHeaderText(){
+        String text = getElementText(loginToYourAccountHeader);
+        log.info("Well Done ma Gee! 'Login to your account header' text validation success!!");
+        return text;
+    }
     public void clickClickOnLoginButton() {
         clickOn(loginButton);
-        log.info("Well Done ma Gee! login button click click success!!");
+        log.info("Well Done ma Gee! 'Login button' click click success!!");
     }
     public void clickClickOnLogoutButton() {
         clickOn(logoutButton);
-        log.info("Well Done ma Gee! logout button click click success!!");
+        log.info("Well Done ma Gee! 'Logout button' click click success!!");
     }
     public void clickClickOnDeleteAccountButton() {
         clickOn(deleteAccountButton);
-        log.info("Well Done ma Gee! delete account button click click success!!");
+        log.info("Well Done ma Gee! 'Delete account button' click click success!!");
     }
     public void clickClickOnDeleteAccountContinueButton() {
         clickOn(deleteAccountContinueButton);
-        log.info("Well Done ma Gee! delete account continue button click click success!!");
+        log.info("Well Done ma Gee! 'Delete account continue button' click click success!!");
     }
     public void clickClickOnSignupButton() {
         clickOn(signupButton);
-        log.info("Well Done ma Gee! signup button click click success!!");
+        log.info("Well Done ma Gee! 'Signup button' click click success!!");
     }
     public boolean validatePresenceOfloggedInIcon(){
         boolean loggedInIconIsDisplayed = isVisible(loggedInIcon);
-        log.info("Well Done ma Gee! 'logged in icon' display success!!");
+        log.info("Well Done ma Gee! 'Logged in icon' display success!!");
         return loggedInIconIsDisplayed;
     }
     public String getLoginMessageErrorText() {
         String text = getElementText(loginErrorMessage);
-        log.info("Well Done ma Gee! 'login error message text' validation success!!");
+        log.info("Well Done ma Gee! 'Login error message' text validation success!!");
         return text;
     }
 }

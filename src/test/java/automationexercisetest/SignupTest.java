@@ -18,6 +18,11 @@ public class SignupTest extends CommonAPI {
         HomePage homePage = new HomePage(getDriver());
         SignupPage signupPage = new SignupPage(getDriver());
 
+        //validate home page
+        String expectedCategoryHeader = "CATEGORY";
+        String actualCategoryHeader = homePage.getCategoryHeaderText();
+        Assert.assertEquals(expectedCategoryHeader,actualCategoryHeader);
+
         //click on signup/ login button
         homePage.clickClickOnSignupLoginButton();
 
@@ -41,32 +46,16 @@ public class SignupTest extends CommonAPI {
         signupPage.enterZipcodeInSignupField();
         signupPage.enterMobileInSignupField();
 
-        //pick america country dropdown - not necessary
-
         //click create account
         signupPage.clickClickOnSignupButton();
-        waitFor(2);
+
+        //validate signup
+        String expectedAccountCreatedHeader = "ACCOUNT CREATED!";
+        String actualAccountCreatedHeader = homePage.getAccountCreatedHeaderText();
+        Assert.assertEquals(expectedAccountCreatedHeader,actualAccountCreatedHeader);
 
         //click on continue button
         signupPage.clickClickOnSingupContinueButton();
 
-//        //validate home page
-//        String expectedCategoryHeader = "CATEGORY";
-//        String actualCategoryHeader = homePage.getCategoryHeaderText();
-//        Assert.assertEquals(expectedCategoryHeader,actualCategoryHeader);
-
-
-
-        //validate logged in icon
-//        loginpage.validatePresenceOfloggedInIcon();
-
-        //logout
-//        loginpage.clickClickOnLogoutButton();
-
-
-
     }
-
-
-
 }

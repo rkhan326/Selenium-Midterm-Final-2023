@@ -34,46 +34,60 @@ public class HomePage extends CommonAPI {
     //Headers
     @FindBy(xpath = "//h2[text()='Category']")
     WebElement loginPageCategoryHeader;
+    @FindBy(xpath = "//b[text()='Account Deleted!']")
+    WebElement accountDeletedHeader;
+    @FindBy(xpath = "//b[text()='Account Created!']")
+    WebElement accountCreatedHeader;
 
 
     //click on button methods
     public void clickClickOnHomeButton(){
         clickOn(homeButton);
-        log.info("Well Done ma Gee! home button click click success!!");
+        log.info("Well Done ma Gee! 'Home button' click click success!!");
     }
     public void clickClickOnProductsButton() {
         clickOn(productsButton);
-        log.info("Well Done ma Gee! products button click click success!!");
+        log.info("Well Done ma Gee! 'Products button' click click success!!");
     }
     public void clickClickOnCartButton() {
         clickOn(cartButton);
-        log.info("Well Done ma Gee! cart button click click success!!");
+        log.info("Well Done ma Gee! 'Cart button' click click success!!");
     }
     public void clickClickOnSignupLoginButton() {
         clickOn(signupLoginButton);
-        log.info("Well Done ma Gee! signup/ login button click click success!!");
+        log.info("Well Done ma Gee! 'Signup/ login button' click click success!!");
     }
     public void clickClickOnTestCasesButton() {
         clickOn(testCasesButton);
-        log.info("Well Done ma Gee! test cases button click click success!!");
+        log.info("Well Done ma Gee! 'Test cases button' click click success!!");
     }
     public void clickClickOnAPITestingButton() {
         clickOn(aPITestingButton);
-        log.info("Well Done ma Gee! API testing button click click success!!");
+        log.info("Well Done ma Gee! 'API testing button' click click success!!");
     }
     public void clickClickOnVideoTutorialsButton() {
         clickOn(videoTutorialsButton);
-        log.info("Well Done ma Gee! video tutorials button click click success!!");
+        log.info("Well Done ma Gee! 'Video tutorials button' click click success!!");
     }
     public void clickClickOnContactUsButton() {
         clickOn(contactUsButton);
-        log.info("Well Done ma Gee! contact us button click click success!!");
+        log.info("Well Done ma Gee! 'Contact us button' click click success!!");
     }
 
     //get header text methods
     public String getCategoryHeaderText(){
         String text = getElementText(loginPageCategoryHeader);
-        log.info("Well Done ma Gee! Category header text validation success!!");
+        log.info("Well Done ma Gee! 'Category header' text validation success!!");
+        return text;
+    }
+    public String getAccountCreatedHeaderText(){
+        String text = getElementText(accountCreatedHeader);
+        log.info("Well Done ma Gee! 'Account created header' text validation success!!");
+        return text;
+    }
+    public String getAccountDeletedHeaderText(){
+        String text = getElementText(accountDeletedHeader);
+        log.info("Well Done ma Gee! 'Account deleted header' text validation success!!");
         return text;
     }
 
