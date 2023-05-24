@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import us.piit.base.CommonAPI;
 
 
+
 public class HomePageMagento extends CommonAPI {
     Logger log = LogManager.getLogger(HomePageMagento.class.getName());
     public HomePageMagento(WebDriver driver) {PageFactory.initElements(driver,this);}
