@@ -1,4 +1,3 @@
-
 package lumatest;
 
 import org.apache.logging.log4j.LogManager;
@@ -99,4 +98,3 @@ public class SearchfieldTest extends CommonAPI {
 
 
 }
-
