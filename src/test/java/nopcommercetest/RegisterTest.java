@@ -15,6 +15,7 @@ public class RegisterTest extends CommonAPI {
     String firstName= "Danish";
     String lastName= "Mahmud";
     String email= faker.internet().emailAddress();
+
     String companyName= "PNT";
     String password= "admin123";
     String confirmPassword= "admin123";
@@ -44,6 +45,7 @@ public class RegisterTest extends CommonAPI {
         registerPage.selectDateOfBirthYear();
         //enter Email
         registerPage.typeEmail(email);
+        System.out.println(email);
 //        String fakeRegistrationEmail = registerPage.getEmailOfNopCommerce();
 //        registerPage.typeEmail(fakeRegistrationEmail);
         //enter Company
@@ -97,29 +99,5 @@ public class RegisterTest extends CommonAPI {
         Assert.assertEquals(actualTitle, expectedTitle);
         log.info("Successfully entered nopCommerce website");
     }
-//    @Test(priority = 3)
-//    public void validCredential() {
-//        LoginPage loginPage=new LoginPage(getDriver());
-//
-//        //click on login
-//        loginPage.clickOnLoginText();
-//        waitFor(1);
-//
-//        // check login page success
-//        Assert.assertTrue(loginPage.checkLoginPageSuccess());
-//        log.info("login page success");
-//
-//        //enter  username,Password and click
-//        loginPage.enterUsername(email);
-//        loginPage.enterPassword(password);
-//        waitFor(1);
-//        loginPage.clickOnLoginBtn();
-//
-//
-////        String expectedText = "Welcome to our store";
-////        String actualText = loginPage.getLoginPageSuccessText();
-////        Assert.assertEquals(expectedText,actualText);
-//
-//    }
 
 }
