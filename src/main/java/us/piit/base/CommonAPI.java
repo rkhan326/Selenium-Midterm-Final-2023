@@ -1,6 +1,5 @@
 package us.piit.base;
 
-import com.github.javafaker.Faker;
 import com.relevantcodes.extentreports.LogStatus;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -41,7 +40,6 @@ import java.util.Properties;
 
 public class CommonAPI {
         Logger log = LogManager.getLogger(CommonAPI.class.getName());
-
         Properties prop = Utility.loadProperties();
         String browserstackUsername = prop.getProperty("browserstack.username");
         String browserstackPassword = prop.getProperty("browserstack.password");
@@ -271,6 +269,11 @@ public class CommonAPI {
     public void clickWithJavascript(WebElement element, WebDriver driver){
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].click();", element);
+    }
+
+    public void clickWithActions(WebDriver driver, WebElement element){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
     }
     public void scrollToElementwJS(WebElement element, WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor)driver;

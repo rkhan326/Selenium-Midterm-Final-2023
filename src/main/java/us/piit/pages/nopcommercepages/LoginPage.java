@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import us.piit.base.CommonAPI;
 
-public class LoginPage  extends CommonAPI{
+public class LoginPage  extends CommonAPI {
 
         Logger log = LogManager.getLogger(LoginPage.class.getName());
         Faker faker = new Faker();

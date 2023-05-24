@@ -6,8 +6,8 @@
     <parameter name="os" value="windows"></parameter>
     <parameter name="osVersion" value="10"></parameter>
     <parameter name="browserVersion" value="110"></parameter>
-
     <parameter name="browserName" value="chrome"></parameter>
+
     <parameter name="url" value="https://www.oussama-achour.com/#"></parameter>
 
     <test name= "register test">
@@ -18,6 +18,16 @@
     <test name="login test">
         <classes>
             <class name="oussamaachourtest.LoginTest"></class>
+        </classes>
+    </test>
+    <test name="track order test">
+        <classes>
+            <class name="oussamaachourtest.TrackOrderTest"></class>
+        </classes>
+    </test>
+    <test name="review test">
+        <classes>
+            <class name="oussamaachourtest.ReviewTest"></class>
         </classes>
     </test>
 </suite>
