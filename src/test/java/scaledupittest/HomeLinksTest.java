@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
-import us.piit.pages.scaledupitpages.CouponsPage;
 import us.piit.pages.scaledupitpages.HomeLinkPage;
 import us.piit.pages.scaledupitpages.HomePage;
 import us.piit.utility.Utility;

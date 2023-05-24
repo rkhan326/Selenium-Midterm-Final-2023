@@ -9,8 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import us.piit.base.CommonAPI;
 
-import java.util.List;
-
 public class VendorStoreSetupPage extends CommonAPI {
     Logger log = LogManager.getLogger(VendorStoreSetupPage.class.getName()) ;
     public VendorStoreSetupPage(WebDriver driver){

@@ -5,9 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
-import us.piit.pages.nopcommercepages.HomePage;
 import us.piit.pages.nopcommercepages.LoginPage;
-import us.piit.pages.nopcommercepages.RegisterPage;
 import us.piit.utility.Utility;
 
 import java.util.Properties;
