@@ -23,11 +23,21 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-    <test name="login test">
-    <classes>
-        <class name="lumatest.SignInTest"></class>-->
-    </classes>
-</test>
+<!--    <test name="signin test">-->
+<!--    <classes>-->
+<!--        <class name="lumatest.SignInTest"></class>&ndash;&gt;-->
+<!--    </classes>-->
+<!--</test>-->
+<!--    <test name="checkout test">-->
+<!--        <classes>-->
+<!--            <class name="lumatest.CheckoutTest"></class>&ndash;&gt;-->
+<!--        </classes>-->
+<!--    </test>-->
+        <test name="checkout test">
+            <classes>
+                <class name="lumatest.AddRatingAndReviewTest"></class>-->
+            </classes>
+        </test>
 
 
 </suite>
