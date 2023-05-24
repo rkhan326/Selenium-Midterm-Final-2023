@@ -18,7 +18,7 @@ public class CheckOutShoppingCartTest extends CommonAPI {
         SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());
         homePage.clickOnSigninButton1();
         String title = getCurrentTitle();
-        Assert.assertEquals(title, "Customer Login Magento Commerce - website to practice selenium | demo website for automation testing | selenium practice sites");
+        Assert.assertEquals(title, "Customer Login");
         LOG.info("Sign in title page validation success");
 
         //String email = ConnectDB.getTableColumnData("select * from cred","email").get(0);
@@ -68,7 +68,7 @@ public class CheckOutShoppingCartTest extends CommonAPI {
         SuccessPurchasePage successPurchasePage =new SuccessPurchasePage(getDriver());
         homePage.clickOnSigninButton1();
         String title = getCurrentTitle();
-        Assert.assertEquals(title, "Customer Login Magento Commerce - website to practice selenium | demo website for automation testing | selenium practice sites");
+        Assert.assertEquals(title, "Customer Login");
         LOG.info("Sign in title page validation success");
 
         //String email = ConnectDB.getTableColumnData("select * from cred","email").get(0);
