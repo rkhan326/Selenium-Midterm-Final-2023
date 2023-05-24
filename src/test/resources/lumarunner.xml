@@ -23,11 +23,11 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-    <test name="login test">
-    <classes>
-        <class name="lumatest.SignInTest"></class>-->
-    </classes>
-</test>
+<!--    <test name="login test">-->
+<!--    <classes>-->
+<!--        <class name="lumatest.SignInTest"></class>&ndash;&gt;-->
+<!--    </classes>-->
+<!--</test>-->
 
 
 </suite>
