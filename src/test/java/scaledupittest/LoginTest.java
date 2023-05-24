@@ -3,11 +3,17 @@ package scaledupittest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.scaledupitpages.HomePage;
 import us.piit.pages.scaledupitpages.LoginPage;
+import us.piit.utility.ExcelReader;
 import us.piit.utility.Utility;
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.Properties;
 
@@ -20,7 +26,7 @@ public class LoginTest  extends CommonAPI {
     String validPassword = Utility.decode(prop.getProperty("scalledupit.password"));
 
 
-   // @Test(enabled = true,priority = 0)
+    @Test(enabled = true,priority = 0)
     public void validCred() {
 
         LoginPage loginPage = new LoginPage(getDriver());
@@ -184,5 +190,27 @@ public class LoginTest  extends CommonAPI {
         Assert.assertEquals(expectedError4, actualError4);
         log.info("error message validate  success");
     }
+    @Test(dataProvider = "data")
+    public void dataProvideTest(String firstName,String lastName,String age){
+        System.out.println(firstName+"-------"+lastName+"------"+age);
+    }
+    @DataProvider
+    public Object[][]data() {
+        ExcelReader read = new ExcelReader("C:\\Users\\Amel Boucetta Gacem\\eclipse-workspace\\Selenium-Midterm-Final-2023\\data\\data.xlsx");
+        List<String> columnData = new ArrayList<>();
+        columnData = read.getEntireColumnData("Data", 1, 0);
+        Object[][] data = new Object[3][3];
+        for (int i = 0; i < 3; i++) {
+            if (i != 0) {
+                columnData = read.getEntireColumnData("Data", 1, i);
+            }
+            for (int j = 0; j < columnData.size(); j++) {
+                data[j][i] = columnData.get(j);
 
-}
+
+            }
+
+        }
+        return data;
+    }
+    }

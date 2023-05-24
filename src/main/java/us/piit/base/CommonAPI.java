@@ -1,5 +1,6 @@
 package us.piit.base;
 
+import com.github.javafaker.Faker;
 import com.relevantcodes.extentreports.LogStatus;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -39,15 +40,18 @@ import java.util.Date;
 import java.util.Properties;
 
 public class CommonAPI {
+
+
         Logger log = LogManager.getLogger(CommonAPI.class.getName());
         Properties prop = Utility.loadProperties();
         String browserstackUsername = prop.getProperty("browserstack.username");
         String browserstackPassword = prop.getProperty("browserstack.password");
 
-        String implicitWait = prop.getProperty("implicit.wait","5");
-        String windowMaximize = prop.getProperty("browser.maximize","true");
-        String takeScreenshots = prop.getProperty("take.screenshots","false");
-        WebDriver driver;
+
+    String implicitWait = prop.getProperty("implicit.wait","5");
+    String windowMaximize = prop.getProperty("browser.maximize","true");
+    String takeScreenshots = prop.getProperty("take.screenshots","false");
+    WebDriver driver;
 
 
 
@@ -113,18 +117,18 @@ public class CommonAPI {
 
 
     public void getCloudDriver(String envName, String os, String osVersion, String browserName, String browserVersion, String username, String password) throws MalformedURLException {
-            DesiredCapabilities cap = new DesiredCapabilities();
-            cap.setCapability("os", os);
-            cap.setCapability("os_version", osVersion);
-            cap.setCapability("browser", browserName);
-            cap.setCapability("browser_version", browserVersion);
-            if (envName.equalsIgnoreCase("browserstack")) {
-                cap.setCapability("resolution", "1024x768");
-                driver = new RemoteWebDriver(new URL("http://" + username + ":" + password + "@hub-cloud.browserstack.com:80/wd/hub"), cap);
-            } else if (envName.equalsIgnoreCase("saucelabs")) {
-                driver = new RemoteWebDriver(new URL("http://" + username + ":" + password + "@ondemand.saucelabs.com:80/wd.hub"), cap);
-            }
+        DesiredCapabilities cap = new DesiredCapabilities();
+        cap.setCapability("os", os);
+        cap.setCapability("os_version", osVersion);
+        cap.setCapability("browser", browserName);
+        cap.setCapability("browser_version", browserVersion);
+        if (envName.equalsIgnoreCase("browserstack")) {
+            cap.setCapability("resolution", "1024x768");
+            driver = new RemoteWebDriver(new URL("http://" + username + ":" + password + "@hub-cloud.browserstack.com:80/wd/hub"), cap);
+        } else if (envName.equalsIgnoreCase("saucelabs")) {
+            driver = new RemoteWebDriver(new URL("http://" + username + ":" + password + "@ondemand.saucelabs.com:80/wd.hub"), cap);
         }
+    }
     public void getLocalDriver(String browserName) {
         if (browserName.equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver();
@@ -165,6 +169,7 @@ public class CommonAPI {
     //------------------------------------------------------------------------------------------------------------------
     //                                              selenium methods
     //------------------------------------------------------------------------------------------------------------------.
+
     public WebDriver getDriver() {return driver;}
     public String getCurrentTitle() {return driver.getTitle();}
     public String getElementText(WebElement element) {return element.getText();}

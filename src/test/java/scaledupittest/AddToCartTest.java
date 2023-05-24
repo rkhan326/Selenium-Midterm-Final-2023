@@ -17,7 +17,7 @@ public class AddToCartTest extends CommonAPI {
     Properties prop = Utility.loadProperties();
 
 
-    @Test (enabled = false)
+    @Test (enabled = true,priority = 1)
     public void addToCartFromShop() {
         HomePage homePage = new HomePage(getDriver());
         AddToCartPage cart=new AddToCartPage(getDriver());
@@ -31,9 +31,23 @@ public class AddToCartTest extends CommonAPI {
         homePage.clickOnShopButton();
         log.info("click on shop button success");
 
+        // check if user landed to the shop page
+        Assert.assertTrue(cart.checkShopPageHeader());
+        String expectedShopPageHeader = "Shop";
+        String actualShopPageHeader = cart.getShopPageHeaderText();
+        Assert.assertEquals(expectedShopPageHeader, actualShopPageHeader);
+        log.info("shop header text validate  success");
+
         // click on bag collection
         cart.clickOnBagCollection();
         log.info("click on Bag collection  success");
+
+        // check if user landed to the Bag collection page
+        Assert.assertTrue(cart.checkBagCollectionPageHeader());
+        String expectedBagCollectionPageHeader = "Bag Collection";
+        String actualBagCollectionPageHeader = cart.getBagCollectionHeaderText();
+        Assert.assertEquals(expectedBagCollectionPageHeader, actualBagCollectionPageHeader);
+        log.info("Bag Collection header text validate  success");
 
         // click on add to cart
         cart.clickOnAddToCartButton();
@@ -50,7 +64,7 @@ public class AddToCartTest extends CommonAPI {
         log.info("1 item added to cart success");
 
     }
-    @Test
+  @Test (enabled = true,priority = 2)
     public void addToCartFromCategories() {
         HomePage homePage = new HomePage(getDriver());
         AddToCartPage cart=new AddToCartPage(getDriver());

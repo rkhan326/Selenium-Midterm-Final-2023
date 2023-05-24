@@ -9,11 +9,11 @@
 
     <parameter name="browserName" value="chrome"></parameter>
     <parameter name="url" value="https://automation.scaledupit.com//"></parameter>
-                <test name="login test">
-                    <classes>
-                        <class name="scaledupittest.LoginExcelReader"></class>
-                    </classes>
-                </test>
+<!--                <test name="login test">-->
+<!--                    <classes>-->
+<!--                        <class name="scaledupittest.SearchTest"></class>-->
+<!--                    </classes>-->
+<!--                </test>-->
 <!--                <test name="search test">-->
 <!--                    <classes>-->
 <!--                        <class name="scaledupittest.CouponsTest"></class>-->
@@ -21,14 +21,20 @@
 <!--                </test>-->
 <!--                <test name="logout test">-->
 <!--                    <classes>-->
-<!--                        <class name="scaledupittest.LogoutTest"></class>-->
+<!--                        <class name="scaledupittest.LoginTest2">-->
+<!--                            -->
+<!--                           <methods>-->
+<!--                               <include name="signIN"/>-->
+<!--                           </methods> -->
+<!--                            -->
+<!--                        </class>-->
 <!--                    </classes>-->
 <!--                </test>-->
-<!--            <test name="search ">-->
-<!--                <classes>-->
-<!--                    <class name="scaledupittest.AddToCartTest"></class>-->
-<!--                </classes>-->
-<!--            </test>-->
+            <test name="search ">
+                <classes>
+                    <class name="scaledupittest.AddToCartTest"></class>
+                </classes>
+            </test>
 <!--        <test name="blog test">-->
 <!--            <classes>-->
 <!--                <class name="scaledupittest.BlogTest"></class>-->
