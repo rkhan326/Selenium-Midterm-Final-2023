@@ -10,10 +10,17 @@ import us.piit.pages.automationexercisepages.LoginPage;
 
 public class DeleteAccountTest extends CommonAPI {
     Logger log = LogManager.getLogger(LogoutTest.class.getName());
+
     @Test
     public void deleteAccount() {
         LoginPage loginpage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
+
+        //validate home page
+        String expectedCategoryHeader = "CATEGORY";
+        String actualCategoryHeader = homePage.getCategoryHeaderText();
+        Assert.assertEquals(expectedCategoryHeader,actualCategoryHeader);
+
         //click on signup/ login button
         homePage.clickClickOnSignupLoginButton();
 
@@ -23,25 +30,29 @@ public class DeleteAccountTest extends CommonAPI {
         Assert.assertEquals(expectedLoginToYourAccountHeader,actualLoginToYourAccountHeader);
 
         //enter login email address, password and click login button
-        loginpage.enterValidLoginEmailInLoginEmailField();
+        loginpage.enterSignupEmailInLoginEmailField();
         loginpage.enterValidLoginPasswordInLoginPasswordField();
         loginpage.clickClickOnLoginButton();
 
         //validate logged in icon
         loginpage.validatePresenceOfloggedInIcon();
 
-    //delete account
-    loginpage.clickClickOnDeleteAccountButton();
-        waitFor(2);
+        //delete account
+        loginpage.clickClickOnDeleteAccountButton();
 
-    //click on continue button
+        //click on pop us blocker
+
+
+        //validate deletion
+        String expectedAccountDeletedHeader = "ACCOUNT DELETED!";
+        String actualAccountDeletedHeader = homePage.getAccountDeletedHeaderText();
+        Assert.assertEquals(expectedAccountDeletedHeader,actualAccountDeletedHeader);
+
+
+        //click on continue button
         loginpage.clickClickOnDeleteAccountContinueButton();
-
-//validate home page
-        String expectedCategoryHeader = "CATEGORY";
-        String actualCategoryHeader = homePage.getCategoryHeaderText();
-        Assert.assertEquals(expectedCategoryHeader,actualCategoryHeader);
 
     }
 }
+
 
