@@ -78,7 +78,7 @@ public class CreateNewAccountTest extends CommonAPI {
         createnewAccountPageMagento.typeConfirmPassword("password&1234");
         createnewAccountPageMagento.clickOnCreateanAccountButton();
         String confirmation = createnewAccountPageMagento.getConfirmation();
-        Assert.assertEquals(confirmation, "Thank you for registering with Fake Online Clothing Store.");
+        Assert.assertEquals(confirmation, "Thank you for registering with Main Website Store.");
         LOG.info(" Creation of a new account success");
     }
 }

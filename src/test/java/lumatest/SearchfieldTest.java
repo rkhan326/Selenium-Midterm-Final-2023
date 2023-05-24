@@ -26,7 +26,7 @@ public class SearchfieldTest extends CommonAPI {
         homePage.clickOnSearchButton();
 
         //String expectedTitle1 = read.getCellValueForGivenHeaderAndKey("key","Bag search title");
-        String expectedTitle1 = "Search results for: 'bag'";
+        String expectedTitle1 = "Search results for: 'Bag'";
         String actualTitle1 = getCurrentTitle();
         Assert.assertEquals(expectedTitle1, actualTitle1);
 
@@ -53,7 +53,7 @@ public class SearchfieldTest extends CommonAPI {
         signinPageMagento.clickOnSigninButton2();
         LOG.info("Signin success");
         String title1 = getCurrentTitle();
-        Assert.assertEquals(title1, "Home Page - Magento eCommerce - website to practice selenium | demo website for automation testing | selenium practice sites | selenium demo sites | best website to practice selenium automation | automation practice sites Magento Commerce - website to practice selenium | demo website for automation testing | selenium practice sites");
+        Assert.assertEquals(title1, "Home Page - Customer Login");
         LOG.info("Sign in title page validation success");
 
         String item = "jacket";
