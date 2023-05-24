@@ -1,3 +1,4 @@
+
 package lumatest;
 
 import com.github.javafaker.Faker;
@@ -82,3 +83,4 @@ public class CreateNewAccountTest extends CommonAPI {
         LOG.info(" Creation of a new account success");
     }
 }
+

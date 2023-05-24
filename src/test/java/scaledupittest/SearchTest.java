@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.scaledupitpages.HomePage;
-import us.piit.pages.scaledupitpages.LoginPage;
 import us.piit.pages.scaledupitpages.SearchPage;
 import us.piit.utility.ExcelReader;
 import us.piit.utility.Utility;
