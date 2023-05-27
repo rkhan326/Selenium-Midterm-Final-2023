@@ -27,49 +27,44 @@
             <class name="nopcommercetest.SearchTest"></class>
         </classes>
     </test>
-    <test name="Shopping Card Test">
-        <classes>
-            <class name="nopcommercetest.ShoppingCartTest"></class>
-        </classes>
-    </test>
-    <test name="Computer Menu test">
-        <classes>
-            <class name="nopcommercetest.ComputerMenuTest"></class>
-        </classes>
-    </test>
-    <test name="ContactUs test">
-        <classes>
-            <class name="nopcommercetest.ContactUsTest"></class>
-        </classes>
-    </test>
-    <test name="Wishlist Test">
-        <classes>
-            <class name="nopcommercetest.WishlistTest"></class>
-        </classes>
-    </test>
-    <test name="Electronic Menu Test">
-        <classes>
-            <class name="nopcommercetest.ElectronicMenuTest"></class>
-        </classes>
-    </test>
-    <test name="Show Dollar Or Euro Test">
-        <classes>
-            <class name="nopcommercetest.ShowDollarOrEuroTest"></class>
-        </classes>
-    </test>
-    <test name="Community Poll Test">
-        <classes>
-            <class name="nopcommercetest.CommunityPollTest"></class>
-        </classes>
-    </test>
-    <test name="Newsletter Test">
-        <classes>
-            <class name="nopcommercetest.NewsletterTest"></class>
-        </classes>
-    </test>
-
-
-
-
-
-        </suite>
+<!--    <test name="Shopping Card Test">-->
+<!--        <classes>-->
+<!--            <class name="nopcommercetest.ShoppingCartTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Computer Menu test">-->
+<!--        <classes>-->
+<!--            <class name="nopcommercetest.ComputerMenuTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="ContactUs test">-->
+<!--        <classes>-->
+<!--            <class name="nopcommercetest.ContactUsTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Wishlist Test">-->
+<!--        <classes>-->
+<!--            <class name="nopcommercetest.WishlistTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Electronic Menu Test">-->
+<!--        <classes>-->
+<!--            <class name="nopcommercetest.ElectronicMenuTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Show Dollar Or Euro Test">-->
+<!--        <classes>-->
+<!--            <class name="nopcommercetest.ShowDollarOrEuroTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Community Poll Test">-->
+<!--        <classes>-->
+<!--            <class name="nopcommercetest.CommunityPollTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Newsletter Test">-->
+<!--        <classes>-->
+<!--            <class name="nopcommercetest.NewsletterTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>

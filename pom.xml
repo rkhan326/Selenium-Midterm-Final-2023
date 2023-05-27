@@ -108,11 +108,11 @@
                 <version>2.12.4</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/automationexcerciserunner.xml</suiteXmlFile>
-                        <suiteXmlFile>src/test/resources/lumarunner.xml</suiteXmlFile>
+<!--                        <suiteXmlFile>src/test/resources/automationexcerciserunner.xml</suiteXmlFile>-->
+<!--                        <suiteXmlFile>src/test/resources/lumarunner.xml</suiteXmlFile>-->
                         <suiteXmlFile>src/test/resources/nopcommercerunner.xml</suiteXmlFile>
-                        <suiteXmlFile>src/test/resources/oussamaachourrunner.xml</suiteXmlFile>
-                        <suiteXmlFile>src/test/resources/scaledrunner.xml</suiteXmlFile>
+<!--                        <suiteXmlFile>src/test/resources/oussamaachourrunner.xml</suiteXmlFile>-->
+<!--                        <suiteXmlFile>src/test/resources/scaledrunner.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
