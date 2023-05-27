@@ -56,13 +56,13 @@ public class CommonAPI {
     //report setup from line 48 to 105
     public static com.relevantcodes.extentreports.ExtentReports extent;
 
-    @BeforeSuite
+    @BeforeSuite(groups = {"before"})
     public void extentSetup(ITestContext context) {
         ExtentManager.setOutputDirectory(context);
         extent = ExtentManager.getInstance();
     }
 
-    @BeforeMethod
+    @BeforeMethod(groups = {"before"})
     public void startExtent(Method method) {
         String className = method.getDeclaringClass().getSimpleName();
         String methodName = method.getName().toLowerCase();
@@ -76,7 +76,7 @@ public class CommonAPI {
         return sw.toString();
     }
 
-    @AfterMethod
+    @AfterMethod(groups = {"after"})
     public void afterEachTestMethod(ITestResult result) {
         ExtentTestManager.getTest().getTest().setStartedTime(getTime(result.getStartMillis()));
         ExtentTestManager.getTest().getTest().setEndedTime(getTime(result.getEndMillis()));
@@ -101,7 +101,7 @@ public class CommonAPI {
         }
         driver.quit();
     }
-    @AfterSuite
+    @AfterSuite(groups = {"after"})
     public void generateReport() {
         extent.close();
     }
@@ -141,7 +141,7 @@ public class CommonAPI {
     }
 
     @Parameters({"useCloudEnv", "envName", "os", "osVersion", "browserName", "browserVersion", "url"})
-    @BeforeMethod
+    @BeforeMethod(groups = {"before"})
     public void setUp(@Optional("false") String useCloudEnv, @Optional("browserstack") String envName, @Optional("windows") String os,
                       @Optional("10") String osVersion, @Optional("chrome") String browserName, @Optional("110") String browserVersion,
                       @Optional("https://www.google.com") String url) throws MalformedURLException {
@@ -157,7 +157,7 @@ public class CommonAPI {
         driver.get(url);
     }
 
-    @AfterMethod
+    @AfterMethod(groups = {"after"})
     public void tearDown() {
         //close browser
         driver.quit();

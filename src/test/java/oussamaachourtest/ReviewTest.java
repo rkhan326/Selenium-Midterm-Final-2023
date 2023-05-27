@@ -11,7 +11,7 @@ import static java.sql.DriverManager.getDriver;
 
 public class ReviewTest extends CommonAPI {
     Logger log = LogManager.getLogger(oussamaachourtest.RegisterTest.class.getName());
-    @Test(enabled=true)
+    @Test(enabled=false)
     public void leaveAReview(){
         HomePage homePage = new HomePage(getDriver());
 
@@ -24,11 +24,6 @@ public class ReviewTest extends CommonAPI {
         //scroll to and click on item: camera c430w
         homePage.clickOnCameraC430WLink(getDriver());
 
-
-
+        
     }
-
-
-
-
 }

@@ -9,6 +9,8 @@ import us.piit.pages.oussamaachourpages.HomePage;
 import us.piit.pages.oussamaachourpages.LoginRegisterPage;
 import us.piit.pages.oussamaachourpages.LostPasswordPage;
 import us.piit.pages.oussamaachourpages.MyAccountPage;
+
+import us.piit.utility.ConnectDB;
 import us.piit.utility.Utility;
 
 import java.util.Properties;
@@ -18,14 +20,20 @@ public class LoginTest extends CommonAPI {
 
     Properties prop = Utility.loadProperties();
 
+    ConnectDB connectDB = new ConnectDB();
+
+    String validUsername = connectDB.getTableColumnData("select * from login","username").get(0);
+    String validPassword = connectDB.getTableColumnData("select * from login","password").get(0);
+    String validUrl = connectDB.getTableColumnData("select * from login","url").get(0);
     String validLoginUsername = Utility.decode(prop.getProperty("oussamaachour.login-username"));
     String validLoginPassword = Utility.decode(prop.getProperty("oussamaachour.login-password"));
 
-    @Test(enabled = false)
+    @Test(enabled = true )//groups = {"Sanity"},priority = 1,alwaysRun = false
     public void validCredential() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
+
 
         //Assert we are on the correct website
         String expectedTitle = "Welcome to Worldwide Electronics Store";
@@ -36,8 +44,8 @@ public class LoginTest extends CommonAPI {
         homePage.clickOnMyAccountLink();
 
         // enter username, password and click on login btn on login page
-        loginRegisterPage.enterLoginUsername(validLoginUsername);
-        loginRegisterPage.enterLoginPassword(validLoginPassword);
+        loginRegisterPage.enterLoginUsername(validUsername);
+        loginRegisterPage.enterLoginPassword(validPassword);
         loginRegisterPage.clickOnLoginBtn();
 
 
@@ -49,7 +57,7 @@ public class LoginTest extends CommonAPI {
         Assert.assertEquals(myAccountActualHeaderText, myAccountExpectedHeaderText);
     }
 
-    @Test(enabled = false)
+    @Test(groups = {"Sanity"},priority = 1,enabled = false)
     public void invalidPassword() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -73,7 +81,8 @@ public class LoginTest extends CommonAPI {
         Assert.assertEquals(expectedLoginInvalidPasswordMessageText, actualLoginInvalidPasswordMessageText);
     }
 
-    @Test(enabled = false)
+    
+    @Test(groups = {"Sanity"},priority = 1,enabled = false)
     public void invalidUsername(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -96,7 +105,7 @@ public class LoginTest extends CommonAPI {
         String actualLoginInvalidUsernameMessageText = loginRegisterPage.getLoginInvalidUsernameMessageText();
         Assert.assertEquals(expectedLoginInvalidUsernameMessageText, actualLoginInvalidUsernameMessageText);
     }
-    @Test(enabled = false)
+    @Test(groups = {"Sanity"},priority = 1,enabled = false)
     public void unrecognizedEmail(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -122,7 +131,7 @@ public class LoginTest extends CommonAPI {
 
 
 
-    @Test (enabled = false)
+    @Test (groups = {"Smoke"},priority = 1,enabled = false)
     public void resetPasswordRequest(){
         LostPasswordPage lostPasswordPage = new LostPasswordPage(getDriver());
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
@@ -158,7 +167,7 @@ public class LoginTest extends CommonAPI {
         Assert.assertEquals(expectedPasswordResetEmailSentMessageText, actualPasswordResetEmailSentMessageText);
     }
 
-    @Test(enabled = false, priority = 0)
+    @Test(groups = {"Sanity"},priority = 1,enabled = false)
     public void validateStrongPassword(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -180,9 +189,8 @@ public class LoginTest extends CommonAPI {
         System.out.println(actualPasswordStrengthMessage);
         Assert.assertEquals(expectedPasswordStrengthMessage,actualPasswordStrengthMessage);
 
-
     }
-    @Test(enabled = false, priority = 1)
+    @Test(groups = {"Smoke"},priority = 1,enabled = false)
     public void validateWeakPassword(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -203,7 +211,7 @@ public class LoginTest extends CommonAPI {
         String actualPasswordStrengthMessage = loginRegisterPage.getWeakPasswordStrengthText();
         Assert.assertEquals(expectedPasswordStrengthMessage,actualPasswordStrengthMessage);
     }
-    @Test(enabled = false, priority = 2)
+    @Test(groups = {"Sanity, Smoke, Regression"},priority = 1,enabled = false)
     public void validateMediumPassword(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
