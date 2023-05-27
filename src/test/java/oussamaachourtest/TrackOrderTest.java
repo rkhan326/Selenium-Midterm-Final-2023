@@ -40,7 +40,7 @@ public class TrackOrderTest extends CommonAPI {
         Assert.assertTrue(ordersPage.checkPresenceOfOrdersDetailsHeader());
 
     }
-    @Test(enabled=false)
+    @Test(enabled=true)
     public void invalidOrderId(){
         TrackYourOrderPage trackYourOrderPage = new TrackYourOrderPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -72,7 +72,7 @@ public class TrackOrderTest extends CommonAPI {
 
     }
 
-    @Test(enabled=false)
+    @Test(enabled=true)
     public void invalidEmail(){
         TrackYourOrderPage trackYourOrderPage = new TrackYourOrderPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
