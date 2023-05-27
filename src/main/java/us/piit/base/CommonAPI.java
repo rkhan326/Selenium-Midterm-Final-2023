@@ -1,5 +1,6 @@
 package us.piit.base;
 
+import com.github.javafaker.Faker;
 import com.relevantcodes.extentreports.LogStatus;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -39,28 +40,29 @@ import java.util.Date;
 import java.util.Properties;
 
 public class CommonAPI {
+
         Logger log = LogManager.getLogger(CommonAPI.class.getName());
         Properties prop = Utility.loadProperties();
         String browserstackUsername = prop.getProperty("browserstack.username");
         String browserstackPassword = prop.getProperty("browserstack.password");
 
-        String implicitWait = prop.getProperty("implicit.wait","5");
-        String windowMaximize = prop.getProperty("browser.maximize","true");
-        String takeScreenshots = prop.getProperty("take.screenshots","false");
-        WebDriver driver;
+    String implicitWait = prop.getProperty("implicit.wait","5");
+    String windowMaximize = prop.getProperty("browser.maximize","true");
+    String takeScreenshots = prop.getProperty("take.screenshots","false");
+    WebDriver driver;
 
 
 
     //report setup from line 48 to 105
     public static com.relevantcodes.extentreports.ExtentReports extent;
 
-    @BeforeSuite
+    @BeforeSuite(groups = {"before"})
     public void extentSetup(ITestContext context) {
         ExtentManager.setOutputDirectory(context);
         extent = ExtentManager.getInstance();
     }
 
-    @BeforeMethod
+    @BeforeMethod(groups = {"before"})
     public void startExtent(Method method) {
         String className = method.getDeclaringClass().getSimpleName();
         String methodName = method.getName().toLowerCase();
@@ -74,7 +76,7 @@ public class CommonAPI {
         return sw.toString();
     }
 
-    @AfterMethod
+    @AfterMethod(groups = {"after"})
     public void afterEachTestMethod(ITestResult result) {
         ExtentTestManager.getTest().getTest().setStartedTime(getTime(result.getStartMillis()));
         ExtentTestManager.getTest().getTest().setEndedTime(getTime(result.getEndMillis()));
@@ -99,7 +101,7 @@ public class CommonAPI {
         }
         driver.quit();
     }
-    @AfterSuite
+    @AfterSuite(groups = {"after"})
     public void generateReport() {
         extent.close();
     }
@@ -113,18 +115,18 @@ public class CommonAPI {
 
 
     public void getCloudDriver(String envName, String os, String osVersion, String browserName, String browserVersion, String username, String password) throws MalformedURLException {
-            DesiredCapabilities cap = new DesiredCapabilities();
-            cap.setCapability("os", os);
-            cap.setCapability("os_version", osVersion);
-            cap.setCapability("browser", browserName);
-            cap.setCapability("browser_version", browserVersion);
-            if (envName.equalsIgnoreCase("browserstack")) {
-                cap.setCapability("resolution", "1024x768");
-                driver = new RemoteWebDriver(new URL("http://" + username + ":" + password + "@hub-cloud.browserstack.com:80/wd/hub"), cap);
-            } else if (envName.equalsIgnoreCase("saucelabs")) {
-                driver = new RemoteWebDriver(new URL("http://" + username + ":" + password + "@ondemand.saucelabs.com:80/wd.hub"), cap);
-            }
+        DesiredCapabilities cap = new DesiredCapabilities();
+        cap.setCapability("os", os);
+        cap.setCapability("os_version", osVersion);
+        cap.setCapability("browser", browserName);
+        cap.setCapability("browser_version", browserVersion);
+        if (envName.equalsIgnoreCase("browserstack")) {
+            cap.setCapability("resolution", "1024x768");
+            driver = new RemoteWebDriver(new URL("http://" + username + ":" + password + "@hub-cloud.browserstack.com:80/wd/hub"), cap);
+        } else if (envName.equalsIgnoreCase("saucelabs")) {
+            driver = new RemoteWebDriver(new URL("http://" + username + ":" + password + "@ondemand.saucelabs.com:80/wd.hub"), cap);
         }
+    }
     public void getLocalDriver(String browserName) {
         if (browserName.equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver();
@@ -139,7 +141,7 @@ public class CommonAPI {
     }
 
     @Parameters({"useCloudEnv", "envName", "os", "osVersion", "browserName", "browserVersion", "url"})
-    @BeforeMethod
+    @BeforeMethod(groups = {"before"})
     public void setUp(@Optional("false") String useCloudEnv, @Optional("browserstack") String envName, @Optional("windows") String os,
                       @Optional("10") String osVersion, @Optional("chrome") String browserName, @Optional("110") String browserVersion,
                       @Optional("https://www.google.com") String url) throws MalformedURLException {
@@ -155,7 +157,7 @@ public class CommonAPI {
         driver.get(url);
     }
 
-    @AfterMethod
+    @AfterMethod(groups = {"after"})
     public void tearDown() {
         //close browser
         driver.quit();
@@ -165,6 +167,7 @@ public class CommonAPI {
     //------------------------------------------------------------------------------------------------------------------
     //                                              selenium methods
     //------------------------------------------------------------------------------------------------------------------.
+
     public WebDriver getDriver() {return driver;}
     public String getCurrentTitle() {return driver.getTitle();}
     public String getElementText(WebElement element) {return element.getText();}
@@ -273,7 +276,8 @@ public class CommonAPI {
 
     public void clickWithActions(WebDriver driver, WebElement element){
         Actions actions = new Actions(driver);
-        actions.moveToElement(element).build().perform();
+        actions.moveToElement(element).click().build().perform();
+
     }
     public void scrollToElementwJS(WebElement element, WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor)driver;

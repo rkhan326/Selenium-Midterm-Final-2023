@@ -170,6 +170,10 @@ public class HomePageMagento extends CommonAPI {
         clickOn(Watches);
         log.info("click Watches success");
     }
+    public void hoverOverFloatingMenu(WebDriver driver){
+        hoverOver(driver, gearFloatingMenu);
+        log.info("Gear hover over menu success");
+    }
 
 
 

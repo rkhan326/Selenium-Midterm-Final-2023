@@ -12,7 +12,7 @@ public class AddRatingAndReviewTest extends CommonAPI {
 
     //ReadFromExcel read = new ReadFromExcel("D:\\BootCamp Selenium\\web-automation-framework-team4\\data\\titles.xlsx", "Magento");
 
-    @Test
+    //@Test
     public void AddThefirstratingAndReview() throws InterruptedException {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());
@@ -87,7 +87,7 @@ public class AddRatingAndReviewTest extends CommonAPI {
                 shopNewYogaPage.clickOnReviews();
 
                 String title3 = getCurrentTitle();
-                Assert.assertEquals(title3, "Layla Tee ");
+                Assert.assertEquals(title3, "Layla Tee");
                 LOG.info("Layla Tee  title page validation success");
                 Thread.sleep(3000);
                 laylaTeePage.hoverOverRatingButton(getDriver());

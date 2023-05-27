@@ -12,6 +12,7 @@
 
     <test name="Register Test">
         <classes>
+
             <class name="nopcommercetest.RegisterTest"></class>
         </classes>
     </test>
