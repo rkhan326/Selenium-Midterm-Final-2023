@@ -53,12 +53,12 @@ public class UpdatePage extends CommonAPI {
         log.info("click on add cart  success");
 
     }
-    public boolean checkcartCount() {
-        boolean cartCountIsDisplayed = isVisible(cartCount);
-        log.info("cart count is  " + cartCountIsDisplayed);
-        return cartCountIsDisplayed;
+    public boolean checkcartCountHeader() {
+        boolean cartCountHeaderIsDisplayed = isVisible(cartCount);
+        log.info("cart count is  " + cartCountHeaderIsDisplayed );
+        return cartCountHeaderIsDisplayed ;
     }
-    public String getCartCountText() {
+    public String getCartCountHeaderText() {
         String cartCountText = getElementText(cartCount);
         log.info("cart count text is " + cartCountText);
         return cartCountText;
@@ -78,7 +78,7 @@ public class UpdatePage extends CommonAPI {
         log.info("click on up button success");
 
     }
-    public void hoverOverOnQuantitField(  WebDriver driver) {
+    public void hoverOverOnQuantityField(  WebDriver driver) {
         Actions actions = new Actions(driver);
         actions.moveToElement(itemNumberField).build().perform();
         log.info("hover over on categories success");
@@ -88,12 +88,12 @@ public class UpdatePage extends CommonAPI {
         log.info("click on update cart  success");
 
     }
-    public boolean checkcartCountUpdate() {
-        boolean cartCountIsDisplayed = isVisible(cartCountUpdate);
-        log.info("cart count is  " + cartCountIsDisplayed);
-        return cartCountIsDisplayed;
+    public boolean checkCartCountUpdateHeader() {
+        boolean cartCountUpdateHeaderIsDisplayed = isVisible(cartCountUpdate);
+        log.info("cart count is  " + cartCountUpdateHeaderIsDisplayed);
+        return cartCountUpdateHeaderIsDisplayed;
     }
-    public String getCartCountUpadteText() {
+    public String getCartCountUpadteHeaderText() {
         String cartCountUpdateText = getElementText(cartCountUpdate);
         log.info("cart count text is " + cartCountUpdateText);
         return cartCountUpdateText;

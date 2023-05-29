@@ -1,5 +1,6 @@
 package us.piit.pages.scaledupitpages;
 
+import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ public class BlogPage extends CommonAPI {
     public BlogPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
+    Faker faker =new Faker();
 
     @FindBy(xpath = "//h1[@class='page-title']")
     WebElement blogPageHeader;
@@ -43,11 +45,17 @@ public class BlogPage extends CommonAPI {
     @FindBy(css = ".comment-awaiting-moderation")
     WebElement commentHeader;
 
+    @FindBy(css = "#reply-title")
+    WebElement leaveCommentHeader;
+
+    @FindBy(xpath = "//div[@class='wp-die-message']/p[1]")
+    WebElement commentErrorMessage;
+
 
     public boolean checkPresenceOfBlogPageHeader() {
-        boolean loginPageHeaderIsDisplayed = isVisible(blogPageHeader);
-        log.info("blog page header presence " + loginPageHeaderIsDisplayed);
-        return loginPageHeaderIsDisplayed;
+        boolean blogPageHeaderIsDisplayed = isVisible(blogPageHeader);
+        log.info("blog page header presence " + blogPageHeaderIsDisplayed);
+        return blogPageHeaderIsDisplayed;
     }
 
     public String getBlogPageHeadertext() {
@@ -66,12 +74,12 @@ public class BlogPage extends CommonAPI {
 
         log.info("enter comment success");
     }
-    public void entername(String name) {
+    public void enterName(String name) {
         typeText(nameField, name);
 
         log.info("enter name success");
     }
-    public void enteremail(String email) {
+    public void enterEmail(String email) {
         typeText(emailField, email);
 
         log.info("enter email success");
@@ -83,7 +91,7 @@ public class BlogPage extends CommonAPI {
     }
     public void clickOnSaveButton() {
         clickOn(checkBoxButton);
-        log.info("click on check save box  success");
+        log.info("click on  save check box  success");
 
     }
     public boolean isSaveButtonChecked(){
@@ -96,12 +104,40 @@ public class BlogPage extends CommonAPI {
         log.info("click on submit button success");
 
     }
-    public String getcommentHeadertext() {
+    public boolean checkPresenceOfCommentHeader() {
+        boolean CommentHeaderIsDisplayed = isVisible(commentHeader);
+        log.info("comment header presence " + CommentHeaderIsDisplayed);
+        return CommentHeaderIsDisplayed;
+    }
+    public String getCommentHeadertext() {
         String commentHeaderText = getElementText(commentHeader);
         log.info("comment text header text is " + commentHeaderText);
         return commentHeaderText;
 
     }
+    public boolean checkReadMoreButtonIsVisible (){
+        boolean isReadMoreBtnVisible = isVisible(readMoreButton);
+        log.info("Read More button is visible");
+        return isReadMoreBtnVisible;
+    }
+    public boolean checkLeaveCommentButtonIsVisible (){
+        boolean isLeaveCommentBtnVisible = isVisible(leaveCommentHeader);
+        log.info("Leave Comment button is visible");
+        return isLeaveCommentBtnVisible;
+    }
+
+    public boolean checkPresenceOfCommentErrorMessage() {
+        boolean ErrorMessagePageHeaderIsDisplayed = isVisible(commentErrorMessage);
+        log.info(" Comment Error Message  header presence " + ErrorMessagePageHeaderIsDisplayed);
+        return ErrorMessagePageHeaderIsDisplayed;
+    }
+    public String getCommentErrorMessageText() {
+        String text = getElementText(commentErrorMessage);
+        log.info("get Comment error message text success");
+        return text;
+    }
+    public String enterNewFakeEmail(){ return faker.internet().emailAddress(); }
+
 
 
 }

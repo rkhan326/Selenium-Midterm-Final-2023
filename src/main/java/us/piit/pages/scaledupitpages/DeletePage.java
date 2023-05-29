@@ -33,15 +33,21 @@ public class DeletePage extends CommonAPI {
     @FindBy(css = ".cart-empty.woocommerce-info")
     WebElement cartEmpty;
 
+    @FindBy(css = ".woocommerce-products-header__title.page-title")
+    WebElement shopPageHeader;
+
+    @FindBy(xpath = "//h1[text()='Belt']")
+    WebElement beltPageHeader;
+
     public boolean checkPresenceOfCartHeaderText() {
-        boolean loginPageHeaderIsDisplayed = isVisible(cartHeader);
-        log.info("cart page header presence " + loginPageHeaderIsDisplayed);
-        return loginPageHeaderIsDisplayed;
+        boolean carPageHeaderIsDisplayed = isVisible(cartHeader);
+        log.info("cart page header presence " + carPageHeaderIsDisplayed);
+        return carPageHeaderIsDisplayed;
     }
 
     public String getCartPageHeaderText() {
         String text = getElementText(cartHeader);
-        log.info("get cart header page text success");
+        log.info("get cart page  header text success");
         return text;
     }
     public void clickOnReturnToShopBtn() {
@@ -54,12 +60,23 @@ public class DeletePage extends CommonAPI {
         log.info("click on return to shop  button success");
 
     }
-    public void clickOnAddToCartButton() {
+    public boolean checkBeltPageHeader() {
+        boolean BeltPageHeaderIsDisplayed = isVisible(beltPageHeader);
+        log.info("Belt page Header is  " + BeltPageHeaderIsDisplayed);
+        return BeltPageHeaderIsDisplayed;
+    }
+    public String getBeltPageHeaderText() {
+        String BeltPageHeaderText = getElementText(beltPageHeader);
+        log.info("Belt page Header text is " + BeltPageHeaderText);
+        return BeltPageHeaderText;
+    }
+
+        public void clickOnAddToCartButton() {
         clickOn(addToCartButton);
         log.info("click on add cart  success");
 
     }
-    public boolean checkcartCount() {
+    public boolean checkCartCount() {
         boolean cartCountIsDisplayed = isVisible(cartCount);
         log.info("cart count is  " + cartCountIsDisplayed);
         return cartCountIsDisplayed;
@@ -69,7 +86,9 @@ public class DeletePage extends CommonAPI {
         log.info("cart count text is " + cartCountText);
         return cartCountText;
 
-    } public void clickOnCart() {
+    }
+
+     public void clickOnCart() {
         clickOn(cartCount);
         log.info("click on  cart and 1 item added  success");
 
@@ -80,15 +99,26 @@ public class DeletePage extends CommonAPI {
 
     }
     public boolean checkPresenceOfCartEmptyHeaderText() {
-        boolean loginPageHeaderIsDisplayed = isVisible(cartEmpty);
-        log.info("cart page header presence " + loginPageHeaderIsDisplayed);
-        return loginPageHeaderIsDisplayed;
+        boolean cartEmptyHeaderIsDisplayed = isVisible(cartEmpty);
+        log.info("cart Empty header presence " + cartEmptyHeaderIsDisplayed );
+        return cartEmptyHeaderIsDisplayed ;
     }
 
     public String getCartEmptyPageHeaderText() {
         String text = getElementText(cartEmpty);
-        log.info("get cart header page text success");
+        log.info("get cart Empty header text success");
         return text;
+    }
+    public boolean checkShopPageHeader() {
+        boolean ShopPageHeaderIsDisplayed = isVisible(shopPageHeader);
+        log.info("shop page header  is  " + ShopPageHeaderIsDisplayed);
+        return ShopPageHeaderIsDisplayed;
+    }
+    public String getShopPageHeaderText() {
+        String ShopPageHeaderText= getElementText(shopPageHeader);
+        log.info("Shop Page Header Text  is " + ShopPageHeaderText);
+        return ShopPageHeaderText;
+
     }
 
 

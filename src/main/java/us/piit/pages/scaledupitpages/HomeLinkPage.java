@@ -20,26 +20,34 @@ public class HomeLinkPage extends CommonAPI {
     @FindBy(xpath = "//h1[@class='page-title']")
     WebElement blogPageHeader;
 
-
-
     @FindBy(css = ".woocommerce-products-header__title.page-title")
     WebElement menCollectionPageHeader;
-
 
     @FindBy(css= ".xe3v8dz")
     WebElement faceBookPageHeader;
 
-    @FindBy(css = "._ab6-")
+    @FindBy(xpath = "//button[@class='_acan _acap _acas _aj1-']")
     WebElement instagramPageHeader;
 
     @FindBy(xpath = "//h1[text()='My account']")
     WebElement loginPageHeader;
 
+    @FindBy(xpath = "//button[@class='_acan _acap _acas _aj1-']/div[1]")
+    WebElement logInBtn;
+
+    @FindBy(xpath = "//div[text()='Continue as boucetta.amel']")
+    WebElement continuAsAmel;
+
+    @FindBy(xpath="//div[text()='Home']")
+    WebElement homeBtn;
+
+    @FindBy(xpath="//a[text()='boucetta.amel']")
+    WebElement instagramHomePageHeader;
 
     public boolean checkPresenceOfBlogPageHeader() {
-        boolean loginPageHeaderIsDisplayed = isVisible(blogPageHeader);
-        log.info("Men Collection page header presence " + loginPageHeaderIsDisplayed);
-        return loginPageHeaderIsDisplayed;
+        boolean blogPageHeaderIsDisplayed = isVisible(blogPageHeader);
+        log.info("Men Collection page header presence " + blogPageHeaderIsDisplayed);
+        return blogPageHeaderIsDisplayed;
     }
 
     public String getBlogPageHeadertext() {
@@ -50,9 +58,9 @@ public class HomeLinkPage extends CommonAPI {
     }
 
     public boolean checkPresenceOfMenCollectionPageHeader() {
-        boolean loginPageHeaderIsDisplayed = isVisible(menCollectionPageHeader);
-        log.info("blog page header presence " + loginPageHeaderIsDisplayed);
-        return loginPageHeaderIsDisplayed;
+        boolean MenCollectionPageHeaderIsDisplayed = isVisible(menCollectionPageHeader);
+        log.info("blog page header presence " + MenCollectionPageHeaderIsDisplayed);
+        return MenCollectionPageHeaderIsDisplayed;
     }
 
     public String getMenCollectionPageHeadertext() {
@@ -73,22 +81,45 @@ public class HomeLinkPage extends CommonAPI {
 
     }
 
-    public String getFaceBookPageHeadertext() {
-        String blogPageHeaderText = getElementText(faceBookPageHeader);
-        log.info("FaceBook page header text is " + blogPageHeaderText);
-        return blogPageHeaderText;
-
-    }
     public boolean checkPresenceOfInstagramPageHeader() {
-        boolean loginPageHeaderIsDisplayed = isVisible(instagramPageHeader);
-        log.info("instagram page header presence " + loginPageHeaderIsDisplayed);
-        return loginPageHeaderIsDisplayed;
+        boolean InstagramnPageHeaderIsDisplayed = isVisible(instagramPageHeader);
+        log.info("instagram page header presence " + InstagramnPageHeaderIsDisplayed );
+        return InstagramnPageHeaderIsDisplayed ;
     }
 
-    public String getInstagramPageHeadertext() {
-        String blogPageHeaderText = getElementText(instagramPageHeader);
-        log.info("instagram page header text is " + blogPageHeaderText);
-        return blogPageHeaderText;
+    public String getInstagramPageHeaderText() {
+        String instagramPageHeaderText = getElementText(instagramPageHeader);
+        log.info("instagram page header text is " + instagramPageHeaderText);
+        return instagramPageHeaderText;
+
+    }
+    public void clickOnLogIn() {
+        clickOn(logInBtn);
+        log.info("click on Log In success");
+    }
+    public boolean checkContiueAsAmelIsVisible (){
+        boolean isContiueAsAmelVisible = isVisible(continuAsAmel);
+        log.info("Continue As Amel button is visible");
+        return isContiueAsAmelVisible;
+    }
+    public void clickOnContinueAsAmelBoucettaBtn() {
+        clickOn(continuAsAmel);
+        log.info("click on Log In success");
+    }
+    public void clickOnHomeBtn() {
+        clickOn(homeBtn);
+        log.info("click on Home success");
+    }
+    public boolean checkPresenceOfInstagramHomePageHeader() {
+        boolean InstagramHomePageHeaderIsDisplayed = isVisible(instagramHomePageHeader);
+        log.info("Instagram Home page header presence " + InstagramHomePageHeaderIsDisplayed);
+        return InstagramHomePageHeaderIsDisplayed;
+    }
+
+    public String getInstagramHomePageHeadertext() {
+        String InstagramHomePageHeadertext = getElementText(instagramHomePageHeader);
+        log.info("Instagram Home page header text is " + InstagramHomePageHeadertext);
+        return InstagramHomePageHeadertext;
 
     }
 }

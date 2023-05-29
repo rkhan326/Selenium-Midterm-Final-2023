@@ -20,6 +20,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import org.testng.annotations.Optional;
 import us.piit.reporting.ExtentManager;
 import us.piit.reporting.ExtentTestManager;
 import us.piit.utility.Utility;
@@ -34,17 +35,14 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Properties;
+import java.util.*;
 
 public class CommonAPI {
 
-        Logger log = LogManager.getLogger(CommonAPI.class.getName());
-        Properties prop = Utility.loadProperties();
-        String browserstackUsername = prop.getProperty("browserstack.username");
-        String browserstackPassword = prop.getProperty("browserstack.password");
+    Logger log = LogManager.getLogger(CommonAPI.class.getName());
+    Properties prop = Utility.loadProperties();
+    String browserstackUsername = prop.getProperty("browserstack.username");
+    String browserstackPassword = prop.getProperty("browserstack.password");
 
     String implicitWait = prop.getProperty("implicit.wait","5");
     String windowMaximize = prop.getProperty("browser.maximize","true");
@@ -198,6 +196,7 @@ public class CommonAPI {
             select.selectByValue(option);
         }
     }
+
     public void selectOptionFromDropDown(WebElement element, String value){
         WebElement dropdown = element;
         Select select = new Select(dropdown);
@@ -306,5 +305,4 @@ public class CommonAPI {
         }
     }
 }
-
 

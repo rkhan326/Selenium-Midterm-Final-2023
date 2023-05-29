@@ -54,9 +54,22 @@ public class ConnectDB {
         }
         return list;
     }
+    public static List<String> getResultSetData (ResultSet resultSet2, String columnName) throws SQLException {
+        List<String> dataList = new ArrayList<String>();
+        while (resultSet.next()) {
+            String itemName = resultSet.getString(columnName);
+            dataList.add(itemName);
+        }
+        return dataList;
+    }
 
     public static void main(String[] args) throws SQLException {
-        List<String> emails = getTableColumnData("select * from students where First_Name='Razia'","DOb");
-        System.out.println(emails.get(0));
+        List<String> Dob = getTableColumnData("select * from students where First_Name='Razia'","Dob");
+        System.out.println(Dob.get(0));
+
+
+
+      }
+
     }
-}
+

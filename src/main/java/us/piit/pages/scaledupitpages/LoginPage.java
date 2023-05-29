@@ -55,6 +55,7 @@ public class LoginPage extends CommonAPI {
         log.info("click on login button success");
 
     }
+
     public boolean checkPresenceOfErrorMessageText() {
         boolean loginPageHeaderIsDisplayed = isVisible(errorMessage);
         log.info("login page header presence " + loginPageHeaderIsDisplayed);
@@ -87,11 +88,13 @@ public class LoginPage extends CommonAPI {
         return loginPageHeaderText;
 
     }
+
     public void clickOnForgetPasswordBtn() {
         clickOn(forgetPassword);
         log.info("click on forget password success");
 
     }
+
     public boolean checkPresenceOfLostPasswordHeader() {
         boolean loginPageHeaderIsDisplayed = isVisible(lostPasswordHeader);
         log.info("login page header presence " + loginPageHeaderIsDisplayed);
@@ -104,11 +107,7 @@ public class LoginPage extends CommonAPI {
         return loginPageHeaderText;
 
     }
-    public void login(){
-
-    }
 }
-
 
 
 

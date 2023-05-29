@@ -116,10 +116,6 @@ public class RegistrationTest extends CommonAPI {
 
 
         // check user is sign up successfully
-        waitFor(3);
-
-
-        // check user is sign up successfully
         Assert.assertTrue(registrationPage.checkPresenceOfLoginPageHeader());
         String expectedLoginPageHeader = "My account";
         String actualLoginPageHeader = registrationPage.getLoginPageHeadertext();
@@ -129,7 +125,7 @@ public class RegistrationTest extends CommonAPI {
 
     }
 
-    @Test(enabled = true, priority = 2)
+    @Test(enabled = true, priority = 3)
     public void registerWithValidEmailAndShortPassword() {
         RegistrationPage registrationPage = new RegistrationPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
