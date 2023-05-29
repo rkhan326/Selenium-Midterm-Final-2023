@@ -1,6 +1,6 @@
 package oussamaachourtest;
 
-public class MakeAPurchaseTest {
+public class CheckoutTest {
 
     public void filterAnItemByPrice(){
 

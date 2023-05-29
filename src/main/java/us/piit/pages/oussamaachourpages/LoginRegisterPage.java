@@ -81,6 +81,11 @@ public class LoginRegisterPage extends CommonAPI {
 
     @FindBy(xpath = "//div[@class= 'woocommerce-password-strength strong']")
     WebElement strongPassword;
+    @FindBy(css = "div[class ='u-column1 col-1'] h2")
+    WebElement loginHeader;
+
+    @FindBy(css = "a[title = 'Contact Us']")
+    WebElement contactUsLink;
 
 
 
@@ -227,6 +232,16 @@ public class LoginRegisterPage extends CommonAPI {
         String text = getElementText(mediumPassword);
         log.info("get medium password strength  text success");
         return text;
+    }
+    public boolean checkPresenceOfLoginHeader(){
+        boolean loginHeaderIsDisplayed = isVisible(loginHeader);
+        log.info("login header validation success.");
+        return loginHeaderIsDisplayed;
+    }
+
+    public void clickOnContactUsLink(){
+        clickOn(contactUsLink);
+        log.info("click on click on contact us link success");
     }
 
     public String newFakeRegistrationLoginUsername(){ return faker.internet().emailAddress();}
