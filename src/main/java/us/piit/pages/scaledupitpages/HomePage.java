@@ -176,14 +176,14 @@ public class HomePage extends CommonAPI {
 
 
 
-        public void selectOptionFromDropdown(WebElement dropdown, String option){
-            Select select1 = new Select(dropdown);
-            try {
-                select.selectByVisibleText(option);
-            }catch (Exception e){
-                select.selectByValue(option);
-            }
-        }
+//        public void selectOptionFromDropdown(WebElement dropdown, String option){
+//            Select select1 = new Select(dropdown);
+//            try {
+//                select.selectByVisibleText(option);
+//            }catch (Exception e){
+//                select.selectByValue(option);
+//            }
+//        }
             }
     }
 
