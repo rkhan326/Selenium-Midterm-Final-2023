@@ -19,11 +19,9 @@ public class SignInTest extends CommonAPI {
     @Test
     public void validTitle() throws InterruptedException {
 
-
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
 
-        driver.get("https://magento.softwaretestingboard.com/");
         String expectedTitle = "Home Page";
         String actualTitle = driver.getTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
@@ -39,7 +37,7 @@ public class SignInTest extends CommonAPI {
         driver.manage().window().maximize();
 
         driver.get("https://magento.softwaretestingboard.com/");
-        String expectedTitle = "Home";
+        String expectedTitle = "Hom Page";
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle, expectedTitle);
         System.out.println("Title success");
@@ -57,13 +55,13 @@ public class SignInTest extends CommonAPI {
         Assert.assertEquals(title, "Customer Login");
         LOG.info("Sign in title page validation success");
         //String email = ConnectDB.getTableColumnData("select * from cred","email").get(0);
-        signinPageMagento.typeEmailAddress("gsbappy@gmail.com");
+        signinPageMagento.typeEmailAddress("gsbappy1@gmail.com");
         //String password = ConnectDB.getTableColumnData("select * from cred","password").get(0);
-        signinPageMagento.typePassword("Aarshi2019@");
+        signinPageMagento.typePassword("password&1234");
         signinPageMagento.clickOnSigninButton2();
+        Thread.sleep(3000);
         String title1 = getCurrentTitle();
-        Assert.assertEquals(title1, "Home Page - Magento eCommerce - website to practice selenium | demo website for automation testing | selenium practice sites | selenium demo sites | best website to practice selenium automation | automation practice sites Magento Commerce - website to practice selenium | demo website for automation testing | selenium practice sites");
-        homePage.getHeaderText();
+        Assert.assertEquals(title1, "Home Page");
         LOG.info("Signin success");
     }
     @Test
@@ -75,8 +73,8 @@ public class SignInTest extends CommonAPI {
         Assert.assertEquals(title, "Customer Login ");
         LOG.info("login title page validation success");
         //String invalidEmailAdress = ConnectDB.getTableColumnData("select * from cred","invalidEmailAdress").get(0);
-        signinPageMagento.typeInvalidEmailAddress("gsbappy@yahoo");
-        signinPageMagento.typePassword("password");
+        signinPageMagento.typeInvalidEmailAddress("gsbappy1@gmail");
+        signinPageMagento.typePassword("password&1234");
         signinPageMagento.clickOnSigninButton2();
         String error = signinPageMagento.getErrorMessage();
         Assert.assertEquals(error, "Please enter a valid email address (Ex: johndoe@domain.com).");
@@ -91,7 +89,7 @@ public class SignInTest extends CommonAPI {
         Assert.assertEquals(title, "Customer Login");
         LOG.info("login title page validation success");
         //String email = ConnectDB.getTableColumnData("select * from cred","email").get(0);
-        signinPageMagento.typeEmailAddress("gsbappy@gmail.com");
+        signinPageMagento.typeEmailAddress("gsbappy1@gmail.com");
         //String invalidPassword = ConnectDB.getTableColumnData("select * from cred","invalidPassword").get(0);
         signinPageMagento.typeInvalidPassword("Borno2009@");
         signinPageMagento.clickOnSigninButton2();

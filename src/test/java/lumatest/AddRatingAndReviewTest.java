@@ -12,7 +12,7 @@ public class AddRatingAndReviewTest extends CommonAPI {
 
     //ReadFromExcel read = new ReadFromExcel("D:\\BootCamp Selenium\\web-automation-framework-team4\\data\\titles.xlsx", "Magento");
 
-    //@Test
+    @Test
     public void AddThefirstratingAndReview() throws InterruptedException {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());

@@ -35,9 +35,9 @@ public class CheckoutTest extends CommonAPI {
         LOG.info("Sign in title page validation success");
 
        // String email = ConnectDB.getTableColumnData("select * from cred","email").get(0);
-        signinPageMagento.typeEmailAddress("gsbappy@gmail.com");
+        signinPageMagento.typeEmailAddress("gsbappy1@gmail.com");
         //String password = ConnectDB.getTableColumnData("select * from cred","password").get(0);
-        signinPageMagento.typePassword("Aarshi2019@");
+        signinPageMagento.typePassword("password&1234");
         signinPageMagento.clickOnSigninButton2();
         LOG.info("Signin success");
 
@@ -63,12 +63,12 @@ public class CheckoutTest extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         //String email = ConnectDB.getTableColumnData("select * from cred","email").get(0);
-        signinPageMagento.typeEmailAddress("gsbappy@gmail.com");
+        signinPageMagento.typeEmailAddress("gsbappy1@gmail.com");
         //String password = ConnectDB.getTableColumnData("select * from cred","password").get(0);
-        signinPageMagento.typePassword("Aarshi2019@");
+        signinPageMagento.typePassword("password&1234");
         signinPageMagento.clickOnSigninButton2();
         //String expectedTitle1 = read.getCellValueForGivenHeaderAndKey("key","home page title");
-        String expectedTitle1 = "Customer Login";
+        String expectedTitle1 = "Home Page";
         String actualTitle1 = getCurrentTitle();
         Assert.assertEquals(expectedTitle1, actualTitle1);
         LOG.info("Signin success");
@@ -76,8 +76,9 @@ public class CheckoutTest extends CommonAPI {
         homePage.searchItem("watch");
         //String expectedTitle2 = read.getCellValueForGivenHeaderAndKey("key","wath search title");
         String actualTitle2 = getCurrentTitle();
+        System.out.println(actualTitle2);
         String expectedTitle2="Search results for: 'watch'";
-        Assert.assertEquals(expectedTitle2, actualTitle2);
+        Assert.assertEquals(expectedTitle2,actualTitle2);
         LOG.info("searchwatch title page validation success");
         watchPageMagento.hoverOverItem1(getDriver());
         watchPageMagento.clickOnAddToCompareButton1();

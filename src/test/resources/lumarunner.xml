@@ -11,36 +11,23 @@
     <parameter name="url" value="https://magento.softwaretestingboard.com/"></parameter>
 
 
-<!--        <test name="new account test">-->
-<!--            <classes>-->
-<!--                <class name="lumatest.CreateNewAccountTest"></class>&ndash;&gt;-->
-<!--            </classes>-->
-<!--        </test>-->
-
-<!--    <test name="search test">-->
-<!--        <classes>-->
-<!--            <class name="lumatest.SearchfieldTest"></class>&ndash;&gt;-->
-<!--        </classes>-->
-<!--    </test>-->
-
-
-<!--    <test name="signin test">-->
-
-<!--    <classes>-->
-<!--        <class name="lumatest.SignInTest"></class>&ndash;&gt;-->
-<!--    </classes>-->
-<!--</test>-->
-
-<!--    <test name="checkout test">-->
-<!--        <classes>-->
-<!--            <class name="lumatest.CheckoutTest"></class>&ndash;&gt;-->
-<!--        </classes>-->
-<!--    </test>-->
-        <test name="checkout test">
+        <test name="new account test">
             <classes>
-                <class name="lumatest.CheckOutShoppingCartTest"></class>-->
+
+<!--                <class name="lumatest.AddRatingAndReviewTest"></class>&ndash;&gt;-->
+<!--                <class name="lumatest.ProductTest"></class>&ndash;&gt;-->
+<!--                <class name="lumatest.ReturnTest"></class>&ndash;&gt;-->
+<!--                <class name="lumatest.SearchfieldTest"></class>&ndash;&gt;-->
+<!--                <class name="lumatest.SignInTest"></class>&ndash;&gt;-->
+<!--                <class name="lumatest.CreateNewAccountTest"></class>&ndash;&gt;-->
+<!--                <class name="lumatest.CheckoutTest"></class>&ndash;&gt;-->
+<!--                <class name="lumatest.CheckOutShoppingCartTest"></class>&ndash;&gt;-->
+                                <class name="lumatest.BaseMenuTest"></class>-->
+
+
             </classes>
         </test>
+
 
 
 
