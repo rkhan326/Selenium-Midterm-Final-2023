@@ -26,7 +26,7 @@ public class DataProviderExample {
 //
 //    public void getData (int a,int b,int c) {
 //
-//       // ExcelReader excelReader = new ExcelReader(Utility.currentDir + "/AmelData/data.xlsx");
+//       // ExcelReader excelReader = new ExcelReader(Utility.currentDir + "/AmelData/scaledupitdata.xlsx");
 //        System.out.println("First Data set is :"+a+ "Second Data set is :"+b+ "Third Data set is :"+c);
 //       // String validUsername= excelReader.getStringDataFromCell("Sheet1",1,1);
 //    }

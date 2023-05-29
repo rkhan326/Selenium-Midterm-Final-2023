@@ -110,7 +110,7 @@ public class SearchTest extends CommonAPI {
     @Test(enabled = true, priority = 2)
     public void searchMultipleItems() {
 
-        ExcelReader excelReader = new ExcelReader(Utility.currentDir + "/AmelData/TestData.xlsx");
+        ExcelReader excelReader = new ExcelReader(Utility.currentDir + "/AmelData/scaledupittestdata.xlsx");
         List<String> items = excelReader.getEntireColumnForGivenHeader("Sheet1", "item");
         HomePage homePage = new HomePage(getDriver());
         for (String item : items) {
