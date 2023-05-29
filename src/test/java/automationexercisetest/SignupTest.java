@@ -12,8 +12,9 @@ import us.piit.pages.automationexercisepages.SignupPage;
 
 public class SignupTest extends CommonAPI {
     Logger log = LogManager.getLogger(SignupTest.class.getName());
+
     @Test
-    public void signup(){
+    public void signup4() {
         LoginPage loginpage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         SignupPage signupPage = new SignupPage(getDriver());
@@ -21,20 +22,21 @@ public class SignupTest extends CommonAPI {
         //validate home page
         String expectedCategoryHeader = "CATEGORY";
         String actualCategoryHeader = homePage.getCategoryHeaderText();
-        Assert.assertEquals(expectedCategoryHeader,actualCategoryHeader);
+        Assert.assertEquals(expectedCategoryHeader, actualCategoryHeader);
 
         //click on signup/ login button
-        homePage.clickClickOnSignupLoginButton();
+        homePage.clickOnSignupLoginButton();
 
         //validate login page
         String expectedLoginToYourAccountHeader = "Login to your account";
         String actualLoginToYourAccountHeader = loginpage.getLoginToYourAccountHeaderText();
-        Assert.assertEquals(expectedLoginToYourAccountHeader,actualLoginToYourAccountHeader);
+        Assert.assertEquals(expectedLoginToYourAccountHeader, actualLoginToYourAccountHeader);
+        log.info(homePage.wellDoneboy.concat(expectedLoginToYourAccountHeader.concat(homePage.headerValidationSuccess)));
 
         //enter login email address, password and click login button
         loginpage.enterNameInSignupNameField();
         loginpage.enterEmailInSignupEmailField();
-        loginpage.clickClickOnSignupButton();
+        loginpage.clickOnSignupButton();
 
         //fill out all the necessary fields
         signupPage.enterPasswordInSignupField();
@@ -47,15 +49,16 @@ public class SignupTest extends CommonAPI {
         signupPage.enterMobileInSignupField();
 
         //click create account
-        signupPage.clickClickOnSignupButton();
+        signupPage.clickOnSignupButton();
 
         //validate signup
         String expectedAccountCreatedHeader = "ACCOUNT CREATED!";
         String actualAccountCreatedHeader = homePage.getAccountCreatedHeaderText();
-        Assert.assertEquals(expectedAccountCreatedHeader,actualAccountCreatedHeader);
+        Assert.assertEquals(expectedAccountCreatedHeader, actualAccountCreatedHeader);
+        log.info(homePage.wellDoneboy.concat(expectedAccountCreatedHeader.concat(homePage.headerValidationSuccess)));
 
         //click on continue button
-        signupPage.clickClickOnSingupContinueButton();
+        signupPage.clickOnSingupContinueButton();
 
     }
 }

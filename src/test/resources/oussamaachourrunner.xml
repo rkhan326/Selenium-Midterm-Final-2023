@@ -10,23 +10,29 @@
 
     <parameter name="url" value="https://www.oussama-achour.com/#"></parameter>
 
-    <test name= "register test">
+
+    <test name= "Razia's Tests">
+<!--        <groups>-->
+<!--            <define name = "OvernightTests">-->
+<!--                <include name="smoke"></include>-->
+<!--                <include name="regression"></include>-->
+
+<!--            </define>-->
+
+<!--            <run>-->
+<!--                <include name="OvernightTests"></include>-->
+<!--                <include name ="before"></include>-->
+<!--                <include name ="after"></include>-->
+<!--                <include name = "Smoke"></include>-->
+<!--                <include name = "Sanity"></include>-->
+<!--                <exclude name = "Regression"></exclude>-->
+<!--            </run>-->
+<!--        </groups>-->
+
         <classes>
-            <class name="oussamaachourtest.RegisterTest"></class>
-        </classes>
-   </test>
-    <test name="login test">
-        <classes>
-            <class name="oussamaachourtest.LoginTest"></class>
-        </classes>
-    </test>
-    <test name="track order test">
-        <classes>
-            <class name="oussamaachourtest.TrackOrderTest"></class>
-        </classes>
-    </test>
-    <test name="review test">
-        <classes>
+<!--            <class name="oussamaachourtest.RegisterTest"></class>-->
+<!--            <class name="oussamaachourtest.LoginTest"></class>-->
+<!--            <class name="oussamaachourtest.TrackOrderTest"></class>-->
             <class name="oussamaachourtest.ReviewTest"></class>
         </classes>
     </test>

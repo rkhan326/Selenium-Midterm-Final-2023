@@ -11,83 +11,107 @@ import us.piit.base.CommonAPI;
 public class HomePage extends CommonAPI {
 
     Logger log = LogManager.getLogger(HomePage.class.getName());
-    public HomePage(WebDriver driver){PageFactory.initElements(driver, this);}
+
+    public HomePage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
+
+    public String wellDoneG = "Well done my G! ";
+    public String wellDoneboy = "Well done my boy! ";
+    public String wellDoneguy = "Well done my guy! ";
+
+    public String headerValidationSuccess = " Header validation success!!";
+    public String errorMessageSuccess = " Error message success!!";
+
+
+
+
 
     //Buttons
     @FindBy(css = "a[href='/']")
-    WebElement homeButton;
+    WebElement $homeButton;
     @FindBy(css = "a[href='/products']")
-    WebElement productsButton;
+    WebElement $productsButton;
     @FindBy(css = "a[href='/view_cart']")
-    WebElement cartButton;
+    WebElement $cartButton;
     @FindBy(css = "a[href='/login']")
-    WebElement signupLoginButton;
+    WebElement $signupLoginButton;
     @FindBy(css = "a[href='/test_cases']")
-    WebElement testCasesButton;
+    WebElement $testCasesButton;
     @FindBy(css = "a[href='/api_list']")
-    WebElement aPITestingButton;
+    WebElement $aPITestingButton;
     @FindBy(css = "a[href='https://www.youtube.com/c/AutomationExercise']")
-    WebElement videoTutorialsButton;
+    WebElement $videoTutorialsButton;
     @FindBy(css = "a[href='/contact_us']")
-    WebElement contactUsButton;
+    WebElement $contactUsButton;
 
     //Headers
     @FindBy(xpath = "//h2[text()='Category']")
-    WebElement loginPageCategoryHeader;
+    WebElement $loginPageCategoryHeader;
     @FindBy(xpath = "//b[text()='Account Deleted!']")
-    WebElement accountDeletedHeader;
+    WebElement $accountDeletedHeader;
     @FindBy(xpath = "//b[text()='Account Created!']")
-    WebElement accountCreatedHeader;
+    WebElement $accountCreatedHeader;
 
 
     //click on button methods
-    public void clickClickOnHomeButton(){
-        clickOn(homeButton);
-        log.info("Well Done ma Gee! 'Home button' click click success!!");
-    }
-    public void clickClickOnProductsButton() {
-        clickOn(productsButton);
-        log.info("Well Done ma Gee! 'Products button' click click success!!");
-    }
-    public void clickClickOnCartButton() {
-        clickOn(cartButton);
-        log.info("Well Done ma Gee! 'Cart button' click click success!!");
-    }
-    public void clickClickOnSignupLoginButton() {
-        clickOn(signupLoginButton);
-        log.info("Well Done ma Gee! 'Signup/ login button' click click success!!");
-    }
-    public void clickClickOnTestCasesButton() {
-        clickOn(testCasesButton);
-        log.info("Well Done ma Gee! 'Test cases button' click click success!!");
-    }
-    public void clickClickOnAPITestingButton() {
-        clickOn(aPITestingButton);
-        log.info("Well Done ma Gee! 'API testing button' click click success!!");
-    }
-    public void clickClickOnVideoTutorialsButton() {
-        clickOn(videoTutorialsButton);
-        log.info("Well Done ma Gee! 'Video tutorials button' click click success!!");
-    }
-    public void clickClickOnContactUsButton() {
-        clickOn(contactUsButton);
-        log.info("Well Done ma Gee! 'Contact us button' click click success!!");
+    public void clickOnHomeButton() {
+        clickOn($homeButton);
+        log.info("Well Done my guy! Click click on 'Home button' success!!");
     }
 
+    public void clickOnProductsButton() {
+        clickOn($productsButton);
+        log.info("Well Done my guy! Click click on 'Products button' success!!");
+    }
+
+    public void clickOnCartButton() {
+        clickOn($cartButton);
+        log.info("Well Done my guy! Click click on 'Cart button' success!!");
+    }
+
+    public void clickOnSignupLoginButton() {
+        clickOn($signupLoginButton);
+        log.info("Well Done my guy! Click click on 'Signup/ login button' success!!");
+    }
+
+    public void clickOnTestCasesButton() {
+        clickOn($testCasesButton);
+        log.info("Well Done my guy! Click click on 'Test cases button' success!!");
+    }
+
+    public void clickOnAPITestingButton() {
+        clickOn($aPITestingButton);
+        log.info("Well Done my guy! Click click on 'API testing button' success!!");
+    }
+
+    public void clickOnVideoTutorialsButton() {
+        clickOn($videoTutorialsButton);
+        log.info("Well Done my guy! Click click on 'Video tutorials button' success!!");
+    }
+
+    public void clickOnContactUsButton() {
+        clickOn($contactUsButton);
+        log.info("Well Done my guy! Click click on 'Contact us button' success!!");
+    }
+
+
     //get header text methods
-    public String getCategoryHeaderText(){
-        String text = getElementText(loginPageCategoryHeader);
-        log.info("Well Done ma Gee! 'Category header' text validation success!!");
+    public String getCategoryHeaderText() {
+        String text = getElementText($loginPageCategoryHeader);
+        log.info("Well Done my boy! 'Category header' text acquisition success!!");
         return text;
     }
-    public String getAccountCreatedHeaderText(){
-        String text = getElementText(accountCreatedHeader);
-        log.info("Well Done ma Gee! 'Account created header' text validation success!!");
+
+    public String getAccountCreatedHeaderText() {
+        String text = getElementText($accountCreatedHeader);
+        log.info("Well Done my boy! 'Account created header' text acquisition success!!");
         return text;
     }
-    public String getAccountDeletedHeaderText(){
-        String text = getElementText(accountDeletedHeader);
-        log.info("Well Done ma Gee! 'Account deleted header' text validation success!!");
+
+    public String getAccountDeletedHeaderText() {
+        String text = getElementText($accountDeletedHeader);
+        log.info("Well Done my boy! 'Account deleted header' text acquistion success!!");
         return text;
     }
 

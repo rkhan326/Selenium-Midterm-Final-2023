@@ -8,6 +8,9 @@ import us.piit.base.CommonAPI;
 
 public class VideoTutorialsPage extends CommonAPI {
     Logger log = LogManager.getLogger(VideoTutorialsPage.class.getName());
-    public VideoTutorialsPage(WebDriver driver){PageFactory.initElements(driver, this);}
+
+    public VideoTutorialsPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
 
 }

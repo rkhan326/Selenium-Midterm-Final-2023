@@ -249,7 +249,7 @@ public class CommonAPI {
     }
     public void scrollToElement(int x, int y){
         Actions actions = new Actions(driver);
-        actions.scrollByAmount(x,y).build().perform();
+        actions.scrollByAmount(x,y).click().build().perform();
     }
     public void moveSlider(WebElement element, int xOffset, int yOffset, WebDriver driver) {
         WebElement slider = element;
