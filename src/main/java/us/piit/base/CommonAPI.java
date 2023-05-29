@@ -20,6 +20,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import org.testng.annotations.Optional;
 import us.piit.reporting.ExtentManager;
 import us.piit.reporting.ExtentTestManager;
 import us.piit.utility.Utility;
@@ -34,17 +35,14 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Properties;
+import java.util.*;
 
 public class CommonAPI {
 
-        Logger log = LogManager.getLogger(CommonAPI.class.getName());
-        Properties prop = Utility.loadProperties();
-        String browserstackUsername = prop.getProperty("browserstack.username");
-        String browserstackPassword = prop.getProperty("browserstack.password");
+    Logger log = LogManager.getLogger(CommonAPI.class.getName());
+    Properties prop = Utility.loadProperties();
+    String browserstackUsername = prop.getProperty("browserstack.username");
+    String browserstackPassword = prop.getProperty("browserstack.password");
 
     String implicitWait = prop.getProperty("implicit.wait","5");
     String windowMaximize = prop.getProperty("browser.maximize","true");
@@ -56,13 +54,13 @@ public class CommonAPI {
     //report setup from line 48 to 105
     public static com.relevantcodes.extentreports.ExtentReports extent;
 
-    @BeforeSuite
+    @BeforeSuite(groups = {"before"})
     public void extentSetup(ITestContext context) {
         ExtentManager.setOutputDirectory(context);
         extent = ExtentManager.getInstance();
     }
 
-    @BeforeMethod
+    @BeforeMethod(groups = {"before"})
     public void startExtent(Method method) {
         String className = method.getDeclaringClass().getSimpleName();
         String methodName = method.getName().toLowerCase();
@@ -76,7 +74,7 @@ public class CommonAPI {
         return sw.toString();
     }
 
-    @AfterMethod
+    @AfterMethod(groups = {"after"})
     public void afterEachTestMethod(ITestResult result) {
         ExtentTestManager.getTest().getTest().setStartedTime(getTime(result.getStartMillis()));
         ExtentTestManager.getTest().getTest().setEndedTime(getTime(result.getEndMillis()));
@@ -101,7 +99,7 @@ public class CommonAPI {
         }
         driver.quit();
     }
-    @AfterSuite
+    @AfterSuite(groups = {"after"})
     public void generateReport() {
         extent.close();
     }
@@ -141,7 +139,7 @@ public class CommonAPI {
     }
 
     @Parameters({"useCloudEnv", "envName", "os", "osVersion", "browserName", "browserVersion", "url"})
-    @BeforeMethod
+    @BeforeMethod(groups = {"before"})
     public void setUp(@Optional("false") String useCloudEnv, @Optional("browserstack") String envName, @Optional("windows") String os,
                       @Optional("10") String osVersion, @Optional("chrome") String browserName, @Optional("110") String browserVersion,
                       @Optional("https://www.google.com") String url) throws MalformedURLException {
@@ -157,7 +155,7 @@ public class CommonAPI {
         driver.get(url);
     }
 
-    @AfterMethod
+    @AfterMethod(groups = {"after"})
     public void tearDown() {
         //close browser
         driver.quit();
@@ -198,6 +196,7 @@ public class CommonAPI {
             select.selectByValue(option);
         }
     }
+
     public void selectOptionFromDropDown(WebElement element, String value){
         WebElement dropdown = element;
         Select select = new Select(dropdown);
@@ -306,5 +305,4 @@ public class CommonAPI {
         }
     }
 }
-
 

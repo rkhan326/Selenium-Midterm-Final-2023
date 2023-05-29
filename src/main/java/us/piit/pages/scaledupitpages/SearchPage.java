@@ -22,15 +22,24 @@ public class SearchPage extends CommonAPI {
     @FindBy(xpath = "//div[@class='page-content']/p[1]")
     WebElement errorMessage;
 
-
-    public String getSearchPageTitle() {
+    public boolean checkPresenceOfConversePageHeader() {
+        boolean conversePageHeaderIsDisplayed = isVisible(conversePageTitle);
+        log.info("Converse page header presence " + conversePageHeaderIsDisplayed);
+        return conversePageHeaderIsDisplayed;
+    }
+    public String getConversePageTitle() {
         String text = getElementText(conversePageTitle);
         log.info("converse page header text is " + conversePageTitle);
         return text;
     }
-    public String getErrorMessage() {
+    public String getErrorMessageText() {
         String text = getElementText(errorMessage);
         log.info("get error message text success");
         return text;
+    }
+    public boolean checkPresenceOfErrorMessage() {
+        boolean ErrorMessagePageHeaderIsDisplayed = isVisible(errorMessage);
+        log.info(" Error Message  page header presence " + ErrorMessagePageHeaderIsDisplayed);
+        return ErrorMessagePageHeaderIsDisplayed;
     }
 }

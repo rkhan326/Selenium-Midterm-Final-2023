@@ -2,6 +2,7 @@ package us.piit.utility;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -55,6 +56,32 @@ public class ExcelReader {
         }
     }
 
+//    public List<String> getEntireColumnData(String sheet, int rowStart, int colNum){
+//        List<String> columnData = new ArrayList<>();
+//        try {
+//            File file = new File(path);
+//            FileInputStream excelFile = new FileInputStream(file);
+//            excelWBook = new XSSFWorkbook(excelFile);
+//            excelWSheet = excelWBook.getSheet(sheet);
+//            DataFormatter df=new DataFormatter();
+//            String dataString="";
+//            for (int i = rowStart; i <= excelWSheet.getLastRowNum(); i++){
+//              //  dataString=df.formatCellValue(excelWSheet.getRow(i).getCell(colNum).getStringCellValue());
+//                columnData.add(dataString);
+//            }
+////            int i = rowStart;
+////            while (excelWSheet.getRow(i).getCell(colNum).getStringCellValue() != null){
+////                columnData.add(excelWSheet.getRow(i).getCell(colNum).getStringCellValue());
+////                i++;
+////            }
+//            excelFile.close();
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            LOG.info("no data found");
+//        }
+//        return columnData;
+//    }
+
     public List<String> getEntireColumnData(String sheet, int rowStart, int colNum){
         List<String> columnData = new ArrayList<>();
         try {
@@ -62,9 +89,11 @@ public class ExcelReader {
             FileInputStream excelFile = new FileInputStream(file);
             excelWBook = new XSSFWorkbook(excelFile);
             excelWSheet = excelWBook.getSheet(sheet);
-
+            DataFormatter df = new DataFormatter();
+            String dataString = "";
             for (int i = rowStart; i <= excelWSheet.getLastRowNum(); i++){
-                columnData.add(excelWSheet.getRow(i).getCell(colNum).getStringCellValue());
+                dataString = df.formatCellValue(excelWSheet.getRow(i).getCell(colNum));
+                columnData.add(dataString);
             }
 //            int i = rowStart;
 //            while (excelWSheet.getRow(i).getCell(colNum).getStringCellValue() != null){

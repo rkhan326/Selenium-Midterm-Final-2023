@@ -25,6 +25,7 @@ public class RegistrationPage extends CommonAPI {
     WebElement passwordField;
     @FindBy(xpath = "//button[text()='Register']")
     WebElement registerBtn;
+
     @FindBy(xpath = "//div[@class='woocommerce-MyAccount-content']/p[1]")
     WebElement validUsPassRegisterPageHeader;
     @FindBy(xpath = "//ul[@class='woocommerce-error']/li[1]")
@@ -68,9 +69,9 @@ public class RegistrationPage extends CommonAPI {
 
     }
     public boolean checkPresenceOfValidUsernameErrorMessage() {
-        boolean loginPageHeaderIsDisplayed = isVisible(validEmailErrorMessage);
-        log.info("login page header presence " + loginPageHeaderIsDisplayed);
-        return loginPageHeaderIsDisplayed;
+        boolean ValidUsernameErrorMessagePageHeaderIsDisplayed = isVisible(validEmailErrorMessage);
+        log.info("Valid Username Error Message  page header presence " + ValidUsernameErrorMessagePageHeaderIsDisplayed);
+        return ValidUsernameErrorMessagePageHeaderIsDisplayed;
     }
     public String getValidUsernameErrorMessage() {
         String text = getElementText(validEmailErrorMessage);

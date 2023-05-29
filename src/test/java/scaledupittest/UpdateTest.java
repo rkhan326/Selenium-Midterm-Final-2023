@@ -39,34 +39,35 @@ public class UpdateTest extends CommonAPI {
         waitFor(3);
 
 
-//   // check 1 item is added to the cart
+        // check 1 item is added to the cart
         String expectedCartCount = "1";
-        String actualCartCount= update.getCartCountText();
-        Assert.assertEquals(expectedCartCount,actualCartCount);
+        String actualCartCount = update.getCartCountHeaderText();
+        Assert.assertEquals(expectedCartCount, actualCartCount);
         update.clickOnCart();
         waitFor(3);
         log.info("1 item added to cart success");
 
 
-//        update.entreItemNumberBtn("4");
-        update.hoverOverOnQuantitField(getDriver());
+        // update.entreItemNumberBtn("4");
+        update.hoverOverOnQuantityField(getDriver());
         waitFor(3);
 
+        // entre 2 in item quantity
         update.entreItemNumberBtn("2");
         waitFor(5);
 
+        // click on update cart button
         update.clickOnUpdateCartButton();
         waitFor(3);
 
+        // check user has added 2 items to the cart
         String expectedCartCountUpdate = "2";
-        String actualCartCountUpdate= update.getCartCountUpadteText();
-        Assert.assertEquals(expectedCartCountUpdate,actualCartCountUpdate);
-       // update.clickOnCart();
+        String actualCartCountUpdate = update.getCartCountUpadteHeaderText();
+        Assert.assertEquals(expectedCartCountUpdate, actualCartCountUpdate);
+        // update.clickOnCart();
         waitFor(3);
         log.info("2 item added to cart success");
     }
-
-
 }
 
 

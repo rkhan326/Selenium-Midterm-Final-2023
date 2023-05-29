@@ -36,6 +36,18 @@ public class AddToCartPage extends CommonAPI {
     @FindBy(css = ".woocommerce-products-header__title.page-title")
     WebElement shopPageHeader;
 
+    @FindBy(xpath = "//h1[text()='Hoodies']")
+    WebElement hoddiesPageHeader;
+
+    @FindBy(xpath = "//h1[text()='Patient Ninja']")
+    WebElement patientNinjaPageHeader;
+
+    @FindBy(xpath="//h1[@class='page-title']")
+    WebElement shoesPageHeader;
+
+    @FindBy(xpath = "//a[@class='read-more']")
+    WebElement readMoreButton;
+
     public void clickOnBagCollection() {
         clickOn(bagCollectionButon);
         log.info("click on bag collection success");
@@ -84,24 +96,24 @@ public class AddToCartPage extends CommonAPI {
         log.info("click on  cart and 1 item added  success");
 
     }
-//    public boolean checkHoddiesPageHeader() {
-//        boolean HoddiesPageHeaderIsDisplayed = isVisible(hoddiesPageHeader);
-//        log.info(" Hoddies Page Header is  " +  HoddiesPageHeaderIsDisplayed);
-//        return  HoddiesPageHeaderIsDisplayed;
-//    }
-//    public String getHoddiesPageHeaderText() {
-//        String ShopPageHeaderText= getElementText(hoddiesPageHeader);
-//        log.info("Shop Page Header Text  is " + ShopPageHeaderText);
-//        return ShopPageHeaderText;
-//
-//    }
+    public boolean checkHoddiesPageHeader() {
+        boolean HoddiesPageHeaderIsDisplayed = isVisible(hoddiesPageHeader);
+        log.info(" Hoddies Page Header is  " +  HoddiesPageHeaderIsDisplayed);
+        return  HoddiesPageHeaderIsDisplayed;
+    }
+    public String getHoddiesPageHeaderText() {
+        String hodddiesPageHeaderText= getElementText(hoddiesPageHeader);
+        log.info("Hoddies Page Header Text  is " + hodddiesPageHeaderText);
+        return hodddiesPageHeaderText;
+
+    }
     public boolean checkPatientNinjaPageHeader() {
-        boolean BagCollectionHeaderIsDisplayed = isVisible(bagCollectionPageHeader);
-        log.info("Bag Collection Header is  " + BagCollectionHeaderIsDisplayed );
-        return BagCollectionHeaderIsDisplayed ;
+        boolean patientNinjaPageHeaderIsDisplayed = isVisible(patientNinjaPageHeader);
+        log.info("Patient Ninja page  Header is  " + patientNinjaPageHeaderIsDisplayed );
+        return patientNinjaPageHeaderIsDisplayed ;
     }
     public String getPatientNinjaHeaderText() {
-        String BagCollectionHeaderText = getElementText(bagCollectionPageHeader);
+        String BagCollectionHeaderText = getElementText(patientNinjaPageHeader);
         log.info("Bag Collection Header Text is " + BagCollectionHeaderText);
         return BagCollectionHeaderText;
 
@@ -109,6 +121,26 @@ public class AddToCartPage extends CommonAPI {
     public void clickOnPatientNinjaButton() {
         clickOn(PatientNinjaButton);
         log.info("click on patient Ninja button  success");
+
+    }
+    public boolean checkPresenceOfShoesPageHeader() {
+        boolean shoesPageHeaderIsDisplayed = isVisible(shoesPageHeader);
+        log.info("Shoes page header presence " + shoesPageHeaderIsDisplayed);
+        return shoesPageHeaderIsDisplayed;
+    }
+    public String getShoesPageTitle() {
+        String text = getElementText(shoesPageHeader);
+        log.info("Shoes page header text is " + shoesPageHeader);
+        return text;
+    }
+    public boolean checkReadMoreButtonIsVisible (){
+        boolean isReadMoreBtnVisible = isVisible(readMoreButton);
+        log.info("Read More button is visible");
+        return isReadMoreBtnVisible;
+    }
+    public void clickOnReadMoreButton() {
+        clickOn(readMoreButton);
+        log.info("click on read more  button success");
 
     }
 

@@ -19,6 +19,13 @@ public class CouponsPage extends CommonAPI {
     @FindBy(xpath= "//h2[text()='Pizza']")
     WebElement pizza;
 
+    @FindBy(xpath = "//h1[text()='Food & Beverage']")
+    WebElement foodAndBeveragePageHeader;
+
+    @FindBy(xpath = "//h1[text()='Pizza']")
+    WebElement pizzaPageHeader;
+
+
     @FindBy(css = ".single_add_to_cart_button.button.alt.wp-element-button")
     WebElement addToCart;
 
@@ -29,10 +36,13 @@ public class CouponsPage extends CommonAPI {
     WebElement couponsField;
 
     @FindBy(css=".button.wp-element-button")
-    WebElement applyCoupons;
+    WebElement applyCouponsBtn;
 
     @FindBy(css = ".woocommerce-error")
-    WebElement errorMessage;
+    WebElement couponsErrorMessage;
+
+    @FindBy(xpath = " //ul[@class='woocommerce-error']/li[1]")
+    WebElement missingCouponsError;
 
 
     public void clickOnPizzaButton() {
@@ -45,7 +55,7 @@ public class CouponsPage extends CommonAPI {
         log.info("click on add to cart success");
 
     }
-    public boolean checkcartCount() {
+    public boolean checkCartCount() {
         boolean cartCountIsDisplayed = isVisible(cartCount);
         log.info("cart count is  " + cartCountIsDisplayed);
         return cartCountIsDisplayed;
@@ -67,12 +77,47 @@ public class CouponsPage extends CommonAPI {
         log.info("enter coupons success");
     }
     public void clickOnApplyCoupons() {
-        clickOn(applyCoupons);
+        clickOn(applyCouponsBtn);
         log.info("click on apply coupons  success");
     }
-    public String getErrorMessage() {
-        String text = getElementText(errorMessage);
-        log.info("get error message text success");
+    public boolean checkErrorMessageHeader() {
+        boolean errorMessageHeaderIsDisplayed = isVisible(couponsErrorMessage);
+        log.info("cart count is  " + errorMessageHeaderIsDisplayed);
+        return errorMessageHeaderIsDisplayed;
+    }
+    public String getErrorMessageHeaderText() {
+        String text = getElementText(couponsErrorMessage);
+        log.info("get coupons error message text success");
+        return text;
+    }
+    public boolean checkFoodAndBeveragePageHeader() {
+        boolean foodAndBeveragePageHeaderIsDisplayed = isVisible(foodAndBeveragePageHeader);
+        log.info("Food and Beverage page header  is  " + foodAndBeveragePageHeaderIsDisplayed);
+        return foodAndBeveragePageHeaderIsDisplayed;
+    }
+    public String getFoodAndBeveragePageHeaderText() {
+        String text = getElementText(foodAndBeveragePageHeader);
+        log.info("Food and Beverage Header text success");
+        return text;
+    }
+    public boolean checkPizzaPageHeader() {
+        boolean pizzaPageHeaderIsDisplayed = isVisible(pizzaPageHeader);
+        log.info("Pizza page header  is  " + pizzaPageHeaderIsDisplayed);
+        return pizzaPageHeaderIsDisplayed;
+    }
+    public String getPizzaPageHeaderText() {
+        String text = getElementText(pizzaPageHeader);
+        log.info("Pizza Header text success");
+        return text;
+    }
+    public boolean checkNoCouponsErrorMessageHeader() {
+        boolean errorMessageHeaderIsDisplayed = isVisible(missingCouponsError);
+        log.info("cart count is  " + errorMessageHeaderIsDisplayed);
+        return errorMessageHeaderIsDisplayed;
+    }
+    public String getNoCouponsErrorMessageHeaderText() {
+        String text = getElementText(missingCouponsError);
+        log.info("get no coupons error message text success");
         return text;
     }
 }
