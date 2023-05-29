@@ -11,7 +11,7 @@ public class Data {
     @DataProvider
     public Object[][]data(Method name) {
         System.out.println("Method"+name+"is using Data Provider");
-        ExcelReader read = new ExcelReader("C:\\Users\\Amel Boucetta Gacem\\eclipse-workspace\\Selenium-Midterm-Final-2023\\data\\data (1).xlsx");
+        ExcelReader read = new ExcelReader("C:\\Users\\Amel Boucetta Gacem\\eclipse-workspace\\Selenium-Midterm-Final-2023\\data\\data.xlsx");
         List<String> columnData = new ArrayList<>();
         columnData = read.getEntireColumnData("Data", 1, 0);
         Object[][] data = new Object[3][3];
