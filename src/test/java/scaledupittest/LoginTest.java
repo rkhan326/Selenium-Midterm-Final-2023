@@ -59,7 +59,7 @@ public class LoginTest  extends CommonAPI {
     }
 
    // @Test(enabled = true,priority = 2)
-    public void missingusername() {
+    public void missingUsername() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         String expectedTitle = "Automation – Automate eCommerce";
@@ -82,7 +82,7 @@ public class LoginTest  extends CommonAPI {
 
     }
     //@Test(enabled = true,priority = 3)
-    public void missingpassword() {
+    public void missingPassword() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         String expectedTitle = "Automation – Automate eCommerce";
