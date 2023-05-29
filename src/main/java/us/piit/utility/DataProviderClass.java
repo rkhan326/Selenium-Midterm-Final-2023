@@ -20,7 +20,7 @@ public class DataProviderClass{
     @DataProvider
     public Object[][] data(Method name) {
         System.out.println("Method " +name+ "is using data provider.");
-        String path = currentDir + File.separator + "data" + File.separator + "data.xlsx";
+        String path = currentDir + File.separator + "data" + File.separator + "scaledupitdata.xlsx";
         ExcelReader excelReader = new ExcelReader(path);
         List<String> columnData = new ArrayList<>();
         columnData = excelReader.getEntireColumnData("Data", 1, 0);
@@ -59,7 +59,7 @@ public class DataProviderClass{
     @DataProvider
     public Object[][] excelDPNacer() throws IOException {
         //We are creating an object from the excel sheet data by calling a method that reads data from the excel stored locally in our system
-        String path = currentDir + File.separator + "data" + File.separator + "data.xlsx";
+        String path = currentDir + File.separator + "data" + File.separator + "scaledupitdata.xlsx";
         ExcelReader excelReader = new ExcelReader(path);
         Object[][] arrObj = excelReader.getExcelData(path,"Data");
         return arrObj;
