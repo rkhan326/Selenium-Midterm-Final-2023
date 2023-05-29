@@ -12,33 +12,33 @@ public class DeleteAccountTest extends CommonAPI {
     Logger log = LogManager.getLogger(LogoutTest.class.getName());
 
     @Test
-    public void deleteAccount() {
+    public void deleteAccount5() {
         LoginPage loginpage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
 
         //validate home page
         String expectedCategoryHeader = "CATEGORY";
         String actualCategoryHeader = homePage.getCategoryHeaderText();
-        Assert.assertEquals(expectedCategoryHeader,actualCategoryHeader);
+        Assert.assertEquals(expectedCategoryHeader, actualCategoryHeader);
 
         //click on signup/ login button
-        homePage.clickClickOnSignupLoginButton();
+        homePage.clickOnSignupLoginButton();
 
         //validate login page
         String expectedLoginToYourAccountHeader = "Login to your account";
         String actualLoginToYourAccountHeader = loginpage.getLoginToYourAccountHeaderText();
-        Assert.assertEquals(expectedLoginToYourAccountHeader,actualLoginToYourAccountHeader);
+        Assert.assertEquals(expectedLoginToYourAccountHeader, actualLoginToYourAccountHeader);
 
         //enter login email address, password and click login button
         loginpage.enterSignupEmailInLoginEmailField();
         loginpage.enterValidLoginPasswordInLoginPasswordField();
-        loginpage.clickClickOnLoginButton();
+        loginpage.clickOnLoginButton();
 
         //validate logged in icon
         loginpage.validatePresenceOfloggedInIcon();
 
         //delete account
-        loginpage.clickClickOnDeleteAccountButton();
+        loginpage.clickOnDeleteAccountButton();
 
         //click on pop us blocker
 
@@ -46,11 +46,11 @@ public class DeleteAccountTest extends CommonAPI {
         //validate deletion
         String expectedAccountDeletedHeader = "ACCOUNT DELETED!";
         String actualAccountDeletedHeader = homePage.getAccountDeletedHeaderText();
-        Assert.assertEquals(expectedAccountDeletedHeader,actualAccountDeletedHeader);
+        Assert.assertEquals(expectedAccountDeletedHeader, actualAccountDeletedHeader);
 
 
         //click on continue button
-        loginpage.clickClickOnDeleteAccountContinueButton();
+        loginpage.clickOnDeleteAccountContinueButton();
 
     }
 }

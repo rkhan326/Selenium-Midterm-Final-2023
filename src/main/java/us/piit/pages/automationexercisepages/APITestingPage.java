@@ -9,6 +9,9 @@ import us.piit.base.CommonAPI;
 public class APITestingPage extends CommonAPI {
 
     Logger log = LogManager.getLogger(APITestingPage.class.getName());
-    public APITestingPage(WebDriver driver){PageFactory.initElements(driver, this);}
+
+    public APITestingPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
 
 }

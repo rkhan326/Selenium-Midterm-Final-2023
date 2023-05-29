@@ -13,7 +13,7 @@ public class LoginTest extends CommonAPI {
     Logger log = LogManager.getLogger(LoginTest.class.getName());
 
     @Test
-    public void validLoginCredentials(){
+    public void validLoginCredentials1() {
 
         LoginPage loginpage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -21,56 +21,62 @@ public class LoginTest extends CommonAPI {
         //validate home page
         String expectedCategoryHeader = "CATEGORY";
         String actualCategoryHeader = homePage.getCategoryHeaderText();
-        Assert.assertEquals(expectedCategoryHeader,actualCategoryHeader);
+        Assert.assertEquals(expectedCategoryHeader, actualCategoryHeader);
+        log.info(homePage.wellDoneboy.concat(expectedCategoryHeader).concat(homePage.headerValidationSuccess));
 
         //click on signup/ login button
-        homePage.clickClickOnSignupLoginButton();
+        homePage.clickOnSignupLoginButton();
 
         //validate login page
         String expectedLoginToYourAccountHeader = "Login to your account";
         String actualLoginToYourAccountHeader = loginpage.getLoginToYourAccountHeaderText();
-        Assert.assertEquals(expectedLoginToYourAccountHeader,actualLoginToYourAccountHeader);
+        Assert.assertEquals(expectedLoginToYourAccountHeader, actualLoginToYourAccountHeader);
+        log.info(homePage.wellDoneboy.concat(expectedLoginToYourAccountHeader.concat(homePage.headerValidationSuccess)));
 
         //enter login email address, password and click login button
         loginpage.enterValidLoginEmailInLoginEmailField();
         loginpage.enterValidLoginPasswordInLoginPasswordField();
-        loginpage.clickClickOnLoginButton();
+        loginpage.clickOnLoginButton();
 
         //validate logged in icon
         loginpage.validatePresenceOfloggedInIcon();
 
+
         //logout
-        loginpage.clickClickOnLogoutButton();
+        loginpage.clickOnLogoutButton();
     }
 
     @Test
-    public void invalidLoginCredentials(){
+    public void invalidLoginCredentials2() {
 
-    LoginPage loginpage = new LoginPage(getDriver());
-    HomePage homePage = new HomePage(getDriver());
+        LoginPage loginpage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
         //validate home page
         String expectedCategoryHeader = "CATEGORY";
         String actualCategoryHeader = homePage.getCategoryHeaderText();
-        Assert.assertEquals(expectedCategoryHeader,actualCategoryHeader);
+        Assert.assertEquals(expectedCategoryHeader, actualCategoryHeader);
+        log.info(homePage.wellDoneboy.concat(expectedCategoryHeader).concat(homePage.headerValidationSuccess));
 
         //click on signup/ login button
-        homePage.clickClickOnSignupLoginButton();
+        homePage.clickOnSignupLoginButton();
 
         //validate login page
         String expectedLoginToYourAccountHeader = "Login to your account";
         String actualLoginToYourAccountHeader = loginpage.getLoginToYourAccountHeaderText();
-        Assert.assertEquals(expectedLoginToYourAccountHeader,actualLoginToYourAccountHeader);
+        Assert.assertEquals(expectedLoginToYourAccountHeader, actualLoginToYourAccountHeader);
+        log.info(homePage.wellDoneboy.concat(expectedLoginToYourAccountHeader.concat(homePage.headerValidationSuccess)));
 
         //enter login email address, password and click login button
         loginpage.enterInvalidLoginEmailInLoginEmailField();
         loginpage.enterInvalidLoginPasswordInLoginPasswordField();
-        loginpage.clickClickOnLoginButton();
+        loginpage.clickOnLoginButton();
 
         //validate error message
         String expectedLoginErrorMessage = "Your email or password is incorrect!";
         String actualLoginErrorMessage = loginpage.getLoginMessageErrorText();
-        Assert.assertEquals(expectedLoginErrorMessage,actualLoginErrorMessage);
+        Assert.assertEquals(expectedLoginErrorMessage, actualLoginErrorMessage);
+        log.info(homePage.wellDoneboy.concat(expectedLoginErrorMessage).concat(homePage.errorMessageSuccess));
 
     }
 
@@ -83,7 +89,7 @@ public class LoginTest extends CommonAPI {
 //        Assert.assertEquals(expectedCategoryHeader,actualCategoryHeader);
 //
 //        //click on signup/ login button
-//        homePage.clickClickOnSignupLoginButton();
+//        homePage.clickOnSignupLoginButton();
 //
 //        //validate login page
 //        String expectedLoginToYourAccountHeader = "Login to your account";
@@ -93,7 +99,7 @@ public class LoginTest extends CommonAPI {
 //        //enter login email address, password and click login button
 //        loginpage.enterLoginEmailInLoginEmailField();
 //        loginpage.enterLoginPasswordInLoginPasswordField();
-//        loginpage.clickClickOnLoginButton();
+//        loginpage.clickOnLoginButton();
 //
 //        //originalgangster1@gmail.com
 //        //ontheblock
@@ -103,7 +109,7 @@ public class LoginTest extends CommonAPI {
 //        Assert.assertEquals(expectedCategoryHeader1,actualCategoryHeader1);
 //
 //        //logout
-//        loginpage.clickClickOnLogoutButton();
+//        loginpage.clickOnLogoutButton();
 //    }
 //    @Test
 //    public void missingLoginEmail(){
@@ -114,7 +120,7 @@ public class LoginTest extends CommonAPI {
 //        Assert.assertEquals(expectedCategoryHeader,actualCategoryHeader);
 //
 //        //click on signup/ login button
-//        homePage.clickClickOnSignupLoginButton();
+//        homePage.clickOnSignupLoginButton();
 //
 //        //validate login page
 //        String expectedLoginToYourAccountHeader = "Login to your account";
@@ -124,7 +130,7 @@ public class LoginTest extends CommonAPI {
 //        //enter login email address, password and click login button
 //        loginpage.enterLoginEmailInLoginEmailField();
 //        loginpage.enterLoginPasswordInLoginPasswordField();
-//        loginpage.clickClickOnLoginButton();
+//        loginpage.clickOnLoginButton();
 //
 //        //originalgangster1@gmail.com
 //        //ontheblock
@@ -134,7 +140,7 @@ public class LoginTest extends CommonAPI {
 //        Assert.assertEquals(expectedCategoryHeader1,actualCategoryHeader1);
 //
 //        //logout
-//        loginpage.clickClickOnLogoutButton();
+//        loginpage.clickOnLogoutButton();
 //    }
 //    @Test
 //    public void missingLoginPassword(){
@@ -155,7 +161,7 @@ public class LoginTest extends CommonAPI {
 //        //enter login email address, password and click login button
 //        loginpage.enterLoginEmailInLoginEmailField();
 //        loginpage.enterLoginPasswordInLoginPasswordField();
-//        loginpage.clickClickOnLoginButton();
+//        loginpage.clickOnLoginButton();
 //
 //        //originalgangster1@gmail.com
 //        //ontheblock
@@ -165,7 +171,7 @@ public class LoginTest extends CommonAPI {
 //        Assert.assertEquals(expectedCategoryHeader1,actualCategoryHeader1);
 //
 //        //logout
-//        loginpage.clickClickOnLogoutButton();
+//        loginpage.clickOnLogoutButton();
 //    }
 //
 }

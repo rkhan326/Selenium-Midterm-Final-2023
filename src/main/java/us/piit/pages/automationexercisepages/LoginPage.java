@@ -11,92 +11,121 @@ import us.piit.base.CommonAPI;
 public class LoginPage extends CommonAPI {
 
     Logger log = LogManager.getLogger(LoginPage.class.getName());
-    public LoginPage(WebDriver driver){PageFactory.initElements(driver, this);}
+
+    public LoginPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
 
     String username = "originalgangster1@gmail.com";
     String password = "ontheblock";
     String invalidUsername = "unoriginalgangster1@gmail.com";
     String invalidPassword = "notontheblock";
-    String signupName = "Top G";
+    public String signupName = "Top G";
     String signupEmailAddress = "topg@gmail.com";
 
     //Buttons
-    @FindBy(css = "a[href='/logout']") WebElement logoutButton;
-    @FindBy(css = "a[href='/delete_account']") WebElement deleteAccountButton;
-    @FindBy(css = ".btn.btn-primary") WebElement deleteAccountContinueButton;
+    @FindBy(css = "a[href='/logout']")
+    WebElement $logoutButton;
+    @FindBy(css = "a[href='/delete_account']")
+    WebElement $deleteAccountButton;
+    @FindBy(css = ".btn.btn-primary")
+    WebElement $deleteAccountContinueButton;
 
     //Headers
-    @FindBy(xpath = "//h2[text()='Login to your account']") WebElement loginToYourAccountHeader;
+    @FindBy(xpath = "//h2[text()='Login to your account']")
+    WebElement $loginToYourAccountHeader;
     //Input Fields
-    @FindBy(css = "input[data-qa='login-email']") WebElement loginEmailField;
-    @FindBy(css = "input[name='password']") WebElement loginPasswordField;
-    @FindBy(css = "input[data-qa='signup-name']") WebElement signupNameField;
-    @FindBy(css = "input[data-qa='signup-email']") WebElement signupEmailField;
+    @FindBy(css = "input[data-qa='login-email']")
+    WebElement $loginEmailField;
+    @FindBy(css = "input[name='password']")
+    WebElement $loginPasswordField;
+    @FindBy(css = "input[data-qa='signup-name']")
+    WebElement $signupNameField;
+    @FindBy(css = "input[data-qa='signup-email']")
+    WebElement $signupEmailField;
     //Login and Signup Buttons
-    @FindBy(css = "button[data-qa='login-button']") WebElement loginButton;
-    @FindBy(css = "button[data-qa='signup-button']") WebElement signupButton;
+    @FindBy(css = "button[data-qa='login-button']")
+    WebElement $loginButton;
+    @FindBy(css = "button[data-qa='signup-button']")
+    WebElement $signupButton;
     //error message
-    @FindBy(xpath = "//p[text()='Your email or password is incorrect!']") WebElement loginErrorMessage;
+    @FindBy(xpath = "//p[text()='Your email or password is incorrect!']")
+    WebElement $loginErrorMessage;
     //logged in icon
-    @FindBy(css=".fa.fa-user") WebElement loggedInIcon;
+    @FindBy(css = ".fa.fa-user")
+    WebElement $loggedInIcon;
 
 
     public void enterValidLoginEmailInLoginEmailField() {
-        typeText(loginEmailField, username);
+        typeText($loginEmailField, username);
     }
-    public void enterValidLoginPasswordInLoginPasswordField() {typeText(loginPasswordField, password);}
+
+    public void enterValidLoginPasswordInLoginPasswordField() {
+        typeText($loginPasswordField, password);
+    }
+
     public void enterInvalidLoginEmailInLoginEmailField() {
-        typeText(loginEmailField, invalidUsername);
+        typeText($loginEmailField, invalidUsername);
     }
+
     public void enterInvalidLoginPasswordInLoginPasswordField() {
-        typeText(loginPasswordField, invalidPassword);
+        typeText($loginPasswordField, invalidPassword);
     }
 
     public void enterNameInSignupNameField() {
-        typeText(signupNameField, signupName);
+        typeText($signupNameField, signupName);
     }
+
     public void enterEmailInSignupEmailField() {
-        typeText(signupEmailField, signupEmailAddress);
+        typeText($signupEmailField, signupEmailAddress);
     }
+
     public void enterSignupEmailInLoginEmailField() {
-        typeText(loginEmailField, signupEmailAddress);
+        typeText($loginEmailField, signupEmailAddress);
     }
 
 
     //Methods
-    public String getLoginToYourAccountHeaderText(){
-        String text = getElementText(loginToYourAccountHeader);
-        log.info("Well Done ma Gee! 'Login to your account header' text validation success!!");
+    public String getLoginToYourAccountHeaderText() {
+        String text = getElementText($loginToYourAccountHeader);
+        log.info("Well done my boy! 'Login to your account header' text acquisition success!!");
         return text;
     }
-    public void clickClickOnLoginButton() {
-        clickOn(loginButton);
-        log.info("Well Done ma Gee! 'Login button' click click success!!");
+
+    public void clickOnLoginButton() {
+        clickOn($loginButton);
+        log.info("Well done my guy! Click click on 'Login button' success!!");
     }
-    public void clickClickOnLogoutButton() {
-        clickOn(logoutButton);
-        log.info("Well Done ma Gee! 'Logout button' click click success!!");
+
+    public void clickOnLogoutButton() {
+        clickOn($logoutButton);
+        log.info("Well done my guy! Click click on 'Logout button' success!!");
     }
-    public void clickClickOnDeleteAccountButton() {
-        clickOn(deleteAccountButton);
-        log.info("Well Done ma Gee! 'Delete account button' click click success!!");
+
+    public void clickOnDeleteAccountButton() {
+        clickOn($deleteAccountButton);
+        log.info("Well done my guy! Click click on 'Delete account button' success!!");
     }
-    public void clickClickOnDeleteAccountContinueButton() {
-        clickOn(deleteAccountContinueButton);
-        log.info("Well Done ma Gee! 'Delete account continue button' click click success!!");
+
+    public void clickOnDeleteAccountContinueButton() {
+        clickOn($deleteAccountContinueButton);
+        log.info("Well done my guy! Click click on 'Delete account continue button' success!!");
     }
-    public void clickClickOnSignupButton() {
-        clickOn(signupButton);
-        log.info("Well Done ma Gee! 'Signup button' click click success!!");
+
+    public void clickOnSignupButton() {
+        clickOn($signupButton);
+        log.info("Well done my guy! Click click on 'Signup button' success!!");
     }
-    public boolean validatePresenceOfloggedInIcon(){
-        boolean loggedInIconIsDisplayed = isVisible(loggedInIcon);
-        log.info("Well Done ma Gee! 'Logged in icon' display success!!");
+
+    public boolean validatePresenceOfloggedInIcon() {
+        boolean loggedInIconIsDisplayed = isVisible($loggedInIcon);
+        log.info("Well done my guy! 'Logged in icon' is surely visible. Success!!");
         return loggedInIconIsDisplayed;
     }
+
     public String getLoginMessageErrorText() {
-        String text = getElementText(loginErrorMessage);
-        log.info("Well Done ma Gee! 'Login error message' text validation success!!");
+        String text = getElementText($loginErrorMessage);
+        log.info("Well done my boy! 'Login error message' text acquisition success!!");
         return text;
     }
 }
