@@ -31,9 +31,9 @@
 
         <classes>
 <!--            <class name="oussamaachourtest.RegisterTest"></class>-->
-            <class name="oussamaachourtest.LoginTest"></class>
+<!--            <class name="oussamaachourtest.LoginTest"></class>-->
 <!--            <class name="oussamaachourtest.TrackOrderTest"></class>-->
-<!--            <class name="oussamaachourtest.ReviewTest"></class>-->
+            <class name="oussamaachourtest.ReviewTest"></class>
         </classes>
     </test>
 </suite>

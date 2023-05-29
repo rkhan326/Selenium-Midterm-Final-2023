@@ -116,7 +116,7 @@ public class VendorStoreSetupPage extends CommonAPI {
 //            for (WebElement element:elements) {
 //            if (element.getText().equalsIgnoreCase(option)){
 //                element.click();
-//         }
+//         }=
 
 
 //    <li class="select2-results__option" id="select2-addresscountry-result-in1w-US" role="option" data-selected="false" tabindex="-1" aria-selected="false">United States (US)</li>

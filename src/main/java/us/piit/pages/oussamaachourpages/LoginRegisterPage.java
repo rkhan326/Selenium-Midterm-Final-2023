@@ -205,15 +205,8 @@ public class LoginRegisterPage extends CommonAPI {
         log.info("enter registration vendor shop contact info success");
     }
 
-//    public void scrollToRegisterBtnWCoordinates(WebDriver driver){
-//        scrollToCoordinates(0,300);
-//    }
     public void scrollToRegisterBtnwJS(WebDriver driver){
         scrollToElementwJS(registerBtn, driver);
-    }
-
-    public void moveToRegisterBtn(WebDriver driver){
-        scrollToView(driver, registerBtn);
     }
 
     public void clickOnLostYourPasswordLink(){
