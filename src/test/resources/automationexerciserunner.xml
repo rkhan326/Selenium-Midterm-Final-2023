@@ -9,34 +9,34 @@
     <parameter name="browserName" value="chrome"></parameter>
     <parameter name="url" value="https://automationexercise.com/"></parameter>
 
-    <test name="Login test #1,2)">
+    <test name="Login tests">
         <classes>
-<!--            <class name="automationexercisetest.LoginTest"></class>-->
+            <!--            <class name="automationexercisetest.LoginTest"></class>-->
         </classes>
     </test>
-    <test name="Logout test #3">
+    <test name="Logout tests">
         <classes>
-<!--            <class name="automationexercisetest.LogoutTest"></class>-->
+            <!--            <class name="automationexercisetest.LogoutTest"></class>-->
         </classes>
     </test>
-    <test name="Signup test #4">
+    <test name="Signup tests">
         <classes>
-<!--            <class name="automationexercisetest.SignupTest"></class>-->
+            <!--            <class name="automationexercisetest.SignupTest"></class>-->
         </classes>
     </test>
-    <test name="Delete Account test #5">
+    <test name="Delete Account tests">
         <classes>
-<!--            <class name="automationexercisetest.DeleteAccountTest"></class>-->
+            <!--            <class name="automationexercisetest.DeleteAccountTest"></class>-->
         </classes>
     </test>
-    <test name="Products test #6,7,8,9,10">
+    <test name="Products tests">
         <classes>
-<!--                        <class name="automationexercisetest.ProductsTest"></class>-->
+<!--            <class name="automationexercisetest.ProductsTest"></class>-->
         </classes>
     </test>
-    <test name="Cart test #11,12">
+    <test name="Cart tests">
         <classes>
-<!--            <class name="automationexercisetest.CartTest"></class>-->
+                        <class name="automationexercisetest.CartTest"></class>
         </classes>
     </test>
 </suite>
