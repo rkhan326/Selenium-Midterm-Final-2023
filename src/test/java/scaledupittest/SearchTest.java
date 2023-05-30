@@ -85,7 +85,7 @@ public class SearchTest extends CommonAPI {
         homePage.clickOnSearchField();
 
        // select converse from the dropmenu
-   //     homePage.selectOptionFromDropdown("converse",getDriver());
+       // homePage.selectOptionFromDropdown("converse",getDriver());
         //homePage.selectOptionFromDropdown();
         // click on search button
 //          homePage.clickOnSearchButton();

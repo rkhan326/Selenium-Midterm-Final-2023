@@ -166,20 +166,20 @@ public class HomePage extends CommonAPI {
         log.info("click on  search field success");
     }
 
-    public void selectOptionFromDropdown(WebElement dropdown, String option) {
-        Select select = new Select(dropdown);
-        try {
-            select.selectByVisibleText(option);
-        } catch (Exception e) {
-            select.selectByValue(option);
-        }
+//    public void selectOptionFromDropdown(WebElement dropdown, String option) {
+//        Select select = new Select(dropdown);
+//        try {
+//            select.selectByVisibleText(option);
+//        } catch (Exception e) {
+//            select.selectByValue(option);
+//        }
 //        public String selectOptionFromDropdown(){
 //            String dropDownText = getElementText(menuDropdown);
 //            return dropDownText;
 //        }
-//        public void selectOptionFromDropdown(String item,WebDriver driver) {
+//        public void selectOptionFromDropdownUsing(String item,WebDriver driver) {
 //
-//            selectOptionFromDropdown(item);
+//            selectOptionFromDropdown(menuDropdown,item);
 //            log.info("vha   js  k");
 //        }
 
@@ -195,7 +195,7 @@ public class HomePage extends CommonAPI {
 //            }
 //        }
             }
-    }
+
 
 
 

@@ -46,7 +46,7 @@ public class CommonAPI {
 
     String implicitWait = prop.getProperty("implicit.wait","5");
     String windowMaximize = prop.getProperty("browser.maximize","true");
-    String takeScreenshots = prop.getProperty("take.screenshots","false");
+    String takeScreenshots = prop.getProperty("take.screenshots","true");
     WebDriver driver;
 
 
