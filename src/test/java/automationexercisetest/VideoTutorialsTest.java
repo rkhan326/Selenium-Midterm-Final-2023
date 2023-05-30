@@ -20,7 +20,7 @@ public class VideoTutorialsTest extends CommonAPI {
 
         //validate page header
         String expectedYoutubeHeader = "AutomationExercise";
-        String actualYoutubeHeader= videoTutorialsPage.getYoutubeHeaderText30();
+        String actualYoutubeHeader= videoTutorialsPage.getYoutubeHeaderText();
         Assert.assertEquals(actualYoutubeHeader, expectedYoutubeHeader);
         log.info(homePage.wellDoneBoy.concat(expectedYoutubeHeader).concat(homePage.headerValidationSuccess));
     }

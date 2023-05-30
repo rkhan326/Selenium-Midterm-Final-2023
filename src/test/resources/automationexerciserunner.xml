@@ -41,7 +41,12 @@
     </test>
     <test name="Video Tutorials Test">
         <classes>
-            <class name="automationexercisetest.VideoTutorialsTest"></class>
+<!--            <class name="automationexercisetest.VideoTutorialsTest"></class>-->
+        </classes>
+    </test>
+    <test name="Video Tutorials Test">
+        <classes>
+            <class name="automationexercisetest.ContactUsTest"></class>
         </classes>
     </test>
 </suite>
