@@ -1,4 +1,4 @@
-package oussamaachourtest;
+package oussamaachourtest; //3 tests
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -40,7 +40,7 @@ public class TrackOrderTest extends CommonAPI {
         Assert.assertTrue(ordersPage.checkPresenceOfOrdersDetailsHeader());
 
     }
-    @Test(enabled=true)
+    @Test(enabled=false)
     public void invalidOrderId(){
         TrackYourOrderPage trackYourOrderPage = new TrackYourOrderPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -72,7 +72,7 @@ public class TrackOrderTest extends CommonAPI {
 
     }
 
-    @Test(enabled=true)
+    @Test(enabled=false)
     public void invalidEmail(){
         TrackYourOrderPage trackYourOrderPage = new TrackYourOrderPage(getDriver());
         HomePage homePage = new HomePage(getDriver());

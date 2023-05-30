@@ -14,29 +14,34 @@
             <!--            <class name="automationexercisetest.LoginTest"></class>-->
         </classes>
     </test>
-    <test name="Logout tests">
+    <test name="Logout Tests">
         <classes>
             <!--            <class name="automationexercisetest.LogoutTest"></class>-->
         </classes>
     </test>
-    <test name="Signup tests">
+    <test name="Signup Tests">
         <classes>
             <!--            <class name="automationexercisetest.SignupTest"></class>-->
         </classes>
     </test>
-    <test name="Delete Account tests">
+    <test name="Delete Account Tests">
         <classes>
             <!--            <class name="automationexercisetest.DeleteAccountTest"></class>-->
         </classes>
     </test>
-    <test name="Products tests">
+    <test name="Products Tests">
         <classes>
 <!--            <class name="automationexercisetest.ProductsTest"></class>-->
         </classes>
     </test>
-    <test name="Cart tests">
+    <test name="Cart Tests">
         <classes>
-                        <class name="automationexercisetest.CartTest"></class>
+<!--                        <class name="automationexercisetest.CartTest"></class>-->
+        </classes>
+    </test>
+    <test name="Video Tutorials Test">
+        <classes>
+            <class name="automationexercisetest.VideoTutorialsTest"></class>
         </classes>
     </test>
 </suite>

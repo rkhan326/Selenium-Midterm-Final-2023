@@ -17,6 +17,11 @@ public class MyAccountPage extends CommonAPI {
     @FindBy(xpath = "//h1[@class='entry-title']")
     WebElement myAccountHeader;
 
+    @FindBy(css= "li[class='woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout'] a")
+    WebElement logOutBtnOnMenu;
+    @FindBy(xpath = "//div[@class='woocommerce-notices-wrapper']/following-sibling::p[1]/a[1]")
+    WebElement logOutBtnOnBody;
+
     public boolean checkPresenceOfMyAccountHeader(){
         boolean myAccountPageHeaderisDisplayed = isVisible(myAccountHeader);
         log.info("My Account page header is displayed");
@@ -27,5 +32,14 @@ public class MyAccountPage extends CommonAPI {
         String myAccountActualHeaderText = getElementText(myAccountHeader);
         log.info("user login page validation text match success");
         return myAccountActualHeaderText;
+    }
+
+    public void clickOnLogOutBtnOnMenu(){
+        clickOn(logOutBtnOnMenu);
+        log.info("click on log out button on menu success");
+    }
+    public void clickOnLogOutBtnOnBody(){
+        clickOn(logOutBtnOnBody);
+        log.info("click on log out button on body success");
     }
 }

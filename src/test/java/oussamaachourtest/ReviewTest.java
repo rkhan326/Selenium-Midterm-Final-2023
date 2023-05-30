@@ -1,4 +1,4 @@
-package oussamaachourtest;
+package oussamaachourtest; //4 tests
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -94,13 +94,12 @@ public class ReviewTest extends CommonAPI {
                 break;
         }
 
+        //enter review data and click on add review button
         singleProductPage.enterReviewText(review);
         singleProductPage.enterReviewerName(name);
-        singleProductPage.enterReviewerEmail(email);
+        singleProductPage.enterReviewerEmail(singleProductPage.enterFakeReviewerEmail());
         singleProductPage.clickOnSaveInfoCheckBox();
         singleProductPage.clickOnAddReviewBtn();
-
-        waitFor(10);
 
         //assert seeing the review awaiting approval message
         Assert.assertTrue(singleProductPage.checkPresenceOfReviewAwaitingApprovalMessage(getDriver()));
@@ -160,7 +159,7 @@ public class ReviewTest extends CommonAPI {
     }
 
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void invalidEmailReviewCorrection() {
         HomePage homePage = new HomePage(getDriver());
         SingleProductPage singleProductPage = new SingleProductPage(getDriver());

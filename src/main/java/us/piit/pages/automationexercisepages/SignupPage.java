@@ -11,10 +11,7 @@ import us.piit.base.CommonAPI;
 public class SignupPage extends CommonAPI {
 
     Logger log = LogManager.getLogger(SignupPage.class.getName());
-
-    public SignupPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
+    public SignupPage(WebDriver driver) {PageFactory.initElements(driver, this);}
 
     String signupPassword = ("ontheblock");
     String fName = ("Top");
@@ -46,11 +43,8 @@ public class SignupPage extends CommonAPI {
     @FindBy(css = ".btn.btn-primary")
     WebElement $signupContinueButton;
 
-
     //methods
-    public void enterPasswordInSignupField() {
-        typeText($signupPasswordField, signupPassword);
-    }
+    public void enterPasswordInSignupField() {typeText($signupPasswordField, signupPassword);}
 
     public void enterFNameInSignupField() {
         typeText($signupFNameField, fName);
@@ -84,11 +78,8 @@ public class SignupPage extends CommonAPI {
         clickOn($createAccountButton);
         log.info("Well done ma Gee! create account button click click success!!");
     }
-
     public void clickOnSingupContinueButton() {
         clickOn($signupContinueButton);
         log.info("Well done ma Gee! sign up continue button click click success!!");
     }
-
-
 }

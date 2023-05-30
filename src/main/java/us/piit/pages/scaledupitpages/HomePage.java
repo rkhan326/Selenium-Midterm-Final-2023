@@ -173,6 +173,7 @@ public class HomePage extends CommonAPI {
         } catch (Exception e) {
             select.selectByValue(option);
         }
+
 //        public String selectOptionFromDropdown(){
 //            String dropDownText = getElementText(menuDropdown);
 //            return dropDownText;
@@ -182,6 +183,7 @@ public class HomePage extends CommonAPI {
 //            selectOptionFromDropdown(item);
 //            log.info("vha   js  k");
 //        }
+
 
 
 
