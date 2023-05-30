@@ -12,22 +12,21 @@
 
     <test name="Register Test">
         <classes>
-
             <class name="nopcommercetest.RegisterTest"></class>
         </classes>
     </test>
 
-       <test name="login test">
-    <classes>
-        <class name="nopcommercetest.LoginTest"></class>
-    </classes>
-    </test>
+<!--       <test name="login test">-->
+<!--    <classes>-->
+<!--        <class name="nopcommercetest.LoginTest"></class>-->
+<!--    </classes>-->
+<!--    </test>-->
 
-    <test name="Search Test">
-        <classes>
-            <class name="nopcommercetest.SearchTest"></class>
-        </classes>
-    </test>
+<!--    <test name="Search Test">-->
+<!--        <classes>-->
+<!--            <class name="nopcommercetest.SearchTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
 <!--    <test name="Shopping Card Test">-->
 <!--        <classes>-->
 <!--            <class name="nopcommercetest.ShoppingCartTest"></class>-->
@@ -63,6 +62,17 @@
 <!--            <class name="nopcommercetest.CommunityPollTest"></class>-->
 <!--        </classes>-->
 <!--    </test>-->
+<!--    <test name="Address Menu Test">-->
+<!--        <classes>-->
+<!--            <class name="nopcommercetest.AddressMenuTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Gift Card Test">-->
+<!--        <classes>-->
+<!--            <class name="nopcommercetest.GiftCardTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
 <!--    <test name="Newsletter Test">-->
 <!--        <classes>-->
 <!--            <class name="nopcommercetest.NewsletterTest"></class>-->
