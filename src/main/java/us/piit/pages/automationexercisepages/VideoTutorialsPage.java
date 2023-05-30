@@ -15,9 +15,9 @@ public class VideoTutorialsPage extends CommonAPI {
     @FindBy(xpath = "//yt-formatted-string[text()='AutomationExercise']")
     WebElement $youtubeHeader;
 
-    public String getYoutubeHeaderText30() {
+    public String getYoutubeHeaderText() {
         String text = getElementText($youtubeHeader);
-        log.info("Well done my boy! 'Automation Exercise' text acquisition success!!");
+        log.info("Ya did it! 'Youtube Header' text acquisition success!!");
         return text;
     }
 }
