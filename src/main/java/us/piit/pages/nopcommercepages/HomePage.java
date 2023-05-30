@@ -15,26 +15,62 @@ public class HomePage extends CommonAPI {
             PageFactory.initElements(driver, this);
         }
 
-        //locators
-        @FindBy(xpath = "//span[contains(text(),'Products')]")
-        WebElement mainHeader;
+    //forgot password
+    @FindBy(xpath = "//a[@class='ico-register']")
+    WebElement registerLink;
 
-        @FindBy(css = "#react-burger-menu-btn")
-        WebElement hamburgerMenu;
+    //forgot password
+    @FindBy(xpath = "//span[@class='forgot-password']")
+    WebElement forgotPassword;
 
-        @FindBy(css = "#logout_sidebar_link")
-        WebElement logoutLink;
+    //recovery EmailField
+    @FindBy(xpath = "//input[@id='Email']")
+    WebElement recoveryEmailField;
+
+    // click on recovery button
+    @FindBy(xpath = "//button[@name='send-email']")
+    WebElement recoveryButton;
+
+    // Recovery password Validation
+    @FindBy(xpath = "//p[@class='content']")
+    WebElement recoveryValidation;
 
         //reusable methods
-        public String getHeaderText(){
-            String text = getElementText(mainHeader);
-            log.info("user logged in success");
-            return text;
+        public void clickOnRegisterLink() {
+            clickOn(registerLink);
+            log.info("The Register page opened successfully.");
         }
-        public void clickOnHamburgerMenu(){
-            clickOn(hamburgerMenu);
-            log.info("click on hamburger menu success");
-        }
+
+    //forgotpassword
+    public void clickOnForgotPassword() {
+        clickOn(forgotPassword);
+        log.info("Click forgot Password successfully.");
+    }
+
+    public void clickOnRecoveryEmailField() {
+        clickOn(recoveryEmailField);
+        log.info("Click On Recovery Email Field successfully.");
+
+    }
+
+    // Recovery email field
+    public void typeEmailOnRecoveryEmailField(String email) {
+        typeText(recoveryEmailField, email);
+        log.info(" Type email successfully");
+    }
+
+    //recoveryButton
+    public void clickOnRecoveryButton() {
+        clickOn(recoveryButton);
+        log.info("Click On Recovery Button successfully.");
+    }
+
+    // Recovery password Validation
+    public String recoveryValidationText() {
+        String text = getElementText(recoveryValidation);
+        log.info("  Recovery Validation succeeded");
+        return text;
+    }
 
 
 
