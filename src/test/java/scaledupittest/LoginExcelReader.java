@@ -12,7 +12,7 @@ public class LoginExcelReader extends CommonAPI {
     @Test
     public void LoginCredientials() {
 
-        ExcelReader excelReader = new ExcelReader(Utility.currentDir + "/AmelData/scaledupitdata.xlsx");
+        ExcelReader excelReader = new ExcelReader(Utility.currentDir + "/data/ScalledupitExcelData.xlsx");
 
         String validUsername= excelReader.getStringDataFromCell("Sheet1",1,1);
         System.out.println(validUsername);

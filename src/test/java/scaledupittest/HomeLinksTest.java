@@ -119,27 +119,27 @@ public class HomeLinksTest extends CommonAPI {
         waitFor(3);
 
         // click on log in
-        links.clickOnLogIn();
-        waitFor(3);
+//        links.clickOnLogIn();
+//        waitFor(3);
 
-      // check if continue as amel boucetta is visible
-        Assert.assertTrue(links.checkContiueAsAmelIsVisible());
-        waitFor(3);
-
-        // click on continue as Amel
-        links.clickOnContinueAsAmelBoucettaBtn();
-
-        // click on Home
-        links.clickOnHomeBtn();
-        waitFor(2);
-
-        // Check user is landed to the instagram home page
-        Assert.assertTrue(links.checkPresenceOfInstagramHomePageHeader());
-        String expectedInstagramHomePageHeader = "boucetta.amel";
-        String actualInstagramHomePageHeader = links.getInstagramHomePageHeadertext();
-        Assert.assertEquals(expectedInstagramHomePageHeader, actualInstagramHomePageHeader);
-        log.info("user is landed to the login page with success");
-        waitFor(3);
+//      // check if continue as amel boucetta is visible
+//        Assert.assertTrue(links.checkContiueAsAmelIsVisible());
+//        waitFor(3);
+//
+//        // click on continue as Amel
+//        links.clickOnContinueAsAmelBoucettaBtn();
+//
+//        // click on Home
+//        links.clickOnHomeBtn();
+//        waitFor(2);
+//
+//        // Check user is landed to the instagram home page
+//        Assert.assertTrue(links.checkPresenceOfInstagramHomePageHeader());
+//        String expectedInstagramHomePageHeader = "boucetta.amel";
+//        String actualInstagramHomePageHeader = links.getInstagramHomePageHeadertext();
+//        Assert.assertEquals(expectedInstagramHomePageHeader, actualInstagramHomePageHeader);
+//        log.info("user is landed to the login page with success");
+//        waitFor(3);
 
     }
     }

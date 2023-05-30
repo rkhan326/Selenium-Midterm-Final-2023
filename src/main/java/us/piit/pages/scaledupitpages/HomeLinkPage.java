@@ -32,7 +32,7 @@ public class HomeLinkPage extends CommonAPI {
     @FindBy(xpath = "//h1[text()='My account']")
     WebElement loginPageHeader;
 
-    @FindBy(xpath = "//button[@class='_acan _acap _acas _aj1-']/div[1]")
+    @FindBy(xpath = "")
     WebElement logInBtn;
 
     @FindBy(xpath = "//div[text()='Continue as boucetta.amel']")

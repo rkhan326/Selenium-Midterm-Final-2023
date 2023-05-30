@@ -174,6 +174,18 @@ public class HomePage extends CommonAPI {
             select.selectByValue(option);
         }
 
+//        public String selectOptionFromDropdown(){
+//            String dropDownText = getElementText(menuDropdown);
+//            return dropDownText;
+//        }
+//        public void selectOptionFromDropdown(String item,WebDriver driver) {
+//
+//            selectOptionFromDropdown(item);
+//            log.info("vha   js  k");
+//        }
+
+
+
 
 
 //        public void selectOptionFromDropdown(WebElement dropdown, String option){

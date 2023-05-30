@@ -10,26 +10,26 @@
     <parameter name="browserName" value="chrome"></parameter>
     <parameter name="url" value="https://automation.scaledupit.com//"></parameter>
 
-    <test name="Amel test cases  ">
-        <groups>
-            <define name="OvernightTest">
-                <include name="smoke"></include>
-                <include name="sanity"></include>
+<!--    <test name="Amel test cases  ">-->
+<!--        <groups>-->
+<!--&lt;!&ndash;            <define name="OvernightTest">&ndash;&gt;-->
+<!--&lt;!&ndash;                <include name="smoke"></include>&ndash;&gt;-->
+<!--&lt;!&ndash;                <include name="sanity"></include>&ndash;&gt;-->
 
-            </define>
-            <run>
-                <include name="OvernightTest"></include>
-                <exclude name="regression"></exclude>
-                <include name="Before"></include>
-                <include name="after"></include>
-                <include name="smoke"></include>
-                <include name="sanity"></include>
-                <include name="regression"></include>
-                <exclude name="regression"></exclude>
-            </run>
+<!--&lt;!&ndash;            </define>&ndash;&gt;-->
+<!--            <run>-->
+<!--&lt;!&ndash;                <include name="OvernightTest"></include>&ndash;&gt;-->
 
-        </groups>
-        <classes>
+<!--&lt;!&ndash;                <include name="Before"></include>&ndash;&gt;-->
+<!--&lt;!&ndash;                <include name="after"></include>&ndash;&gt;-->
+<!--                <include name="smoke"></include>-->
+<!--&lt;!&ndash;                <include name="sanity"></include>&ndash;&gt;-->
+<!--&lt;!&ndash;                <include name="regression"></include>&ndash;&gt;-->
+<!--&lt;!&ndash;                <exclude name="regression"></exclude>&ndash;&gt;-->
+<!--            </run>-->
+
+<!--        </groups>-->
+<!--        <classes>-->
 <!--            <class name="scaledupittest.AddToCartTest"></class>-->
 <!--            <class name="scaledupittest.BlogTest"></class>-->
 <!--            <class name="scaledupittest.CouponsTest"></class>-->
@@ -37,13 +37,13 @@
 <!--            <class name="scaledupittest.DeleteTest"></class>-->
 <!--            <class name="scaledupittest.HomeLinksTest"></class>-->
 <!--            <class name="scaledupittest.LoginExcelReader"></class>-->
-            <class name="scaledupittest.LoginTest"></class>
+<!--            <class name="scaledupittest.LoginTest"></class>-->
 <!--            <class name="scaledupittest.LogoutTest"></class>-->
 <!--            <class name="scaledupittest.RegistrationTest"></class>-->
 <!--            <class name="scaledupittest.SearchTest"></class>-->
 <!--            <class name="scaledupittest.UpdateTest"></class>-->
-        </classes>
-    </test>
+<!--        </classes>-->
+<!--    </test>-->
 <!--    <test name="Add to cart ">-->
 <!--        <classes>-->
 <!--            <class name="scaledupittest.AddToCartTest"></class>-->
@@ -80,11 +80,11 @@
 <!--                        <class name="scaledupittest.LogoutTest"></class>-->
 <!--                    </classes>-->
 <!--                </test>-->
-<!--    <test name="logout test">-->
-<!--        <classes>-->
-<!--            <class name="scaledupittest.SearchTest"></class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="logout test">
+        <classes>
+            <class name="scaledupittest.SearchTest"></class>
+        </classes>
+    </test>
 <!--    <test name="update test">-->
 <!--        <classes>-->
 <!--            <class name="scaledupittest.UpdateTest"></class>-->
