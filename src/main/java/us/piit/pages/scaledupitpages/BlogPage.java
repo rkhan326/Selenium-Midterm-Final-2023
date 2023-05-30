@@ -51,6 +51,8 @@ public class BlogPage extends CommonAPI {
     @FindBy(xpath = "//div[@class='wp-die-message']/p[1]")
     WebElement commentErrorMessage;
 
+    @FindBy(xpath = "//div[@class='wp-die-message']/p[1]")
+    WebElement duplicateCommentErrorMessage;
 
     public boolean checkPresenceOfBlogPageHeader() {
         boolean blogPageHeaderIsDisplayed = isVisible(blogPageHeader);
@@ -128,7 +130,7 @@ public class BlogPage extends CommonAPI {
 
     public boolean checkPresenceOfCommentErrorMessage() {
         boolean ErrorMessagePageHeaderIsDisplayed = isVisible(commentErrorMessage);
-        log.info(" Comment Error Message  header presence " + ErrorMessagePageHeaderIsDisplayed);
+        log.info(" Comment Error Message   presence " + ErrorMessagePageHeaderIsDisplayed);
         return ErrorMessagePageHeaderIsDisplayed;
     }
     public String getCommentErrorMessageText() {
@@ -136,8 +138,17 @@ public class BlogPage extends CommonAPI {
         log.info("get Comment error message text success");
         return text;
     }
-    public String enterNewFakeEmail(){ return faker.internet().emailAddress(); }
-
+    public String enterNewFakeEmail(){ return faker.internet().emailAddress();}
+    public boolean checkPresenceOfDupliacteCommentErrorMessage() {
+        boolean duplicateCommentErrorMessagePageHeaderIsDisplayed = isVisible(duplicateCommentErrorMessage);
+        log.info(" Duplicate Comment Error Message  presence " + duplicateCommentErrorMessagePageHeaderIsDisplayed);
+        return duplicateCommentErrorMessagePageHeaderIsDisplayed;
+    }
+    public String getDuplicateCommentErrorMessageText() {
+        String text = getElementText(duplicateCommentErrorMessage);
+        log.info("get Duplicate  Comment error message text success");
+        return text;
+    }
 
 
 }

@@ -34,8 +34,16 @@ public class UpdatePage extends CommonAPI {
     @FindBy(xpath="//button[text()='Update cart']")
     WebElement updateCartBtn;
     @FindBy(xpath = "//span[@class='cart-value cart-customlocation' and text()=2]")
-    WebElement cartCountUpdate;
+    WebElement cartCountUpdateItem;
 
+    @FindBy(xpath="//li[@id='menu-item-284']/a[1]")
+    WebElement cartFromHomePage;
+
+    @FindBy(xpath = "//span[@class='cart-value cart-customlocation' and text()=5]")
+    WebElement cartCountUpdatePrice;
+
+    @FindBy(xpath="//td[@class='product-subtotal']/span[1]")
+    WebElement updatePrice;
     public boolean checkPresenceOfKidsCollectionPageHeader() {
         boolean kidsCollectionPageHeaderIsDisplayed = isVisible(KidsCollectionHeader);
         log.info("kids colletion page header presence " + kidsCollectionPageHeaderIsDisplayed);
@@ -89,17 +97,43 @@ public class UpdatePage extends CommonAPI {
 
     }
     public boolean checkCartCountUpdateHeader() {
-        boolean cartCountUpdateHeaderIsDisplayed = isVisible(cartCountUpdate);
+        boolean cartCountUpdateHeaderIsDisplayed = isVisible(cartCountUpdateItem);
         log.info("cart count is  " + cartCountUpdateHeaderIsDisplayed);
         return cartCountUpdateHeaderIsDisplayed;
     }
-    public String getCartCountUpadteHeaderText() {
-        String cartCountUpdateText = getElementText(cartCountUpdate);
-        log.info("cart count text is " + cartCountUpdateText);
-        return cartCountUpdateText;
+    public String getCartCountUpadteHeaderItemText() {
+        String cartCountUpdateItemText = getElementText(cartCountUpdateItem);
+        log.info("cart count text is " + cartCountUpdateItemText);
+        return cartCountUpdateItemText;
 
     }
+    public void clickOnCartButtonFromHomePage() {
+        clickOn(cartFromHomePage);
+        log.info("click on cart  success");
 
+    }
+    public boolean checkCartCountUpdatePriceHeader() {
+        boolean cartCountUpdatePriceHeaderIsDisplayed = isVisible(cartCountUpdatePrice);
+        log.info("cart count is  " + cartCountUpdatePriceHeaderIsDisplayed);
+        return cartCountUpdatePriceHeaderIsDisplayed;
+    }
+    public String getCartCountUpadtePriceHeaderText() {
+        String cartCountUpdatePriceText = getElementText(cartCountUpdatePrice);
+        log.info("cart count text is " + cartCountUpdatePriceText);
+        return cartCountUpdatePriceText;
+
+    }
+    public boolean checkPriceUpdate() {
+        boolean PriceUpdateIsDisplayed = isVisible(updatePrice);
+        log.info("Price update  is  " + PriceUpdateIsDisplayed);
+        return PriceUpdateIsDisplayed;
+    }
+    public String getPriceUpdateText() {
+        String PriceUpdateText = getElementText(updatePrice);
+        log.info("cart count text is " + PriceUpdateText);
+        return PriceUpdateText;
+
+    }
 }
 
 

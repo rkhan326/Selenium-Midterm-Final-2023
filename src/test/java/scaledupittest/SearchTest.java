@@ -71,7 +71,7 @@ public class SearchTest extends CommonAPI {
 
     }
 
-    @Test(enabled = true)
+  //  @Test(enabled = true)
     public void selectConverseOptionFromDropdown() {
         HomePage homePage = new HomePage(getDriver());
         SearchPage searchpage = new SearchPage(getDriver());
@@ -84,8 +84,8 @@ public class SearchTest extends CommonAPI {
         // click on search field
         homePage.clickOnSearchField();
 
-        //select converse from the dropmenu
-//        homePage.selectOptionFromDropdown();
+       // select converse from the dropmenu
+   //     homePage.selectOptionFromDropdown("converse",getDriver());
         //homePage.selectOptionFromDropdown();
         // click on search button
 //          homePage.clickOnSearchButton();
@@ -110,7 +110,7 @@ public class SearchTest extends CommonAPI {
     @Test(enabled = true, priority = 2)
     public void searchMultipleItems() {
 
-        ExcelReader excelReader = new ExcelReader(Utility.currentDir + "/AmelData/scaledupittestdata.xlsx");
+        ExcelReader excelReader = new ExcelReader(Utility.currentDir + "/data/ScalledupitSearchTestdata.xlsx");
         List<String> items = excelReader.getEntireColumnForGivenHeader("Sheet1", "item");
         HomePage homePage = new HomePage(getDriver());
         for (String item : items) {

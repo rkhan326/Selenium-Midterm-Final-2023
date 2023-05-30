@@ -173,17 +173,27 @@ public class HomePage extends CommonAPI {
         } catch (Exception e) {
             select.selectByValue(option);
         }
+//        public String selectOptionFromDropdown(){
+//            String dropDownText = getElementText(menuDropdown);
+//            return dropDownText;
+//        }
+//        public void selectOptionFromDropdown(String item,WebDriver driver) {
+//
+//            selectOptionFromDropdown(item);
+//            log.info("vha   js  k");
+//        }
 
 
 
-        public void selectOptionFromDropdown(WebElement dropdown, String option){
-            Select select1 = new Select(dropdown);
-            try {
-                select.selectByVisibleText(option);
-            }catch (Exception e){
-                select.selectByValue(option);
-            }
-        }
+
+//        public void selectOptionFromDropdown(WebElement dropdown, String option){
+//            Select select1 = new Select(dropdown);
+//            try {
+//                select.selectByVisibleText(option);
+//            }catch (Exception e){
+//                select.selectByValue(option);
+//            }
+//        }
             }
     }
 
