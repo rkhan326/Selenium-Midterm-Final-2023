@@ -11,6 +11,7 @@ import us.piit.base.CommonAPI;
 public class CartPage extends CommonAPI {
 
     Logger log = LogManager.getLogger(CartPage.class.getName());
+    public CartPage(WebDriver driver) {PageFactory.initElements(driver, this);}
 
     @FindBy(xpath = "//u[text()='View Cart']")
     public WebElement $maxiDressViewCartButton;
@@ -23,11 +24,9 @@ public class CartPage extends CommonAPI {
     public WebElement $continueOnCartMaxiDressButton;
     @FindBy(xpath = "//u[text()='Register / Login']")
     public WebElement $registerLoginCheckoutMaxiDressButton;
+    @FindBy(css = ".heading")
+    public WebElement $addressDetailsText;
 
-
-    public CartPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
     public void clickOnMaxiDressViewCartButton(WebDriver driver) {
         clickWithActions(driver,$maxiDressViewCartButton);
         log.info("Well done my guy! Click click on 'Maxi Dress view cart button' success!!");
@@ -53,6 +52,11 @@ public class CartPage extends CommonAPI {
     public String getCartIsEmptyText() {
         String text = getElementText($cartIsEmptyText);
         log.info("Well done my boy! 'Cart is empty!' text acquisition success!!");
+        return text;
+    }
+    public String getAddressDetailsText() {
+        String text = getElementText($addressDetailsText);
+        log.info("Well done my boy! 'Address Details' text acquisition success!!");
         return text;
     }
 }

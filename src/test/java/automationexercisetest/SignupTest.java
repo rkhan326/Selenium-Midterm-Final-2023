@@ -31,7 +31,7 @@ public class SignupTest extends CommonAPI {
         String expectedLoginToYourAccountHeader = "Login to your account";
         String actualLoginToYourAccountHeader = loginpage.getLoginToYourAccountHeaderText();
         Assert.assertEquals(expectedLoginToYourAccountHeader, actualLoginToYourAccountHeader);
-        log.info(homePage.wellDoneboy.concat(expectedLoginToYourAccountHeader.concat(homePage.headerValidationSuccess)));
+        log.info(homePage.wellDoneBoy.concat(expectedLoginToYourAccountHeader.concat(homePage.headerValidationSuccess)));
 
         //enter login email address, password and click login button
         loginpage.enterNameInSignupNameField();
@@ -55,7 +55,7 @@ public class SignupTest extends CommonAPI {
         String expectedAccountCreatedHeader = "ACCOUNT CREATED!";
         String actualAccountCreatedHeader = homePage.getAccountCreatedHeaderText();
         Assert.assertEquals(expectedAccountCreatedHeader, actualAccountCreatedHeader);
-        log.info(homePage.wellDoneboy.concat(expectedAccountCreatedHeader.concat(homePage.headerValidationSuccess)));
+        log.info(homePage.wellDoneBoy.concat(expectedAccountCreatedHeader.concat(homePage.headerValidationSuccess)));
 
         //click on continue button
         signupPage.clickOnSingupContinueButton();
