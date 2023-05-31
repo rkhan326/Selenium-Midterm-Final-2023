@@ -13,8 +13,12 @@ public class CartPage extends CommonAPI {
     Logger log = LogManager.getLogger(CartPage.class.getName());
     public CartPage(WebDriver driver) {PageFactory.initElements(driver, this);}
 
+    @FindBy(xpath = "//h2[text()='Subscription']")
+    WebElement $subscribtionText;
     @FindBy(xpath = "//u[text()='View Cart']")
     public WebElement $maxiDressViewCartButton;
+    @FindBy(css = ".btn.btn-default.check_out")
+    public WebElement $placeOrderButton;
     @FindBy(xpath = "//b[text()='Cart is empty!']")
     public WebElement $cartIsEmptyText;
     @FindBy(css = ".btn.btn-default.check_out")
@@ -24,8 +28,12 @@ public class CartPage extends CommonAPI {
     public WebElement $continueOnCartMaxiDressButton;
     @FindBy(xpath = "//u[text()='Register / Login']")
     public WebElement $registerLoginCheckoutMaxiDressButton;
+    @FindBy(css = ".form-control.btn.btn-primary.submit-button")
+    public WebElement $payAndConfirmButton;
     @FindBy(css = ".heading")
     public WebElement $addressDetailsText;
+    @FindBy(css = ".heading")
+    public WebElement $paymentText;
 
     public void clickOnMaxiDressViewCartButton(WebDriver driver) {
         clickWithActions(driver,$maxiDressViewCartButton);
@@ -43,6 +51,10 @@ public class CartPage extends CommonAPI {
         clickWithActions(driver,$registerLoginCheckoutMaxiDressButton);
         log.info("Well done my guy! Click click on 'Register/ Login button' success!!");
     }
+    public void clickOnPlaceOrderButton(WebDriver driver) {
+        clickWithActions(driver,$placeOrderButton);
+        log.info("Well done my guy! Click click on 'Register/ Login button' success!!");
+    }
 
     public boolean proceedToCheckoutIsVisible(){
         log.info("Well done my guy! Proceed to checkout is visible!");
@@ -58,5 +70,13 @@ public class CartPage extends CommonAPI {
         String text = getElementText($addressDetailsText);
         log.info("Well done my boy! 'Address Details' text acquisition success!!");
         return text;
+    }
+    public void scrollToViewSubscibtionText(WebDriver driver){
+        scrollToView(driver,$subscribtionText);
+        log.info("Well done my guy! View 'Subsbcription Text' success!!");
+    }
+    public void clickOnAdButton2(WebDriver driver) {
+        clickWithActions(driver, $payAndConfirmButton);
+        log.info("Well done my guy! Click click on 'Ad button' success!!");
     }
 }

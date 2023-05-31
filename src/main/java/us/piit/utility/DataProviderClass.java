@@ -82,6 +82,14 @@ public class DataProviderClass{
         return arrObj;
     }
 
+//    @DataProvider //Erfan
+//    public Object[][] excelDPNacer() throws IOException {
+//        //We are creating an object from the excel sheet data by calling a method that reads data from the excel stored locally in our system
+//        String path = currentDir + File.separator + "data" + File.separator + "scaledupitdata.xlsx";
+//        ExcelReader excelReader = new ExcelReader(path);
+//        Object[][] arrObj = excelReader.getExcelData(path,"Data");
+//        return arrObj;
+//    }
 }
 
 

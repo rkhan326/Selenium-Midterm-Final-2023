@@ -1,5 +1,4 @@
 package automationexercisetest;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -11,9 +10,8 @@ import us.piit.pages.automationexercisepages.ProductsPage;
 public class ProductsTest extends CommonAPI {
     Logger log = LogManager.getLogger(ProductsTest.class.getName());
 
-//    @Test
+    @Test (groups = {}, priority = 6, enabled = false)
     public void productsSearchField6(){
-
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage = new ProductsPage(getDriver());
 
@@ -32,23 +30,21 @@ public class ProductsTest extends CommonAPI {
         Assert.assertEquals(expectedSearchedProductsHeader,actualSearchProductsHeader);
         log.info("Well done my G!! Search products header validation success");
     }
-
-//  @Test
-      public void productsCategorySideButtons7(){
-
+  @Test (groups = {}, priority = 7, enabled = false)
+  public void productsCategorySideButtons7(){
     HomePage homePage = new HomePage(getDriver());
     ProductsPage productsPage = new ProductsPage(getDriver());
 
     homePage.clickOnProductsButton(); //navigate to products page
 
-    //click men on side filter then click tshirts
-    productsPage.clickOnMenButton(getDriver());
+    productsPage.clickOnAdButton(getDriver()); //click on Ad
     waitFor(1);
+
+    //click men on side filter then click tshirts
     productsPage.clickOnMenButton(getDriver());
     waitFor(1);
     productsPage.clickOnTshirtButton(getDriver());
     waitFor(1);
-
 
     //validate page header
     String expectedTshirtsProductsHeader = "MEN - TSHIRTS PRODUCTS";
@@ -56,17 +52,16 @@ public class ProductsTest extends CommonAPI {
     Assert.assertEquals(actualTshirtsProductsHeader,expectedTshirtsProductsHeader);
     log.info("Well done my G!! Tshirts prodcuts header validation success");
     }
-
-//    @Test
+    @Test (groups = {}, priority = 8, enabled = false)
     public void productsBrandSideButtons8() {
-
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage = new ProductsPage(getDriver());
 
         homePage.clickOnProductsButton(); //navigate to products page
 
-        productsPage.clickOnBabyhugButton(getDriver());
+        productsPage.clickOnAdButton(getDriver());//click on Ad
         waitFor(1);
+
         productsPage.scrollToViewStylishDressImage(getDriver());
         productsPage.clickOnBabyhugButton(getDriver());
         waitFor(1);
@@ -77,19 +72,17 @@ public class ProductsTest extends CommonAPI {
         Assert.assertEquals(actualBabyhugProductsHeader,expectedBabyhugProductsHeader);
         log.info("Well done my G!! Babyhug title validation success");
     }
-
-//    @Test
+    @Test (groups = {}, priority = 9, enabled = false)
     public void viewProductButton9(){
-
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage = new ProductsPage(getDriver());
 
         homePage.clickOnProductsButton(); //navigate to products page
 
-        productsPage.clickOnBabyhugButton(getDriver());
+        productsPage.clickOnAdButton(getDriver());//click on Ad
         waitFor(1);
-        productsPage.scrollToViewMaxiDressImage(getDriver());
 
+        productsPage.scrollToViewMaxiDressImage(getDriver());
         productsPage.clickOnViewProductMaxiDressButton(getDriver());
 
         //validate page header
@@ -98,21 +91,21 @@ public class ProductsTest extends CommonAPI {
         Assert.assertEquals(actualMaxiDressHeader,expectedMaxiDressHeader);
         log.info("Well done my G!! Maxi Dress title validation success");
     }
-    @Test
+    @Test (groups = {}, priority = 10, enabled = false)
     public void writeReivewMaxiDress10() {
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage = new ProductsPage(getDriver());
 
         homePage.clickOnProductsButton(); //navigate to products page
 
-        productsPage.clickOnBabyhugButton(getDriver());
+        productsPage.clickOnAdButton(getDriver());//click on Ad
         waitFor(1);
+
         productsPage.scrollToViewMaxiDressImage(getDriver());
         productsPage.clickOnViewProductMaxiDressButton(getDriver());
         waitFor(1);
+
         productsPage.enterReviewMaxiDress(getDriver());
-
+        log.info("Well done my G! Review submition success!!");
     }
-
 }
-//byte - short - char - int - long - float - double

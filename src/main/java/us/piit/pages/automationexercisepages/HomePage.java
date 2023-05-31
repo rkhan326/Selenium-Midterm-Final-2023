@@ -46,53 +46,48 @@ public class HomePage extends CommonAPI {
     WebElement $accountCreatedHeader;
 
     //click on button methods
-    public void clickOnHomeButton() {
-        clickOn($homeButton);
-        log.info("Well Done my guy! Click click on 'Home button' success!!");
-    }
     public void clickOnProductsButton() {
         clickOn($productsButton);
         log.info("Well Done my guy! Click click on 'Products button' success!!");
-
     }
     public void clickOnCartButton() {
         clickOn($cartButton);
-        log.info("Well Done my guy! Click click on 'Cart button' success!!");
+        log.info(wellDoneGuy + "Click click on 'Cart button' success!!");
     }
     public void clickOnSignupLoginButton() {
         clickOn($signupLoginButton);
-        log.info("Well Done my guy! Click click on 'Signup/ login button' success!!");
+        log.info(wellDoneGuy + "Click click on 'Signup/ login button' success!!");
     }
     public void clickOnTestCasesButton() {
         clickOn($testCasesButton);
-        log.info("Well Done my guy! Click click on 'Test cases button' success!!");
+        log.info(wellDoneGuy + "Click click on 'Test cases button' success!!");
     }
     public void clickOnAPITestingButton() {
         clickOn($aPITestingButton);
-        log.info("Well Done my guy! Click click on 'API testing button' success!!");
+        log.info(wellDoneGuy + "Click click on 'API testing button' success!!");
     }
     public void clickOnVideoTutorialsButton() {
         clickOn($videoTutorialsButton);
-        log.info("Well Done my guy! Click click on 'Video tutorials button' success!!");
+        log.info(wellDoneGuy + "Click click on 'Video tutorials button' success!!");
     }
     public void clickOnContactUsButton() {
         clickOn($contactUsButton);
-        log.info("Well Done my guy! Click click on 'Contact us button' success!!");
+        log.info(wellDoneGuy + "Click click on 'Contact us button' success!!");
     }
     //get header text methods
     public String getCategoryHeaderText() {
         String text = getElementText($loginPageCategoryHeader);
-        log.info("Well Done my boy! 'Category header' text acquisition success!!");
+        log.info(wellDoneBoy + "'Category header' text acquisition success!!");
         return text;
     }
     public String getAccountCreatedHeaderText() {
         String text = getElementText($accountCreatedHeader);
-        log.info("Well Done my boy! 'Account created header' text acquisition success!!");
+        log.info(wellDoneBoy + "'Account created header' text acquisition success!!");
         return text;
     }
     public String getAccountDeletedHeaderText() {
         String text = getElementText($accountDeletedHeader);
-        log.info("Well Done my boy! 'Account deleted header' text acquistion success!!");
+        log.info(wellDoneBoy + "'Account deleted header' text acquistion success!!");
         return text;
     }
 }
