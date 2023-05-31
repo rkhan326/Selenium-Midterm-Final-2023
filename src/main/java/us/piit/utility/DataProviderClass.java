@@ -47,13 +47,7 @@ public class DataProviderClass{
         return arrObj;
     }
 
-    @DataProvider
-    public Object[][] excelDPScalledupitBlogTest() throws IOException {
-        String path = currentDir + File.separator + "data" + File.separator + "reviewtestingoussama.xlsx";
-        ExcelReader excelReader = new ExcelReader(path);
-        Object[][] arrObj = excelReader.getExcelData(path,"Sheet1");
-        return arrObj;
-    }
+  
 
     //    @DataProvider
 //    public Object[][] dataForOussamaReviewTest(Method name) {
@@ -75,6 +69,16 @@ public class DataProviderClass{
 //        }
 //        return data;
 //    }
+
+
+
+    @DataProvider
+    public Object[][] excelDPScalledupitBlogTest() throws IOException {
+        String path = currentDir + File.separator + "data" + File.separator + "ScalledupitDataProvider.xlsx";
+        ExcelReader excelReader = new ExcelReader(path);
+        Object[][] arrObj = excelReader.getExcelData(path,"Sheet1");
+        return arrObj;
+    }
 
 
 }
