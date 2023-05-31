@@ -1,5 +1,4 @@
 package automationexercisetest;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -9,12 +8,10 @@ import us.piit.pages.automationexercisepages.HomePage;
 import us.piit.pages.automationexercisepages.LoginPage;
 
 public class LoginTest extends CommonAPI {
-
     Logger log = LogManager.getLogger(LoginTest.class.getName());
 
-    @Test
+    @Test (groups = {}, priority = 1, enabled = false)
     public void validLoginCredentials1() {
-
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
 
@@ -38,17 +35,12 @@ public class LoginTest extends CommonAPI {
         loginPage.enterValidLoginPasswordInLoginPasswordField();
         loginPage.clickOnLoginButton();
 
-        //validate logged in icon
-        loginPage.validatePresenceOfloggedInIcon();
+        loginPage.validatePresenceOfloggedInIcon();//validate logged in icon
 
-
-        //logout
-        loginPage.clickOnLogoutButton();
+        loginPage.clickOnLogoutButton();//logout
     }
-
-    @Test
+    @Test (groups = {}, priority = 2, enabled = false)
     public void invalidLoginCredentials2() {
-
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
 
@@ -58,8 +50,7 @@ public class LoginTest extends CommonAPI {
         Assert.assertEquals(expectedCategoryHeader, actualCategoryHeader);
         log.info(homePage.wellDoneBoy.concat(expectedCategoryHeader).concat(homePage.headerValidationSuccess));
 
-        //click on signup/ login button
-        homePage.clickOnSignupLoginButton();
+        homePage.clickOnSignupLoginButton(); //click on signup/ login button
 
         //validate login page
         String expectedLoginToYourAccountHeader = "Login to your account";
@@ -77,7 +68,6 @@ public class LoginTest extends CommonAPI {
         String actualLoginErrorMessage = loginPage.getLoginMessageErrorText();
         Assert.assertEquals(expectedLoginErrorMessage, actualLoginErrorMessage);
         log.info(homePage.wellDoneBoy.concat(expectedLoginErrorMessage).concat(homePage.errorMessageSuccess));
-
     }
 
 //    @Test

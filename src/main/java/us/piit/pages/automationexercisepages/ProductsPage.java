@@ -10,6 +10,7 @@ import us.piit.base.CommonAPI;
 
 public class ProductsPage extends CommonAPI {
 
+    String nameDB; String emailDB; String reviewDB;
     Logger log = LogManager.getLogger(ProductsPage.class.getName());
     public ProductsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -83,6 +84,11 @@ public class ProductsPage extends CommonAPI {
         clickWithActions(driver, $babyHugButton);
         log.info("Well done my guy! Click click on 'Babyhug button' success!!");
     }
+    public void clickOnAdButton(WebDriver driver) {
+        clickWithActions(driver, $babyHugButton);
+        log.info("Well done my guy! Click click on 'Ad button' success!!");
+    }
+
     public void clickOnViewProductMaxiDressButton(WebDriver driver) {
         clickWithActions(driver,$viewProductMaxiDressButton);
         log.info("Well done ma guy! Click click on 'View product Maxi dress' success!!");

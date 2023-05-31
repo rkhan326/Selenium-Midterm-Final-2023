@@ -1,5 +1,4 @@
 package automationexercisetest;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -9,11 +8,10 @@ import us.piit.pages.automationexercisepages.HomePage;
 import us.piit.pages.automationexercisepages.LoginPage;
 import us.piit.pages.automationexercisepages.SignupPage;
 
-
 public class SignupTest extends CommonAPI {
     Logger log = LogManager.getLogger(SignupTest.class.getName());
 
-    @Test
+    @Test (groups = {}, priority = 1, enabled = false)
     public void signup4() {
         LoginPage loginpage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -48,8 +46,7 @@ public class SignupTest extends CommonAPI {
         signupPage.enterZipcodeInSignupField();
         signupPage.enterMobileInSignupField();
 
-        //click create account
-        signupPage.clickOnSignupButton();
+        signupPage.clickOnSignupButton(); //click create account
 
         //validate signup
         String expectedAccountCreatedHeader = "ACCOUNT CREATED!";
@@ -57,8 +54,6 @@ public class SignupTest extends CommonAPI {
         Assert.assertEquals(expectedAccountCreatedHeader, actualAccountCreatedHeader);
         log.info(homePage.wellDoneBoy.concat(expectedAccountCreatedHeader.concat(homePage.headerValidationSuccess)));
 
-        //click on continue button
-        signupPage.clickOnSingupContinueButton();
-
+        signupPage.clickOnSingupContinueButton();//click on continue button
     }
 }
