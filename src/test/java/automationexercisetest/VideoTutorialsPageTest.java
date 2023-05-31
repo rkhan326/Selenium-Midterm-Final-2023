@@ -10,7 +10,7 @@ import us.piit.pages.automationexercisepages.VideoTutorialsPage;
 public class VideoTutorialsPageTest extends CommonAPI {
     Logger log = LogManager.getLogger(VideoTutorialsPage.class.getName());
 
-    @Test (groups = {}, priority = 30, enabled = false)
+    @Test
     public void videoTutorialsPageButton30() {
         HomePage homePage = new HomePage(getDriver());
         VideoTutorialsPage videoTutorialsPage = new VideoTutorialsPage(getDriver());

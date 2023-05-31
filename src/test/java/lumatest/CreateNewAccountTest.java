@@ -18,7 +18,7 @@ public class CreateNewAccountTest extends CommonAPI {
     String lastName = fakeData.name().lastName();
 
 
-    @Test(enabled=false)
+    @Test
     public void RegisterWithAnExistingCredentials() throws InterruptedException {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         homePage.clickOnCreateanAccountButton();
@@ -31,17 +31,17 @@ public class CreateNewAccountTest extends CommonAPI {
         //String LastName  = ConnectDB.getTableColumnData("select * from cred","lastName").get(0);
         createnewAccountPageMagento.typeLastName("lastName");
         //String email  = ConnectDB.getTableColumnData("select * from cred","email").get(0);
-        createnewAccountPageMagento.typeEmailAddress("emailAdress");
+        createnewAccountPageMagento.typeEmailAddress("gsbappy2@gmail.com");
         //String password  = ConnectDB.getTableColumnData("select * from cred","password").get(0);
-        createnewAccountPageMagento.typePassword("abu123");
-        createnewAccountPageMagento.typeConfirmPassword("abu123");
+        createnewAccountPageMagento.typePassword("password$1234");
+        createnewAccountPageMagento.typeConfirmPassword("password$1234");
         createnewAccountPageMagento.clickOnCreateanAccountButton();
         String error = createnewAccountPageMagento.getErrorMessage1();
         Assert.assertEquals(error, "There is already an account with this email address. If you are sure that it is your email address, click here to get your password and access your account.");
         LOG.info("Failing Creation of an account success");
     }
 
-    @Test(enabled=false)
+    @Test
     public void InvalidCredentials() {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         homePage.clickOnCreateanAccountButton();
@@ -54,16 +54,16 @@ public class CreateNewAccountTest extends CommonAPI {
         //String LastName  = ConnectDB.getTableColumnData("select * from cred","lastName").get(0);
         createnewAccountPageMagento.typeLastName(lastName);
         //String invalidEmailAdress  = ConnectDB.getTableColumnData("select * from cred","invalidEmailAdress").get(0);
-        createnewAccountPageMagento.typeEmailAddress(emailAddress);
+        createnewAccountPageMagento.typeEmailAddress("gsbappy2@gmail.");
        // String password  = ConnectDB.getTableColumnData("select * from cred","password").get(0);
-        createnewAccountPageMagento.typePassword("Aarshi2019@");
-        createnewAccountPageMagento.typeConfirmPassword("Aarshi2019@");
+        createnewAccountPageMagento.typePassword("password$1234");
+        createnewAccountPageMagento.typeConfirmPassword("password$1234");
         createnewAccountPageMagento.clickOnCreateanAccountButton();
         String error = createnewAccountPageMagento.getErrorMessage();
         Assert.assertEquals(error, "Please enter a valid email address (Ex: johndoe@domain.com).");
         LOG.info("Failing Creation of an account success");
     }
-    @Test(enabled=true)
+    @Test
     public void RegisterNewAcount() throws InterruptedException {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         homePage.clickOnCreateanAccountButton();

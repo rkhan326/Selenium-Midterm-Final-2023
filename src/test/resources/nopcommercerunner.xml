@@ -31,21 +31,21 @@
         <classes>
 
 
-            <class name="nopcommercetest.LoginTest"></class>
-            <class name="nopcommercetest.SearchTest"></class>
-            <class name="nopcommercetest.ShoppingCartTest"></class>
-            <class name="nopcommercetest.ComputerMenuTest"></class>
-            <class name="nopcommercetest.ContactUsTest"></class>
-            <class name="nopcommercetest.WishlistTest"></class>
-            <class name="nopcommercetest.ElectronicMenuTest"></class>
-            <class name="nopcommercetest.ShowDollarOrEuroTest"></class>
-            <class name="nopcommercetest.CommunityPollTest"></class>
-            <class name="nopcommercetest.NewsletterTest"></class>
-            <class name="nopcommercetest.AddressMenuTest"></class>
-            <class name="nopcommercetest.GiftCardTest"></class>
-            <class name="nopcommercetest.NewsFeatureTest"></class>
-            <class name="nopcommercetest.ApparelMenuTest"></class>
-            <class name="nopcommercetest.RegisterTest"></class>
+<!--            <class name="nopcommercetest.RegisterTest"></class>-->
+<!--            <class name="nopcommercetest.LoginTest"></class>-->
+<!--            <class name="nopcommercetest.SearchTest"></class>-->
+<!--            <class name="nopcommercetest.ShoppingCartTest"></class>-->
+<!--            <class name="nopcommercetest.ComputerMenuTest"></class>-->
+<!--            <class name="nopcommercetest.ContactUsTest"></class>-->
+<!--            <class name="nopcommercetest.WishlistTest"></class>-->
+<!--            <class name="nopcommercetest.ElectronicMenuTest"></class>-->
+<!--            <class name="nopcommercetest.ShowDollarOrEuroTest"></class>-->
+<!--            <class name="nopcommercetest.CommunityPollTest"></class>-->
+<!--            <class name="nopcommercetest.NewsletterTest"></class>-->
+<!--            <class name="nopcommercetest.AddressMenuTest"></class>-->
+<!--            <class name="nopcommercetest.GiftCardTest"></class>-->
+<!--            <class name="nopcommercetest.NewsFeatureTest"></class>-->
+
         </classes>
     </test>
 

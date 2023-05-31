@@ -22,6 +22,14 @@ public class HomePage extends CommonAPI {
     //Buttons
     @FindBy(css = "a[href='/']")
     WebElement $homeButton;
+    @FindBy(css = ".right.control-carousel.hidden-xs")
+    WebElement $nextRightButton;
+    @FindBy(css = ".left.control-carousel.hidden-xs")
+    WebElement $nextLeftButton;
+    @FindBy(css = ".right.recommended-item-control")
+    WebElement $nextRightRecommendedItemsButton;
+    @FindBy(css = ".left.recommended-item-control")
+    WebElement $nextLeftRecommededItemsButton;
     @FindBy(css = "a[href='/products']")
     WebElement $productsButton;
     @FindBy(css = "a[href='/view_cart']")
@@ -44,7 +52,8 @@ public class HomePage extends CommonAPI {
     WebElement $accountDeletedHeader;
     @FindBy(xpath = "//b[text()='Account Created!']")
     WebElement $accountCreatedHeader;
-
+    @FindBy(xpath = "//h2[text()='Subscription']")
+    WebElement $subscriptionHeader;
     //click on button methods
     public void clickOnProductsButton() {
         clickOn($productsButton);
@@ -74,6 +83,23 @@ public class HomePage extends CommonAPI {
         clickOn($contactUsButton);
         log.info(wellDoneGuy + "Click click on 'Contact us button' success!!");
     }
+
+    public void clickOnNextRightButton() {
+        clickOn($nextRightButton);
+        log.info(wellDoneGuy + "Click click on 'next right button' success!!");
+    }
+    public void clickOnNextLeftRecommendedItemsButton() {
+        clickOn($nextLeftRecommededItemsButton);
+        log.info(wellDoneGuy + "Click click on 'next left button' success!!");
+    }
+    public void clickOnNextRightRecommendedItemsButton() {
+        clickOn($nextRightRecommendedItemsButton);
+        log.info(wellDoneGuy + "Click click on 'next right button' success!!");
+    }
+    public void clickOnNextLeftButton() {
+        clickOn($nextLeftButton);
+        log.info(wellDoneGuy + "Click click on 'next left button' success!!");
+    }
     //get header text methods
     public String getCategoryHeaderText() {
         String text = getElementText($loginPageCategoryHeader);
@@ -89,5 +115,9 @@ public class HomePage extends CommonAPI {
         String text = getElementText($accountDeletedHeader);
         log.info(wellDoneBoy + "'Account deleted header' text acquistion success!!");
         return text;
+    }
+    public void scrollToViewRecommendedItems(WebDriver driver) {
+        scrollToView(driver, $subscriptionHeader);
+        log.info("Well done my boy! 'Maxi Dress Image' scroll to view success!!");
     }
 }

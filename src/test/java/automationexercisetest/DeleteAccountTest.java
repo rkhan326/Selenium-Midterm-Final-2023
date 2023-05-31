@@ -11,8 +11,8 @@ import us.piit.pages.automationexercisepages.ProductsPage;
 public class DeleteAccountTest extends CommonAPI {
     Logger log = LogManager.getLogger(LogoutTest.class.getName());
 
-    @Test (groups = {}, priority = 5, enabled = false)
-    public void deleteAccount5() {
+    @Test
+    public void deleteAccount18() {
         LoginPage loginpage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage = new ProductsPage(getDriver());

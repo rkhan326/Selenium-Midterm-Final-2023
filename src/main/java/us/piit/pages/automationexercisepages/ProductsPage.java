@@ -10,7 +10,6 @@ import us.piit.base.CommonAPI;
 
 public class ProductsPage extends CommonAPI {
 
-    String nameDB; String emailDB; String reviewDB;
     Logger log = LogManager.getLogger(ProductsPage.class.getName());
     public ProductsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);

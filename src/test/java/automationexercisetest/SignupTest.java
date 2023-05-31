@@ -11,7 +11,7 @@ import us.piit.pages.automationexercisepages.SignupPage;
 public class SignupTest extends CommonAPI {
     Logger log = LogManager.getLogger(SignupTest.class.getName());
 
-    @Test (groups = {}, priority = 1, enabled = false)
+    @Test
     public void signup4() {
         LoginPage loginpage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());

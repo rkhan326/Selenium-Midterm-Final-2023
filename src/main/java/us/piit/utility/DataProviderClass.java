@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import static us.piit.utility.Utility.currentDir;
+
+
 public class DataProviderClass{
 
     public static String currentDir = System.getProperty("user.dir");
@@ -50,7 +53,6 @@ public class DataProviderClass{
         return arrObj;
     }
 
-  
 
     //    @DataProvider
 //    public Object[][] dataForOussamaReviewTest(Method name) {

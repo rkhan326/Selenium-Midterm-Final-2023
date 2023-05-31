@@ -18,7 +18,7 @@ public class SignInTest extends CommonAPI {
 
     Logger LOG = LogManager.getLogger(SignInTest.class.getName());
     WebDriver driver;
-    @Test (enabled = false)
+    @Test
     public void validTitle() throws InterruptedException {
 
 
@@ -34,14 +34,14 @@ public class SignInTest extends CommonAPI {
         System.out.println("close success");
 
     }
-    @Test(enabled = false)
+    @Test
     public void invalidTitle() throws InterruptedException {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
 
         driver.get("https://magento.softwaretestingboard.com/");
-        String expectedTitle = "Home";
+        String expectedTitle = "";
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle, expectedTitle);
         System.out.println("Title success");
@@ -50,7 +50,7 @@ public class SignInTest extends CommonAPI {
 
     }
 
-    @Test(enabled = true)
+    @Test
     public void validCredentials() throws InterruptedException {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());
@@ -69,7 +69,7 @@ public class SignInTest extends CommonAPI {
         LOG.info("Signin success");
     }
 
-    @Test(dataProviderClass = DataProviderClass.class, dataProvider = "excelDPLumaSigninTest", enabled = false)
+    @Test(dataProviderClass = DataProviderClass.class, dataProvider = "excelDPLumaSigninTest")
     public void validCredentialsUsingDataProvider(String username, String password) throws InterruptedException {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());
@@ -88,23 +88,22 @@ public class SignInTest extends CommonAPI {
         homePage.getHeaderText();
         LOG.info("Signin success");
     }
-    @Test(enabled = false)
+    @Test
     public void invalidEmailAdress() throws InterruptedException {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());
         homePage.clickOnSigninButton1();
         String title = getCurrentTitle();
-        Assert.assertEquals(title, "Customer Login ");
+        Assert.assertEquals(title, "Customer Login");
         LOG.info("login title page validation success");
-        //String invalidEmailAdress = ConnectDB.getTableColumnData("select * from cred","invalidEmailAdress").get(0);
-        signinPageMagento.typeInvalidEmailAddress("gsbappy@yahoo");
+        signinPageMagento.typeInvalidEmailAddress("gsbappy2@gmail");
         signinPageMagento.typePassword("password");
         signinPageMagento.clickOnSigninButton2();
         String error = signinPageMagento.getErrorMessage();
         Assert.assertEquals(error, "Please enter a valid email address (Ex: johndoe@domain.com).");
         LOG.info("error message validation success");
     }
-    @Test(enabled = false)
+    @Test
     public void invalidPassword() throws InterruptedException {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());

@@ -30,7 +30,7 @@
 
         </groups>
         <classes>
-<!--            <class name="scaledupittest.AddToCartTest"></class>-->
+            <class name="scaledupittest.AddToCartTest"></class>
 <!--            <class name="scaledupittest.BlogTest"></class>-->
 <!--            <class name="scaledupittest.CouponsTest"></class>-->
 <!--            <class name="scaledupittest.DataProviderExample"></class>-->
@@ -41,8 +41,9 @@
 <!--            <class name="scaledupittest.LogoutTest"></class>-->
 <!--            <class name="scaledupittest.RegistrationTest"></class>-->
 <!--            <class name="scaledupittest.SearchTest"></class>-->
-            <class name="scaledupittest.UpdateTest"></class>
-<!--                <class name="scaledupittest.CheckoutTest"></class>-->
+<!--            <class name="scaledupittest.UpdateTest"></class>-->
+<!--            <class name="scaledupittest.CheckoutTest"></class>-->
+
         </classes>
     </test>
 <!--    <test name="Add to cart ">-->

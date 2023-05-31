@@ -9,7 +9,7 @@ import us.piit.pages.automationexercisepages.*;
 public class TestCasesPageTest extends CommonAPI {
     Logger log = LogManager.getLogger(VideoTutorialsPage.class.getName());
 
-    @Test (groups = {}, priority = 24, enabled = true)
+    @Test
     public void testCasesPageButton24() {
 
         HomePage homePage = new HomePage(getDriver());
@@ -28,7 +28,7 @@ public class TestCasesPageTest extends CommonAPI {
         Assert.assertEquals(actualTestCasesPageHeader, expectedTestCasesPageHeader);
         log.info(homePage.wellDoneBoy.concat(expectedTestCasesPageHeader).concat(homePage.headerValidationSuccess));
     }
-    @Test (groups = {}, priority = 25, enabled = true)
+    @Test
     public void testCasesDownloadLink25() {
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage = new ProductsPage(getDriver());

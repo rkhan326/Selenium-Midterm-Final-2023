@@ -14,8 +14,8 @@ public class AddToCartTest extends CommonAPI {
 
     Logger log = LogManager.getLogger(AddToCartTest.class.getName());
 
-    @Test (enabled = true)
-    public void addToCartFromFeaturedBrandsBaseMenu() {
+    @Test (enabled = false)
+    public void addToCartFromSuperDealsBaseMenu() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
@@ -39,52 +39,128 @@ public class AddToCartTest extends CommonAPI {
 
         //assert that we see the goto cart button which is only visible after item has been added to cart
         Assert.assertTrue(singleProductPage.checkPresenceOfTabledAir3GoToCartButton());
+
+
+        //assert that the cart count equals one.
+        Assert.assertTrue(homePage.checkPresenceOfCartCountEqualsOne());
+
     }
 
-//    homePage.hoverOverFeaturedBrandsAndClickOnIt(getDriver());
-//
-//    //String featuredBrandsExpectedTitle = "Smart Phones & Tablets – Welcome to Worldwide Electronics Store";
-//    String featuredBrandsActualTitle = getCurrentTitle();
-//        System.out.println(featuredBrandsActualTitle);
-
-    //Assert.assertEquals(smartPhonesAndTabletsExpectedTitle, smartPhonesAndTabletsActualTitle);
     @Test (enabled = false)
-    public void addToCartFromSearchBar(){
+    public void addToCartFromFeaturedBrandsBaseMenu() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
-
+        SingleProductPage singleProductPage = new SingleProductPage(getDriver());
 
         //Assert we are on the correct website
         String expectedTitle = "Welcome to Worldwide Electronics Store";
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
 
+        //hover over and click on super deals button and click on it.
+        homePage.hoverOverFeaturedBrandsAndClickOnIt(getDriver());
+
+        //assert that we are on the smart phones and tables page
+        String featuredBrandsExpectedTitle = "Accessories – Welcome to Worldwide Electronics Store";
+        String accessoriesActualTitle = getCurrentTitle();
+        Assert.assertEquals(featuredBrandsExpectedTitle, accessoriesActualTitle);
+
+        //click on the first item and add it to cart
+        singleProductPage.clickOnAddToCartForMacCharger();
+
+        //assert that we see the goto cart button which is only visible after item has been added to cart
+        Assert.assertTrue(singleProductPage.checkPresenceOfMacChargerGoToCartButton());
+
+
+        //assert that the cart count equals one.
+        Assert.assertTrue(homePage.checkPresenceOfCartCountEqualsOne());
     }
+
     @Test (enabled = false)
-    public void addToCartFromDepartments(){
+    public void addToCartFromTrendingStylesBaseMenu() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
-
+        SingleProductPage singleProductPage = new SingleProductPage(getDriver());
 
         //Assert we are on the correct website
         String expectedTitle = "Welcome to Worldwide Electronics Store";
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
 
+        //hover over and click on super deals button and click on it.
+        homePage.hoverOverTrendingStylesAndClickOnIt(getDriver());
+
+        //assert that we are on the smart phones and tables page
+        String trendingStylesExpectedTitle = "Gadgets – Welcome to Worldwide Electronics Store";
+        String trendingStylesActualTitle = getCurrentTitle();
+        Assert.assertEquals(trendingStylesExpectedTitle, trendingStylesActualTitle);
+
+        //click on the first item and add it to cart
+        singleProductPage.clickOnAddToCartForGearVirtualReality();
+
+        //assert that we see the goto cart button which is only visible after item has been added to cart
+        Assert.assertTrue(singleProductPage.checkPresenceOfGearVirtualRealityToCartButton());
+
+
+        //assert that the cart count equals one.
+        Assert.assertTrue(homePage.checkPresenceOfCartCountEqualsOne());
     }
+
     @Test (enabled = false)
-    public void addToCartFromFeaturedItems(){
+    public void addToCartFromSearchBarInAllCategories(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
-
+        SingleProductPage singleProductPage = new SingleProductPage(getDriver());
 
         //Assert we are on the correct website
         String expectedTitle = "Welcome to Worldwide Electronics Store";
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
+
+        //search for mac charger in the search bar
+        homePage.searchForMacChargerUsingSearchBar("mac charger");
+        singleProductPage.scrollToMacChargerAddToCartButton(getDriver());
+
+        //Assert that the mac charger add to cart button is vidible
+        Assert.assertTrue(singleProductPage.checkPresenceOfMacChargerAddToCartButton());
+
+        //click on mac charger add to cart button
+        singleProductPage.clickOnAddToCartForMacCharger();
+
+        //assert that we see the goto cart button which is only visible after item has been added to cart
+        Assert.assertTrue(singleProductPage.checkPresenceOfMacChargerGoToCartButton());
+
+        //assert that the cart count equals one.
+        Assert.assertTrue(homePage.checkPresenceOfCartCountEqualsOne());
+
+
+    }
+
+    @Test (enabled = false)
+    public void addToCartFromHomepageFeaturedItems(){
+        LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        MyAccountPage myAccountPage = new MyAccountPage(getDriver());
+        SingleProductPage singleProductPage = new SingleProductPage(getDriver());
+
+        //Assert we are on the correct website
+        String expectedTitle = "Welcome to Worldwide Electronics Store";
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+
+
+        //scroll to and add the camera to cart from homepage
+        homePage.scrollToCameraC430WAddToCartButton(getDriver());
+        homePage.clickOnAddToCartForCameraC430WButton();
+
+        //assert that we see the goto cart button which is only visible after item has been added to cart
+        Assert.assertTrue(homePage.checkPresenceOfCameraC430WViewCartButton());
+
+        //assert that the cart count equals one.
+        Assert.assertTrue(homePage.checkPresenceOfCartCountEqualsOne());
 
     }
 }

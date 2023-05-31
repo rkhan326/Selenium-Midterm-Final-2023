@@ -14,7 +14,7 @@ public class CartPage extends CommonAPI {
     public CartPage(WebDriver driver) {PageFactory.initElements(driver, this);}
 
     @FindBy(xpath = "//h2[text()='Subscription']")
-    WebElement $subscribtionText;
+    WebElement $subscriptionText;
     @FindBy(xpath = "//u[text()='View Cart']")
     public WebElement $maxiDressViewCartButton;
     @FindBy(css = ".btn.btn-default.check_out")
@@ -32,8 +32,8 @@ public class CartPage extends CommonAPI {
     public WebElement $payAndConfirmButton;
     @FindBy(css = ".heading")
     public WebElement $addressDetailsText;
-    @FindBy(css = ".heading")
-    public WebElement $paymentText;
+    @FindBy(css = ".ns-klfer-e-7")
+    public WebElement $adButton;
 
     public void clickOnMaxiDressViewCartButton(WebDriver driver) {
         clickWithActions(driver,$maxiDressViewCartButton);
@@ -71,12 +71,12 @@ public class CartPage extends CommonAPI {
         log.info("Well done my boy! 'Address Details' text acquisition success!!");
         return text;
     }
-    public void scrollToViewSubscibtionText(WebDriver driver){
-        scrollToView(driver,$subscribtionText);
-        log.info("Well done my guy! View 'Subsbcription Text' success!!");
+    public void scrollToViewSubscriptionText(WebDriver driver){
+        scrollToView(driver,$subscriptionText);
+        log.info("Well done my guy! View 'Subscription Text' success!!");
     }
     public void clickOnAdButton2(WebDriver driver) {
-        clickWithActions(driver, $payAndConfirmButton);
+        clickWithActions(driver, $adButton);
         log.info("Well done my guy! Click click on 'Ad button' success!!");
     }
 }
