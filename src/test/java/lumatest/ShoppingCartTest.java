@@ -7,9 +7,10 @@ import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.lumapages.*;
 
-public class CheckOutShoppingCartTest extends CommonAPI {
 
-    Logger LOG = LogManager.getLogger(CheckOutShoppingCartTest.class.getName());
+public class ShoppingCartTest extends CommonAPI {
+
+    Logger LOG = LogManager.getLogger(ShoppingCartTest.class.getName());
 
 
     @Test
@@ -127,7 +128,33 @@ public class CheckOutShoppingCartTest extends CommonAPI {
         Assert.assertEquals(confirmation, "Thank you for your purchase!");
     }
 
+    @Test
+    public void deleteItemsInCart() throws InterruptedException {
+        BasePage base = new BasePage(getDriver());
+        ShoppingCartPageMagento cartPage = new ShoppingCartPageMagento(getDriver());
+        FitnessEquipmentMagentoPage fitnessEquipmentPage =new FitnessEquipmentMagentoPage(getDriver());
 
+        base.clickOnFitnessEquipment(getDriver());
+        String fitnessEquipmentPageTitle = getCurrentTitle();
+        Assert.assertEquals(fitnessEquipmentPageTitle, "Fitness Equipment - Gear");
+        LOG.info("Fitness Equipment page validation success");
+
+        fitnessEquipmentPage.addSpriteFoamRollerToCart(getDriver());
+        int totalItemsInCart = base.getTotalItemsInCart(getDriver());
+        Assert.assertEquals(totalItemsInCart, 1);
+        LOG.info("Foam Roller added to cart");
+
+        base.clickOnCartIcon();
+        base.clickOnViewEditCart();
+        String cartPageTitle = getCurrentTitle();
+        Assert.assertEquals(cartPageTitle,"Shopping Cart");
+        LOG.info("Landed on Cart Page");
+
+        cartPage.ClickOnRemoveButton();
+        String cartEmpty = cartPage.cartIsEmpty();
+        Assert.assertEquals(cartEmpty, "You have no items in your shopping cart.");
+        LOG.info("Successfully deleted item/items from cart");
+    }
 
 
 

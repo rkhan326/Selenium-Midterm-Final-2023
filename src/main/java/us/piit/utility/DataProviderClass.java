@@ -8,14 +8,15 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import static us.piit.utility.ExcelReader.currentDir;
-
 public class DataProviderClass{
 
     @DataProvider
     public Object[][] data(Method name) {
         System.out.println("Method " +name+ "is using data provider.");
-        String path = currentDir + File.separator + "data" + File.separator + "ScalledupitExcelData.xlsx";
+
+        String path = ExcelReader.currentDir + File.separator + "data" + File.separator + "scaledupitdata.xlsx";
+
+       
         ExcelReader excelReader = new ExcelReader(path);
         List<String> columnData = new ArrayList<>();
         columnData = excelReader.getEntireColumnData("Data", 1, 0);
@@ -69,6 +70,7 @@ public class DataProviderClass{
 //        }
 //        return data;
 //    }
+
 
 
 

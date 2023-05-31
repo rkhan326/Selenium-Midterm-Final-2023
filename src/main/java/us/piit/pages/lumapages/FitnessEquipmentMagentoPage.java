@@ -1,5 +1,6 @@
 package us.piit.pages.lumapages;
 
+import org.openqa.selenium.interactions.Actions;
 import us.piit.base.CommonAPI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,6 +29,11 @@ public class FitnessEquipmentMagentoPage extends CommonAPI {
     WebElement cartButton;
     @FindBy(xpath = "//span[text()='View and Edit Cart']")
     WebElement viewAndEditCartButton;
+    @FindBy(xpath = "//form[@data-product-sku='24-WG088']")
+    WebElement spriteFoamRollerAddToCart;
+    @FindBy(xpath = "//div[@id='authenticationPopup']/following-sibling::div/following-sibling::div//ol//li/following-sibling::li/following-sibling::li/following-sibling::li")
+    WebElement spriteFoamRoller;
+
 
 
 
@@ -57,5 +63,14 @@ public class FitnessEquipmentMagentoPage extends CommonAPI {
     public void clickOnViewAndEditCart(WebDriver driver){
         clickWithActions(driver, viewAndEditCartButton);
         LOG.info("click on view and edit cart button success");
+    }
+    public void clickOnSpriteFoamRoller(){
+        clickOn(spriteFoamRoller);
+    }
+    public void addSpriteFoamRollerToCart(WebDriver driver){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(spriteFoamRoller).build().perform();
+        clickOn(spriteFoamRollerAddToCart);
+
     }
 }

@@ -32,6 +32,9 @@ public class ShoppingCartPageMagento extends CommonAPI {
     @FindBy(xpath = "(//input[@class='input-text qty'])[1]")
     WebElement quantityField;
 
+    @FindBy(xpath = "//div[@class='cart-empty']//p")
+    WebElement emptyCart;
+
 
 
 
@@ -64,4 +67,6 @@ public class ShoppingCartPageMagento extends CommonAPI {
         clickOn(LUMAButton);
         LOG.info("click LUMA button success");
     }
+    public String cartIsEmpty(){ return getElementText(emptyCart); }
+
 }
