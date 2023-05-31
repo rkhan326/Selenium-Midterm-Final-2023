@@ -1,5 +1,6 @@
 package us.piit.pages.lumapages;
 
+import us.piit.base.CommonAPI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -7,10 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import us.piit.base.CommonAPI;
+
 
 public class BasePage extends CommonAPI {
-    Logger LOG = LogManager.getLogger(CheckOutPageMagento.class.getName());
+    Logger LOG = LogManager.getLogger(BasePage.class.getName());
 
     public BasePage(WebDriver driver){
         PageFactory.initElements(driver, this);

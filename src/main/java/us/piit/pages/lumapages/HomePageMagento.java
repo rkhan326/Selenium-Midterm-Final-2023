@@ -10,7 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import us.piit.base.CommonAPI;
 
 
-
 public class HomePageMagento extends CommonAPI {
     Logger log = LogManager.getLogger(HomePageMagento.class.getName());
     public HomePageMagento(WebDriver driver) {PageFactory.initElements(driver,this);}
@@ -23,7 +22,7 @@ public class HomePageMagento extends CommonAPI {
     WebElement searchButton;
     @FindBy(xpath = "/html/body/div[1]/header/div[1]/div/ul/li[2]/a")
     WebElement signinButton1;
-    @FindBy(xpath = "(//span[text()='Welcome, samia iddir!'])[1]")
+    @FindBy(xpath = "(//span[text()='Welcome, abmgolam sorwar!'])[1]")
     WebElement headerText;
     @FindBy(xpath = "(//li[@class='authorization-link']//following::li/a)[1]")
     WebElement createAccountButton;

@@ -43,17 +43,17 @@ public class SearchfieldTest extends CommonAPI {
         SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());
         homePage.clickOnSigninButton1();
         String title = getCurrentTitle();
-        Assert.assertEquals(title, "Customer Login Magento Commerce - website to practice selenium | demo website for automation testing | selenium practice sites");
+        Assert.assertEquals(title, "Customer Login");
         LOG.info("Sign in title page validation success");
 
         //String email = ConnectDB.getTableColumnData("select * from cred","email").get(0);
-        signinPageMagento.typeEmailAddress("gsbappy@gmail.com");
+        signinPageMagento.typeEmailAddress("gsbappy2@gmail.com");
         //String password = ConnectDB.getTableColumnData("select * from cred","password").get(0);
-        signinPageMagento.typePassword("Aarshi2019@");
+        signinPageMagento.typePassword("password$1234");
         signinPageMagento.clickOnSigninButton2();
         LOG.info("Signin success");
         String title1 = getCurrentTitle();
-        Assert.assertEquals(title1, "Home Page - Customer Login");
+        Assert.assertEquals(title1, "Home Page");
         LOG.info("Sign in title page validation success");
 
         String item = "jacket";

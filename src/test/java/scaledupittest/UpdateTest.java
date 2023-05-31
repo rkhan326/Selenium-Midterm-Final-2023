@@ -14,9 +14,8 @@ import java.util.Properties;
 public class UpdateTest extends CommonAPI {
     Logger log = LogManager.getLogger(SearchTest.class.getName());
 
-    Properties prop = Utility.loadProperties();
 
-   @Test
+   @Test(enabled = true,priority = 0)
     public void updateAccountWithItemNumber() {
 
         UpdatePage update = new UpdatePage(getDriver());
@@ -64,11 +63,9 @@ public class UpdateTest extends CommonAPI {
         String expectedCartCountUpdateItem = "2";
         String actualCartCountUpdateItem = update.getCartCountUpadteHeaderItemText();
         Assert.assertEquals(expectedCartCountUpdateItem, actualCartCountUpdateItem);
-        // update.clickOnCart();
-        waitFor(3);
         log.info("2 item added to cart success");
     }
-    @Test
+    @Test(enabled = true,priority = 1)
     public void updateAccountPrice() {
 
         UpdatePage update = new UpdatePage(getDriver());
@@ -124,6 +121,7 @@ public class UpdateTest extends CommonAPI {
         String actualPriceUpdate = update.getPriceUpdateText();
         Assert.assertEquals(expectedPriceUpdate, actualPriceUpdate);
         log.info("price updated to 765$ success");
+        takeScreenshot("Scalledupit Update Test");
     }
 
 

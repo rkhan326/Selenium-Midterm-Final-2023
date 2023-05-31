@@ -1,6 +1,5 @@
 package us.piit.base;
 
-import com.github.javafaker.Faker;
 import com.relevantcodes.extentreports.LogStatus;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -46,7 +45,7 @@ public class CommonAPI {
 
     String implicitWait = prop.getProperty("implicit.wait","5");
     String windowMaximize = prop.getProperty("browser.maximize","true");
-    String takeScreenshots = prop.getProperty("take.screenshots","false");
+    String takeScreenshots = prop.getProperty("take.screenshots","true");
     WebDriver driver;
 
 
@@ -82,7 +81,6 @@ public class CommonAPI {
         for (String group : result.getMethod().getGroups()) {
             ExtentTestManager.getTest().assignCategory(group);
         }
-
         if (result.getStatus() == 1) {
             ExtentTestManager.getTest().log(LogStatus.PASS, "Test Passed");
         } else if (result.getStatus() == 2) {
@@ -286,7 +284,7 @@ public class CommonAPI {
     public void captureScreenshot() {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(file,new File("screenshots"+File.separator+"screenshot.png"));
+            FileUtils.copyFile(file,new File("screenshots"+File.separator+"ScalledupitBlogTestScreenshot.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

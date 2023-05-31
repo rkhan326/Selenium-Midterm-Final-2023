@@ -16,8 +16,8 @@ public class CouponsTest extends CommonAPI {
 
     Properties prop = Utility.loadProperties();
 
-    @Test
-    public void addCouponsWithValidCoupons() {
+    @Test(enabled = true,priority = 0)
+    public void addCouponsWithInvalidCoupons() {
 
         CouponsPage coupons = new CouponsPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -84,7 +84,7 @@ public class CouponsTest extends CommonAPI {
         waitFor(3);
 
     }
-    @Test
+    @Test(enabled = true,priority = 1)
     public void applyCouponWithoutCoupon() {
 
         CouponsPage coupons = new CouponsPage(getDriver());
@@ -149,6 +149,7 @@ public class CouponsTest extends CommonAPI {
         Assert.assertEquals(expectedNoCouponsErrorMessage, actualNoCouponsErrorMessage);
         log.info("No coupons error message  text validate ");
         waitFor(3);
+        takeScreenshot("scalledupit final coupon test");
 
     }
 

@@ -2,16 +2,12 @@ package us.piit.pages.scaledupitpages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 import us.piit.base.CommonAPI;
-
-import java.util.List;
 
 public class HomePage extends CommonAPI {
     Logger log = LogManager.getLogger(HomePage.class.getName());
@@ -63,9 +59,6 @@ public class HomePage extends CommonAPI {
 
     @FindBy(xpath = "//li[@class='product type-product post-211 status-publish instock product_cat-featured-beside has-post-thumbnail shipping-taxable purchasable product-type-simple']/a[2]")
     WebElement addKidsToCartButton;
-
-    @FindBy(xpath = "//header[@class='page-header']/h1[1]")
-    WebElement menuDropdown;
 
     public void clickOnSignInButton() {
         clickOn(SignInButton);
@@ -166,24 +159,46 @@ public class HomePage extends CommonAPI {
         log.info("click on  search field success");
     }
 
-    public void selectOptionFromDropdown(WebElement dropdown, String option) {
-        Select select = new Select(dropdown);
-        try {
-            select.selectByVisibleText(option);
-        } catch (Exception e) {
-            select.selectByValue(option);
-        }
+
+
+//    public void selectOptionFromDropdown(WebElement dropdown, String option) {
+//        Select select = new Select(dropdown);
+//        try {
+//            select.selectByVisibleText(option);
+//        } catch (Exception e) {
+//            select.selectByValue(option);
+//        }
+
+//    public void selectOptionFromDropdown(WebElement dropdown, String option) {
+//        Select select = new Select(dropdown);
+//        try {
+//            select.selectByVisibleText(option);
+//        } catch (Exception e) {
+//            select.selectByValue(option);
+//         public void selectStoreSetupCountryFromDropdown(String CountryCode,WebDriver driver) {
+//        scrollToElementwJS(storeSetupCountryDropDown,driver);
+//        waitFor(5);
+//        selectOptionFromDropdown(storeSetupCountryDropDown,CountryCode);
+//        log.info("Successfully selected Country/Region");
+//    }
+
 
 //        public String selectOptionFromDropdown(){
 //            String dropDownText = getElementText(menuDropdown);
 //            return dropDownText;
 //        }
-//        public void selectOptionFromDropdown(String item,WebDriver driver) {
+//        public void selectOptionFromDropdownUsing(String item,WebDriver driver) {
 //
-//            selectOptionFromDropdown(item);
+//            selectOptionFromDropdown(menuDropdown,item);
 //            log.info("vha   js  k");
 //        }
 
+//    public void selectStoreSetupCountryFromDropdown(String CountryCode,WebDriver driver) {
+//        scrollToElementwJS(storeSetupCountryDropDown,driver);
+//        waitFor(5);
+//        selectOptionFromDropdown(storeSetupCountryDropDown,CountryCode);
+//        log.info("Successfully selected Country/Region");
+//    }
 
 
 
@@ -195,9 +210,15 @@ public class HomePage extends CommonAPI {
 //            }catch (Exception e){
 //                select.selectByValue(option);
 //            }
-//        }
-            }
-    }
+
+//        public void selectItemFromDropdown(String ItemOrder,WebDriver driver) {
+////            scrollToElementwJS(menuDropdown,driver);
+////            waitFor(5);
+//            selectOptionFromDropdown(menuDropdown,ItemOrder);
+//            log.info("Successfully selected Country/Region");
+        }
+
+
 
 
 

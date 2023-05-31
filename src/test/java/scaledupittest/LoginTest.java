@@ -3,15 +3,11 @@ package scaledupittest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.scaledupitpages.HomePage;
 import us.piit.pages.scaledupitpages.LoginPage;
-import us.piit.utility.ExcelReader;
 import us.piit.utility.Utility;
-import java.util.ArrayList;
-import java.util.List;
 
 
 import java.util.Properties;
@@ -28,7 +24,7 @@ public class LoginTest  extends CommonAPI {
 
 
 
-    @Test(groups = {"smoke,sanity"},enabled = true,priority = 0)
+    @Test(groups = {"sanity","smoke"},enabled = true,priority = 0)
     public void validCred() {
 
         LoginPage loginPage = new LoginPage(getDriver());
@@ -191,8 +187,11 @@ public class LoginTest  extends CommonAPI {
         String actualError4 = loginPage.getForgetPasswordHeadertext();
         Assert.assertEquals(expectedError4, actualError4);
         log.info("error message validate  success");
+        takeScreenshot("My Final Login Test");
     }
-//    @Test(dataProvider = "data")
+
+
+    //    @Test(dataProvider = "data")
 //    public void dataProvideTest(String firstName,String lastName,String age){
 //        System.out.println(firstName+"-------"+lastName+"------"+age);
 //    }

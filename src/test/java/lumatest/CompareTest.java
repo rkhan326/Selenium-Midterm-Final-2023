@@ -10,11 +10,9 @@ import us.piit.pages.lumapages.HomePageMagento;
 import us.piit.pages.lumapages.SigninPageMagento;
 import us.piit.pages.lumapages.WatchPageMagento;
 
-import static java.sql.DriverManager.getDriver;
+public class CompareTest extends CommonAPI {
 
-public class CheckoutTest extends CommonAPI {
-
-    Logger LOG = LogManager.getLogger(CheckoutTest.class.getName());
+    Logger LOG = LogManager.getLogger(CompareTest.class.getName());
 
 @Test
     public void CheckOutCompareList() throws InterruptedException {
