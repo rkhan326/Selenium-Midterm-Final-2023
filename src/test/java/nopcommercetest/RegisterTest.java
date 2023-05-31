@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.nopcommercepages.RegisterPage;
+import us.piit.utility.ConnectDB;
 import us.piit.utility.ExcelReader;
 
 import java.io.File;
@@ -16,13 +17,13 @@ public class RegisterTest extends CommonAPI {
     Faker faker= new Faker();
 
     String currentDir = System.getProperty("user.dir");
-    String path = currentDir+ File.separator+"data"+File.separator+"data.xlsx";
+    String path = currentDir+ File.separator+"data"+File.separator+"nopcommercedata.xlsx";
     ExcelReader excelReader = new ExcelReader(path);
 
-    //    String firstName= "Danish";
-    String firstName =excelReader.getStringDataFromCell("data",5,1);
-//    String lastName= "Mahmud";
-    String lastName =excelReader.getStringDataFromCell("data",6,1);
+      String firstName= ConnectDB.getTableColumnData("select * from Nop_Commerce","first_name").get(0);
+//    String firstName =excelReader.getStringDataFromCell("data",5,1);
+      String lastName=  ConnectDB.getTableColumnData("select * from Nop_Commerce","last_name").get(0);
+//    String lastName =excelReader.getStringDataFromCell("data",6,1);
     String email= faker.internet().emailAddress();
 
 //    String companyName= "PNT";

@@ -7,14 +7,23 @@ import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.nopcommercepages.AddressMenuPage;
 import us.piit.pages.nopcommercepages.LoginPage;
+import us.piit.utility.ExcelReader;
+
+import java.io.File;
 
 public class AddressMenuTest extends CommonAPI {
     Logger log = LogManager.getLogger(ShoppingCartTest.class.getName());
     String validUsername= "hello7@gmail.com";
     String validPassword= "hello1234";
 
-    String firstName= "Danish";
-    String lastName= "Mahmud";
+    String currentDir = System.getProperty("user.dir");
+    String path = currentDir+ File.separator+"data"+File.separator+"nopcommercedata.xlsx";
+    ExcelReader excelReader = new ExcelReader(path);
+
+    //    String firstName= "Danish";
+    String firstName =excelReader.getStringDataFromCell("data",5,1);
+    //    String lastName= "Mahmud";
+    String lastName =excelReader.getStringDataFromCell("data",6,1);
     String email= validUsername;
 
     @Test(priority = 1)

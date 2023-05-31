@@ -18,12 +18,12 @@ public class LoginTest extends CommonAPI {
     RegisterTest registerTest= new RegisterTest();
 //    String validUsername= registerTest.email;
 //    String validPassword= registerTest.password;
-    String validUsername= "hello4@gmail.com";
-    String validPassword= "hello123";
+    String validUsername= "hello11@gmail.com";
+    String validPassword= "hello1234";
 //    String validPassword = Utility.decode(prop.getProperty("nopcommerce.password"));
 //    String validPassword ="mahmud123";
 
-    @Test(priority = 1)
+    @Test(groups = {"sanity"} , priority = 1)
     public void validCredential() {
         LoginPage loginPage=new LoginPage(getDriver());
 
@@ -48,7 +48,7 @@ public class LoginTest extends CommonAPI {
 
     }
 
-    @Test(priority = 2)
+    @Test(groups = {"smoke"}, priority = 2)
     public void invalidPassword() {
         LoginPage loginPage=new LoginPage(getDriver());
 
@@ -74,7 +74,7 @@ public class LoginTest extends CommonAPI {
         log.info("login page not success");
     }
 
-    @Test(priority = 3)
+    @Test(groups = {"regression"},priority = 3)
     public void logOutTest(){
 
         LoginPage loginPage = new LoginPage(getDriver());
@@ -102,7 +102,7 @@ public class LoginTest extends CommonAPI {
 
 
     }
-    @Test(priority = 4)
+    @Test(groups = {"regression","smoke"},priority = 4)
     public void passwordRecovery(){
         HomePage homePage = new HomePage(getDriver());
         LoginPage loginPage = new LoginPage(getDriver());
@@ -121,5 +121,25 @@ public class LoginTest extends CommonAPI {
         String actualText = homePage.recoveryValidationText();
         Assert.assertEquals(expectedText,actualText);
         log.info("Password recovery validation Success");
+    }
+    @Test(groups = {"regression","sanity"},priority = 5)
+    public void passwordRecoveryWithInvalidEmail(){
+        HomePage homePage = new HomePage(getDriver());
+        LoginPage loginPage = new LoginPage(getDriver());
+
+        homePage.clickOnRegisterLink();
+        loginPage.clickOnLoginLink();
+        scrollToCoordinates(0,100);
+        waitFor(1);
+        homePage.clickOnForgotPassword();
+        waitFor(1);
+        homePage.clickOnRecoveryEmailField();
+        homePage.typeEmailOnRecoveryEmailField("wrong email");
+        homePage.clickOnRecoveryButton();
+
+        String expectedText="Wrong email";
+        String actualText = homePage.recoveryEmailErrorMassage();
+        Assert.assertEquals(expectedText,actualText);
+
     }
 }
