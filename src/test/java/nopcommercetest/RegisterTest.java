@@ -79,40 +79,40 @@ public class RegisterTest extends CommonAPI {
         Assert.assertEquals(actualTitle, expectedTitle);
         log.info("Successfully entered nopCommerce website");
     }
-//    @Test(priority = 1)
-//    public void registerWithoutFillMandatoryField() {
-//        RegisterPage registerPage = new RegisterPage(getDriver());
-//        //click on register
-//        registerPage.clickOnRegisterMenu();
-//        waitFor(1);
-//        // click radio button
-//        registerPage.clickOnRadioButton();
-//        //enter FirstName
-//        registerPage.typeFirstName(emptyFirstName);
-//        //enter LastName
-//        registerPage.typeLastName(lastName);
-//        //enter BirthDay
-//        registerPage.selectDateOfBirthDay();
-//        //enter BirthMonth
-//        registerPage.selectDateOfBirthMonth();
-//        //enter BirthYear
-//        registerPage.selectDateOfBirthYear();
-//        //enter Email
-//        registerPage.typeEmail(email);
-//        //enter Company
-//        registerPage.typeCompanyName(companyName);
-//        //enter password
-//        registerPage.typePassword(password);
-//        //enter confirm password
-//        registerPage.typeConfirmPassword(confirmPassword);
-//        //click on register-button button
-//        registerPage.clickOnRegisterButton();
-//
-//        //ensure we are successfully registered
-//        String actualTitle = getCurrentTitle();
-//        String expectedTitle = "nopCommerce demo store. Register";
-//        Assert.assertEquals(actualTitle, expectedTitle);
-//        log.info("Successfully entered nopCommerce website");
-//    }
+    @Test(priority = 1)
+    public void registerWithoutFillMandatoryField() {
+        RegisterPage registerPage = new RegisterPage(getDriver());
+        //click on register
+        registerPage.clickOnRegisterMenu();
+        waitFor(1);
+        // click radio button
+        registerPage.clickOnRadioButton();
+        //enter FirstName
+        registerPage.typeFirstName(emptyFirstName);
+        //enter LastName
+        registerPage.typeLastName(lastName);
+        //enter BirthDay
+        registerPage.selectDateOfBirthDay();
+        //enter BirthMonth
+        registerPage.selectDateOfBirthMonth();
+        //enter BirthYear
+        registerPage.selectDateOfBirthYear();
+        //enter Email
+        registerPage.typeEmail(email);
+        //enter Company
+        registerPage.typeCompanyName(companyName);
+        //enter password
+        registerPage.typePassword(password);
+        //enter confirm password
+        registerPage.typeConfirmPassword(confirmPassword);
+        //click on register-button button
+        registerPage.clickOnRegisterButton();
+
+        //ensure we are successfully registered
+        String actualTitle = getCurrentTitle();
+        String expectedTitle = "nopCommerce demo store. Register";
+        Assert.assertEquals(actualTitle, expectedTitle);
+        log.info("Successfully entered nopCommerce website");
+    }
 
 }
