@@ -52,7 +52,7 @@ public class ReviewTest extends CommonAPI {
     }
 
 
-    @Test(dataProviderClass = DataProviderClass.class, dataProvider = "excelDPOussamaReviewTest", enabled = false)
+    @Test(dataProviderClass = DataProviderClass.class, dataProvider = "excelDPOussamaReviewTest", enabled = true)
     public void leaveAReviewUsingDataProvider(String stars, String review, String name, String email) {
         HomePage homePage = new HomePage(getDriver());
         SingleProductPage singleProductPage = new SingleProductPage(getDriver());

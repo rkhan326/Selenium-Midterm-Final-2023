@@ -28,6 +28,38 @@ public class HomePage extends CommonAPI {
     @FindBy(xpath = "//h2[text()='Camera C430W 4k with  Waterproof cover']" )
     WebElement cameraC430W;
 
+    @FindBy(css = "a[title = 'Super Deals']" )
+    WebElement superDealsBaseMenuLink;
+
+    @FindBy(css = "a[title = 'Featured Brands']" )
+    WebElement featuredBrandBaseMenuLink;
+
+    @FindBy(css = "a[title = 'Trending Styles']" )
+    WebElement trendingStylesBaseMenuLInk;
+
+    @FindBy(css = "a[title = 'Smart Phones & Tablets']" )
+    WebElement smartPhonesAndTabletsBaseMenuSubLink;
+
+    @FindBy(css = "a[title = 'Gadgets']" )
+    WebElement gadgetsBaseMenuSubLink;
+
+    @FindBy(css = "a[title = 'Accessories']" )
+    WebElement accessoriesBaseMenuSubLink;
+
+    @FindBy(css = "a[href = '?add-to-cart=2706']" )
+    WebElement tabletAir3AddToCart;
+
+    @FindBy(xpath = "//span[@class = 'cart-items-count count header-icon-counter' and text() = '0']" )
+    WebElement cartCountEqualsZero;
+
+    @FindBy(xpath = "//a[@class = 'dropdown-toggle']/span[1]" )
+    WebElement cartCountEqualsOne;
+
+
+
+
+
+
 
     public void clickOnMyAccountLink(){
         clickOn(myAccountLink);
@@ -48,4 +80,22 @@ public class HomePage extends CommonAPI {
         clickOn(cameraC430W);
         log.info("Click on Camera c430W link success");
     }
+    public void hoverOverSuperDealsAndClickOnIt(WebDriver driver){
+        hoverOver(driver, superDealsBaseMenuLink);
+        waitFor(1);
+        clickOn(smartPhonesAndTabletsBaseMenuSubLink);
+        log.info("hover Over Super Deals And Click On It success");
+    }
+
+    public void hoverOverFeaturedBrandsAndClickOnIt(WebDriver driver){
+        hoverOver(driver, featuredBrandBaseMenuLink);
+        waitFor(1);
+       // clickOn(accessoriesBaseMenuSubLink);
+        log.info("hover Over Featured Brands And Click On It success");
+    }
+    public void clickOnAddToCartForTabletAir3(){
+        clickOn(tabletAir3AddToCart);
+        log.info("Click on click On Add To Cart For Tablet Air 3 link success");
+    }
+
 }
