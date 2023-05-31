@@ -12,6 +12,7 @@ import java.util.List;
 public class DataProviderClass{
 
     public static String currentDir = System.getProperty("user.dir");
+
     @DataProvider
     public Object[][] data(Method name) {
         System.out.println("Method " +name+ "is using data provider.");
