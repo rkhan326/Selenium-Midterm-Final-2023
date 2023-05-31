@@ -74,6 +74,11 @@ public class SingleProductPage extends CommonAPI {
     @FindBy(css = "a[href ='javascript:history.back()']")
     WebElement errorBackButton;
 
+    @FindBy(css = "a[href = '?add-to-cart=2706']" )
+    WebElement tabletAir3AddToCart;
+
+    @FindBy(css = "a[class = 'added_to_cart wc-forward']" )
+    WebElement tabletAir3GoToCartButton;
 
     public boolean checkPresenceOfCameraC430WHeader(){
         boolean CameraC430WHeaderIsDisplayed = isVisible(camerasCameraC430WPageHeader);
@@ -169,6 +174,18 @@ public class SingleProductPage extends CommonAPI {
         clickOn(errorBackButton);
         log.info("successfully clicked on error back button");
     }
+
+    public void clickOnAddToCartForTabletAir3(){
+        clickOn(tabletAir3AddToCart);
+        log.info("Click on click On Add To Cart For Tablet Air 3 link success");
+    }
+
+    public boolean checkPresenceOfTabledAir3GoToCartButton(){
+        boolean goToCartButtonIsDisplayed = isVisible(tabletAir3GoToCartButton);
+        log.info("go to cart button is successfully displayed.");
+        return goToCartButtonIsDisplayed;
+    }
+
 
     public String enterFakeReviewText(){return faker.harryPotter().quote();}
     public String enterFakeReviewerName(){return faker.harryPotter().character();}

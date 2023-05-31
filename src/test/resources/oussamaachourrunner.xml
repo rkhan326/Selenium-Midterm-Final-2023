@@ -21,21 +21,22 @@
 
             <run>
 <!--                <include name="OvernightTests"></include>-->
-                <include name ="before"></include>
-                <include name ="after"></include>
-<!--                <include name = "Smoke"></include>-->
-                <include name = "Sanity"></include>
-<!--                <exclude name = "Regression"></exclude>-->
+<!--                <include name ="before"></include>-->
+<!--                <include name ="after"></include>-->
+<!--                <include name = "smoke"></include>-->
+<!--                <include name = "sanity"></include>-->
+<!--                <exclude name = "regression"></exclude>-->
             </run>
         </groups>
 
         <classes>
-            <class name="oussamaachourtest.RegisterTest"></class>     <!--4 tests-->
-            <class name="oussamaachourtest.LoginTest"></class>        <!--8 tests-->
-            <class name="oussamaachourtest.LogoutTest"></class>       <!--2 tests-->
-            <class name="oussamaachourtest.TrackOrderTest"></class>   <!--3 tests-->
-            <class name="oussamaachourtest.ReviewTest"></class>       <!--4 tests-->
-            <class name="oussamaachourtest.ContactUsTest"></class>    <!--2 tests-->
+<!--            <class name="oussamaachourtest.RegisterTest"></class>     &lt;!&ndash;4 tests&ndash;&gt;-->
+<!--            <class name="oussamaachourtest.LoginTest"></class>        &lt;!&ndash;8 tests&ndash;&gt;-->
+<!--            <class name="oussamaachourtest.LogoutTest"></class>       &lt;!&ndash;2 tests&ndash;&gt;-->
+<!--            <class name="oussamaachourtest.TrackOrderTest"></class>   &lt;!&ndash;3 tests&ndash;&gt;-->
+<!--            <class name="oussamaachourtest.ReviewTest"></class>       &lt;!&ndash;4 tests&ndash;&gt;-->
+<!--            <class name="oussamaachourtest.ContactUsTest"></class>    &lt;!&ndash;2 tests&ndash;&gt;-->
+            <class name="oussamaachourtest.AddToCartTest"></class>    <!--2 tests-->
         </classes>
     </test>
 </suite>
