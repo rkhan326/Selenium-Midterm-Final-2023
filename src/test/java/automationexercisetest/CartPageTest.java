@@ -12,7 +12,7 @@ import us.piit.pages.automationexercisepages.ProductsPage;
 public class CartPageTest extends CommonAPI {
     Logger log = LogManager.getLogger(LogoutTest.class.getName());
 
-//    @Test
+    @Test
     public void addToCartFromMaxiDressPageButton11() {
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage = new ProductsPage(getDriver());
@@ -35,7 +35,7 @@ public class CartPageTest extends CommonAPI {
         Assert.assertEquals(actualMaxiDressAddedText, expectedMaxiDressAddedText);
         log.info(homePage.wellDoneBoy.concat(expectedMaxiDressAddedText).concat(homePage.headerValidationSuccess));
     }
-//    @Test
+    @Test
     public void deleteMaxiDressFromCart12(){
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage = new ProductsPage(getDriver());
@@ -71,7 +71,7 @@ public class CartPageTest extends CommonAPI {
         Assert.assertEquals(actualCartIsEmptyText,expectedCartIsEmptyText);
         log.info(homePage.wellDoneBoy.concat(expectedCartIsEmptyText).concat(homePage.headerValidationSuccess));
     }
-//    @Test
+    @Test
     public void proceedToCheckoutMaxiDress13() {
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage = new ProductsPage(getDriver());
@@ -105,7 +105,7 @@ public class CartPageTest extends CommonAPI {
 
         Assert.assertTrue(cartPage.proceedToCheckoutIsVisible());//validate proceed to checkout button
     }
-//    @Test
+    @Test
     public void loginButtonProceedToCheckoutMaxiDress14() {
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage = new ProductsPage(getDriver());
@@ -134,8 +134,8 @@ public class CartPageTest extends CommonAPI {
 
         cartPage.clickOnRegisterLoginCheckoutMaxiDressButton(getDriver());//click on register/ Login on cart
     }
-//    @Test
-    public void loginFromProceedToCheckoutMaxiDress15() {
+    @Test
+    public void fullLoginFromProceedToCheckoutMaxiDress15() {
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage = new ProductsPage(getDriver());
         CartPage cartPage = new CartPage(getDriver());
@@ -170,7 +170,7 @@ public class CartPageTest extends CommonAPI {
         loginPage.enterValidLoginPasswordInLoginPasswordField();
         loginPage.clickOnLoginButton();
     }
-//    @Test
+    @Test
     public void checkoutMaxiDress16() {
         HomePage homePage = new HomePage(getDriver());
         CartPage cartPage = new CartPage(getDriver());
@@ -195,8 +195,37 @@ public class CartPageTest extends CommonAPI {
         Assert.assertEquals(actualAddressDetailsText,expectedAddressDetailsText);
         log.info(homePage.wellDoneBoy.concat(expectedAddressDetailsText).concat(homePage.headerValidationSuccess));
     }
-//    @Test
+    @Test
     public void placeOrderMaxiDress17() {
+        HomePage homePage = new HomePage(getDriver());
+        CartPage cartPage = new CartPage(getDriver());
+        LoginPage loginPage = new LoginPage(getDriver());
+
+        homePage.clickOnSignupLoginButton(); //navigate to signin page
+
+        //enter login email address, password and click login button
+        loginPage.enterValidLoginEmailInLoginEmailField();
+        loginPage.enterValidLoginPasswordInLoginPasswordField();
+        loginPage.clickOnLoginButton();
+
+        homePage.clickOnCartButton(); //navigate to cart page
+
+        cartPage.clickOnProceedToCheckoutMaxiDressButton(getDriver());//click on proceed to checkout
+        waitFor(1);
+
+        //validate checkout page
+        String expectedAddressDetailsText = "Address Details";
+        String actualAddressDetailsText = cartPage.getAddressDetailsText();
+        Assert.assertEquals(actualAddressDetailsText,expectedAddressDetailsText);
+        log.info(homePage.wellDoneBoy.concat(expectedAddressDetailsText).concat(homePage.headerValidationSuccess));
+
+        cartPage.scrollToViewSubscriptionText(getDriver());//scroll to view subscription text
+        waitFor(1);
+        cartPage.clickOnPlaceOrderButton(getDriver());//click on place order
+
+    }
+//    @Test
+    public void makePaymentMaxiDress18() {
         HomePage homePage = new HomePage(getDriver());
         CartPage cartPage = new CartPage(getDriver());
         LoginPage loginPage = new LoginPage(getDriver());
@@ -220,44 +249,11 @@ public class CartPageTest extends CommonAPI {
         Assert.assertEquals(actualAddressDetailsText,expectedAddressDetailsText);
         log.info(homePage.wellDoneBoy.concat(expectedAddressDetailsText).concat(homePage.headerValidationSuccess));
 
-        cartPage.scrollToViewSubscibtionText(getDriver());//scroll to view subscribtion text
+        cartPage.scrollToViewSubscriptionText(getDriver());//scroll to view subscription text
         waitFor(1);
-
         cartPage.clickOnPlaceOrderButton(getDriver());//click on place order
-        waitFor(3);
-
-        productsPage.clickOnAdButton(getDriver());//click on Ad
         waitFor(1);
-
-        //validate payment header
-
-    }
-//    @Test
-    public void makePaymentMaxiDress17() {
-        HomePage homePage = new HomePage(getDriver());
-        CartPage cartPage = new CartPage(getDriver());
-        LoginPage loginPage = new LoginPage(getDriver());
-
-        homePage.clickOnSignupLoginButton(); //navigate to signin page
-
-        //enter login email address, password and click login button
-        loginPage.enterValidLoginEmailInLoginEmailField();
-        loginPage.enterValidLoginPasswordInLoginPasswordField();
-        loginPage.clickOnLoginButton();
-
-        homePage.clickOnCartButton(); //navigate to cart page
-
-        cartPage.clickOnProceedToCheckoutMaxiDressButton(getDriver());//click on proceed to checkout
-        waitFor(1);
-
-        //validate checkout page
-        String expectedAddressDetailsText = "Address Details";
-        String actualAddressDetailsText = cartPage.getAddressDetailsText();
-        Assert.assertEquals(actualAddressDetailsText,expectedAddressDetailsText);
-        log.info(homePage.wellDoneBoy.concat(expectedAddressDetailsText).concat(homePage.headerValidationSuccess));
-
-        cartPage.scrollToViewSubscibtionText(getDriver());//scroll to view subscribtion text
-        cartPage.clickOnPlaceOrderButton(getDriver());//click on place order
+        cartPage.scrollToViewSubscriptionText(getDriver());//scroll to view subscription text
 
 
     }

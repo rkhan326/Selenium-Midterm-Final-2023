@@ -12,7 +12,6 @@ import us.piit.base.CommonAPI;
 public class RegisterPage extends CommonAPI {
 
     Logger log = LogManager.getLogger(RegisterPage.class.getName());
-    Faker faker= new Faker();
 
 
     public RegisterPage(WebDriver driver){
@@ -111,7 +110,5 @@ public class RegisterPage extends CommonAPI {
     }
 
 
-    public String getEmailOfNopCommerce(){
-        return faker.internet().emailAddress();
-    }
+
 }

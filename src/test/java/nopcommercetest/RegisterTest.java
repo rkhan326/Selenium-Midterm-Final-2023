@@ -24,6 +24,7 @@ public class RegisterTest extends CommonAPI {
 //    String firstName =excelReader.getStringDataFromCell("data",5,1);
    //   String lastName=  ConnectDB.getTableColumnData("select * from Nop_Commerce","last_name").get(0);
 //    String lastName =excelReader.getStringDataFromCell("data",6,1);
+//    String email= excelReader.getStringDataFromCell("data",10,1);
     String email= faker.internet().emailAddress();
 
 //    String companyName= "PNT";
@@ -33,10 +34,11 @@ public class RegisterTest extends CommonAPI {
 //    String confirmPassword= "admin123";
     String confirmPassword =excelReader.getStringDataFromCell("data",9,1);
 
+
     String emptyFirstName = "";
 
 
-    @Test(priority = 1)
+    @Test(priority = 2)
     public void registerNewCustomer() {
 
         RegisterPage registerPage = new RegisterPage(getDriver());
@@ -77,6 +79,7 @@ public class RegisterTest extends CommonAPI {
         Assert.assertEquals(actualTitle, expectedTitle);
         log.info("Successfully entered nopCommerce website");
     }
+
     @Test(priority = 2)
     public void registerWithoutFillMandatoryField() {
         RegisterPage registerPage = new RegisterPage(getDriver());
@@ -112,5 +115,6 @@ public class RegisterTest extends CommonAPI {
         Assert.assertEquals(actualTitle, expectedTitle);
         log.info("Successfully entered nopCommerce website");
     }
+
 
 }

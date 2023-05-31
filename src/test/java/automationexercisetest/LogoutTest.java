@@ -10,8 +10,8 @@ import us.piit.pages.automationexercisepages.LoginPage;
 public class LogoutTest extends CommonAPI {
     Logger log = LogManager.getLogger(LogoutTest.class.getName());
 
-    @Test (groups = {}, priority = 3, enabled = false)
-    public void smoothLogout3() {
+    @Test
+    public void smoothLogout4() {
         LoginPage loginpage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
 

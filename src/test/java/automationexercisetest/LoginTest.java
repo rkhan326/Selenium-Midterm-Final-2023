@@ -10,7 +10,7 @@ import us.piit.pages.automationexercisepages.LoginPage;
 public class LoginTest extends CommonAPI {
     Logger log = LogManager.getLogger(LoginTest.class.getName());
 
-    @Test (groups = {}, priority = 1, enabled = false)
+    @Test
     public void validLoginCredentials1() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -37,10 +37,9 @@ public class LoginTest extends CommonAPI {
 
         loginPage.validatePresenceOfloggedInIcon();//validate logged in icon
 
-        loginPage.clickOnLogoutButton();//logout
     }
-    @Test (groups = {}, priority = 2, enabled = false)
-    public void invalidLoginCredentials2() {
+    @Test
+    public void invalidLoginUsername2() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
 
@@ -60,7 +59,7 @@ public class LoginTest extends CommonAPI {
 
         //enter login email address, password and click login button
         loginPage.enterInvalidLoginEmailInLoginEmailField();
-        loginPage.enterInvalidLoginPasswordInLoginPasswordField();
+        loginPage.enterValidLoginPasswordInLoginPasswordField();
         loginPage.clickOnLoginButton();
 
         //validate error message
@@ -70,98 +69,35 @@ public class LoginTest extends CommonAPI {
         log.info(homePage.wellDoneBoy.concat(expectedLoginErrorMessage).concat(homePage.errorMessageSuccess));
     }
 
-//    @Test
-//    public void invalidLoginPassword(){
-//
-//        //validate home page
-//        String expectedCategoryHeader = "CATEGORY";
-//        String actualCategoryHeader = homePage.getCategoryHeaderText();
-//        Assert.assertEquals(expectedCategoryHeader,actualCategoryHeader);
-//
-//        //click on signup/ login button
-//        homePage.clickOnSignupLoginButton();
-//
-//        //validate login page
-//        String expectedLoginToYourAccountHeader = "Login to your account";
-//        String actualLoginToYourAccountHeader = loginpage.getLoginToYourAccountHeaderText();
-//        Assert.assertEquals(expectedLoginToYourAccountHeader,actualLoginToYourAccountHeader);
-//
-//        //enter login email address, password and click login button
-//        loginpage.enterLoginEmailInLoginEmailField();
-//        loginpage.enterLoginPasswordInLoginPasswordField();
-//        loginpage.clickOnLoginButton();
-//
-//        //originalgangster1@gmail.com
-//        //ontheblock
-//        //validate logged in message
-//        String expectedCategoryHeader1 = "CATEGORY";
-//        String actualCategoryHeader1 = homePage.getCategoryHeaderText();
-//        Assert.assertEquals(expectedCategoryHeader1,actualCategoryHeader1);
-//
-//        //logout
-//        loginpage.clickOnLogoutButton();
-//    }
-//    @Test
-//    public void missingLoginEmail(){
-//
-//        //validate home page
-//        String expectedCategoryHeader = "CATEGORY";
-//        String actualCategoryHeader = homePage.getCategoryHeaderText();
-//        Assert.assertEquals(expectedCategoryHeader,actualCategoryHeader);
-//
-//        //click on signup/ login button
-//        homePage.clickOnSignupLoginButton();
-//
-//        //validate login page
-//        String expectedLoginToYourAccountHeader = "Login to your account";
-//        String actualLoginToYourAccountHeader = loginpage.getLoginToYourAccountHeaderText();
-//        Assert.assertEquals(expectedLoginToYourAccountHeader,actualLoginToYourAccountHeader);
-//
-//        //enter login email address, password and click login button
-//        loginpage.enterLoginEmailInLoginEmailField();
-//        loginpage.enterLoginPasswordInLoginPasswordField();
-//        loginpage.clickOnLoginButton();
-//
-//        //originalgangster1@gmail.com
-//        //ontheblock
-//        //validate logged in message
-//        String expectedCategoryHeader1 = "CATEGORY";
-//        String actualCategoryHeader1 = homePage.getCategoryHeaderText();
-//        Assert.assertEquals(expectedCategoryHeader1,actualCategoryHeader1);
-//
-//        //logout
-//        loginpage.clickOnLogoutButton();
-//    }
-//    @Test
-//    public void missingLoginPassword(){
-//
-//        //validate home page
-//        String expectedCategoryHeader = "CATEGORY";
-//        String actualCategoryHeader = homePage.getCategoryHeaderText();
-//        Assert.assertEquals(expectedCategoryHeader,actualCategoryHeader);
-//
-//        //click on signup/ login button
-//        homePage.clickClickOnSignupLoginButton();
-//
-//        //validate login page
-//        String expectedLoginToYourAccountHeader = "Login to your account";
-//        String actualLoginToYourAccountHeader = loginpage.getLoginToYourAccountHeaderText();
-//        Assert.assertEquals(expectedLoginToYourAccountHeader,actualLoginToYourAccountHeader);
-//
-//        //enter login email address, password and click login button
-//        loginpage.enterLoginEmailInLoginEmailField();
-//        loginpage.enterLoginPasswordInLoginPasswordField();
-//        loginpage.clickOnLoginButton();
-//
-//        //originalgangster1@gmail.com
-//        //ontheblock
-//        //validate logged in message
-//        String expectedCategoryHeader1 = "CATEGORY";
-//        String actualCategoryHeader1 = homePage.getCategoryHeaderText();
-//        Assert.assertEquals(expectedCategoryHeader1,actualCategoryHeader1);
-//
-//        //logout
-//        loginpage.clickOnLogoutButton();
-//    }
-//
+    @Test
+    public void invalidLoginPassword3(){
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+
+        //validate home page
+        String expectedCategoryHeader = "CATEGORY";
+        String actualCategoryHeader = homePage.getCategoryHeaderText();
+        Assert.assertEquals(expectedCategoryHeader,actualCategoryHeader);
+
+        //click on signup/ login button
+        homePage.clickOnSignupLoginButton();
+
+        //validate login page
+        String expectedLoginToYourAccountHeader = "Login to your account";
+        String actualLoginToYourAccountHeader = loginPage.getLoginToYourAccountHeaderText();
+        Assert.assertEquals(expectedLoginToYourAccountHeader,actualLoginToYourAccountHeader);
+
+        //enter login email address, password and click login button
+        loginPage.enterValidLoginEmailInLoginEmailField();
+        loginPage.enterInvalidLoginPasswordInLoginPasswordField();
+        loginPage.clickOnLoginButton();
+
+        //validate error message
+        String expectedLoginErrorMessage = "Your email or password is incorrect!";
+        String actualLoginErrorMessage = loginPage.getLoginMessageErrorText();
+        Assert.assertEquals(expectedLoginErrorMessage, actualLoginErrorMessage);
+        log.info(homePage.wellDoneBoy.concat(expectedLoginErrorMessage).concat(homePage.errorMessageSuccess));
+
+    }
+
 }

@@ -6,13 +6,18 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.nopcommercepages.ContactUsPage;
+import us.piit.utility.ExcelReader;
+
+import java.io.File;
 
 public class ContactUsTest extends CommonAPI {
     Logger log = LogManager.getLogger(RegisterTest.class.getName());
-
-    String fullName= " Danish Mahmud";
-    String email= "admin@mail.com";
-    String message= "message field";
+    String currentDir = System.getProperty("user.dir");
+    String path = currentDir+ File.separator+"data"+File.separator+"nopcommercedata.xlsx";
+    ExcelReader excelReader = new ExcelReader(path);
+    String fullName= excelReader.getStringDataFromCell("data",11,1);
+    String email= excelReader.getStringDataFromCell("data",10,1);
+    String message= excelReader.getStringDataFromCell("data",12,1);
 
     @Test(priority = 1)
     public void filledMandatoryRequirement(){
