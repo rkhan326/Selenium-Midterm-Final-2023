@@ -8,15 +8,16 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class DataProviderClass{
 
+    public static String currentDir = System.getProperty("user.dir");
     @DataProvider
     public Object[][] data(Method name) {
         System.out.println("Method " +name+ "is using data provider.");
 
         String path = ExcelReader.currentDir + File.separator + "data" + File.separator + "scaledupitdata.xlsx";
 
-       
         ExcelReader excelReader = new ExcelReader(path);
         List<String> columnData = new ArrayList<>();
         columnData = excelReader.getEntireColumnData("Data", 1, 0);
