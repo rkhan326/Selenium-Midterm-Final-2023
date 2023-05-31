@@ -7,18 +7,30 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.nopcommercepages.RegisterPage;
+import us.piit.utility.ExcelReader;
+
+import java.io.File;
 
 public class RegisterTest extends CommonAPI {
     Logger log = LogManager.getLogger(RegisterTest.class.getName());
     Faker faker= new Faker();
 
-    String firstName= "Danish";
-    String lastName= "Mahmud";
+    String currentDir = System.getProperty("user.dir");
+    String path = currentDir+ File.separator+"data"+File.separator+"data.xlsx";
+    ExcelReader excelReader = new ExcelReader(path);
+
+    //    String firstName= "Danish";
+    String firstName =excelReader.getStringDataFromCell("data",5,1);
+//    String lastName= "Mahmud";
+    String lastName =excelReader.getStringDataFromCell("data",6,1);
     String email= faker.internet().emailAddress();
 
-    String companyName= "PNT";
-    String password= "admin123";
-    String confirmPassword= "admin123";
+//    String companyName= "PNT";
+    String companyName =excelReader.getStringDataFromCell("data",7,1);
+//    String password= "admin123";
+    String password =excelReader.getStringDataFromCell("data",8,1);
+//    String confirmPassword= "admin123";
+    String confirmPassword =excelReader.getStringDataFromCell("data",9,1);
 
     String emptyFirstName = "";
 

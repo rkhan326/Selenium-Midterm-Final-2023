@@ -24,6 +24,7 @@ public class ConnectDB {
         try {
             Class.forName(driverClass);
             connect = DriverManager.getConnection(url,userName,"");
+           // connect = DriverManager.getConnection(url,userName,"abcd1234");
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

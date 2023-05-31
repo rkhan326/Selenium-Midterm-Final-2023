@@ -117,7 +117,7 @@ public class AddToCartTest extends CommonAPI {
         cart.clickOnCart();
         waitFor(3);
         log.info("1 item added to cart success");
-        //  takeScreenshot("add cart screenshot");
+         takeScreenshot("add to cart screenshot");
 
     }
 

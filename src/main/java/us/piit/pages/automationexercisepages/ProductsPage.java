@@ -1,6 +1,5 @@
 package us.piit.pages.automationexercisepages;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -12,8 +11,6 @@ import us.piit.base.CommonAPI;
 public class ProductsPage extends CommonAPI {
 
     Logger log = LogManager.getLogger(ProductsPage.class.getName());
-
-
     public ProductsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }

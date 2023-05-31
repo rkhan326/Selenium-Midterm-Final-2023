@@ -24,7 +24,7 @@ public class LoginTest  extends CommonAPI {
 
 
 
-    @Test(groups = {"smoke,sanity"},enabled = true,priority = 0)
+    @Test(groups = {"sanity","smoke"},enabled = true,priority = 0)
     public void validCred() {
 
         LoginPage loginPage = new LoginPage(getDriver());
@@ -187,14 +187,17 @@ public class LoginTest  extends CommonAPI {
         String actualError4 = loginPage.getForgetPasswordHeadertext();
         Assert.assertEquals(expectedError4, actualError4);
         log.info("error message validate  success");
+        takeScreenshot("My Final Login Test");
     }
-//    @Test(dataProvider = "data")
+
+
+    //    @Test(dataProvider = "data")
 //    public void dataProvideTest(String firstName,String lastName,String age){
 //        System.out.println(firstName+"-------"+lastName+"------"+age);
 //    }
 //    @DataProvider
 //    public Object[][]data() {
-//        ExcelReader read = new ExcelReader("C:\\Users\\Amel Boucetta Gacem\\eclipse-workspace\\Selenium-Midterm-Final-2023\\data\\scaledupitdata.xlsx");
+//        ExcelReader read = new ExcelReader("C:\\Users\\Amel Boucetta Gacem\\eclipse-workspace\\Selenium-Midterm-Final-2023\\data\\ScalledupitExcelData.xlsx");
 //        List<String> columnData = new ArrayList<>();
 //        columnData = read.getEntireColumnData("Data", 1, 0);
 //        Object[][] data = new Object[3][3];

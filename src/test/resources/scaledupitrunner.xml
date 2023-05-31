@@ -12,20 +12,20 @@
 
     <test name="Amel test cases  ">
         <groups>
-            <define name="OvernightTest">
-                <include name="smoke"></include>
-                <include name="sanity"></include>
+<!--            <define name="OvernightTest">-->
+<!--                <include name="smoke"></include>-->
+<!--                <include name="sanity"></include>-->
 
-            </define>
+<!--            </define>-->
             <run>
-                <include name="OvernightTest"></include>
-                <exclude name="regression"></exclude>
-                <include name="Before"></include>
-                <include name="after"></include>
-                <include name="smoke"></include>
-                <include name="sanity"></include>
-                <include name="regression"></include>
-                <exclude name="regression"></exclude>
+<!--                <include name="OvernightTest"></include>-->
+
+<!--                <include name="before"></include>-->
+<!--                <include name="after"></include>-->
+<!--                <include name="smoke"></include>-->
+<!--                <include name="sanity"></include>-->
+<!--                <include name="regression"></include>-->
+<!--                <exclude name="regression"></exclude>-->
             </run>
 
         </groups>
@@ -37,11 +37,12 @@
 <!--            <class name="scaledupittest.DeleteTest"></class>-->
 <!--            <class name="scaledupittest.HomeLinksTest"></class>-->
 <!--            <class name="scaledupittest.LoginExcelReader"></class>-->
-            <class name="scaledupittest.LoginTest"></class>
+<!--            <class name="scaledupittest.LoginTest"></class>-->
 <!--            <class name="scaledupittest.LogoutTest"></class>-->
 <!--            <class name="scaledupittest.RegistrationTest"></class>-->
 <!--            <class name="scaledupittest.SearchTest"></class>-->
-<!--            <class name="scaledupittest.UpdateTest"></class>-->
+            <class name="scaledupittest.UpdateTest"></class>
+<!--                <class name="scaledupittest.CheckoutTest"></class>-->
         </classes>
     </test>
 <!--    <test name="Add to cart ">-->

@@ -196,7 +196,7 @@ public class ExcelReader {
 //    @DataProvider(name = "checkoutForGuestUsers")
 //    public static Object[][] getData() {
 //        String currentDir = System.getProperty("user.dir");
-//        String path = currentDir+File.separator+"data"+File.separator+"oussama-scaledupitdata.xlsx";
+//        String path = currentDir+File.separator+"data"+File.separator+"oussama-ScalledupitExcelData.xlsx";
 //        System.out.println(path);
 //        ExcelReader excelReader = new ExcelReader(path);
 //        List<String> items1 = excelReader.getEntireColumnDataFromExcelSheet("CheckoutDataProvider",1,1);
@@ -209,9 +209,9 @@ public class ExcelReader {
 
     public static void main(String[] args)  {
 
-        String path = currentDir + File.separator + "data"+ File.separator + "scaledupitdata.xlsx";
+        String path = currentDir + File.separator + "data"+ File.separator + "ScalledupitExcelData.xlsx";
     
-        //String path = "C:\\Users\\PNT\\eclipse-workspace\\Feb2023-web-automation-framework\\Datas\\scaledupitdata.xlsx";
+        //String path = "C:\\Users\\PNT\\eclipse-workspace\\Feb2023-web-automation-framework\\Datas\\ScalledupitExcelData.xlsx";
 
         ExcelReader excelReader = new ExcelReader(path);
         System.out.println(excelReader.getStringDataFromCell("Sheet1",1,1));
