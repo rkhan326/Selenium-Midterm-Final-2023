@@ -13,7 +13,7 @@ import us.piit.pages.oussamaachourpages.LoginRegisterPage;
 public class ContactUsTest extends CommonAPI {
     Logger log = LogManager.getLogger(ContactUsTest.class.getName());
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void contactSupportTeam(){
         HomePage homePage = new HomePage(getDriver());
         ContactUsPage contactUsPage = new ContactUsPage(getDriver());

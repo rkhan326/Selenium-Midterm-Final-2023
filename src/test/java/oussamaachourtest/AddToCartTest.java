@@ -14,7 +14,7 @@ public class AddToCartTest extends CommonAPI {
 
     Logger log = LogManager.getLogger(AddToCartTest.class.getName());
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void addToCartFromSuperDealsBaseMenu() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -46,7 +46,7 @@ public class AddToCartTest extends CommonAPI {
 
     }
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void addToCartFromFeaturedBrandsBaseMenu() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -77,7 +77,7 @@ public class AddToCartTest extends CommonAPI {
         Assert.assertTrue(homePage.checkPresenceOfCartCountEqualsOne());
     }
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void addToCartFromTrendingStylesBaseMenu() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -108,7 +108,7 @@ public class AddToCartTest extends CommonAPI {
         Assert.assertTrue(homePage.checkPresenceOfCartCountEqualsOne());
     }
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void addToCartFromSearchBarInAllCategories(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -139,7 +139,7 @@ public class AddToCartTest extends CommonAPI {
 
     }
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void addToCartFromHomepageFeaturedItems(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
