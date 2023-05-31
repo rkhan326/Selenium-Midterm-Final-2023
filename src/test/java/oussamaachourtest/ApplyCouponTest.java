@@ -1,16 +1,20 @@
 package oussamaachourtest;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
-import us.piit.pages.oussamaachourpages.*;
+import us.piit.pages.oussamaachourpages.CartPage;
+import us.piit.pages.oussamaachourpages.HomePage;
+import us.piit.pages.oussamaachourpages.SingleProductPage;
 
-public class UpdateCartTest extends CommonAPI {
+public class ApplyCouponTest extends CommonAPI {
+    Logger log = LogManager.getLogger(ApplyCouponTest.class.getName());
 
     @Test(enabled = true)
     public void updateCartCount(){
         HomePage homePage = new HomePage(getDriver());
-        SingleProductPage singleProductPage = new SingleProductPage(getDriver());
         CartPage cartPage = new CartPage(getDriver());
 
         //Assert we are on the correct website
@@ -36,12 +40,14 @@ public class UpdateCartTest extends CommonAPI {
         Assert.assertTrue(cartPage.checkPresenceOfCartPageHeader());
         ;
         //enter the desired quantity and hit update
-        cartPage.enterProductQuantity(getDriver());
-        cartPage.clickOnUpdateCartButton();
+        cartPage.enterCouponCode("Razia20sitewide", getDriver());
+        cartPage.clickOnApplyCouponButton();
 
         //assert that the cart count equals two.
-        Assert.assertTrue(homePage.checkPresenceOfCartCountEqualsTwo());
+        String expectedValidTextAlert = "Coupon code applied successfully.";
+        String actualValidTextAlert = cartPage.getCouponAppliedSuccessfullyText();
+        Assert.assertEquals(actualValidTextAlert,expectedValidTextAlert);
+        log.info("Coupon code applied successfully.");
 
     }
-
 }

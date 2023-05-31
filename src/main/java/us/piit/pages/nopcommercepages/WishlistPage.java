@@ -99,8 +99,9 @@ public class WishlistPage extends CommonAPI {
 
     public void clickWishListMenu() {
         clickOn(clickWishListMenuLocator);
-        log.info("click on wishList Button Success");
         waitFor(2);
+        log.info("click on wishList Button Success");
+
     }
 
     public String checkWishListPage() {
