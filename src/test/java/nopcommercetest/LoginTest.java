@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
+import us.piit.pages.nopcommercepages.HomePage;
 import us.piit.pages.nopcommercepages.LoginPage;
 import us.piit.utility.Utility;
 
@@ -15,8 +16,11 @@ public class LoginTest extends CommonAPI {
     Properties prop = Utility.loadProperties();
 //    String validUsername = Utility.decode(prop.getProperty("nopcommerce.username"));
     RegisterTest registerTest= new RegisterTest();
-    String validUsername= registerTest.email;
-    String validPassword = Utility.decode(prop.getProperty("nopcommerce.password"));
+//    String validUsername= registerTest.email;
+//    String validPassword= registerTest.password;
+    String validUsername= "hello4@gmail.com";
+    String validPassword= "hello123";
+//    String validPassword = Utility.decode(prop.getProperty("nopcommerce.password"));
 //    String validPassword ="mahmud123";
 
     @Test(priority = 1)
@@ -34,12 +38,13 @@ public class LoginTest extends CommonAPI {
         //enter  username,Password and click
         loginPage.enterUsername(validUsername);
         loginPage.enterPassword(validPassword);
-        waitFor(1);
+        scrollToCoordinates(0,100);
         loginPage.clickOnLoginBtn();
+        waitFor(1);
 
-//        String expectedText="Log out";
-//        String actualText = loginPage.loginValidationText();
-//        Assert.assertEquals(expectedText,actualText);
+        String expectedText="Log out";
+        String actualText = loginPage.loginValidationText();
+        Assert.assertEquals(expectedText,actualText);
 
     }
 
@@ -63,9 +68,58 @@ public class LoginTest extends CommonAPI {
 
 
         String expectedText = "Login was unsuccessful. Please correct the errors and try again.\n" +
-                "No customer account found";
+                "The credentials provided are incorrect";
         String actualText = loginPage.getErrorMessage();
         Assert.assertEquals(expectedText,actualText);
         log.info("login page not success");
+    }
+
+    @Test(priority = 3)
+    public void logOutTest(){
+
+        LoginPage loginPage = new LoginPage(getDriver());
+        //click on login
+        loginPage.clickOnLoginText();
+        waitFor(1);
+
+        // check login page success
+        Assert.assertTrue(loginPage.checkLoginPageSuccess());
+        log.info("login page success");
+
+        //enter  username,Password and click
+        loginPage.enterUsername(validUsername);
+        loginPage.enterPassword(validPassword);
+        scrollToCoordinates(0,100);
+        loginPage.clickOnLoginBtn();
+        waitFor(1);
+
+        loginPage.clickOnLogOutButton();
+
+        String expectedText="Log in";
+        String actualText = loginPage.logOutValidationText();
+        Assert.assertEquals(expectedText,actualText);
+        log.info("Log-out validation Success");
+
+
+    }
+    @Test(priority = 4)
+    public void passwordRecovery(){
+        HomePage homePage = new HomePage(getDriver());
+        LoginPage loginPage = new LoginPage(getDriver());
+
+        homePage.clickOnRegisterLink();
+        loginPage.clickOnLoginLink();
+        scrollToCoordinates(0,100);
+        waitFor(1);
+        homePage.clickOnForgotPassword();
+        waitFor(1);
+        homePage.clickOnRecoveryEmailField();
+        homePage.typeEmailOnRecoveryEmailField(validUsername);
+        homePage.clickOnRecoveryButton();
+
+        String expectedText="Email with instructions has been sent to you.";
+        String actualText = homePage.recoveryValidationText();
+        Assert.assertEquals(expectedText,actualText);
+        log.info("Password recovery validation Success");
     }
 }

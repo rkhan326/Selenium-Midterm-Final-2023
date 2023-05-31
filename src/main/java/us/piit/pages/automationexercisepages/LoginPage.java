@@ -11,10 +11,7 @@ import us.piit.base.CommonAPI;
 public class LoginPage extends CommonAPI {
 
     Logger log = LogManager.getLogger(LoginPage.class.getName());
-
-    public LoginPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
+    public LoginPage(WebDriver driver) {PageFactory.initElements(driver, this);}
 
     String username = "originalgangster1@gmail.com";
     String password = "ontheblock";
@@ -30,10 +27,19 @@ public class LoginPage extends CommonAPI {
     WebElement $deleteAccountButton;
     @FindBy(css = ".btn.btn-primary")
     WebElement $deleteAccountContinueButton;
+    @FindBy(css = "button[data-qa='login-button']")
+    WebElement $loginButton;
+    @FindBy(css = "button[data-qa='signup-button']")
+    WebElement $signupButton;
 
     //Headers
     @FindBy(xpath = "//h2[text()='Login to your account']")
     WebElement $loginToYourAccountHeader;
+    @FindBy(xpath = "//p[text()='Your email or password is incorrect!']")
+    WebElement $loginErrorMessage;
+    @FindBy(css = ".fa.fa-user")
+    WebElement $loggedInIcon;
+
     //Input Fields
     @FindBy(css = "input[data-qa='login-email']")
     WebElement $loginEmailField;
@@ -43,26 +49,12 @@ public class LoginPage extends CommonAPI {
     WebElement $signupNameField;
     @FindBy(css = "input[data-qa='signup-email']")
     WebElement $signupEmailField;
-    //Login and Signup Buttons
-    @FindBy(css = "button[data-qa='login-button']")
-    WebElement $loginButton;
-    @FindBy(css = "button[data-qa='signup-button']")
-    WebElement $signupButton;
-    //error message
-    @FindBy(xpath = "//p[text()='Your email or password is incorrect!']")
-    WebElement $loginErrorMessage;
-    //logged in icon
-    @FindBy(css = ".fa.fa-user")
-    WebElement $loggedInIcon;
-
 
     public void enterValidLoginEmailInLoginEmailField() {
         typeText($loginEmailField, username);
     }
 
-    public void enterValidLoginPasswordInLoginPasswordField() {
-        typeText($loginPasswordField, password);
-    }
+    public void enterValidLoginPasswordInLoginPasswordField() {typeText($loginPasswordField, password);}
 
     public void enterInvalidLoginEmailInLoginEmailField() {
         typeText($loginEmailField, invalidUsername);
@@ -84,45 +76,37 @@ public class LoginPage extends CommonAPI {
         typeText($loginEmailField, signupEmailAddress);
     }
 
-
     //Methods
     public String getLoginToYourAccountHeaderText() {
         String text = getElementText($loginToYourAccountHeader);
         log.info("Well done my boy! 'Login to your account header' text acquisition success!!");
         return text;
     }
-
     public void clickOnLoginButton() {
         clickOn($loginButton);
         log.info("Well done my guy! Click click on 'Login button' success!!");
     }
-
     public void clickOnLogoutButton() {
         clickOn($logoutButton);
         log.info("Well done my guy! Click click on 'Logout button' success!!");
     }
-
     public void clickOnDeleteAccountButton() {
         clickOn($deleteAccountButton);
         log.info("Well done my guy! Click click on 'Delete account button' success!!");
     }
-
     public void clickOnDeleteAccountContinueButton() {
         clickOn($deleteAccountContinueButton);
         log.info("Well done my guy! Click click on 'Delete account continue button' success!!");
     }
-
     public void clickOnSignupButton() {
         clickOn($signupButton);
         log.info("Well done my guy! Click click on 'Signup button' success!!");
     }
-
     public boolean validatePresenceOfloggedInIcon() {
         boolean loggedInIconIsDisplayed = isVisible($loggedInIcon);
         log.info("Well done my guy! 'Logged in icon' is surely visible. Success!!");
         return loggedInIconIsDisplayed;
     }
-
     public String getLoginMessageErrorText() {
         String text = getElementText($loginErrorMessage);
         log.info("Well done my boy! 'Login error message' text acquisition success!!");

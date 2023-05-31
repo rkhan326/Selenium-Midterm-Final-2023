@@ -20,7 +20,7 @@ public class ConnectDB {
         String driverClass = prop.getProperty("MYSQLJDBC.driver");
         String url = prop.getProperty("MYSQLJDBC.url");
         String userName = prop.getProperty("MYSQLJDBC.userName");
-        String password = prop.getProperty("MYSQLJDBC.password");
+       // String password = prop.getProperty("MYSQLJDBC.password");
         try {
             Class.forName(driverClass);
             connect = DriverManager.getConnection(url,userName,"abcd1234");

@@ -2,7 +2,6 @@ package scaledupittest;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
@@ -17,9 +16,9 @@ import java.util.Properties;
 public class SearchTest extends CommonAPI {
     Logger log = LogManager.getLogger(SearchTest.class.getName());
 
-    Properties prop = Utility.loadProperties();
 
-    @Test(enabled = true, priority = 1)
+
+    @Test(enabled = true, priority = 0)
     public void searchConverse() {
         SearchPage searchpage = new SearchPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -71,42 +70,6 @@ public class SearchTest extends CommonAPI {
 
     }
 
-  //  @Test(enabled = true)
-    public void selectConverseOptionFromDropdown() {
-        HomePage homePage = new HomePage(getDriver());
-        SearchPage searchpage = new SearchPage(getDriver());
-        String expectedTitle = "Automation – Automate eCommerce";
-        String actualTitle = getCurrentTitle();
-        Assert.assertEquals(expectedTitle, actualTitle);
-        log.info("user landed successfully to the website ");
-        waitFor(3);
-
-        // click on search field
-        homePage.clickOnSearchField();
-
-       // select converse from the dropmenu
-       // homePage.selectOptionFromDropdown("converse",getDriver());
-        //homePage.selectOptionFromDropdown();
-        // click on search button
-//          homePage.clickOnSearchButton();
-//        waitFor(5)
-//        homepage.selectOptionFromMenuDropdownWithSelectOptions("Kindle Store");
-//        waitFor(5);
-//    }
-//
-//        // user is landed to the converse page
-//        String expectedSearchPageHeader = "Search Results for: converse";
-//        String actualSearchageHeader = searchpage.getConversePageTitle();
-//        Assert.assertEquals(expectedSearchPageHeader, actualSearchageHeader);
-//        log.info("converse  page header text validate ");
-//        waitFor(3);
-//
-//    }
-    }
-
-
-
-
     @Test(enabled = true, priority = 2)
     public void searchMultipleItems() {
 
@@ -116,7 +79,10 @@ public class SearchTest extends CommonAPI {
         for (String item : items) {
             homePage.typeItemToSearch(item);
             waitFor(3);
+            log.info("type item success");
             homePage.clearSearchField();
+            log.info("clear search field success");
+            takeScreenshot("scalledupit search test ");
 
 
         }

@@ -23,7 +23,7 @@ public class BlogTest extends CommonAPI {
     String Email= ConnectDB.getTableColumnData("select * from Amel", "EMAIL").get(0);
     String Url = ConnectDB.getTableColumnData("select * from Amel", "Url").get(0);
 
-//    @Test(enabled = true, priority = 0)
+    @Test(enabled = true, priority = 0)
     public void AddComment() {
         HomePage homePage = new HomePage(getDriver());
         BlogPage blogPage = new BlogPage(getDriver());
@@ -109,7 +109,7 @@ public class BlogTest extends CommonAPI {
 
     }
 
-//    @Test(enabled = true, priority = 0)
+    @Test(enabled = true, priority = 1)
     public void AddCommentWithAnyInformations() {
         HomePage homePage = new HomePage(getDriver());
         BlogPage blogPage = new BlogPage(getDriver());
@@ -176,7 +176,7 @@ public class BlogTest extends CommonAPI {
         log.info("click on submit button success");
         waitFor(3);
 
-        // check user has added comment
+        // check user has an error message
         Assert.assertTrue(blogPage.checkPresenceOfCommentErrorMessage());
         String expectedCommentErrorMessage = "Error: Please fill the required fields.";
         String actualCommentErrorMessage = blogPage.getCommentErrorMessageText();
@@ -186,7 +186,7 @@ public class BlogTest extends CommonAPI {
 
     }
 
-//    @Test(enabled = true, priority = 0)
+    @Test(enabled = true, priority = 2)
     public void AddCommentWithInvEmail() {
         HomePage homePage = new HomePage(getDriver());
         BlogPage blogPage = new BlogPage(getDriver());
@@ -262,14 +262,14 @@ public class BlogTest extends CommonAPI {
         log.info("click on submit button success");
         waitFor(3);
 
-        // check user has added comment
+        // check user has error to add comment
         String expectedError = "Fun in Shop – Automation";
         String actualError= getCurrentTitle();
         Assert.assertEquals(expectedError, actualError);
 
 
     }
-//    @Test(enabled = true, priority = 0)
+   @Test(enabled = true, priority = 3)
     public void duplicateComment() {
         HomePage homePage = new HomePage(getDriver());
         BlogPage blogPage = new BlogPage(getDriver());
@@ -345,7 +345,7 @@ public class BlogTest extends CommonAPI {
         log.info("click on submit button success");
         waitFor(3);
 
-        // check user has added comment
+        // check user has duplicate comment
         Assert.assertTrue(blogPage.checkPresenceOfDupliacteCommentErrorMessage());
         String expectedDuplicateCommentErrorMessage = "Duplicate comment detected; it looks as though you’ve already said that!";
         String actualDuplicateCommentErrorMessage  = blogPage.getDuplicateCommentErrorMessageText();
@@ -354,7 +354,7 @@ public class BlogTest extends CommonAPI {
 
 
     }
-    @Test(dataProviderClass = DataProviderClass.class, dataProvider = "excelDPScalledupitBlogTest", enabled = true)
+    @Test(dataProviderClass = DataProviderClass.class, dataProvider = "excelDPScalledupitBlogTest", enabled = true,priority = 4)
 
     public void AddCommentUsingDataProvider(String Comment,String MyName,String MyEmail,String MyUrl ) {
         HomePage homePage = new HomePage(getDriver());
@@ -437,7 +437,7 @@ public class BlogTest extends CommonAPI {
         String actualCommentHeaderText = blogPage.getCommentHeadertext();
         Assert.assertEquals(expectedCommentHeaderText, actualCommentHeaderText);
         log.info("comment added success");
-
+        captureScreenshot();
 
     }
 }

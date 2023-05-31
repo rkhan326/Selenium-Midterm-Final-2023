@@ -286,7 +286,7 @@ public class CommonAPI {
     public void captureScreenshot() {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(file,new File("screenshots"+File.separator+"screenshot.png"));
+            FileUtils.copyFile(file,new File("screenshots"+File.separator+"ScalledupitBlogTestScreenshot.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

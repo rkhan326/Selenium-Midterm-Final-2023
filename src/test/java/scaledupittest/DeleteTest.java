@@ -16,7 +16,7 @@ public class DeleteTest extends CommonAPI {
 
     Properties prop = Utility.loadProperties();
 
-    @Test(enabled = true)
+    @Test(enabled = true,priority = 0)
     public void DeleteItem() {
 
        DeletePage  delete = new DeletePage(getDriver());
@@ -88,6 +88,8 @@ public class DeleteTest extends CommonAPI {
         Assert.assertEquals(expectedCartEmpty,actualCartEmpty);
         waitFor(3);
         log.info("cart Empty Header Success success");
+
+        takeScreenshot("Scalledupit Delete Test");
     }
 }
 

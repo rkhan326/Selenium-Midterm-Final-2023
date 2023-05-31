@@ -1,4 +1,4 @@
-package oussamaachourtest;
+package oussamaachourtest; //8 tests
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,7 +28,7 @@ public class LoginTest extends CommonAPI {
     String validLoginUsername = Utility.decode(prop.getProperty("oussamaachour.login-username"));
     String validLoginPassword = Utility.decode(prop.getProperty("oussamaachour.login-password"));
 
-    @Test(enabled = true )//groups = {"Sanity"},priority = 1,alwaysRun = false
+    @Test(enabled = false )//groups = {"Sanity"},priority = 1,alwaysRun = false
     public void validCredential() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -81,7 +81,7 @@ public class LoginTest extends CommonAPI {
         Assert.assertEquals(expectedLoginInvalidPasswordMessageText, actualLoginInvalidPasswordMessageText);
     }
 
-    
+
     @Test(groups = {"Sanity"},priority = 1,enabled = false)
     public void invalidUsername(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
@@ -131,7 +131,7 @@ public class LoginTest extends CommonAPI {
 
 
 
-    @Test (groups = {"Smoke"},priority = 1,enabled = false)
+    @Test (groups = {"Smoke"},priority = 1,enabled = true)
     public void resetPasswordRequest(){
         LostPasswordPage lostPasswordPage = new LostPasswordPage(getDriver());
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
@@ -167,7 +167,7 @@ public class LoginTest extends CommonAPI {
         Assert.assertEquals(expectedPasswordResetEmailSentMessageText, actualPasswordResetEmailSentMessageText);
     }
 
-    @Test(groups = {"Sanity"},priority = 1,enabled = false)
+    @Test(groups = {"Sanity"},priority = 1,enabled = true)
     public void validateStrongPassword(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -190,7 +190,7 @@ public class LoginTest extends CommonAPI {
         Assert.assertEquals(expectedPasswordStrengthMessage,actualPasswordStrengthMessage);
 
     }
-    @Test(groups = {"Smoke"},priority = 1,enabled = false)
+    @Test(groups = {"Smoke"},priority = 1,enabled = true)
     public void validateWeakPassword(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -211,7 +211,7 @@ public class LoginTest extends CommonAPI {
         String actualPasswordStrengthMessage = loginRegisterPage.getWeakPasswordStrengthText();
         Assert.assertEquals(expectedPasswordStrengthMessage,actualPasswordStrengthMessage);
     }
-    @Test(groups = {"Sanity, Smoke, Regression"},priority = 1,enabled = false)
+    @Test(groups = {"Sanity, Smoke, Regression"},priority = 1,enabled = true)
     public void validateMediumPassword(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());

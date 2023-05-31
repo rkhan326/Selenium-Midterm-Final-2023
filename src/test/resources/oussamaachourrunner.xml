@@ -12,28 +12,30 @@
 
 
     <test name= "Razia's Tests">
-<!--        <groups>-->
+        <groups>
 <!--            <define name = "OvernightTests">-->
 <!--                <include name="smoke"></include>-->
 <!--                <include name="regression"></include>-->
 
 <!--            </define>-->
 
-<!--            <run>-->
+            <run>
 <!--                <include name="OvernightTests"></include>-->
-<!--                <include name ="before"></include>-->
-<!--                <include name ="after"></include>-->
+                <include name ="before"></include>
+                <include name ="after"></include>
 <!--                <include name = "Smoke"></include>-->
-<!--                <include name = "Sanity"></include>-->
+                <include name = "Sanity"></include>
 <!--                <exclude name = "Regression"></exclude>-->
-<!--            </run>-->
-<!--        </groups>-->
+            </run>
+        </groups>
 
         <classes>
-<!--            <class name="oussamaachourtest.RegisterTest"></class>-->
-<!--            <class name="oussamaachourtest.LoginTest"></class>-->
-<!--            <class name="oussamaachourtest.TrackOrderTest"></class>-->
-            <class name="oussamaachourtest.ReviewTest"></class>
+            <class name="oussamaachourtest.RegisterTest"></class>     <!--4 tests-->
+            <class name="oussamaachourtest.LoginTest"></class>        <!--8 tests-->
+            <class name="oussamaachourtest.LogoutTest"></class>       <!--2 tests-->
+            <class name="oussamaachourtest.TrackOrderTest"></class>   <!--3 tests-->
+            <class name="oussamaachourtest.ReviewTest"></class>       <!--4 tests-->
+            <class name="oussamaachourtest.ContactUsTest"></class>    <!--2 tests-->
         </classes>
     </test>
 </suite>

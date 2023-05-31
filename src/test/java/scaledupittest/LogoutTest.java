@@ -20,7 +20,7 @@ public class LogoutTest extends CommonAPI {
     String validPassword = Utility.decode(prop.getProperty("scalledupit.password"));
 
 
-    @Test
+    @Test(enabled = true,priority = 0)
     public void logout() {
 
         LoginPage loginPage = new LoginPage(getDriver());
@@ -52,9 +52,6 @@ public class LogoutTest extends CommonAPI {
         log.info("user  logged in success");
         waitFor(3);
 
-
-
-
         //hover hover & click on logout link
         homePage.ClickOnLogoutLink();
         waitFor(3);
@@ -62,11 +59,11 @@ public class LogoutTest extends CommonAPI {
         //check user is landed to the login page
         Assert.assertTrue(loginPage.checkPresenceOfLoginPageHeader());
         log.info("login page header is displayed");
-
         String expectedLoginPageHeaderText = "My account";
         String actualLoginPageHeaderText = loginPage.getLoginPageHeadertext();
         Assert.assertEquals(expectedLoginPageHeaderText, actualLoginPageHeaderText);
         log.info("login page header text validation success");
+        captureScreenshot();
     }
 
 }
