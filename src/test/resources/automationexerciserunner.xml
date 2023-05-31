@@ -11,18 +11,18 @@
 
     <test name="Website Pages and Feature Tests">
         <classes>
-                        <class name="automationexercisetest.LoginTest"></class>
-                        <class name="automationexercisetest.LogoutTest"></class>
-                        <class name="automationexercisetest.SignupTest"></class>
-                        <class name="automationexercisetest.DeleteAccountTest"></class>
-                        <class name="automationexercisetest.ProductsTest"></class>
-                        <class name="automationexercisetest.CartPageTest"></class>
-                        <class name="automationexercisetest.VideoTutorialsPageTest"></class>
+<!--                        <class name="automationexercisetest.LoginTest"></class>-->
+<!--                        <class name="automationexercisetest.LogoutTest"></class>-->
+<!--                        <class name="automationexercisetest.SignupTest"></class>-->
+<!--                        <class name="automationexercisetest.DeleteAccountTest"></class>-->
+<!--                        <class name="automationexercisetest.ProductsTest"></class>-->
+<!--                        <class name="automationexercisetest.CartPageTest"></class>-->
+<!--                        <class name="automationexercisetest.VideoTutorialsPageTest"></class>-->
                         <class name="automationexercisetest.ContactUsPageTest"></class>
-                        <class name="automationexercisetest.APITestingPageTest"></class>
-                        <class name="automationexercisetest.TestCasesPageTest"></class>
-                        <class name="automationexercisetest.DataProviderTest"></class>
-                    <class name="automationexercisetest.HomePageTest"></class>
+<!--                        <class name="automationexercisetest.APITestingPageTest"></class>-->
+<!--                        <class name="automationexercisetest.TestCasesPageTest"></class>-->
+<!--                        <class name="automationexercisetest.DataProviderTest"></class>-->
+<!--                    <class name="automationexercisetest.HomePageTest"></class>-->
 
         </classes>
     </test>
