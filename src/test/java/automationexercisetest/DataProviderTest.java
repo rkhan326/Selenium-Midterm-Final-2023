@@ -21,7 +21,7 @@ public class DataProviderTest extends CommonAPI {
         };
     }
     @Test(dataProvider = "reviewData")
-    public void reviewUsingDataProvider(String nameDB, String emailDB, String subjectDB, String messageDB) {
+    public void reviewUsingDataProvider23(String nameDB, String emailDB, String subjectDB, String messageDB) {
         HomePage homePage = new HomePage(getDriver());
         ContactUsPage contactUsPage = new ContactUsPage(getDriver());
 
