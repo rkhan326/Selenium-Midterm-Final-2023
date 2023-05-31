@@ -2,14 +2,11 @@ package scaledupittest;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.devtools.v85.indexeddb.model.Key;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.scaledupitpages.AddToCartPage;
 import us.piit.pages.scaledupitpages.HomePage;
-import us.piit.pages.scaledupitpages.SearchPage;
 import us.piit.utility.Utility;
 
 import java.util.Properties;

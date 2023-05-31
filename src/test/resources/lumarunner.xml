@@ -10,38 +10,27 @@
     <parameter name="browserName" value="chrome"></parameter>
     <parameter name="url" value="https://magento.softwaretestingboard.com/"></parameter>
 
+        <test name="Luma test">
+            <groups>
 
-<!--        <test name="new account test">-->
-<!--            <classes>-->
-<!--                <class name="lumatest.CreateNewAccountTest"></class>&ndash;&gt;-->
-<!--            </classes>-->
-<!--        </test>-->
-
-<!--    <test name="search test">-->
-<!--        <classes>-->
-<!--            <class name="lumatest.SearchfieldTest"></class>&ndash;&gt;-->
-<!--        </classes>-->
-<!--    </test>-->
-
-
-<!--    <test name="signin test">-->
-
-<!--    <classes>-->
-<!--        <class name="lumatest.SignInTest"></class>&ndash;&gt;-->
-<!--    </classes>-->
-<!--</test>-->
-
-<!--    <test name="checkout test">-->
-<!--        <classes>-->
-<!--            <class name="lumatest.CheckoutTest"></class>&ndash;&gt;-->
-<!--        </classes>-->
-<!--    </test>-->
-        <test name="checkout test">
+<!--                <run>-->
+<!--                    <include name ="before"></include>-->
+<!--                    <include name ="after"></include>-->
+<!--                    <include name = "Smoke"></include>-->
+<!--                    <include name = "Sanity"></include>-->
+<!--                    <exclude name = "Regression"></exclude>-->
+<!--                </run>-->
+            </groups>
             <classes>
-                <class name="lumatest.CheckOutShoppingCartTest"></class>-->
+<!--              <class name="lumatest.CreateNewAccountTest"></class>-->
+         <class name="lumatest.SearchfieldTest"></class>
+<!--               <class name="lumatest.SignInTest"></class>-->
+<!--               <class name="lumatest.CompareTest"></class>-->
+<!--                <class name="lumatest.ShoppingCartTest"></class>-->
+<!--              <class name="lumatest.AddRatingAndReviewTest"></class>-->
+<!--               <class name="lumatest.ProductTest"></class>-->
+<!--                <class name="lumatest.ReturnTest"></class>-->
+<!--               <class name="lumatest.BaseMenuTest"></class>-->
             </classes>
         </test>
-
-
-
 </suite>

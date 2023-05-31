@@ -6,9 +6,9 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
-import us.piit.pages.lumapages.*;
-
-import static java.sql.DriverManager.getDriver;
+import us.piit.pages.lumapages.HomePageMagento;
+import us.piit.pages.lumapages.Order000017128Page;
+import us.piit.pages.lumapages.OrderAndReturnPage;
 
 
 public class ReturnTest extends CommonAPI {

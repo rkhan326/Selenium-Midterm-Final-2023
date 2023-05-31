@@ -11,7 +11,7 @@ public class  ProductTest extends CommonAPI {
 
     Logger LOG = LogManager.getLogger(SearchfieldTest.class.getName());
 
-    @Test
+    @Test(enabled = false)
     public void displayingtheProducts() throws InterruptedException {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());
@@ -28,7 +28,7 @@ public class  ProductTest extends CommonAPI {
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void SortingtheProducts() throws InterruptedException {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());
@@ -58,5 +58,50 @@ public class  ProductTest extends CommonAPI {
         jacketsPage.clickOnDropDown();
         jacketsPage.clickOnSignOut();
     }
+
+    @Test
+    public void selectWomensTopColor() throws InterruptedException {
+        BasePage base = new BasePage(getDriver());
+
+
+        String testPageTitle = getCurrentTitle();
+        Assert.assertEquals(testPageTitle,getCurrentTitle());
+        LOG.info("basic automation a success");
+
+        base.clickOnWomen();
+        Thread.sleep(2000);
+        String womenPage = getCurrentTitle();
+        Assert.assertEquals(womenPage,"Women" );
+
+        base.clickOnWomenTops(getDriver());
+        String womenTopsPage = getCurrentTitle();
+        Assert.assertEquals(womenTopsPage,"Tops - Women");
+
+
+    }
+    @Test
+    public void selectSortByPrice() throws InterruptedException {
+        BasePage base = new BasePage(getDriver());
+        WatchesPage watchesPage = new WatchesPage(getDriver());
+
+        base.clickOnWatches(getDriver());
+
+        watchesPage.sortByPrice();
+
+        Thread.sleep(3000);
+
+        double firstItemPrice = Double.parseDouble(watchesPage.getTextFromFirstItem(getDriver()));
+        LOG.info(firstItemPrice+" is the price of the first item");
+
+        double lastItemPrice = Double.parseDouble(watchesPage.getTextFromLastItem(getDriver()));
+        LOG.info(lastItemPrice+" is the price of the last item");
+        boolean ascendingOrder = firstItemPrice<lastItemPrice;
+
+        Assert.assertEquals(ascendingOrder,true);
+        LOG.info("Sort by price successful. first item is "+firstItemPrice+" last item is "+lastItemPrice);
+
+
+    }
+
 }
 

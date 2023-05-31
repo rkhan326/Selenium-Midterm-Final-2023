@@ -3,15 +3,11 @@ package scaledupittest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.scaledupitpages.HomePage;
 import us.piit.pages.scaledupitpages.LoginPage;
-import us.piit.utility.ExcelReader;
 import us.piit.utility.Utility;
-import java.util.ArrayList;
-import java.util.List;
 
 
 import java.util.Properties;

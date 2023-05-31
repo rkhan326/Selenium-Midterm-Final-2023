@@ -2,7 +2,6 @@ package us.piit.pages.scaledupitpages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -10,8 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import us.piit.base.CommonAPI;
-
-import java.util.List;
 
 public class HomePage extends CommonAPI {
     Logger log = LogManager.getLogger(HomePage.class.getName());
@@ -176,14 +173,14 @@ public class HomePage extends CommonAPI {
 
 
 
-        public void selectOptionFromDropdown(WebElement dropdown, String option){
-            Select select1 = new Select(dropdown);
-            try {
-                select.selectByVisibleText(option);
-            }catch (Exception e){
-                select.selectByValue(option);
-            }
-        }
+//        public void selectOptionFromDropdown(WebElement dropdown, String option){
+//            Select select1 = new Select(dropdown);
+//            try {
+//                select.selectByVisibleText(option);
+//            }catch (Exception e){
+//                select.selectByValue(option);
+//            }
+//        }
             }
     }
 

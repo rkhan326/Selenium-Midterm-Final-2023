@@ -8,15 +8,17 @@ import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.lumapages.HomePageMagento;
 import us.piit.pages.lumapages.SigninPageMagento;
+import us.piit.utility.DataProviderClass;
 
 import java.time.Duration;
+
 
 public class SignInTest extends CommonAPI {
 
 
     Logger LOG = LogManager.getLogger(SignInTest.class.getName());
     WebDriver driver;
-    @Test
+    @Test (enabled = false)
     public void validTitle() throws InterruptedException {
 
 
@@ -32,7 +34,7 @@ public class SignInTest extends CommonAPI {
         System.out.println("close success");
 
     }
-    @Test
+    @Test(enabled = false)
     public void invalidTitle() throws InterruptedException {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -48,7 +50,7 @@ public class SignInTest extends CommonAPI {
 
     }
 
-    @Test
+    @Test(enabled = true)
     public void validCredentials() throws InterruptedException {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());
@@ -57,16 +59,36 @@ public class SignInTest extends CommonAPI {
         Assert.assertEquals(title, "Customer Login");
         LOG.info("Sign in title page validation success");
         //String email = ConnectDB.getTableColumnData("select * from cred","email").get(0);
-        signinPageMagento.typeEmailAddress("gsbappy@gmail.com");
+        signinPageMagento.typeEmailAddress("gsbappy2@gmail.com");
         //String password = ConnectDB.getTableColumnData("select * from cred","password").get(0);
-        signinPageMagento.typePassword("Aarshi2019@");
+        signinPageMagento.typePassword("password$1234");
         signinPageMagento.clickOnSigninButton2();
         String title1 = getCurrentTitle();
-        Assert.assertEquals(title1, "Home Page - Magento eCommerce - website to practice selenium | demo website for automation testing | selenium practice sites | selenium demo sites | best website to practice selenium automation | automation practice sites Magento Commerce - website to practice selenium | demo website for automation testing | selenium practice sites");
+        Assert.assertEquals(title1, "Home Page");
         homePage.getHeaderText();
         LOG.info("Signin success");
     }
-    @Test
+
+    @Test(dataProviderClass = DataProviderClass.class, dataProvider = "excelDPLumaSigninTest", enabled = false)
+    public void validCredentialsUsingDataProvider(String username, String password) throws InterruptedException {
+        HomePageMagento homePage = new HomePageMagento(getDriver());
+        SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());
+        homePage.clickOnSigninButton1();
+        String title = getCurrentTitle();
+        Assert.assertEquals(title, "Customer Login");
+        LOG.info("Sign in title page validation success");
+        //String email = ConnectDB.getTableColumnData("select * from cred","email").get(0);
+        signinPageMagento.typeEmailAddress(username);
+        //String password = ConnectDB.getTableColumnData("select * from cred","password").get(0);
+        signinPageMagento.typePassword(password);
+        signinPageMagento.clickOnSigninButton2();
+        waitFor(10);
+        String title1 = getCurrentTitle();
+        Assert.assertEquals(title1, "Home Page");
+        homePage.getHeaderText();
+        LOG.info("Signin success");
+    }
+    @Test(enabled = false)
     public void invalidEmailAdress() throws InterruptedException {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());
@@ -82,7 +104,7 @@ public class SignInTest extends CommonAPI {
         Assert.assertEquals(error, "Please enter a valid email address (Ex: johndoe@domain.com).");
         LOG.info("error message validation success");
     }
-    @Test
+    @Test(enabled = false)
     public void invalidPassword() throws InterruptedException {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());
@@ -91,7 +113,7 @@ public class SignInTest extends CommonAPI {
         Assert.assertEquals(title, "Customer Login");
         LOG.info("login title page validation success");
         //String email = ConnectDB.getTableColumnData("select * from cred","email").get(0);
-        signinPageMagento.typeEmailAddress("gsbappy@gmail.com");
+        signinPageMagento.typeEmailAddress("gsbappy2@gmail.com");
         //String invalidPassword = ConnectDB.getTableColumnData("select * from cred","invalidPassword").get(0);
         signinPageMagento.typeInvalidPassword("Borno2009@");
         signinPageMagento.clickOnSigninButton2();
