@@ -7,12 +7,18 @@ import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.nopcommercepages.CommunityPollPage;
 import us.piit.pages.nopcommercepages.LoginPage;
+import us.piit.utility.ExcelReader;
+
+import java.io.File;
 
 public class CommunityPollTest extends CommonAPI {
     Logger log = LogManager.getLogger(RegisterTest.class.getName());
-    LoginTest loginTest=new LoginTest();
-    String validUsername= loginTest.validUsername;
-    String validPassword= loginTest.validPassword;
+
+    String currentDir = System.getProperty("user.dir");
+    String path = currentDir+ File.separator+"data"+File.separator+"nopcommercedata.xlsx";
+    ExcelReader excelReader = new ExcelReader(path);
+    String validEmail= excelReader.getStringDataFromCell("data",10,1);
+    String validPassword= excelReader.getStringDataFromCell("data",8,1);
 
     @Test(enabled = true, priority = 2)
     public void selectExcellentWithRegisteredEmail() {
@@ -31,7 +37,7 @@ public class CommunityPollTest extends CommonAPI {
         log.info("login page success");
 
         //enter  username,Password and click
-        loginPage.enterUsername(validUsername);
+        loginPage.enterUsername(validEmail);
         loginPage.enterPassword(validPassword);
         scrollToCoordinates(0,100);
         loginPage.clickOnLoginBtn();
@@ -79,7 +85,7 @@ public class CommunityPollTest extends CommonAPI {
         log.info("login page success");
 
         //enter  username,Password and click
-        loginPage.enterUsername(validUsername);
+        loginPage.enterUsername(validEmail);
         loginPage.enterPassword(validPassword);
         scrollToCoordinates(0,100);
         loginPage.clickOnLoginBtn();

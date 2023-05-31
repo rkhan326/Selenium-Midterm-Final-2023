@@ -7,19 +7,21 @@ import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.nopcommercepages.HomePage;
 import us.piit.pages.nopcommercepages.LoginPage;
+import us.piit.utility.ExcelReader;
 import us.piit.utility.Utility;
 
+import java.io.File;
 import java.util.Properties;
 
 public class LoginTest extends CommonAPI {
     Logger log = LogManager.getLogger(LoginTest.class.getName());
+    String currentDir = System.getProperty("user.dir");
+    String path = currentDir+ File.separator+"data"+File.separator+"nopcommercedata.xlsx";
+    ExcelReader excelReader = new ExcelReader(path);
     Properties prop = Utility.loadProperties();
-//    String validUsername = Utility.decode(prop.getProperty("nopcommerce.username"));
-    RegisterTest registerTest= new RegisterTest();
-//    String validUsername= registerTest.email;
-//    String validPassword= registerTest.password;
-    String validUsername= "hello11@gmail.com";
-    String validPassword= "hello1234";
+//    String validEmail = Utility.decode(prop.getProperty("nopcommerce.username"));
+    String validEmail= excelReader.getStringDataFromCell("data",10,1);
+    String validPassword =excelReader.getStringDataFromCell("data",8,1);
 //    String validPassword = Utility.decode(prop.getProperty("nopcommerce.password"));
 //    String validPassword ="mahmud123";
 
@@ -36,7 +38,7 @@ public class LoginTest extends CommonAPI {
         log.info("login page success");
 
         //enter  username,Password and click
-        loginPage.enterUsername(validUsername);
+        loginPage.enterUsername(validEmail);
         loginPage.enterPassword(validPassword);
         scrollToCoordinates(0,100);
         loginPage.clickOnLoginBtn();
@@ -61,7 +63,7 @@ public class LoginTest extends CommonAPI {
         log.info("login page success");
 
         //enter  username,Password and click
-        loginPage.enterUsername(validUsername);
+        loginPage.enterUsername(validEmail);
         loginPage.enterPassword("invalid password");
         waitFor(1);
         loginPage.clickOnLoginBtn();
@@ -87,7 +89,7 @@ public class LoginTest extends CommonAPI {
         log.info("login page success");
 
         //enter  username,Password and click
-        loginPage.enterUsername(validUsername);
+        loginPage.enterUsername(validEmail);
         loginPage.enterPassword(validPassword);
         scrollToCoordinates(0,100);
         loginPage.clickOnLoginBtn();
@@ -114,7 +116,7 @@ public class LoginTest extends CommonAPI {
         homePage.clickOnForgotPassword();
         waitFor(1);
         homePage.clickOnRecoveryEmailField();
-        homePage.typeEmailOnRecoveryEmailField(validUsername);
+        homePage.typeEmailOnRecoveryEmailField(validEmail);
         homePage.clickOnRecoveryButton();
 
         String expectedText="Email with instructions has been sent to you.";

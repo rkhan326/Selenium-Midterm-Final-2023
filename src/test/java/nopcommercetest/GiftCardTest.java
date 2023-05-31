@@ -21,9 +21,9 @@ public class GiftCardTest extends CommonAPI {
     String firstName =excelReader.getStringDataFromCell("data",5,1);
     //    String lastName= "Mahmud";
     String lastName =excelReader.getStringDataFromCell("data",6,1);
-    String email= "hello7@gmail.com";
+    String email= excelReader.getStringDataFromCell("data",10,1);
+    String message= excelReader.getStringDataFromCell("data",12,1);
     String senderEmail= "hello7@gmail.com";
-    String message= "I have change these all email and password";
 
 
     //$25 Gift Card

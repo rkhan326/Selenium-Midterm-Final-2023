@@ -30,6 +30,7 @@
         </groups>
         <classes>
 
+
 <!--            <class name="nopcommercetest.RegisterTest"></class>-->
 <!--            <class name="nopcommercetest.LoginTest"></class>-->
 <!--            <class name="nopcommercetest.SearchTest"></class>-->
@@ -44,6 +45,7 @@
 <!--            <class name="nopcommercetest.AddressMenuTest"></class>-->
 <!--            <class name="nopcommercetest.GiftCardTest"></class>-->
 <!--            <class name="nopcommercetest.NewsFeatureTest"></class>-->
+
         </classes>
     </test>
 

@@ -14,7 +14,7 @@ public class DataProviderClass{
     public static String currentDir = System.getProperty("user.dir");
 
     @DataProvider
-    public Object[][] data(Method name) {
+    public Object[][] data(Method name) throws Exception {
         System.out.println("Method " +name+ "is using data provider.");
 
         String path = ExcelReader.currentDir + File.separator + "data" + File.separator + "scaledupitdata.xlsx";
