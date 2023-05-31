@@ -13,18 +13,17 @@ import java.io.File;
 
 public class AddressMenuTest extends CommonAPI {
     Logger log = LogManager.getLogger(ShoppingCartTest.class.getName());
-    String validUsername= "hello7@gmail.com";
-    String validPassword= "hello1234";
-
     String currentDir = System.getProperty("user.dir");
     String path = currentDir+ File.separator+"data"+File.separator+"nopcommercedata.xlsx";
     ExcelReader excelReader = new ExcelReader(path);
+    String validEmail= excelReader.getStringDataFromCell("data",10,1);
+    String validPassword= excelReader.getStringDataFromCell("data",8,1);
 
     //    String firstName= "Danish";
     String firstName =excelReader.getStringDataFromCell("data",5,1);
     //    String lastName= "Mahmud";
     String lastName =excelReader.getStringDataFromCell("data",6,1);
-    String email= validUsername;
+    String email= validEmail;
 
     @Test(priority = 1)
 
@@ -42,7 +41,7 @@ public class AddressMenuTest extends CommonAPI {
         Assert.assertTrue(loginPage.checkLoginPageSuccess());
         log.info("login page success");
         //enter  username,Password and click
-        loginPage.enterUsername(validUsername);
+        loginPage.enterUsername(validEmail);
         loginPage.enterPassword(validPassword);
         scrollToCoordinates(0,100);
         loginPage.clickOnLoginBtn();
@@ -99,7 +98,7 @@ public class AddressMenuTest extends CommonAPI {
         Assert.assertTrue(loginPage.checkLoginPageSuccess());
         log.info("login page success");
         //enter  username,Password and click
-        loginPage.enterUsername(validUsername);
+        loginPage.enterUsername(validEmail);
         loginPage.enterPassword(validPassword);
         scrollToCoordinates(0,100);
         loginPage.clickOnLoginBtn();
@@ -109,8 +108,8 @@ public class AddressMenuTest extends CommonAPI {
         scrollToCoordinates(0,100);
         addressMenuPage.clickOnChangePasswordLink();
         addressMenuPage.typeOldPassword(validPassword);
-        addressMenuPage.typeNewPassword("hello12345");
-        addressMenuPage.typeConfirmNewPassword("hello12345");
+        addressMenuPage.typeNewPassword("final1234");
+        addressMenuPage.typeConfirmNewPassword("final1234");
         scrollToCoordinates(0,100);
         addressMenuPage.clickOnChangePasswordButton();
 
