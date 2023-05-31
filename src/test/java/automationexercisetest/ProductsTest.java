@@ -10,14 +10,14 @@ import us.piit.pages.automationexercisepages.ProductsPage;
 public class ProductsTest extends CommonAPI {
     Logger log = LogManager.getLogger(ProductsTest.class.getName());
 
-    @Test (groups = {}, priority = 6, enabled = false)
+    @Test
     public void productsSearchField6(){
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage = new ProductsPage(getDriver());
 
         homePage.clickOnProductsButton(); //navigate to products page
 
-        productsPage.clickOnMenButton(getDriver());
+        productsPage.clickOnAdButton(getDriver());
         waitFor(1);
 
         //enter search product in search field
@@ -30,7 +30,7 @@ public class ProductsTest extends CommonAPI {
         Assert.assertEquals(expectedSearchedProductsHeader,actualSearchProductsHeader);
         log.info("Well done my G!! Search products header validation success");
     }
-  @Test (groups = {}, priority = 7, enabled = false)
+  @Test
   public void productsCategorySideButtons7(){
     HomePage homePage = new HomePage(getDriver());
     ProductsPage productsPage = new ProductsPage(getDriver());
@@ -52,7 +52,7 @@ public class ProductsTest extends CommonAPI {
     Assert.assertEquals(actualTshirtsProductsHeader,expectedTshirtsProductsHeader);
     log.info("Well done my G!! Tshirts prodcuts header validation success");
     }
-    @Test (groups = {}, priority = 8, enabled = false)
+    @Test
     public void productsBrandSideButtons8() {
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage = new ProductsPage(getDriver());
@@ -72,7 +72,7 @@ public class ProductsTest extends CommonAPI {
         Assert.assertEquals(actualBabyhugProductsHeader,expectedBabyhugProductsHeader);
         log.info("Well done my G!! Babyhug title validation success");
     }
-    @Test (groups = {}, priority = 9, enabled = false)
+    @Test
     public void viewProductButton9(){
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage = new ProductsPage(getDriver());
@@ -91,7 +91,7 @@ public class ProductsTest extends CommonAPI {
         Assert.assertEquals(actualMaxiDressHeader,expectedMaxiDressHeader);
         log.info("Well done my G!! Maxi Dress title validation success");
     }
-    @Test (groups = {}, priority = 10, enabled = false)
+    @Test
     public void writeReivewMaxiDress10() {
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage = new ProductsPage(getDriver());
