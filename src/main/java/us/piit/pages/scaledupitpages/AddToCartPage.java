@@ -48,6 +48,9 @@ public class AddToCartPage extends CommonAPI {
     @FindBy(xpath = "//a[@class='read-more']")
     WebElement readMoreButton;
 
+    @FindBy(xpath = "//a[text()='Hoodies']")
+    WebElement hoddiesBtn;
+
     public void clickOnBagCollection() {
         clickOn(bagCollectionButon);
         log.info("click on bag collection success");
@@ -94,6 +97,11 @@ public class AddToCartPage extends CommonAPI {
     public void clickOnCart() {
         clickOn(cartCount);
         log.info("click on  cart and 1 item added  success");
+
+    }
+    public void clickOnHoddiesBtn() {
+        clickOn(hoddiesBtn);
+        log.info("click on  Hoddies button success");
 
     }
     public boolean checkHoddiesPageHeader() {

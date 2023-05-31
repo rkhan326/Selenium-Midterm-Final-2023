@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>us.piit</groupId>
-    <artifactId>Feb2023WebAutomationFramework</artifactId>
+    <artifactId>Selenium-Midterm-Final-2023</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Feb2023WebAutomationFramework</name>
+    <name>Selenium-Midterm-Final-2023</name>
 <!--    <url>http://maven.apache.org</url>-->
 
     <properties>
@@ -110,12 +110,13 @@
                     <suiteXmlFiles>
 <!--                        <suiteXmlFile>src/test/resources/automationexcerciserunner.xml</suiteXmlFile>-->
 <!--                        <suiteXmlFile>src/test/resources/lumarunner.xml</suiteXmlFile>-->
-                        <suiteXmlFile>src/test/resources/nopcommercerunner.xml</suiteXmlFile>
+<!--                        <suiteXmlFile>src/test/resources/nopcommercerunner.xml</suiteXmlFile>-->
 <!--                        <suiteXmlFile>src/test/resources/oussamaachourrunner.xml</suiteXmlFile>-->
-<!--                        <suiteXmlFile>src/test/resources/scaledrunner.xml</suiteXmlFile>-->
+                        <suiteXmlFile>src/test/resources/scaledupitrunner.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 </project>
+<!---->
