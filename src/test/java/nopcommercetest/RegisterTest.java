@@ -80,7 +80,8 @@ public class RegisterTest extends CommonAPI {
         log.info("Successfully entered nopCommerce website");
     }
 
-    @Test(priority = 2)
+    @Test(priority = 1)
+
     public void registerWithoutFillMandatoryField() {
         RegisterPage registerPage = new RegisterPage(getDriver());
         //click on register
@@ -91,7 +92,9 @@ public class RegisterTest extends CommonAPI {
         //enter FirstName
         registerPage.typeFirstName(emptyFirstName);
         //enter LastName
-//        registerPage.typeLastName(lastName);
+
+        registerPage.typeLastName(lastName);
+
         //enter BirthDay
         registerPage.selectDateOfBirthDay();
         //enter BirthMonth
