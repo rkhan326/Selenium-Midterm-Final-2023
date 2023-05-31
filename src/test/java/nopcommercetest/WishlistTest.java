@@ -44,6 +44,7 @@ public class WishlistTest extends CommonAPI {
         String expectedText = "Product(s)";
         String actualText = wishlistPage.checkWishListPage();
         Assert.assertEquals(expectedText,actualText);
+        takeScreenshot("wishlistTest");
 
     }
 }
