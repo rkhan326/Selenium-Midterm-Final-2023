@@ -112,10 +112,11 @@
 <!--                        <suiteXmlFile>src/test/resources/lumarunner.xml</suiteXmlFile>-->
 <!--                        <suiteXmlFile>src/test/resources/nopcommercerunner.xml</suiteXmlFile>-->
 <!--                        <suiteXmlFile>src/test/resources/oussamaachourrunner.xml</suiteXmlFile>-->
-<!--                        <suiteXmlFile>src/test/resources/scaledrunner.xml</suiteXmlFile>-->
+                        <suiteXmlFile>src/test/resources/scaledupitrunner.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 </project>
+<!---->
