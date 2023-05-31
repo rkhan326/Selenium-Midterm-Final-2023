@@ -50,7 +50,6 @@ public class DataProviderClass{
         return arrObj;
     }
 
-  
 
     //    @DataProvider
 //    public Object[][] dataForOussamaReviewTest(Method name) {

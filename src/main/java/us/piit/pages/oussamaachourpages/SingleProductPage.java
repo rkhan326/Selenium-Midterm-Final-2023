@@ -26,6 +26,8 @@ public class SingleProductPage extends CommonAPI {
     @FindBy( css = "a[href='#tab-reviews']")
     WebElement camerasCameraC430WPageReviewLink;
 
+
+
     @FindBy( css = "select[id='rating']")
     WebElement reviewSelectStars;
 
@@ -79,6 +81,22 @@ public class SingleProductPage extends CommonAPI {
 
     @FindBy(css = "a[class = 'added_to_cart wc-forward']" )
     WebElement tabletAir3GoToCartButton;
+
+    @FindBy(css = "a[href = '?add-to-cart=5552']" )
+    WebElement macChargerAddToCart;
+
+    @FindBy(css = "a[class = 'added_to_cart wc-forward']" )
+    WebElement macChargerGoToCartButton;
+
+    @FindBy(css = "a[href = '?add-to-cart=2707']" )
+    WebElement gearVirtualRealityAddToCart;
+
+    @FindBy(css = "a[class = 'added_to_cart wc-forward']" )
+    WebElement gearVirtualRealityGoToCartButton;
+
+
+
+
 
     public boolean checkPresenceOfCameraC430WHeader(){
         boolean CameraC430WHeaderIsDisplayed = isVisible(camerasCameraC430WPageHeader);
@@ -180,9 +198,43 @@ public class SingleProductPage extends CommonAPI {
         log.info("Click on click On Add To Cart For Tablet Air 3 link success");
     }
 
+    public void clickOnAddToCartForMacCharger(){
+        clickOn(macChargerAddToCart);
+        log.info("Click on click On Add To Cart For Mac Charger success");
+    }
+
+    public void clickOnAddToCartForGearVirtualReality(){
+        clickOn(gearVirtualRealityAddToCart);
+        log.info("Click on click On Add To Cart For Mac Charger success");
+    }
+
     public boolean checkPresenceOfTabledAir3GoToCartButton(){
         boolean goToCartButtonIsDisplayed = isVisible(tabletAir3GoToCartButton);
-        log.info("go to cart button is successfully displayed.");
+        log.info("tablet air 360 go to cart button is successfully displayed.");
+        return goToCartButtonIsDisplayed;
+    }
+
+    public boolean checkPresenceOfMacChargerGoToCartButton(){
+        boolean goToCartButtonIsDisplayed = isVisible(macChargerGoToCartButton);
+        log.info("mac charger go to cart button is successfully displayed.");
+        return goToCartButtonIsDisplayed;
+    }
+
+
+    public boolean checkPresenceOfGearVirtualRealityToCartButton(){
+        boolean goToCartButtonIsDisplayed = isVisible(gearVirtualRealityGoToCartButton);
+        log.info("tablet air 360 go to cart button is successfully displayed.");
+        return goToCartButtonIsDisplayed;
+    }
+
+    public void scrollToMacChargerAddToCartButton(WebDriver driver){
+        scrollToElementwJS(macChargerAddToCart ,driver );
+        waitFor(1);
+        log.info("scroll to add to cart button is successfully displayed.");
+    }
+    public boolean checkPresenceOfMacChargerAddToCartButton(){
+        boolean goToCartButtonIsDisplayed = isVisible(macChargerAddToCart);
+        log.info("add to cart button is successfully displayed.");
         return goToCartButtonIsDisplayed;
     }
 
