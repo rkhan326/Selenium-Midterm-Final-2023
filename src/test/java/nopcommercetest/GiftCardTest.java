@@ -6,12 +6,21 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import us.piit.base.CommonAPI;
 import us.piit.pages.nopcommercepages.GiftCardPage;
+import us.piit.utility.ExcelReader;
+
+import java.io.File;
 
 public class GiftCardTest extends CommonAPI {
     Logger log = LogManager.getLogger(ShoppingCartTest.class.getName());
 
-    String firstName= "Danish";
-    String lastName= "Mahmud";
+    String currentDir = System.getProperty("user.dir");
+    String path = currentDir+ File.separator+"data"+File.separator+"nopcommercedata.xlsx";
+    ExcelReader excelReader = new ExcelReader(path);
+
+    //    String firstName= "Danish";
+    String firstName =excelReader.getStringDataFromCell("data",5,1);
+    //    String lastName= "Mahmud";
+    String lastName =excelReader.getStringDataFromCell("data",6,1);
     String email= "hello7@gmail.com";
     String senderEmail= "hello7@gmail.com";
     String message= "I have change these all email and password";

@@ -34,12 +34,16 @@ public class HomePage extends CommonAPI {
     // Recovery password Validation
     @FindBy(xpath = "//p[@class='content']")
     WebElement recoveryValidation;
+    @FindBy(xpath = "//span[@id='Email-error']")
+    WebElement recoveryEmailErrorMassage;
 
-        //reusable methods
-        public void clickOnRegisterLink() {
-            clickOn(registerLink);
-            log.info("The Register page opened successfully.");
-        }
+
+
+    //reusable methods
+    public void clickOnRegisterLink() {
+        clickOn(registerLink);
+        log.info("The Register page opened successfully.");
+    }
 
     //forgotpassword
     public void clickOnForgotPassword() {
@@ -69,6 +73,11 @@ public class HomePage extends CommonAPI {
     public String recoveryValidationText() {
         String text = getElementText(recoveryValidation);
         log.info("  Recovery Validation succeeded");
+        return text;
+    }
+    public String recoveryEmailErrorMassage() {
+        String text = getElementText(recoveryEmailErrorMassage);
+        log.info("  Recovery email error massage Validation succeeded");
         return text;
     }
 
