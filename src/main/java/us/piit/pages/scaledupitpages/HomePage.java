@@ -160,6 +160,7 @@ public class HomePage extends CommonAPI {
     }
 
 
+
 //    public void selectOptionFromDropdown(WebElement dropdown, String option) {
 //        Select select = new Select(dropdown);
 //        try {
@@ -181,6 +182,7 @@ public class HomePage extends CommonAPI {
 //        log.info("Successfully selected Country/Region");
 //    }
 
+
 //        public String selectOptionFromDropdown(){
 //            String dropDownText = getElementText(menuDropdown);
 //            return dropDownText;
@@ -197,6 +199,7 @@ public class HomePage extends CommonAPI {
 //        selectOptionFromDropdown(storeSetupCountryDropDown,CountryCode);
 //        log.info("Successfully selected Country/Region");
 //    }
+
 
 
 
