@@ -22,15 +22,15 @@
 <!--                </run>-->
             </groups>
             <classes>
-<!--              <class name="lumatest.CreateNewAccountTest"></class>-->
-         <class name="lumatest.SearchfieldTest"></class>
-<!--               <class name="lumatest.SignInTest"></class>-->
-<!--               <class name="lumatest.CompareTest"></class>-->
-<!--                <class name="lumatest.ShoppingCartTest"></class>-->
-<!--              <class name="lumatest.AddRatingAndReviewTest"></class>-->
-<!--               <class name="lumatest.ProductTest"></class>-->
-<!--                <class name="lumatest.ReturnTest"></class>-->
-<!--               <class name="lumatest.BaseMenuTest"></class>-->
+                <class name="lumatest.CreateNewAccountTest"></class>
+                <class name="lumatest.SearchfieldTest"></class>
+                <class name="lumatest.SignInTest"></class>
+                <class name="lumatest.CompareTest"></class>
+                <class name="lumatest.ShoppingCartTest"></class>
+                <class name="lumatest.AddRatingAndReviewTest"></class>
+                <class name="lumatest.ProductTest"></class>
+                <class name="lumatest.ReturnTest"></class>
+                <class name="lumatest.BaseMenuTest"></class>
             </classes>
         </test>
 </suite>

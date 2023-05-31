@@ -11,14 +11,14 @@ public class  ProductTest extends CommonAPI {
 
     Logger LOG = LogManager.getLogger(SearchfieldTest.class.getName());
 
-    @Test(enabled = false)
+    @Test
     public void displayingtheProducts() throws InterruptedException {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());
         PantsPage pantsPage = new PantsPage(getDriver());
         homePage.clickOnShopPantsToday();
         String title = getCurrentTitle();
-        Assert.assertEquals(title, "Pants Magento Commerce - website to practice selenium | demo website for automation testing | selenium practice sites");
+        Assert.assertEquals(title, "Pants");
         LOG.info("Pants title page validation success");
         pantsPage.clickOnStyleButton();
         Thread.sleep(4000);
@@ -28,7 +28,7 @@ public class  ProductTest extends CommonAPI {
 
     }
 
-    @Test(enabled = false)
+    @Test
     public void SortingtheProducts() throws InterruptedException {
         HomePageMagento homePage = new HomePageMagento(getDriver());
         SigninPageMagento signinPageMagento = new SigninPageMagento(getDriver());
@@ -36,11 +36,11 @@ public class  ProductTest extends CommonAPI {
         JacketsPage jacketsPage = new JacketsPage(getDriver());
         homePage.clickOnWommenProducts();
         String title1 = getCurrentTitle();
-        Assert.assertEquals(title1, "Women Magento Commerce - website to practice selenium | demo website for automation testing | selenium practice sites");
+        Assert.assertEquals(title1, "Women");
         LOG.info("Women title page validation success");
         womenPage.clickOnJackets();
         String title2 = getCurrentTitle();
-        Assert.assertEquals(title2, "Jackets - Tops - Women Magento Commerce - website to practice selenium | demo website for automation testing | selenium practice sites");
+        Assert.assertEquals(title2, "Jackets - Tops - Women");
         LOG.info("Jackets title page validation success");
         jacketsPage.clicKOnList();
         jacketsPage.clicKOnGrid();
@@ -50,9 +50,9 @@ public class  ProductTest extends CommonAPI {
         String expectedTitle = "Customer Login";
         Assert.assertEquals(expectedTitle, actualTitle);
         //String email = ConnectDB.getTableColumnData("select * from cred", "email").get(0);
-        signinPageMagento.typeEmailAddress("gsbappy@gmail.com");
+        signinPageMagento.typeEmailAddress("gsbappy2@gmail.com");
         //String password = ConnectDB.getTableColumnData("select * from cred", "password").get(0);
-        signinPageMagento.typePassword("Aarshi2019@");
+        signinPageMagento.typePassword("password$1234");
         signinPageMagento.clickOnSigninButton2();
         LOG.info("Signin success");
         jacketsPage.clickOnDropDown();
@@ -94,11 +94,10 @@ public class  ProductTest extends CommonAPI {
         LOG.info(firstItemPrice+" is the price of the first item");
 
         double lastItemPrice = Double.parseDouble(watchesPage.getTextFromLastItem(getDriver()));
-        LOG.info(lastItemPrice+" is the price of the last item");
         boolean ascendingOrder = firstItemPrice<lastItemPrice;
 
         Assert.assertEquals(ascendingOrder,true);
-        LOG.info("Sort by price successful. first item is "+firstItemPrice+" last item is "+lastItemPrice);
+        LOG.info("Sort by price successful.");
 
 
     }

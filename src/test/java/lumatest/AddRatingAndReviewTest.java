@@ -24,9 +24,9 @@ public class AddRatingAndReviewTest extends CommonAPI {
         String expectedTitle="Customer Login";
         Assert.assertEquals(expectedTitle, actualTitle);
         //String email = ConnectDB.getTableColumnData("select * from cred", "email").get(0);
-        signinPageMagento.typeEmailAddress("gsbappy1@gmail.com");
+        signinPageMagento.typeEmailAddress("gsbappy2@gmail.com");
         //String password = ConnectDB.getTableColumnData("select * from cred", "password").get(0);
-        signinPageMagento.typePassword("password&1234");
+        signinPageMagento.typePassword("password$1234");
         signinPageMagento.clickOnSigninButton2();
         //String expectedTitle1 = read.getCellValueForGivenHeaderAndKey("key", "home page title");
         String actualTitle1 = getCurrentTitle();
@@ -68,9 +68,9 @@ public class AddRatingAndReviewTest extends CommonAPI {
 
                 Assert.assertEquals(expectedTitle, actualTitle);
                 //String email = ConnectDB.getTableColumnData("select * from cred", "email").get(0);
-                signinPageMagento.typeEmailAddress("gsbappy1@gmail.com");
+                signinPageMagento.typeEmailAddress("gsbappy2@gmail.com");
                 //String password = ConnectDB.getTableColumnData("select * from cred", "password").get(0);
-                signinPageMagento.typePassword("password&1234");
+                signinPageMagento.typePassword("password$1234");
                 signinPageMagento.clickOnSigninButton2();
                 //String expectedTitle1 = read.getCellValueForGivenHeaderAndKey("key", "home page title");
                 String actualTitle1 = getCurrentTitle();
