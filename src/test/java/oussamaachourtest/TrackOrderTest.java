@@ -14,7 +14,7 @@ public class TrackOrderTest extends CommonAPI {
 
     String orderId = "5674";
     String billingEmail = "rkhan326@gmail.com";
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void validOrderId(){
         TrackYourOrderPage trackYourOrderPage = new TrackYourOrderPage(getDriver());
         HomePage homePage = new HomePage(getDriver());

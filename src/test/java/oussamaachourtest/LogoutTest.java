@@ -19,7 +19,7 @@ public class LogoutTest extends CommonAPI {
     String validLoginPassword = Utility.decode(prop.getProperty("oussamaachour.login-password"));
 
 
-    @Test(enabled = false )
+    @Test(enabled = true)
     public void logoutWithButtonOnMenuTest() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());

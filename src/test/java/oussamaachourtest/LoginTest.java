@@ -28,7 +28,7 @@ public class LoginTest extends CommonAPI {
     String validLoginUsername = Utility.decode(prop.getProperty("oussamaachour.login-username"));
     String validLoginPassword = Utility.decode(prop.getProperty("oussamaachour.login-password"));
 
-    @Test(enabled = false )//groups = {"sanity"},priority = 1,alwaysRun = false
+    @Test(enabled = true)//groups = {"sanity"},priority = 1,alwaysRun = false
     public void validCredential() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -57,7 +57,7 @@ public class LoginTest extends CommonAPI {
         Assert.assertEquals(myAccountActualHeaderText, myAccountExpectedHeaderText);
     }
 
-    @Test(groups = {"sanity"},priority = 0,enabled = false)
+    @Test(groups = {"sanity"},priority = 0,enabled = true)
     public void invalidPassword() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -82,7 +82,7 @@ public class LoginTest extends CommonAPI {
     }
 
 
-    @Test(groups = {"sanity"},priority = 1,enabled = false)
+    @Test(groups = {"sanity"},priority = 1,enabled = true)
     public void invalidUsername(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -105,7 +105,7 @@ public class LoginTest extends CommonAPI {
         String actualLoginInvalidUsernameMessageText = loginRegisterPage.getLoginInvalidUsernameMessageText();
         Assert.assertEquals(expectedLoginInvalidUsernameMessageText, actualLoginInvalidUsernameMessageText);
     }
-    @Test(groups = {"sanity"},priority = 2,enabled = false)
+    @Test(groups = {"sanity"},priority = 2,enabled = true)
     public void unrecognizedEmail(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -131,7 +131,7 @@ public class LoginTest extends CommonAPI {
 
 
 
-    @Test (groups = {"smoke"},priority = 3,enabled = false)
+    @Test (groups = {"smoke"},priority = 3,enabled = true)
     public void resetPasswordRequest(){
         LostPasswordPage lostPasswordPage = new LostPasswordPage(getDriver());
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
@@ -167,7 +167,7 @@ public class LoginTest extends CommonAPI {
         Assert.assertEquals(expectedPasswordResetEmailSentMessageText, actualPasswordResetEmailSentMessageText);
     }
 
-    @Test(groups = {"sanity"},priority = 4,enabled = false)
+    @Test(groups = {"sanity"},priority = 4,enabled = true)
     public void validateStrongPassword(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -190,7 +190,7 @@ public class LoginTest extends CommonAPI {
         Assert.assertEquals(expectedPasswordStrengthMessage,actualPasswordStrengthMessage);
 
     }
-    @Test(groups = {"smoke"},priority = 4,enabled = false)
+    @Test(groups = {"smoke"},priority = 4,enabled = true)
     public void validateWeakPassword(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -211,7 +211,7 @@ public class LoginTest extends CommonAPI {
         String actualPasswordStrengthMessage = loginRegisterPage.getWeakPasswordStrengthText();
         Assert.assertEquals(expectedPasswordStrengthMessage,actualPasswordStrengthMessage);
     }
-    @Test(groups = {"sanity", "smoke", "regression"},priority = 5,enabled = false)
+    @Test(groups = {"sanity", "smoke", "regression"},priority = 5,enabled = true)
     public void validateMediumPassword(){
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());

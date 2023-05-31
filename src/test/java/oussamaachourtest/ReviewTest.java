@@ -12,7 +12,7 @@ import us.piit.utility.DataProviderClass;
 public class ReviewTest extends CommonAPI {
     Logger log = LogManager.getLogger(oussamaachourtest.RegisterTest.class.getName());
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void leaveAReviewUsingFaker() {
         HomePage homePage = new HomePage(getDriver());
         SingleProductPage singleProductPage = new SingleProductPage(getDriver());
@@ -52,7 +52,7 @@ public class ReviewTest extends CommonAPI {
     }
 
 
-    @Test(dataProviderClass = DataProviderClass.class, dataProvider = "excelDPOussamaReviewTest", enabled = false)
+    @Test(dataProviderClass = DataProviderClass.class, dataProvider = "excelDPOussamaReviewTest", enabled = true)
     public void leaveAReviewUsingDataProvider(String stars, String review, String name, String email) {
         HomePage homePage = new HomePage(getDriver());
         SingleProductPage singleProductPage = new SingleProductPage(getDriver());
@@ -106,7 +106,7 @@ public class ReviewTest extends CommonAPI {
         log.info("review awaiting approval message is displayed");
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void duplicateReviewCorrection() {
         HomePage homePage = new HomePage(getDriver());
         SingleProductPage singleProductPage = new SingleProductPage(getDriver());
@@ -159,7 +159,7 @@ public class ReviewTest extends CommonAPI {
     }
 
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void invalidEmailReviewCorrection() {
         HomePage homePage = new HomePage(getDriver());
         SingleProductPage singleProductPage = new SingleProductPage(getDriver());

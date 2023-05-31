@@ -93,7 +93,7 @@ public class RegisterTest extends CommonAPI {
         registerPage.typeFirstName(emptyFirstName);
         //enter LastName
 
-        registerPage.typeLastName(lastName);
+        //registerPage.typeLastName(lastName);
 
         //enter BirthDay
         registerPage.selectDateOfBirthDay();

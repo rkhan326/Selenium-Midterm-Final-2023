@@ -17,7 +17,7 @@ public class RegisterTest extends CommonAPI {
    String existingRegistrationUsername =  Utility.decode(prop.getProperty("oussamaachour.registration-username"));
    String existingRegistrationPassword = Utility.decode(prop.getProperty("oussamaachour.registration-password"));
 
-    @Test(enabled = false, priority = 0)
+    @Test(enabled = true, priority = 0)
     public void registerNewCustomer() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -56,7 +56,7 @@ public class RegisterTest extends CommonAPI {
         Assert.assertEquals(myAccountActualHeaderText, myAccountExpectedHeaderText);
     }
 
-    @Test(enabled = false, priority = 1)
+    @Test(enabled = true, priority = 1)
     public void registerExistingCustomer() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
@@ -94,7 +94,7 @@ public class RegisterTest extends CommonAPI {
 
     }
 
-    @Test(enabled = false, priority = 3)
+    @Test(enabled = true, priority = 3)
     public void registerNewVendorWithSetupWizard() {
 
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
@@ -199,7 +199,7 @@ public class RegisterTest extends CommonAPI {
 
     }
 
-    @Test(enabled = false, priority =2)
+    @Test(enabled = true, priority =2)
     public void registerNewVendorWithoutSetupWizard() {
 
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
