@@ -3,9 +3,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.automationexercisepages.HomePage;
-import us.piit.pages.automationexercisepages.LoginPage;
+import uspiit.base.CommonAPI;
+import uspiit.pages.automationexercisepages.HomePage;
+import uspiit.pages.automationexercisepages.LoginPage;
 
 public class LogoutTest extends CommonAPI {
     Logger log = LogManager.getLogger(LogoutTest.class.getName());

@@ -4,11 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.oussamaachourpages.HomePage;
-import us.piit.pages.oussamaachourpages.LoginRegisterPage;
-import us.piit.pages.oussamaachourpages.MyAccountPage;
-import us.piit.utility.Utility;
+import uspiit.base.CommonAPI;
+import uspiit.pages.oussamaachourpages.HomePage;
+import uspiit.pages.oussamaachourpages.LoginRegisterPage;
+import uspiit.pages.oussamaachourpages.MyAccountPage;
+import uspiit.utility.Utility;
 
 import java.util.Properties;
 
@@ -54,7 +54,7 @@ public class LogoutTest extends CommonAPI {
         Assert.assertTrue(loginRegisterPage.checkPresenceOfLoginHeader());
 
     }
-    @Test(enabled = false )
+    @Test(enabled = true )
     public void logoutWithButtonOnBodyTest() {
         LoginRegisterPage loginRegisterPage = new LoginRegisterPage(getDriver());
         HomePage homePage = new HomePage(getDriver());

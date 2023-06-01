@@ -3,10 +3,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.automationexercisepages.CartPage;
-import us.piit.pages.automationexercisepages.ContactUsPage;
-import us.piit.pages.automationexercisepages.HomePage;
+import uspiit.base.CommonAPI;
+import uspiit.pages.automationexercisepages.CartPage;
+import uspiit.pages.automationexercisepages.ContactUsPage;
+import uspiit.pages.automationexercisepages.HomePage;
 
 
 public class DataProviderTest extends CommonAPI {

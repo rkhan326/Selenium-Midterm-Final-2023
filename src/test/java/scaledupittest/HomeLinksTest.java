@@ -4,10 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.scaledupitpages.HomeLinkPage;
-import us.piit.pages.scaledupitpages.HomePage;
-import us.piit.utility.Utility;
+import uspiit.base.CommonAPI;
+import uspiit.pages.scaledupitpages.HomeLinkPage;
+import uspiit.pages.scaledupitpages.HomePage;
+import uspiit.utility.Utility;
 
 import java.util.Properties;
 

@@ -1,9 +1,9 @@
 package scaledupittest;
 
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.utility.ExcelReader;
-import us.piit.utility.Utility;
+import uspiit.base.CommonAPI;
+import uspiit.utility.ExcelReader;
+import uspiit.utility.Utility;
 
 
 public class LoginExcelReader extends CommonAPI {

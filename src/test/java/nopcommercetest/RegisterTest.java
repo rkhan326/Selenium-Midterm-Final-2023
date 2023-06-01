@@ -5,10 +5,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.nopcommercepages.RegisterPage;
-import us.piit.utility.ConnectDB;
-import us.piit.utility.ExcelReader;
+import uspiit.base.CommonAPI;
+import uspiit.pages.nopcommercepages.RegisterPage;
+import uspiit.utility.ExcelReader;
 
 import java.io.File;
 

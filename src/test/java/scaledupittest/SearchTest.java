@@ -4,14 +4,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.scaledupitpages.HomePage;
-import us.piit.pages.scaledupitpages.SearchPage;
-import us.piit.utility.ExcelReader;
-import us.piit.utility.Utility;
+import uspiit.base.CommonAPI;
+import uspiit.pages.scaledupitpages.HomePage;
+import uspiit.pages.scaledupitpages.SearchPage;
+import uspiit.utility.ExcelReader;
+import uspiit.utility.Utility;
 
 import java.util.List;
-import java.util.Properties;
 
 public class SearchTest extends CommonAPI {
     Logger log = LogManager.getLogger(SearchTest.class.getName());

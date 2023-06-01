@@ -4,11 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.nopcommercepages.HomePage;
-import us.piit.pages.nopcommercepages.LoginPage;
-import us.piit.utility.ExcelReader;
-import us.piit.utility.Utility;
+import uspiit.base.CommonAPI;
+import uspiit.pages.nopcommercepages.HomePage;
+import uspiit.pages.nopcommercepages.LoginPage;
+import uspiit.utility.ExcelReader;
+import uspiit.utility.Utility;
 
 import java.io.File;
 import java.util.Properties;

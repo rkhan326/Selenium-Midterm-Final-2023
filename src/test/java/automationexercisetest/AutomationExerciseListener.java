@@ -1,7 +1,7 @@
 package automationexercisetest;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import us.piit.base.CommonAPI;
+import uspiit.base.CommonAPI;
 
 public class AutomationExerciseListener extends CommonAPI implements ITestListener {
 

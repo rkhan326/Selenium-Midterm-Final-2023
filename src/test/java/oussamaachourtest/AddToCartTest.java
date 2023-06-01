@@ -4,11 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.oussamaachourpages.HomePage;
-import us.piit.pages.oussamaachourpages.LoginRegisterPage;
-import us.piit.pages.oussamaachourpages.MyAccountPage;
-import us.piit.pages.oussamaachourpages.SingleProductPage;
+import uspiit.base.CommonAPI;
+import uspiit.pages.oussamaachourpages.HomePage;
+import uspiit.pages.oussamaachourpages.LoginRegisterPage;
+import uspiit.pages.oussamaachourpages.MyAccountPage;
+import uspiit.pages.oussamaachourpages.SingleProductPage;
 
 public class AddToCartTest extends CommonAPI {
 

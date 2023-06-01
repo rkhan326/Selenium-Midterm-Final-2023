@@ -5,9 +5,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.lumapages.CreatenewAccountPageMagento;
-import us.piit.pages.lumapages.HomePageMagento;
+import uspiit.base.CommonAPI;
+import uspiit.pages.lumapages.CreatenewAccountPageMagento;
+import uspiit.pages.lumapages.HomePageMagento;
 
 public class CreateNewAccountTest extends CommonAPI {
 
