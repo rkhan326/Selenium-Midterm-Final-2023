@@ -4,10 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.oussamaachourpages.CartPage;
-import us.piit.pages.oussamaachourpages.HomePage;
-import us.piit.pages.oussamaachourpages.SingleProductPage;
+import uspiit.base.CommonAPI;
+import uspiit.pages.oussamaachourpages.CartPage;
+import uspiit.pages.oussamaachourpages.HomePage;
 
 public class ApplyCouponTest extends CommonAPI {
     Logger log = LogManager.getLogger(ApplyCouponTest.class.getName());

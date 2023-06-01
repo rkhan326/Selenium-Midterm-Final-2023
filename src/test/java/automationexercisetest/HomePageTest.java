@@ -3,8 +3,8 @@ package automationexercisetest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.automationexercisepages.HomePage;
+import uspiit.base.CommonAPI;
+import uspiit.pages.automationexercisepages.HomePage;
 
 
 

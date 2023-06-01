@@ -3,10 +3,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.automationexercisepages.HomePage;
-import us.piit.pages.automationexercisepages.LoginPage;
-import us.piit.pages.automationexercisepages.SignupPage;
+import uspiit.base.CommonAPI;
+import uspiit.pages.automationexercisepages.HomePage;
+import uspiit.pages.automationexercisepages.LoginPage;
+import uspiit.pages.automationexercisepages.SignupPage;
 
 public class SignupTest extends CommonAPI {
     Logger log = LogManager.getLogger(SignupTest.class.getName());

@@ -5,10 +5,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.lumapages.HomePageMagento;
-import us.piit.pages.lumapages.Order000017128Page;
-import us.piit.pages.lumapages.OrderAndReturnPage;
+import uspiit.base.CommonAPI;
+import uspiit.pages.lumapages.HomePageMagento;
+import uspiit.pages.lumapages.Order000017128Page;
+import uspiit.pages.lumapages.OrderAndReturnPage;
 
 
 public class ReturnTest extends CommonAPI {

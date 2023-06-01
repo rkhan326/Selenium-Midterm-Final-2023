@@ -1,7 +1,7 @@
 package scaledupittest;
 
 import org.testng.annotations.DataProvider;
-import us.piit.utility.ExcelReader;
+import uspiit.utility.ExcelReader;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;

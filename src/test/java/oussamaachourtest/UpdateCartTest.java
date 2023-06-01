@@ -2,8 +2,10 @@ package oussamaachourtest;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.oussamaachourpages.*;
+import uspiit.base.CommonAPI;
+import uspiit.pages.oussamaachourpages.CartPage;
+import uspiit.pages.oussamaachourpages.HomePage;
+import uspiit.pages.oussamaachourpages.SingleProductPage;
 
 public class UpdateCartTest extends CommonAPI {
 

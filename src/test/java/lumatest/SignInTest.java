@@ -5,10 +5,10 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.lumapages.HomePageMagento;
-import us.piit.pages.lumapages.SigninPageMagento;
-import us.piit.utility.DataProviderClass;
+import uspiit.base.CommonAPI;
+import uspiit.pages.lumapages.HomePageMagento;
+import uspiit.pages.lumapages.SigninPageMagento;
+import uspiit.utility.DataProviderClass;
 
 import java.time.Duration;
 

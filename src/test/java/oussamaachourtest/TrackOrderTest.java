@@ -4,10 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.oussamaachourpages.HomePage;
-import us.piit.pages.oussamaachourpages.OrdersPage;
-import us.piit.pages.oussamaachourpages.TrackYourOrderPage;
+import uspiit.base.CommonAPI;
+import uspiit.pages.oussamaachourpages.HomePage;
+import uspiit.pages.oussamaachourpages.OrdersPage;
+import uspiit.pages.oussamaachourpages.TrackYourOrderPage;
 
 public class TrackOrderTest extends CommonAPI {
     Logger log = LogManager.getLogger(oussamaachourtest.TrackOrderTest.class.getName());

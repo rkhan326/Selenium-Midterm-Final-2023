@@ -4,8 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.lumapages.BasePage;
+import uspiit.base.CommonAPI;
+import uspiit.pages.lumapages.BasePage;
 
 public class BaseMenuTest extends CommonAPI {
     Logger LOG = LogManager.getLogger(BaseMenuTest.class.getName());

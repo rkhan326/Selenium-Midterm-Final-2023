@@ -4,12 +4,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.scaledupitpages.BlogPage;
-import us.piit.pages.scaledupitpages.HomePage;
-import us.piit.utility.ConnectDB;
-import us.piit.utility.DataProviderClass;
-import us.piit.utility.Utility;
+import uspiit.base.CommonAPI;
+import uspiit.pages.scaledupitpages.BlogPage;
+import uspiit.pages.scaledupitpages.HomePage;
+import uspiit.utility.ConnectDB;
+import uspiit.utility.DataProviderClass;
+import uspiit.utility.Utility;
 
 import java.util.Properties;
 

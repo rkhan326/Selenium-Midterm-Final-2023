@@ -4,10 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.oussamaachourpages.HomePage;
-import us.piit.pages.oussamaachourpages.SingleProductPage;
-import us.piit.utility.DataProviderClass;
+import uspiit.base.CommonAPI;
+import uspiit.pages.oussamaachourpages.HomePage;
+import uspiit.pages.oussamaachourpages.SingleProductPage;
+import uspiit.utility.DataProviderClass;
 
 public class ReviewTest extends CommonAPI {
     Logger log = LogManager.getLogger(oussamaachourtest.RegisterTest.class.getName());
@@ -157,8 +157,6 @@ public class ReviewTest extends CommonAPI {
         log.info("review awaiting approval message is displayed");
 
     }
-
-
     @Test(enabled = true)
     public void invalidEmailReviewCorrection() {
         HomePage homePage = new HomePage(getDriver());

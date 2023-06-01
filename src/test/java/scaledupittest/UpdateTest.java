@@ -4,12 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.scaledupitpages.HomePage;
-import us.piit.pages.scaledupitpages.UpdatePage;
-import us.piit.utility.Utility;
-
-import java.util.Properties;
+import uspiit.base.CommonAPI;
+import uspiit.pages.scaledupitpages.HomePage;
+import uspiit.pages.scaledupitpages.UpdatePage;
 
 public class UpdateTest extends CommonAPI {
     Logger log = LogManager.getLogger(SearchTest.class.getName());

@@ -4,11 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.lumapages.CompareWatchPage;
-import us.piit.pages.lumapages.HomePageMagento;
-import us.piit.pages.lumapages.SigninPageMagento;
-import us.piit.pages.lumapages.WatchPageMagento;
+import uspiit.base.CommonAPI;
+import uspiit.pages.lumapages.CompareWatchPage;
+import uspiit.pages.lumapages.HomePageMagento;
+import uspiit.pages.lumapages.SigninPageMagento;
+import uspiit.pages.lumapages.WatchPageMagento;
 
 public class CompareTest extends CommonAPI {
 

@@ -3,11 +3,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import us.piit.base.CommonAPI;
-import us.piit.pages.automationexercisepages.CartPage;
-import us.piit.pages.automationexercisepages.HomePage;
-import us.piit.pages.automationexercisepages.LoginPage;
-import us.piit.pages.automationexercisepages.ProductsPage;
+import uspiit.base.CommonAPI;
+import uspiit.pages.automationexercisepages.CartPage;
+import uspiit.pages.automationexercisepages.HomePage;
+import uspiit.pages.automationexercisepages.LoginPage;
+import uspiit.pages.automationexercisepages.ProductsPage;
 
 public class CartPageTest extends CommonAPI {
     Logger log = LogManager.getLogger(LogoutTest.class.getName());

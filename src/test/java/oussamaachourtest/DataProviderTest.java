@@ -1,7 +1,7 @@
 package oussamaachourtest;
 
 import org.testng.annotations.Test;
-import us.piit.utility.DataProviderClass;
+import uspiit.utility.DataProviderClass;
 
 public class DataProviderTest {
     @Test(dataProviderClass = DataProviderClass.class, dataProvider = "data",enabled=false)
