@@ -8,7 +8,7 @@
     <parameter name="browserVersion" value="110"></parameter>
     <parameter name="browserName" value="chrome"></parameter>
 
-    <parameter name="url" value="https://www.oussama-achour.com/#"></parameter>
+    <parameter name="url" value="https://www9oussama-achour.com/#"></parameter>
 
 
     <test name= "Razia's Tests">

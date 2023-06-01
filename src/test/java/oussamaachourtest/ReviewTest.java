@@ -157,8 +157,6 @@ public class ReviewTest extends CommonAPI {
         log.info("review awaiting approval message is displayed");
 
     }
-
-
     @Test(enabled = true)
     public void invalidEmailReviewCorrection() {
         HomePage homePage = new HomePage(getDriver());
